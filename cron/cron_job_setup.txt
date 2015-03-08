@@ -1,0 +1,102 @@
+CentOS cron job setup
+_____________________
+
+For system level files (as root)
+
+Look at cron related files:
+
+# ls /etc/cron*
+/etc/cron.deny  /etc/crontab
+
+/etc/cron.d:
+0hourly  raid-check  sysstat
+
+/etc/cron.daily:
+cups  google-chrome  logrotate  makewhatis.cron  mlocate.cron  prelink  readahead.cron  tmpwatch
+
+/etc/cron.hourly:
+0anacron
+
+/etc/cron.monthly:
+readahead-monthly.cron
+
+/etc/cron.weekly:
+
+*******
+vi /etc/crontab
+****************
+HELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+
+# MRH Clues
+# 15 = fifteen minutes past the hour
+# */15 = Every fifteen minutes
+
+# * 4 = 04:00 am
+# * * 8 = Eighth day of the month
+# 15 4 8 * = Every month
+# 15 4 8 2 3 = feb on a tue, third day of the week
+# 15 4 8 2 3 root = as root user
+# 15 4 8 2 3 root /root/mirror.sh = Run /root/mirror.sh on this schedule
+
+****************
+
+But we want to create a cron job that restarts MySQL.
+
+Task: Create a cron job that will restart a service that might be stopped 
+either manually or automatically. Use MySQL as an example. First, check 
+whether MySQL is running. If it is stopped, start it. 
+
+Become root:
+
+vi /etc/cron.d/mysqld
+
+Add cron schedule:
+# every minute, hour, day of month, day of week
+# as /root/restart_mysqld.sh as root
+***********
+
+* * * * * root /root/restart_mysqld.sh
+
+***********
+
+Write the script to be run:
+
+vi restart_mysqld.sh
+***********
+#!/bin/bash
+
+# If checking service status returns "stopped"
+# in the string, restart the service
+# and log every minute whether the service is running
+# or not. This will fill up log files. 
+
+if [[ "$(service mysqld status)" =~ "stopped" ]]; then
+
+	echo service is stopped
+	service mysqld restart
+	echo "MySQL restarted on $(date)" >> /root/mysql.log
+
+else
+
+	echo service is running
+	echo service is running at $(date) >> /root/mysql.log
+
+fi
+***********
+
+Still not working
+ 
