@@ -1,0 +1,2 @@
+This is a log file
+And this is the next line
