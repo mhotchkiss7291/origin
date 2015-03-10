@@ -1,0 +1,71 @@
+First session with Jason setting up Git
+
+//Set up new skeleton from server
+git clone ssh://mhotchkiss@192.168.120.110:29418/build_skeleton
+
+// Define .git/hooks
+// Need to document how this was done the first time
+cd build_skeleton
+cp ../commit-msg .git/hooks
+
+// Make my own branch from origin/linux
+git checkout -b mrh_branch origin/linux
+
+// As a one line change for permissions:
+// Find all .sh files in a dir and mark
+// them executable
+// But note that it will NOT do the same
+// for the local files.
+git update-index --chmod=+x $(ls *.sh)
+
+or
+
+find . -type f | grep ".sh" | xargs git update-index --chmod=+x 
+
+// Create a .gitignore file that blocks
+// /webapps/ from the fileset in the branch?
+cd .../tomcat
+
+// Insert /webapps/ into .gitignore
+echo "/webapps/" > .gitignore
+
+// Check status
+// Lists all files that are new, revised, deleted
+// compared to what???
+git status 
+
+// Change permissions on all files in a dir
+// This only updates files in the repository?
+// Then run chmod on all files locally so that 
+// you can test without having to get another version from repository
+git update-index --chmod=+x $(ls)
+
+or 
+
+find . -type f | xargs git update-index --chmod=+x
+
+// Add the .gitignore to the tomcat dir
+git add CloudDiscoveryFREE/JaxView/tomcat/.gitignore
+
+// Commit the changes
+git commit
+
+// Push the local changes to gerrit
+git push origin HEAD:refs/for/linux
+
+//Failed to push
+//Correct email address
+git config --global user.email "mhotchkiss@managedmethods.com"
+
+// Re-commit
+git commit --amend
+
+// Fetch
+git fetch
+
+// Open Gerrit and open your change and approve/submit it.
+
+git checkout mrh_branch
+git fetch
+git pull
+
