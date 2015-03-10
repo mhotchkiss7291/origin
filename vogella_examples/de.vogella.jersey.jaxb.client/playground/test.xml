@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<todoes>
+	<todo>
+		<id>3</id>
+		<summary>something else</summary>
+	</todo>
+	<todo>
+		<description>Read complete http://www.vogella.com</description>
+		<id>2</id>
+		<summary>Do something</summary>
+	</todo>
+	<todo>
+		<description>Read http://www.vogella.com/tutorials/REST/article.html
+		</description>
+		<id>1</id>
+		<summary>Learn REST</summary>
+	</todo>
+	<todo>
+		<id>4</id>
+		<summary>Groucho</summary>
+	</todo>
+</todoes>
