@@ -25,7 +25,8 @@ public final class Main {
 
 		//dataSource.setUrl("jdbc:derby:c:\\temp\\database\\test01;create=true");
 		//dataSource.setUrl("jdbc:derby:/home/mhotchkiss/derby/database/test01;create=true");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/spring");
+		//dataSource.setUrl("jdbc:mysql://localhost:3306/spring");
+		dataSource.setUrl("jdbc:mysql://localhost:3306");
 		dataSource.setUsername("root");
 		//dataSource.setUsername("");
 		dataSource.setPassword("");

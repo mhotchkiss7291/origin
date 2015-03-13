@@ -13,7 +13,11 @@ public class MySqlDao implements iDao {
 	private DataSource dataSource;
 
 	public void setDataSource(DataSource ds) {
+		
+		//Something wrong here...
 		dataSource = ds;
+		
+		System.out.println("...setDataSource() = " + ds);
 	}
 
 	public void create(String firstName, String lastName) {
