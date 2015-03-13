@@ -1,10 +1,9 @@
 package test;
 
 import java.util.List;
-
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import dao.DerbyDao;
+import dao.MySqlDao;
+//import dao.DerbyDao;
 import domainmodel.Person;
 
 public final class Main {
@@ -14,7 +13,8 @@ public final class Main {
 
 	public static void main(String[] args) {
 
-		DerbyDao dao = new DerbyDao();
+		//DerbyDao dao = new DerbyDao();
+		MySqlDao dao = new MySqlDao();
 
 		// Initialize the datasource, could /should be done of Spring
 		// configuration
@@ -22,9 +22,12 @@ public final class Main {
 
 		//dataSource.setDriverClassName("org.apache.derby.jdbc.EmbeddedDriver");
 		dataSource.setDriverClassName("org.gjt.mm.mysql.Driver");
+
 		//dataSource.setUrl("jdbc:derby:c:\\temp\\database\\test01;create=true");
+		//dataSource.setUrl("jdbc:derby:/home/mhotchkiss/derby/database/test01;create=true");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/spring");
 		dataSource.setUsername("root");
+		//dataSource.setUsername("");
 		dataSource.setPassword("");
 
 		// Inject the datasource into the dao
