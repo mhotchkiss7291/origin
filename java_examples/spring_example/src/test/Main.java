@@ -35,9 +35,9 @@ public final class Main {
 		dao.setDataSource(dataSource);
 
 		dao.create("Lars", "Vogel");
-		dao.create("Jim", "Knopf");
-		dao.create("Lars", "Man");
-		dao.create("Spider", "Man");
+		//dao.create("Jim", "Knopf");
+		//dao.create("Lars", "Man");
+		//dao.create("Spider", "Man");
 
 		System.out.println("Now select and list all persons");
 		List<Person> list = dao.selectAll();
