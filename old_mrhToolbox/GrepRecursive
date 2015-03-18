@@ -1,0 +1,2 @@
+
+find . -type f | grep -v <dirs to exclude> | xargs grep <string to search>

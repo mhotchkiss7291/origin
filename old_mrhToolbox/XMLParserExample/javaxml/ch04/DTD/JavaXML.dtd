@@ -1,0 +1,22 @@
+<!ELEMENT JavaXML:Book (JavaXML:Title,
+                        JavaXML:Contents,
+                        JavaXML:Copyright)>
+<!ATTLIST JavaXML:Book
+      xmlns:JavaXML CDATA #REQUIRED
+>
+<!ELEMENT JavaXML:Title (#PCDATA)>
+<!ELEMENT JavaXML:Contents ((JavaXML:Chapter+)|
+                            (JavaXML:Chapter+, JavaXML:SectionBreak?)+)>
+<!ELEMENT JavaXML:Chapter (JavaXML:Heading?,JavaXML:Topic+)>
+<!ATTLIST JavaXML:Chapter
+      focus (XML|Java) "Java"
+>
+<!ELEMENT JavaXML:Heading (#PCDATA)>
+<!ELEMENT JavaXML:Topic (#PCDATA)>
+<!ATTLIST JavaXML:Topic
+      subSections CDATA #IMPLIED
+>
+<!ELEMENT JavaXML:SectionBreak EMPTY>
+<!ELEMENT JavaXML:Copyright (#PCDATA)>
+<!ENTITY OReillyCopyright SYSTEM 
+         "http://www.oreilly.com/catalog/javaxml/docs/copyright.xml">

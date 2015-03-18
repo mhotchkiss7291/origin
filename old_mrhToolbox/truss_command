@@ -1,0 +1,4 @@
+
+in /bin/sh
+
+truss -f program_name >> output_file 2>&1

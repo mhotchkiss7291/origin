@@ -1,0 +1,10 @@
+PKG=SUNWsmscl
+NAME=Sun Microsystems SAMS Commin Login package
+ARCH=SPARC
+PRODNAME=Sun Microsystems SAMS Commin Login package
+DESC=This package contains everything needed to install SAMS Commin Login
+VENDOR=Sun Microsystems Inc.
+CLASSES=none
+BASEDIR=/opt/SUNWam
+CATEGORY=Application
+VERSION=1.0

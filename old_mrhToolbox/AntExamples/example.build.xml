@@ -1,0 +1,36 @@
+
+<project name="ExampleBuild" default="error" basedir=".">
+
+    <!-- Builds the default target in all subdirectories. -->
+
+    <target name="build_all_subdirs">
+        <ant antfile="build.common.xml" target="build_subdirs"/>
+    </target>
+
+    <!-- Builds the default target in the selected subdirectories. -->
+
+    <target name="build_some_subdirs">
+        <ant antfile="build.common.xml" target="build_subdirs">
+            <property name="subDirsToBuild" value="subdir1,subdir2"/>
+        </ant>
+    </target>
+
+    <!-- Cleans all subdirectories. -->
+
+    <target name="clean_all_subdirs">
+        <ant antfile="build.common.xml" target="build_subdirs">
+            <property name="targetToBuild" value="clean"/>
+        </ant>
+    </target>
+
+    <!-- Cleans all one one subdirectory. -->
+
+    <target name="clean_some_subdirs">
+        <ant antfile="build.common.xml" target="build_subdirs">
+            <property name="subDirsToBuild" value="subdir3"/>
+            <property name="targetToBuild" value="clean"/>
+        </ant>
+    </target>
+
+</project>
+

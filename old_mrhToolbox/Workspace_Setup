@@ -1,0 +1,13 @@
+
+The command to set up a new 1.02 child workspace is
+/usr/dist/share/devpro/5.x-sparc/bin/bringover -p
+/net/gcs-source.central/isdev2/parent_ws/SAMS-1.02 -w YOURCHILDDIRECTORY .
+
+where you replace YOURCHILDDIRECTORY with the path to where you want your
+child directory to be.  After YOURCHILDDIRECTORY there is a space and then
+a dot.  That dot is significant, and it needs to be separated from
+YOURCHILDDIRECTORY by a space.
+
+If this bringover command fails, it means that the host that you are logged
+into doesn't have NFS access to /net/gcs-source.central/isdev2
+You'll need to file a servicedesk ticket to get this access set up.

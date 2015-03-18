@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+DSAMEHOME=$IDENTITY_HOME
+IWS_NAME=$IDENTITY_WEBSERVER_NAME
+MYDN=amadmin
+MYPW=$AMADMIN_PW
+
+echo "Removing login.sun.com.jsp soft link"
+rm $DSAMEHOME/public_html/login.sun.com.jsp
+
+echo "Removing our code from ums.xml ..."
+cd $DSAMEHOME/config/ums
+mv ums.xml ums.xml.$$
+grep -v 'objectClass=samsPerson' < ums.xml.$$ > ums.xml
+chmod 444 ums.xml
+echo "Done removing our code from ums.xml"
+
+# Could have done this removal with egrep -vf, but do it this way
+# (grep + loop) so that we don't need egrep inside a chroot
+echo "Removing our code from amAuth.xml ..."
+OURMODS="GetUserName ResetPassword Login SamsMembership"
+cd $DSAMEHOME/config/xml
+cp amAuth.xml amAuth.xml.$$.uninstall
+for TOKEN in $OURMODS
+ do
+  mv amAuth.xml amAuth.xml.$$
+  grep -v $TOKEN amAuth.xml.$$ > amAuth.xml
+ done
+chmod 444 amAuth.xml
+echo Done
+
+echo "Removing SAMS jars from classpath"
+JARS="CR_CL.jar CS_IntegrationLib_1.0.jar CS_SessionTransfer_1.1.jar"
+CONF_DIR=$DSAMEHOME/servers/https-${IWS_NAME}/config
+cd $CONF_DIR
+cp jvm12.conf jvm12.conf.$$.uninstall
+for JAR in $JARS
+ do
+  LONGNAME=$DSAMEHOME/web-apps/services/WEB-INF/lib/$JAR
+  mv jvm12.conf jvm12.conf.$$
+  sed "s+:$LONGNAME++" < jvm12.conf.$$ > jvm12.conf
+ done
+chmod 444 jvm12.conf
+
+cd $DSAMEHOME/bin
+echo "Removing existing UMS configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --deleteService DAI
+echo "Removing existing auth configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --deleteService iPlanetAMAuthService
+echo "Installing updated auth configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --schema $DSAMEHOME/config/xml/amAuth.xml
+echo "Installing updated UMS configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --schema $DSAMEHOME/config/ums/ums.xml
+echo "Done updating auth config."
+

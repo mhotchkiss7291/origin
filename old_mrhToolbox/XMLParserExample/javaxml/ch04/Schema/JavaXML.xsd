@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<schema targetNamespace="http://www.oreilly.com/catalog/javaxml/"
+        xmlns="http://www.w3.org/1999/XMLSchema"
+        xmlns:JavaXML="http://www.oreilly.com/catalog/javaxml/">
+
+  <element name="Book" type="JavaXML:BookType" />
+
+  <complexType name="BookType">
+    <element name="Title" type="string" />
+    <element name="Contents" type="JavaXML:ContentsType" />
+    <element name="Copyright" type="string" />
+  </complexType>
+
+  <complexType name="ContentsType">
+    <element name="Chapter" maxOccurs="*">
+      <complexType>
+        <element name="Heading" type="string" minOccurs="0" />
+        <element name="Topic" maxOccurs="*">
+          <complexType content="string"> 
+            <attribute name="subSections" type="integer" />
+          </complexType>
+        </element>
+        <attribute name="focus" default="Java">
+          <simpleType base="string">
+            <enumeration value="XML" />
+            <enumeration value="Java" />
+          </simpleType>
+        </attribute>
+      </complexType>
+    </element>
+    <element name="SectionBreak" minOccurs="0" maxOccurs="*">
+      <complexType content="empty" />
+    </element>
+  </complexType>
+
+</schema>

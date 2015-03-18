@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<page>
+  <screen>
+    <name>Commerce</name>
+    <trimColor>#CC9900</trimColor>
+    <fontFace>Arial</fontFace>
+  </screen>
+  <content>
+    <p>Lots of content would go here</p>
+  </content>
+</page>

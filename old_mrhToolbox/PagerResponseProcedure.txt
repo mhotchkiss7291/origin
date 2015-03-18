@@ -1,0 +1,130 @@
+
+In the below message, i have include the expected messages which will be sent to "1233444@skytel.com"
+pager and how to handle them.Please, review and let me know if you have any questions.
+
+
+***NOTE: This pager will beep if we have DSAME/Proxy problem and also DS/IDAR problem.If it is DSAME/Proxy problem we have to handle otherwise DS team will take care of it, just accept ticket and provide comments.
+
+-----------------------------
+
+1)If pager is message :
+
+/////
+  srvdesk@servicedeskdb.central.sun.com| Servicedesk
+  Request 3026071 Paged | P-1
+  Req from Ravishankar Govindarajan x 00000 sca20
+  for SAMS Technical/Application..eBusiness Applications
+///
+
+ Resolution :
+
+ 1. Logon to CSSIT_AMS_DEV queue
+ 2. Accept the ticket with ticket no = REQUEST value from the
+  above message.
+ 3. In the ticket, search for "Node" value. This has the SAMS
+   machine name. If Node value is of the DSAME/Proxy(sams-fe3,sams-fe4,brm-sams-ext1,
+   brm-sams-ext2) machine,
+   then go to step 4. If not, this implies ticket is for
+   DS/IDAR machine.So, the DS/IDAR team would have also received
+   pager and they would have started working on it. So, in this
+  case just accept the ticket and provide comments that "DS/IDAR
+   dev team is working on this issue. Please, contact Venu Alla/Ravi G".
+
+ 4.  Check for "Instance" value in the ticket. If it is "PROXY" OR
+    "DSAME", then u need to handle this ticket.So, go to step 5.
+     Else, this implies ticket is for "IDAR". DS team will be
+    handling it.Accept ticket and provide comments.
+
+
+ 5.
+   5.a) If the "Instance" value is "DSAME", for resolution goto
+
+
+http://gsoit.central/eforce/projects/IS/SAMS2/support/dsameTroubleshooting.html
+
+     and check "SAMS Monitor alarm" section.
+
+ NOTE: Most of the times, these alarms may be false due to network issues.
+
+   5.b) If the "Instance" value is "Proxy", for resolution goto
+
+
+http://gsoit.central/eforce/projects/IS/SAMS2/support/proxyTroubleshooting.html
+
+     and check "SAMS Monitor alarm" section.
+
+ NOTE: We rarely see any alarms for this server.
+
+---------------------
+
+
+2) If pager is  Message:
+
+//////////////
+
+   Monitor Name: PRODUCTION admin console on fe4
+   Error : unknown error (-1)
+    Server machine: sams-fe4.sun.com
+    Resolution: http://gsoit.central/eforce/projects/IS/SAMS2/support/dsameTroubleshooting.html
+
+groupID: Production
+
+///////////////
+
+Resolution:
+
+  1. If machines if sams-fe or sams-fe4 , go to http://gsoit.central/eforce/projects/IS/SAMS2/support/dsameTroubleshooting.html
+      and check "SAMS Monitor alarms" section.
+
+  2. Else if machine is brm-sams-ext1.sun.com and brm-sams-ext2.sun.com .Check the Monitor Name in the pager, it should
+      be something like "PRODUCTION proxy...". If so, go to
+
+http://gsoit.central/eforce/projects/IS/SAMS2/support/proxyTroubleshooting.html
+
+
+
+ NOTE: The chances of getting the above message are v.low as DEV is the 1 support group now.
+This messages is sent to 3 support group which is also DEV team.
+
+-----------------------------------
+
+3) The below message will be received only until Jan 10 or 11.
+
+Message:
+
+//////////
+
+ Enterprise      : sams-master1.sun.com
+EventId         : 031021190121
+Alarm Class     : sams-monitor
+Alarm Name      : iDS Master
+Session Type    : SAMS
+Session Id      :
+Alarm Time      : 10/21/03 19:01:21
+Severity        : 1
+Threshold       :
+Alarm Value     : READ transaction failed on the server. Slapd not functioning properly. PID exists and is running.
+Shell Path      :
+Mail Path       :
+Description     :
+
+Error : READ transaction failed on the server. Slapd not functioning properly. PID exists and is running.
+ Server : iDS Master
+ Server machine : sams-master1.sun.com
+ Resolution : Please refer http://gsoit.central/eforce/projects/IS/SAMS2/support/supportProcedures.html
+
+
+////
+
+
+ Resolution : A corresponding ticket will be generated for this error.Check for email from
+"servicedesk" for this machine error and the ticket number.Perform resolution as in stated
+in item1.
+
+
+
+--------------------------
+
+
+
+Manga. 

@@ -1,0 +1,4 @@
+#
+# Filter specification for receiving cluster file transfer
+#
+FILTER=filtermagnus %OLDFILE% %NEWFILE%

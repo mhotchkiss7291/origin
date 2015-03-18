@@ -1,0 +1,295 @@
+// Copyright (c) 2002 Sun Microsystems, Inc. All Rights Reserved.
+
+package com.sun.authtech.appvtool.enrollments;
+
+import com.sun.authtech.appvtool.*;
+
+import com.sun.authtech.pinmgr.*;
+import com.sun.authtech.enrolldb.*;
+import com.sun.authtech.authodb.*;
+import com.sun.authtech.appvgrpdb.*;
+import com.sun.authtech.partner.authedb.*;
+import com.sun.authtech.corpldap.*;
+import com.sun.authtech.util.*;
+
+import javax.servlet.http.*;
+import javax.servlet.*;
+
+import java.io.*;
+import java.util.*;
+
+/**
+ * Instances of this class handle requests to get selected entries from the
+ * enrollment database.
+ */
+
+public class GetEnrollments extends AppvToolServlet {
+
+   // --======================================================================--
+
+   /**
+    * My database of roles and the users which have them.
+    */
+
+   private EnrollmentDB myEnrollmentDB = null;
+
+   /**
+    * The database from which I get the approval groups.
+    */
+
+   private ApprovalGroupDB myAppvGrpDB = null;
+
+   /**
+    * My database of roles from which I get the Approval Groups in which the
+    * user has the Approver role.
+    */
+
+   private AuthorizationDB myRoleDB = null;
+
+   /**
+    * The manager which adds PINs to enrollments.
+    */
+
+   private PinManager myPinManager = null;
+
+   /**
+    * My manager of corporate LDAPS.
+    */
+
+   private CorpLdap myCorpLdap = null;
+
+   /**
+    * My template factory.
+    */
+
+   private XSLTemplateFactory myTemplateFactory = null;
+
+   // --======================================================================--
+
+   /**
+    * Initializes the servlet.
+    */
+
+   protected final void init(AppvToolConfig theConfig) 
+                      throws ServletException,
+                             IOException {
+      myEnrollmentDB = theConfig.getEnrollmentDB();
+      myAppvGrpDB = theConfig.getApprovalGroupDB();
+      myRoleDB = theConfig.getRoleDB();
+      myPinManager = theConfig.getEnrollmentPinManager();
+      myCorpLdap = theConfig.getCorpLdap();
+      myTemplateFactory = theConfig.getTemplateFactory();
+   }
+
+   // --======================================================================--
+
+   /**
+    * Processes the given client request.
+    *
+    * @param theRequest Request from the client.
+    * @param theResponse Output stream used to write the response back to the
+    *        client.
+    *
+    * @return Content of the response to be sent back to the client.
+    *
+    * @throws MissingParamException if the request did not contain an expected
+    *         parameter.
+    * @throws IOException if there's an I/O problem.
+    */
+
+   protected void processRequest(AppvToolRequest theRequest,
+                                 PrintWriter theResponse)
+                          throws MissingParamException,
+                                 IOException {
+
+      FormExpert form = new FormExpert(theRequest);
+
+      if (form.showSearchForm()) {
+         myTemplateFactory.getTemplate("EnrollmentsSearchForm",true).transform(
+            "<enrollments/>",
+            theResponse);
+         return;
+      }
+
+      // Remove PINs of any specified enrollments.
+
+      boolean scrubbingRequested = false;
+      int numEIDsScrubbed = 0;
+      Iterator eids = form.getEnrollmentIDs();
+      while (eids.hasNext()) {
+         scrubbingRequested = true;
+         try {
+            myPinManager.removePin((String)eids.next());
+            numEIDsScrubbed++;
+         }
+         catch (NoSuchEntryException e) {
+         }
+         catch (PinException e) {
+            StringWriter stackTrace = new StringWriter();
+            e.printStackTrace(new PrintWriter(stackTrace));
+            getAccessLog().warning("Exception removing PIN: "+stackTrace);
+         }
+      }
+
+      try {
+
+         // Start the XML document of selected enrollments to be sent back
+         // to the client.
+
+         StringWriter xmldoc = new StringWriter();
+         XMLWriter xmldocOut = new XMLWriter(xmldoc);
+
+         xmldocOut.startDocument("enrollments");
+
+         // If PINs where scrubbed, put the number of scrubbed PINs in the
+         // response.
+
+         if (scrubbingRequested) {
+            xmldocOut.addTextElement("scrubbedpins",""+numEIDsScrubbed);
+         }
+
+         // Add the enrollments to the document.
+
+         addEntries(xmldocOut,form.getSearchProps(),form.getMaxEntries());
+
+         // Append the user's info, which includes the user's roles, to the
+         // XML doc. The roles are used to determine if the user has an
+         // Approver role in any Approval Group.
+
+         theRequest.appendUserInfo(xmldocOut);
+
+         // Add the list of approval groups to the document. This are used to
+         // map Approval Group IDs to their names.
+
+         myAppvGrpDB.appendAppvGroups(xmldocOut);
+
+         // Add the criteria used in the search to the response.
+
+         xmldocOut.startElement("search");
+         xmldocOut.addTextElement("name",form.getSearchName());
+         xmldocOut.addTextElement("eid",form.getSearchEID());
+         xmldocOut.addTextElement("max",""+form.getMaxEntries());
+         xmldocOut.endElement();
+
+         // End the document.
+
+         xmldocOut.endDocument();
+
+         // Transform the enrollments using the template and send the
+         // resulting response to the client.
+
+         myTemplateFactory.getTemplate("MatchingEnrollments",true).transform(
+            xmldoc.toString(),
+            theResponse);
+
+      }
+      catch (EnrollmentDBException theEnrollmentDBException) {
+         sendErrorResponse(theResponse,theEnrollmentDBException,
+                           "Unable to get enrollments!");
+      }
+      catch (AppvGrpDBException theAppvGrpDBException) {
+         sendErrorResponse(theResponse,theAppvGrpDBException,
+                           "Unable to get enrollments!");
+      }
+
+   }
+
+   // --======================================================================--
+
+   /**
+    * Formats the given entries for insertion into the template.
+    *
+    * @throws IOException if there's a problem getting an enrollment from the
+    *         database.
+    * @throws IOException if there's a problem getting an enrollment.
+    */
+
+   private void addEntries(XMLWriter theDocument,
+                           Properties theSearchProps,
+                           int theMaxEntries)
+                    throws EnrollmentDBException,
+                           IOException {
+
+      Collection enrollments = myEnrollmentDB.getEnrollments(theSearchProps);
+      Iterator i = enrollments.iterator();
+      Enrollment entry = null;
+      for (int n = 0 ; i.hasNext() && (n < theMaxEntries) ; n++) {
+
+         entry = (Enrollment) i.next();
+
+         theDocument.startElement("enrollment");
+         theDocument.addAttribute("id",entry.getUserID());
+
+         if (entry.hasPin()) {
+            theDocument.startElement("pin");
+            theDocument.endElement();
+         }
+
+         if (entry.getEnrolleeName() != null) {
+            theDocument.addTextElement("enrollee",entry.getEnrolleeName());
+         }
+         if (entry.getEnrolleeOrg() != null) {
+            theDocument.addTextElement("organization",entry.getEnrolleeOrg());
+         }
+         if (entry.getEmail() != null) {
+            theDocument.addTextElement("email",entry.getEmail());
+         }
+         if (entry.getPhone() != null) {
+            theDocument.addTextElement("phone",entry.getPhone());
+         }
+
+         theDocument.startElement("approval");
+         if (entry.getApproverName() != null) {
+            theDocument.addTextElement("approver",
+                              myCorpLdap.getFullName(entry.getApproverName()));
+         }
+         if (entry.getApprovalGroup() != null) {
+            theDocument.addTextElement("group",entry.getApprovalGroup());
+         }
+         if (entry.getApprovedDate() != null) {
+            theDocument.addTextElement("date",""+entry.getApprovedDate().getTime());
+         }
+         theDocument.endElement();
+
+         theDocument.endElement();
+
+      }
+
+   }
+
+   // --====================================================================--
+
+   /**
+    * Returns whether or not the user has access to the servlet based on the
+    * roles the user has for the session.
+    *
+    * @param theRequest AppvTool request.
+    *
+    * @return true if the user has access.
+    *
+    * @throws MissingParamException if the request does not contain a parameter
+    *         needed to determine access.
+    */
+
+   protected final boolean grantAccess(AppvToolRequest theRequest)
+                                throws MissingParamException {
+
+      // If the user has the explicit ability to view enrollments, then grant
+      // the user access.
+
+      if (theRequest.userHasRole(Roles.enrollmentsViewer())) {
+         return true;
+      }
+
+      // If the user has the implicit ability to view enrollments (the user is
+      // an approver in at least one approval group), then grant the user
+      // access. Else, deny the user access.
+
+      return theRequest.userIsAnApprover();
+
+   }
+
+   // --======================================================================--
+
+}
+

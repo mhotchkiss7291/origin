@@ -1,0 +1,34 @@
+
+Setup for CVS Checkout and build/run procedures.
+
+NOTE: When using ant build.xml files, even though the building may be done
+by ant, Eclipse needs a parallel set of files for run/debug. This procedure
+handles that.
+
+1. New->Other->CVS->Checkout Projects from CVS
+2. Enter CVS repository info, username, password, and be sure to use the
+   option of the New Project Wizard. 
+3. Click Finish and in the Select a Wizard 
+   dialog, select Java Project. 
+4. Click Next, then select the option Create seperate source and output folders.
+   Click Next again.
+5. In the Default output folder text field, enter a folder like "eclipse-classes"
+   which will not be shown in the Navigator, but will hold the class files specifically
+   for Eclipse build/run/debug. Click Finish and download of the CVS repository will happen.
+6. Right click on the new project and Properties.
+7. Click on the Source tab, and on any existing folders, click Remove.
+8. Click Add Folder and select the needed folders for the source. These are ones like:
+   	src/functional
+   	src/java
+   	src/test
+	etc (for properties files or XML files)
+9. Click on Java Build Path and Add JARs.
+10. Open the "lib" folder and add all jars one by one in the sub-folders. Click OK.
+11. Check to see that all red X flags are gone for the build. Add all jars/folders
+    until flags are gone.
+12. Make any changes to properties files that are needed and attempt to Run/Debug
+13. There may be a "bin" folder created for Eclipse that is empty. Delete it.
+14. Build the project using the ant build.xml file to create the build directory.
+15. Refresh the project to display the build folder.
+16. Add the build/etc folder to the classpath so that thing like log4j.xml can be found.
+17. Select a .java file with a main() method and run to check the health.

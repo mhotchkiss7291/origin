@@ -1,0 +1,5 @@
+#!/bin/sh
+
+CLASSPATH=.:/safedir/snauthd/var/opt/ProfileManager/MindTerm.jar:/safedir/snauthd/var/opt/ProfileManager/SCPClient.jar:/safedir/snauthd/var/opt/ProfileManager
+export CLASSPATH
+/usr/java/bin/java Asn 1 &

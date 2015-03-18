@@ -1,0 +1,105 @@
+##############################################################################
+#
+#
+yesno() {
+  ok="no"
+  question=$1
+  default=`echo $2 | cut -c1 | sed y/YN/yn/`
+  while [ "$ok" = "no" ]; do
+    if [ "$default" = "y" ]; then
+      echo "$question [y]/n \c"
+      default="y"
+    elif [ "$default" = "n" ]; then
+      echo "$question y/[n] \c"
+      default="n"
+    else 
+      echo "$question y/n \c"
+      default=""
+    fi
+
+    read ans
+    
+    if [ "$ans" = "" ]; then
+      if [ "$default" != "" ]; then
+	ans=$default
+        ok="yes"
+      fi
+    else
+      ans=`echo $ans | cut -c1 | sed y/YN/yn/`
+      if [ "$ans" = "y" ] || [ "$ans" = "n" ]; then
+        ok="yes"
+      fi
+    fi
+    if [ "$ok" = "no" ]; then
+      echo ""
+      echo "Invalid response"
+      echo ""
+    fi
+  done    
+}
+
+
+show_vars(){
+echo "IDENTITY_HOME=$IDENTITY_HOME"
+echo "AMADMIN_PW=$AMADMIN_PW"
+echo "IDENTITY_WEBSERVER_NAME=$IDENTITY_WEBSERVER_NAME"
+echo "DIRECTORY_HOST=$DIRECTORY_HOST"
+echo "DIRECTORY_PORT=$DIRECTORY_PORT"
+echo "DSAMEUSER_PW=$DSAMEUSER_PW"
+echo "SAMS_PROXY_SERVER=$SAMS_PROXY_SERVER"
+echo "SAMS_PROXY_PORT=$SAMS_PROXY_PORT"
+}
+
+get_ans(){
+  message=$1
+  ans=$2
+  echo "$message [$ans]: \c"
+  read TEST
+  if [ "$TEST" != "" ]; then
+    ans=$TEST
+  fi
+}
+
+
+
+echo "-----------------------------------------------------------"
+echo "        SAMS Common Login/Common Registration Package"
+echo "-----------------------------------------------------------"
+echo ""
+
+while [ 1 ]
+do
+  show_vars
+  yesno "Use this configuration" "y"
+  if [ "$ans" = "n" ]; then
+    get_ans "Identity Server Home (example: /opt/SUNWam) " "$IDENTITY_HOME"
+    IDENTITY_HOME=$ans
+    get_ans "amAdmin password " "$AMADMIN_PW"
+    AMADMIN_PW=$ans
+    get_ans "Identity Webserver Name " "$IDENTITY_WEBSERVER_NAME"
+    IDENTITY_WEBSERVER_NAME=$ans
+    get_ans "Directory Server Host " "$DIRECTORY_HOST"
+    DIRECTORY_HOST=$ans
+    get_ans "Directory Server Port " "$DIRECTORY_PORT"
+    DIRECTORY_PORT=$ans
+    get_ans "dsameuser password " "$DSAMEUSER_PW"
+    DSAMEUSER_PW=$ans
+    get_ans "Web Proxy Server (for sun.com stylesheets) " "$SAMS_PROXY_SERVER"
+    SAMS_PROXY_SERVER=$ans
+    get_ans "Proxy Server Port " "$SAMS_PROXY_PORT"
+    SAMS_PROXY_PORT=$ans
+  else
+    break
+  fi
+done
+
+cat >$1 <<!
+IDENTITY_HOME=$IDENTITY_HOME
+AMADMIN_PW=$AMADMIN_PW
+IDENTITY_WEBSERVER_NAME=$IDENTITY_WEBSERVER_NAME
+DIRECTORY_HOST=$DIRECTORY_HOST
+DIRECTORY_PORT=$DIRECTORY_PORT
+DSAMEUSER_PW=$DSAMEUSER_PW
+SAMS_PROXY_SERVER=$SAMS_PROXY_SERVER
+SAMS_PROXY_PORT=$SAMS_PROXY_PORT
+!

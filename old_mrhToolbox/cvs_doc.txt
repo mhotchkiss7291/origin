@@ -1,0 +1,86 @@
+
+1. Unpack and install CVS executable. Once built, the
+   cvs executable may be copied to any host of common
+   OS for use. It is a single file that seems to 
+   carry everything.
+
+2. Create the repository
+
+  cvs -d /usr/local/new_repository init
+
+3. Create user group for all CVS users in /etc/group
+
+  cvs:*:105:hotchkis,dd32939,anonymous   
+
+4. Change permissions on repository for users to run
+   CVSROOT
+
+  cd /usr/local/new_repository
+  chgrp -R cvs .
+  chmod ug+rwx . CVSROOT
+
+5. Add the pserver functionality to allow access from 
+   remote hosts on port 2401. Add a line to /etc/services
+   (separate with tab)
+
+  cvspserver	2401/tcp
+
+6. Add a line like the following to /etc/inetd.conf
+   (xinetd.conf in Linux). (Continuous line; no breaks)
+
+  cvspserver stream tcp nowait root /usr/bin/cvs cvs \
+     --allow-root=/usr/local/new_repository pserver
+
+7. Restart inetd (xinetd)
+
+  ps -ef | grep inetd
+  kill -HUP <inetd pid>
+  
+8. Create passwd file in /usr/local/new_repository/CVSROOT/passwd.
+  Add entries from Solaris /etc/shadow first two fields.
+
+  hotchkis:82fzopsl 
+  dd32939:9xasUhag
+  .....
+
+9. Import a standard file system with existing code to create the
+   first module:
+
+  cd my_source_code_directory
+  cvs import -m "Initial import" my_new_module hotchkis start
+
+  This will create a directory under the repository directory by
+  the name of my_new_module with a file system that will mirror
+  the original including all files and subdirectories.
+
+10. Set up new users by having them set their CVSROOT environment
+  variable to point to the server and repository. Example:
+
+  CVSROOT=:pserver:hotchkis@gsoit-sandbox3.central.sun.com:/apps/new_repository
+
+  Be sure to add the new user to /etc/passwd on the cvs repository 
+  server, and to the /etc/group under the "cvs" group (or whatever you have
+  named the group), and the .../new_repository/CVSROOT/passwd file.
+
+11. Have the user login using the:
+
+  village% cvs login
+  (Logging in to hotchkis@gsoit-sandbox3.central.sun.com)
+  CVS password: 
+  village%  (You're in)
+
+12. Have the user create a subdirectory dedicated to the new workspace
+  and cd into it:
+
+  $ mkdir my_workbench
+  $ cd my_workbench
+
+13. Have the user do an inital checkout of the entire workspace
+
+  $ cvs checkout my_new_module
+	cvs server: Updating my_new_module
+	U my_new_module/Makefile
+	U my_new_module/filelist
+	cvs server: Updating my_new_module/Builds
+  .....
+ 

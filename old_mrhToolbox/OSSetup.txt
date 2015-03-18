@@ -1,0 +1,58 @@
+
+Mark,
+
+None of the following will require a reboot...
+
+
+1.  The first thing I would suggest you do is edit the /etc/inetd.conf file and
+     comment out all services not required; which will probably be everything.
+     Then stop and restart inetd:
+
+         ps -ef | grep inetd  (FInd the PPID for inetd)
+         kill -HUP <inetd PPID>
+
+2.  To get DNS up and running:
+      Edit the /etc/nsswitch.conf file; append "dns" to the line beginning with "hosts:"
+      Create the /etc/resolv.conf; you can vi the file and then cut and paste from the
+      /etc/resolv.conf file on tower if you'd like.
+
+3.  Install ssh; at least the server version.
+     You can ftp this down from tower: username: staging,  paswword:  (The old esb...  password)
+     The file you'll want to get is in the /var/tmp/pkgs directory and called SENSsshs-1.3-sparc-5.5.1.tar.Z
+
+      Simply uncompress it and untar it as follows, "zcat  SENSsshs-1.3-sparc-5.5.1.tar.Z | tar -xvf -"
+      Then do a simple pkgadd to install it.  You may need to launch it after the install:  "/etc/init.d/sshd start"
+
+
+Beyond this, it depends on how tight you want to lock it down.  Do you want to restrict access to
+specific hosts?  Do you want a firewall installed and configured?
+
+Oh yeah, did the /etc/defaultrouter get created?  If not, vi /etc/defaultrouter and add to it the
+IP address 172.20.16.248
+
+
+--Scott
+
+
+
+
+
+Mark Hotchkiss wrote:
+
+> Scott:
+>
+> Could you supply to me a brief list of the steps you go through to configure a lab system for lock down? I'm not looking for a lot of detail, just the basic steps like what needs to be done and what files might be involved.
+>
+> Solaris 9 installation is complete on solano, but DNS has to be set up, hosts file needs editing, ssh needs to be installed, and so forth.
+>
+> I want to get better at doing these basic things and would like your guidance. You kind of did this for me a while back and I want to do it again.
+>
+> Like:
+>
+> 1. Remove rlogin services - File: /etc/rhosts
+> 2. ??
+>
+> Thanks.
+>
+> Mark
+

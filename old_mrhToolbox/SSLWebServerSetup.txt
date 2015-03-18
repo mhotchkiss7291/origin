@@ -1,0 +1,100 @@
+
+Setting up an iws60 Web Server instance without having to request 
+a new unique certificate:
+
+Before creating this new instance, there must be at least one other
+existing SSL web server instance running in the application server
+so that you can copy certificate database files for use with the 
+new server.
+
+1. In /opt/iws60/alias directory, check to find an instance whose
+   database files look something like:
+
+   https-ExistingSSLServer-myhost-cert7.db
+   https-ExistingSSLServer-myhost-key3.db
+
+   You will eventually copy these two files to a new name.
+   If these files do not exist because there are no other
+   SSL instances running, this procedure will not work and
+   you will have to create an SSL database and request a
+   certificate from a CA in the normal manner. This procedure
+   is a short-cut that lets you use duplicates of certificates.
+   You also must know the password to the database of this
+   original SSL instance so that it can be used in the duplicate.
+
+2. Create a new web server instance using the console tools. Test
+   that the new server starts in non-SSL manner.
+
+3. Under the new web server instance manager, click on the 
+   "Security" tab, enter the password assigned to the existing
+   server instance database above. Click "OK".
+
+4. In the /opt/iws60/alias directory, copy the database files
+   listed in step one over the newly created database file that
+   were created in step 3:
+
+   # cp https-ExistingSSLServer-myhost-cert7.db https-MyNewServer-myhost-cert7.db
+   # cp https-ExistingSSLServer-myhost-key3.db https-MyNewServer-myhost-key3.db
+
+5. Move to the /opt/iws/https-MyNewServer/config directory.
+
+   cd /opt/iws/https-MyNewServer/config
+
+6. Edit the magnus.conf file in this directory to change the line:
+
+   Security off
+
+   to:
+
+   Security on
+
+7. Backup the existing server.xml and then edit the server.xml file in 
+   this directory. Edit the line with your chosen port number like:
+
+   <LS id="ls1" ip="0.0.0.0" port="8083" security="off" acceptorthreads="1">
+
+   to:
+
+   <LS id="ls1" ip="0.0.0.0" port="8083" security="on" acceptorthreads="1">
+   
+8. Find the single line that looks like:
+
+   <CONNECTIONGROUP id="group1" matchingip="default" 
+       servername="myhost.Central.Sun.COM" defaultvs="https-MyNewServer"/>
+
+   and replace it with the following lines:
+
+   <CONNECTIONGROUP id="group1" matchingip="default"   \
+       servername="myhost.Central.Sun.COM" defaultvs="https-MyNewServer">
+   <SSLPARAMS servercertnickname="Server-Cert" ssl2="off" ssl2ciphers="-rc4,-rc4export,  \
+       -rc2,-rc2export,-des,-desede3" ssl3="on" ssl3tlsciphers="-fortezza,               \
+       -fortezza_rc4_128_sha,+rsa_rc4_128_md5,-rsa_rc4_40_md5,+rsa_3des_sha,             \
+       +rsa_des_sha,-rsa_rc2_40_md5,-fortezza_null,-fips_des_sha,+fips_3des_sha,         \
+       -rsa_null_md5,-rsa_rc4_128_sha,-rsa_des_56_sha,                                   \
+       -rsa_rc4_56_sha" tls="on" tlsrollback="off" clientauth="off"/>
+   </CONNECTIONGROUP>
+
+   Make sure to pay attention to the \ extensions and that the SSLPARAMS line is all
+   on one line with no space between comma delimited fields (it may not make a 
+   difference in XML, but I'm not taking chances). 
+
+9. Write the server.xml file.
+
+10. Move to the directory above and start the server:
+
+   # cd ..
+   # ./start
+   iPlanet-WebServer-Enterprise/6.0SP4 B07/17/2002 14:04
+   Please enter password for "internal" token:
+   [LS ls1] https://myhost.Central.Sun.COM, port 8083 ready to accept requests
+   startup: server started successfully 
+
+11. Test access to your site from the browser using SSL protocol in the URL:
+
+   https://myhost.central.sun.com:8083
+
+12. Check /opt/iws60/https-MyNewServer/logs/errors if problems occur.
+
+
+
+

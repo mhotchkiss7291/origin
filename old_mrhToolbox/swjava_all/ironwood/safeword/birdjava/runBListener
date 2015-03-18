@@ -1,0 +1,8 @@
+#! /bin/sh
+CLASSPATH=.:/usr/safeword/birdjava
+JAVA_HOME=/usr/java1.2
+PATH=/usr/java1.2/bin:/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/usr/ucb:/usr/lib:/usr/ccs/bin:/usr/safeword:.
+SAFEWORD=/usr/safeword
+safeword=/usr/safeword
+export CLASSPATH JAVA_HOME PATH SAFEWORD safeword
+java -Dcom.scc.safeword=$safeword BListener

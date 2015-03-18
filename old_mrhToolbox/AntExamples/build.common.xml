@@ -1,0 +1,100 @@
+
+<project name="StandardCommonTargets" default="error" basedir=".">
+
+    <!-- Default target. Ensures that this build file can't be accidentally
+    used without giving an explicit target. -->
+
+    <target name="error">
+        <echo id="error_msg">ERROR: Must explicity call a target from an "ant" task within a build file.</echo>
+    </target>
+
+    <!-- A comma-separated list of subdirectories to build, or the empty string
+    if all subdirectories are to be built. -->
+
+    <property name="subDirsToBuild" value=""/>
+
+    <!-- A label for the type of subdirectories being built. Used for messages.
+    -->
+
+    <property name="subDirType" value="subdirectory"/>
+
+    <!-- The target to build in the subdirectories, or the empty string if the
+    default target is to be built. -->
+
+    <property name="targetToBuild" value=""/>
+
+    <!-- Builds the target specified by targetToBuild in the subdirectory
+    specified by subdir. Is used internally by "build_subdirs". -->
+
+    <target name="build_subdir">
+        <echo id="build_subdir_msg"></echo>
+        <ant id="build_subdir_ant" inheritAll="false"/>
+    </target>
+
+    <!-- Builds the comma-separated list of subdirectories specified by
+    the property "subDirsToBuild". -->
+
+    <target name="build_subdirs">
+        <fileset id="filelist" dir="${basedir}">
+            <include name="*/build.xml"/>
+        </fileset>
+        <script language="javascript"><![CDATA[
+
+        // Get the subdirectories to build. If none where explicitly specified
+        // via the property "subDirsToBuild", get all subdirectories which
+        // have a build.xml file and build those.
+
+        var subdirs;
+        if ((subDirsToBuild != "") && (targetToBuild != 'clean')) {
+            subdirs = subDirsToBuild.toString().split(",");
+        }
+        else {
+            subdirs = filelist.getDirectoryScanner(StandardCommonTargets).getIncludedFiles();
+            for (var i = 0 ; i < subdirs.length ; i++) {
+                subdirs[i] = subdirs[i].substring(0,subdirs[i].indexOf("/build.xml"));
+            }
+        }
+
+        // Build all subdirectories found above.
+
+        if (targetToBuild != '') {
+            build_subdir_ant.setTarget(targetToBuild);
+            targetToBuild = 'target "' + targetToBuild + '"';
+        }
+        else {
+            targetToBuild = "default target";
+        }
+
+        var subdirBuilt = false;
+        for (var i = 0 ; i < subdirs.length ; i++) {
+            build_subdir_msg.setMessage('Building '+targetToBuild+' in '+subdirs[i]);
+            var buildDir = new java.io.File(basedir,subdirs[i]);
+            if (!buildDir.exists()) {
+                error_msg.setMessage("No such "+subDirType+": "+subdirs[i]);
+                error_msg.execute();
+                continue;
+            }
+            var buildFile = new java.io.File(buildDir,"build.xml");
+            if (!buildFile.exists()) {
+                error_msg.setMessage(subdirs[i]+" does not have a build.xml file!");
+                error_msg.execute();
+                continue;
+            }
+            build_subdir_ant.setDir(buildDir);
+            build_subdir.execute();
+            subdirBuilt = true;
+        }
+
+        // If no subdirectories where built because none were specified or
+        // found, display an error message.
+
+        if (!subdirBuilt && subDirsToBuild == "") {
+            error_msg.setMessage("No "+subDirType+" to build!");
+            error_msg.execute();
+        }
+
+        ]]></script>
+    </target>
+
+</project>
+

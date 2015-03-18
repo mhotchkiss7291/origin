@@ -1,0 +1,29 @@
+This script finds every instance in an input stream with a "dn:" at the 
+start of every line, takes just that string, appends the following lines:
+---------
+changetype: add
+nsroledn: cn=SAMS_APP_ShareSpace_User,o=Self_Registered_Users,dc=sun,dc=com
+-
+changetype: add
+iplanet-am-web-agent-access-allow-list: http://sharespace.sun.com/*
+
+---------
+
+and then pushes it to standard output
+
+Complete script
+----------
+#!/bin/sh
+grep '^dn:' | sed 's/^dn://' | while read LINE
+do
+/bin/cat << FOO
+dn: $LINE
+changetype: add
+nsroledn: cn=SAMS_APP_ShareSpace_User,o=Self_Registered_Users,dc=sun,dc=com
+-
+changetype: add
+iplanet-am-web-agent-access-allow-list: http://sharespace.sun.com/*
+
+FOO
+done
+----------

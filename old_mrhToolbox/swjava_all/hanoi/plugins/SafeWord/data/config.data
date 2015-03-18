@@ -1,0 +1,55 @@
+########################################
+# SafeWord Web Access Configuration File
+########################################
+
+# AUTH_TYPES specifies what types of authentication the plugin is
+# capable of performing.  The default is EASSP.
+AUTH_TYPES             ;  EASSP
+
+# ROLE defines a user role, and its associated timeouts (in seconds).
+# Timeout values may range from 0 to 604800 seconds (= 1 week).
+# A timeout val of 0 will always cause failure (ie. disables that role.)
+# enableTimeout is a boolean indicating whether to enforce that role's timeouts;
+#               Legal values are "true" or "false" (case-insensitive.)
+# "default" is the default rolename, and is required.
+# You may define up to 49 additional roles.
+
+# Format is as follows:       
+#ROLE                    ;rolename,idleTimeout,sessionTimeout,enableTimeout
+ROLE                    ;default,900,3600,TRUE
+
+# ENCRYPTION_KEY defines the key used to encrypt/decrypt the browser cookies.
+# Set this key to the same value for each servers you would like to
+#   allow single signon access.
+ENCRYPTION_KEY          ;  bf 56 d6 5b 34 bb 41 22 
+
+# ALLOW_CHANGE_PWD indicates whether users are permitted to
+# change their fixed-passwords during authentication.
+# Legal values are "true" or "false" (case-insensitive.)
+ALLOW_CHANGE_PWD         ;  TRUE
+
+# DOMAIN_NAME defines the domain in which SafeWord Web Access cookies
+# will get sent to. If you do not require single sign-on, enter
+# <HOSTNAME>  below.  Otherwise, enter the domain in which the
+# group of web server reside.
+#
+# Example:  .xyz.com will allow servers with a name such as
+# www.xyz.com, www1.xyz.com, and www.abc.xyz.com to share
+# credentials.  The domain name must start with a '.'.
+DOMAIN_NAME             ;  <HOSTNAME>
+
+# EASSP_TIMEOUT defines an EASSP authentication protocol detail for
+#    determining a timed-out authentication connection.   (in seconds)
+EASSP_TIMEOUT           ;  10
+
+ROLE;View,0,3600,TRUE
+ROLE;Enable,0,3600,TRUE
+ROLE;RetPIN,0,3600,TRUE
+ROLE;Delete,0,3600,TRUE
+ROLE;RAS,0,3600,TRUE
+ROLE;ITE,0,3600,TRUE
+ROLE;PSC,0,3600,TRUE
+ROLE;TH,0,3600,TRUE
+ROLE;ALI-SUN,0,3600,TRUE
+ROLE;ICABAD,0,3600,TRUE
+ROLE;DIALUP,0,3600,TRUE

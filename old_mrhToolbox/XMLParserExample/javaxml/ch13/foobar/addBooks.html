@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <title>Foobar Public Library: Add Books</title>
+  <style>
+<!--
+body         { font-family: Arial }
+h1           { color: #000080 }
+-->
+  </style>
+</head>
+
+<body link="#FFFF00" vlink="#FFFF00" alink="#FFFF00">
+ <table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+   <td width="15%" bgcolor="#000080" valign="top" align="center">
+    <b><i>
+     <font color="#FFFFFF" size="4">Options</font>
+    </i></b>
+   <p><b>
+     <font color="#FFFFFF">
+      <a href="/javaxml/foobar">Main Menu</a>
+     </font>
+   </p></b>
+   <p><b>
+    <font color="#FFFFFF">
+     <a href="/javaxml/foobar/catalog.html">Catalog</a>
+    </font>
+   </b></p>
+   <p><b>
+    <i><font color="#FFFF00">Add Books</font></i>
+   </b></p>
+   <p><b>
+    <font color="#FFFFFF">
+     <a href="/javaxml/foobar/logout.html">Log Out</a>
+    </font>
+   </p></td>
+   <td width="*" valign="top" align="center">
+    <h1 align="center">The Foobar Public Library</h1>
+    <h3 align="center"><i>- Add Books -</i></h3>
+
+<!-- This will need to point at your CGI directory and script, which
+     we look at next -->
+    <form method="POST" action="/cgi/addBook.pl">
+
+     <table border="0" cellpadding="5" width="100%">
+      <tr>
+       <td width="100%" valign="top" align="center" colspan="2">
+        Title&nbsp;
+        <input type="text" name="title" size="20">
+        <hr width="85%" />
+       </td>
+      </tr>
+      <tr>
+       <td width="50%" valign="top" align="right">Author&nbsp;
+        <input type="text" name="author" size="20">
+       </td>
+       <td width="50%" valign="top" align="left">Subject&nbsp;
+        <select size="1" name="subject">
+         <option>Fiction</option>
+         <option>Biography</option>
+         <option>Science</option>
+         <option>Industry</option>
+         <option>Computers</option>
+        </select></td>
+       </tr>
+       <tr>
+        <td width="50%" valign="top" align="right">Publisher&nbsp;
+         <input type="text" name="publisher" size="20">
+        </td>
+        <td width="50%" valign="top" align="left">ISBN&nbsp;
+         <input type="text" name="isbn" size="20">
+        </td>
+       </tr>
+       <tr>
+        <td width="50%" valign="top" align="right">Price&nbsp;
+         <input type="text" name="price" size="20">
+        </td>
+        <td width="50%" valign="top" align="left">Pages&nbsp;
+         <input type="text" name="numPages" size="20">
+        </td>
+       </tr>
+       <tr>
+        <td width="100%" valign="top" align="center" colspan="2">
+         Description&nbsp;
+         <textarea rows="2" name="description" cols="20"></textarea>
+        </td>
+       </tr>
+      </table>
+      <p>
+       <input type="submit" value="Add this Book" name="addBook"> 
+       <input type="reset" value="Rest Form" name="reset">
+       <input type="button" value="Cancel" name="cancel">
+      </p>
+    </form>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>

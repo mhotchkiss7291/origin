@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<page>
+  <screen>
+    <name>Commerce</name>
+    <trimColor>#CC9900</trimColor>
+    <fontFace>Arial</fontFace>
+  </screen>
+  <screen>
+    <name>Message Center</name>
+    <trimColor>#9900FF</trimColor>
+    <fontFace>Arial</fontFace>
+  </screen>
+  <screen>
+    <name>News Center</name>
+    <trimColor>#EECCEE</trimColor>
+    <fontFace>Helvetica</fontFace>
+  </screen>
+  <content>
+    <p>Lots of content would go here</p>
+  </content>
+</page>

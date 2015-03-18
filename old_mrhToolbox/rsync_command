@@ -1,0 +1,1 @@
+rsync --progress -v -e ssh filename webpush@sams-ame-an-alpha.sun.com:/tmp

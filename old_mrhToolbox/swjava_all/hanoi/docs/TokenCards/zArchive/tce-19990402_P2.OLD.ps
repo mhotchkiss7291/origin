@@ -1,0 +1,6093 @@
+%!PS-Adobe-3.0
+%%BoundingBox: (atend)
+%%Pages: (atend)
+%%PageOrder: (atend)
+%%DocumentFonts: (atend)
+%%DocumentNeedsFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%Creator: Frame 5.5
+%%DocumentData: Clean7Bit
+%%EndComments
+%%BeginProlog
+%
+% Frame ps_prolog 5.5, for use with Adobe Unix Frame 5.5 products
+%
+% This ps_prolog file is Copyright (c) 1986-1996 Adobe Systems, Incoporated.
+% All rights reserved.  This ps_prolog file may be freely copied and 
+% distributed in conjunction with documents created using FrameMaker, 
+% FrameMaker+SGML, FrameReader, and FrameViewer as long as this 
+% copyright notice is preserved.
+/FMDocSave save def
+%
+% FrameMaker users specify the proper paper size for each print job in the
+% "Print" dialog's "Printer Paper Size" "Width" and "Height~ fields.  If the
+% printer that the PS file is sent to does not support the requested paper
+% size, or if there is no paper tray of the proper size currently installed, 
+% then the job will not be printed.  The following flag, if set to true, will
+% cause the job to print on the default paper in such cases.
+/FMAllowPaperSizeMismatch            false def
+%
+% Frame products normally print colors as their true color on a color printer
+% or as shades of gray, based on luminance, on a black-and white printer. The
+% following flag, if set to true, forces all non-white colors to print as pure
+% black. This has no effect on bitmap images.
+/FMPrintAllColorsAsBlack             false def
+%
+% Frame products can either set their own line screens or use a printer's 
+% default settings. Three flags below control this separately for no 
+% separations, spot separations and process separations. If a flag
+% is true, then the default printer settings will not be changed. If it is
+% false, Frame products will use their own settings from a table based on
+% the printer's resolution.
+/FMUseDefaultNoSeparationScreen      true  def
+/FMUseDefaultSpotSeparationScreen    true  def
+/FMUseDefaultProcessSeparationScreen false def
+%
+% For any given PostScript printer resolution, Frame products have two sets of 
+% screen angles and frequencies for printing process separations, which are 
+% recomended by Adobe. The following variable chooses the higher frequencies
+% when set to true or the lower frequencies when set to false. This is only
+% effective if the appropriate FMUseDefault...SeparationScreen flag is false.
+/FMUseHighFrequencyScreens true def
+%
+% The following is a set of predefined optimal frequencies and angles for various
+% common dpi settings. This is taken from "Advances in Color Separation Using
+% PostScript Software Technology," from Adobe Systems (3/13/89 P.N. LPS 0043)
+% and corrolated with information which is in various PPD (4.0) files.
+%
+% The "dpiranges" figure is the minimum dots per inch device resolution which
+% can support this setting. The "low" and "high" values are controlled by the
+% setting of the FMUseHighFrequencyScreens flag above. The "TDot" flags control
+% the use of the "Yellow Triple Dot" feature whereby the frequency id divided by
+% three, but the dot function is "trippled" giving a block of 3x3 dots per cell.
+%
+% PatFreq is a compromise pattern frequency for ps Level 2 printers which is close
+% to the ideal WYSIWYG pattern frequency of 9 repetitions/inch but does not beat
+% (too badly) against the screen frequencies of any separations for that DPI.
+/dpiranges   [  2540    2400    1693     1270    1200     635      600      0      ] def
+/CMLowFreqs  [ 100.402  94.8683 89.2289 100.402  94.8683  66.9349  63.2456 47.4342 ] def
+/YLowFreqs   [  95.25   90.0    84.65    95.25   90.0     70.5556  66.6667 50.0    ] def
+/KLowFreqs   [  89.8026 84.8528 79.8088  89.8026 84.8528  74.8355  70.7107 53.033  ] def
+/CLowAngles  [  71.5651 71.5651 71.5651 71.5651  71.5651  71.5651  71.5651 71.5651 ] def
+/MLowAngles  [  18.4349 18.4349 18.4349 18.4349  18.4349  18.4349  18.4349 18.4349 ] def
+/YLowTDot    [  true    true    false    true    true     false    false   false   ] def
+/CMHighFreqs [ 133.87  126.491 133.843  108.503 102.523  100.402   94.8683 63.2456 ] def
+/YHighFreqs  [ 127.0   120.0   126.975  115.455 109.091   95.25    90.0    60.0    ] def
+/KHighFreqs  [ 119.737 113.137 119.713  128.289 121.218   89.8026  84.8528 63.6395 ] def
+/CHighAngles [  71.5651 71.5651 71.5651  70.0169 70.0169  71.5651  71.5651 71.5651 ] def
+/MHighAngles [  18.4349 18.4349 18.4349  19.9831 19.9831  18.4349  18.4349 18.4349 ] def
+/YHighTDot   [  false   false   true     false   false    true     true    false   ] def
+/PatFreq     [	10.5833 10.0     9.4055  10.5833 10.0	  10.5833  10.0	   9.375   ] def
+%
+% PostScript Level 2 printers contain an "Accurate Screens" feature which can
+% improve process separation rendering at the expense of compute time. This 
+% flag is ignored by PostScript Level 1 printers.
+/FMUseAcccurateScreens true def
+%
+% The following PostScript procedure defines the spot function that Frame
+% products will use for process separations. You may un-comment-out one of
+% the alternative functions below, or use your own.
+%
+% Dot function
+/FMSpotFunction {abs exch abs 2 copy add 1 gt 
+		{1 sub dup mul exch 1 sub dup mul add 1 sub }
+		{dup mul exch dup mul add 1 exch sub }ifelse } def
+%
+% Line function
+% /FMSpotFunction { pop } def
+%
+% Elipse function
+% /FMSpotFunction { dup 5 mul 8 div mul exch dup mul exch add 
+%		sqrt 1 exch sub } def
+%
+%
+/FMversion (5.5) def 
+/fMLevel1 /languagelevel where {pop languagelevel} {1} ifelse 2 lt def
+/FMPColor
+	fMLevel1 {
+		false
+		/colorimage where {pop pop true} if
+	} {
+		true
+	} ifelse
+def
+/FrameDict 400 dict def 
+systemdict /errordict known not {/errordict 10 dict def
+		errordict /rangecheck {stop} put} if
+% The readline in PS 23.0 doesn't recognize cr's as nl's on AppleTalk
+FrameDict /tmprangecheck errordict /rangecheck get put 
+errordict /rangecheck {FrameDict /bug true put} put 
+FrameDict /bug false put 
+mark 
+% Some PS machines read past the CR, so keep the following 3 lines together!
+currentfile 5 string readline
+00
+0000000000
+cleartomark 
+errordict /rangecheck FrameDict /tmprangecheck get put 
+FrameDict /bug get { 
+	/readline {
+		/gstring exch def
+		/gfile exch def
+		/gindex 0 def
+		{
+			gfile read pop 
+			dup 10 eq {exit} if 
+			dup 13 eq {exit} if 
+			gstring exch gindex exch put 
+			/gindex gindex 1 add def 
+		} loop
+		pop 
+		gstring 0 gindex getinterval true 
+		} bind def
+	} if
+/FMshowpage /showpage load def
+/FMquit /quit load def
+/FMFAILURE { 
+	2 copy exch = = flush 
+	FMshowpage 
+	/Helvetica findfont 12 scalefont setfont
+	72 200 moveto show
+	72 220 moveto show
+	FMshowpage 
+	FMquit 
+	} def 
+/FMVERSION {
+	FMversion ne {
+		(Adobe Frame product version does not match ps_prolog!  Check installation;)
+		(also check ~/fminit and ./fminit for old versions) FMFAILURE
+		} if
+	} def 
+/fmConcatProcs
+	{
+	/proc2 exch cvlit def/proc1 exch cvlit def/newproc proc1 length proc2 length add array def
+	newproc 0 proc1 putinterval newproc proc1 length proc2 putinterval newproc cvx
+}def
+FrameDict begin [
+	/ALDsave
+	/FMdicttop
+	/FMoptop
+	/FMpointsize
+	/FMsetsize
+	/FMsaveobject
+	/b
+	/bitmapsave
+	/blut
+	/bpside
+	/bs
+	/bstring
+	/bwidth
+	/c
+	/cf
+	/cs
+	/cynu
+	/depth
+	/edown
+	/fh
+	/fillvals
+	/fw
+	/fx
+	/fy
+	/g
+	/gfile
+	/gindex
+	/grnt
+	/gryt
+	/gstring
+	/height
+	/hh
+	/i
+	/im
+	/indx
+	/is
+	/k
+	/kk
+	/landscape
+	/lb
+	/len
+	/llx
+	/lly
+	/m
+	/magu
+	/manualfeed
+	/n
+	/offbits
+	/onbits
+	/organgle
+	/orgbangle
+	/orgbfreq
+	/orgbproc
+	/orgbxfer
+	/orgfreq
+	/orggangle
+	/orggfreq
+	/orggproc
+	/orggxfer
+	/orghalftone
+	/orgmatrix
+	/orgproc
+	/orgrangle
+	/orgrfreq
+	/orgrproc
+	/orgrxfer
+	/orgxfer
+	/pagesave
+	/paperheight
+	/papersizedict
+	/paperwidth
+	/pos
+	/pwid
+	/r
+	/rad
+	/redt
+	/sl
+	/str
+	/tran
+	/u
+	/urx
+	/ury
+	/val
+	/width
+	/width
+	/ws
+	/ww
+	/x
+	/x1
+	/x2
+	/xindex
+	/xpoint
+	/xscale
+	/xx
+	/y
+	/y1
+	/y2
+	/yelu
+	/yindex
+	/ypoint
+	/yscale
+	/yy
+	/tintGray
+] { 0 def } forall
+/FmBD {bind def} bind def
+systemdict /pdfmark known systemdict /currentdistillerparams known and {
+	/fMAcrobat true def
+	
+	/FmPD /pdfmark load def
+	
+	
+	/FmPT /show load def
+	
+	
+	currentdistillerparams /CoreDistVersion get 2000 ge {
+	
+		
+		/FmPD2 /pdfmark load def
+		
+		
+		
+		
+		
+%     
+% Procedure /FmPA defines named destinations. 
+% In order to accommodate all possible scenarios, FrameMaker defines named destinations
+% for each paragraph, which allows links to arbitrary points in already generated
+% PDF documents. This feature may cause larger PDF files to be created. 
+% The fmCG flag tells Distiller whether to create named destinations for each 
+% paragraph. This prolog defines two versions of this flag. One of these versions must be
+% commented out, and the other must be uncommented.
+%     
+% The following fmCG flag will cause Distiller to create a named destination for
+% each paragraph. 
+%     
+/fmCG { false } FmBD
+%     
+% The following fmCG flag will cause Distiller to create a named destination only
+% for each paragraph known to be a destination. If you do not want Distiller to create
+% named destinations for each paragraph (thus creating smaller sized PDF documents), 
+% uncomment the following statement and comment out the previous statement. 
+% CAUTION: By making the following statement active, you may lose some links in the
+%          resulting PDF documents.
+%     
+%%/fmCG { dup 127 string cvs 0 get (G) 0 get eq } FmBD 
+% 
+	  /FmND
+	  { mark exch /Dest exch 5 3 roll /View [ /XYZ 5 -2 roll FmDC null ] /DEST FmPD 
+	  }FmBD
+	  /FmPA 
+	  { fmCG
+	    { pop pop pop }
+	    { FmND } ifelse
+	  } FmBD
+	} {
+		
+		/FmPD2 /cleartomark load def
+		/FmPA {pop pop pop}FmBD
+		/FmND {pop pop pop}FmBD
+	} ifelse
+} {
+	
+	/fMAcrobat false def
+	/FmPD /cleartomark load def
+	/FmPD2 /cleartomark load def
+	/FmPT /pop load def
+	/FmPA {pop pop pop}FmBD
+	/FmND {pop pop pop}FmBD
+} ifelse
+/FmDC {
+	transform fMDefaultMatrix defaultmatrix itransform cvi exch cvi exch
+}FmBD
+/FmBx {
+	dup 3 index lt {3 1 roll exch} if 
+	1 index 4 index lt {4 -1 roll 3 1 roll exch 4 1 roll} if
+}FmBD
+/FMnone 0 def
+/FMcyan 1 def
+/FMmagenta 2 def
+/FMyellow 3 def
+/FMblack 4 def
+/FMcustom 5 def
+/fMNegative false def 
+/FrameSepIs FMnone def 
+/FrameSepBlack 0 def
+/FrameSepYellow 0 def
+/FrameSepMagenta 0 def
+/FrameSepCyan 0 def
+/FrameSepRed 1 def
+/FrameSepGreen 1 def
+/FrameSepBlue 1 def
+/FrameCurGray 1 def
+/FrameCurPat null def
+/FrameCurColors [ 0 0 0 1 0 0 0 1] def 
+/FrameColorEpsilon .001 def	
+/eqepsilon {		
+	sub dup 0 lt {neg} if
+	FrameColorEpsilon le
+} bind def
+/FrameCmpColorsCMYK { 
+	2 copy 0 get exch 0 get eqepsilon {
+		2 copy 1 get exch 1 get eqepsilon {
+			2 copy 2 get exch 2 get eqepsilon {
+				3 get exch 3 get eqepsilon
+			} {pop pop false} ifelse
+		}{pop pop false} ifelse
+	} {pop pop false} ifelse
+} bind def
+/FrameCmpColorsRGB { 
+	2 copy 4 get exch 0 get eqepsilon {
+		2 copy 5 get exch 1 get eqepsilon {
+			6 get exch 2 get eqepsilon
+		}{pop pop false} ifelse
+	} {pop pop false} ifelse
+} bind def
+/RGBtoCMYK { 
+	1 exch sub 
+	3 1 roll 
+	1 exch sub 
+	3 1 roll 
+	1 exch sub 
+	3 1 roll 
+	3 copy 
+	2 copy 
+	le { pop } { exch pop } ifelse 
+	2 copy 
+	le { pop } { exch pop } ifelse 
+	dup dup dup 
+	6 1 roll 
+	4 1 roll 
+	7 1 roll 
+	sub 
+	6 1 roll 
+	sub 
+	5 1 roll 
+	sub 
+	4 1 roll 
+} bind def
+/CMYKtoRGB { 
+	dup dup 4 -1 roll add 						  
+	5 1 roll 3 -1 roll add 						  
+	4 1 roll add 								  
+	1 exch sub dup 0 lt {pop 0} if 3 1 roll 	  
+	1 exch sub dup 0 lt {pop 0} if exch 	      
+	1 exch sub dup 0 lt {pop 0} if exch	  		  
+} bind def
+/FrameSepInit {
+	1.0 RealSetgray
+} bind def
+/FrameSetSepColor { 
+	/FrameSepBlue exch def
+	/FrameSepGreen exch def
+	/FrameSepRed exch def
+	/FrameSepBlack exch def
+	/FrameSepYellow exch def
+	/FrameSepMagenta exch def
+	/FrameSepCyan exch def
+	/FrameSepIs FMcustom def
+	setCurrentScreen	
+} bind def
+/FrameSetCyan {
+	/FrameSepBlue 1.0 def
+	/FrameSepGreen 1.0 def
+	/FrameSepRed 0.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 1.0 def
+	/FrameSepIs FMcyan def
+	setCurrentScreen	
+} bind def
+ 
+/FrameSetMagenta {
+	/FrameSepBlue 1.0 def
+	/FrameSepGreen 0.0 def
+	/FrameSepRed 1.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 1.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMmagenta def
+	setCurrentScreen
+} bind def
+ 
+/FrameSetYellow {
+	/FrameSepBlue 0.0 def
+	/FrameSepGreen 1.0 def
+	/FrameSepRed 1.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 1.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMyellow def
+	setCurrentScreen
+} bind def
+ 
+/FrameSetBlack {
+	/FrameSepBlue 0.0 def
+	/FrameSepGreen 0.0 def
+	/FrameSepRed 0.0 def
+	/FrameSepBlack 1.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMblack def
+	setCurrentScreen
+} bind def
+ 
+/FrameNoSep { 
+	/FrameSepIs FMnone def
+	setCurrentScreen
+} bind def
+/FrameSetSepColors { 
+	FrameDict begin
+	[ exch 1 add 1 roll ]
+	/FrameSepColors  
+	exch def end
+	} bind def
+/FrameColorInSepListCMYK { 
+	FrameSepColors {  
+       		exch dup 3 -1 roll 
+       		FrameCmpColorsCMYK 
+       		{ pop true exit } if
+    	} forall 
+	dup true ne {pop false} if
+	} bind def
+/FrameColorInSepListRGB { 
+	FrameSepColors {  
+       		exch dup 3 -1 roll 
+       		FrameCmpColorsRGB 
+       		{ pop true exit } if
+    	} forall 
+	dup true ne {pop false} if
+	} bind def
+/RealSetgray /setgray load def
+/RealSetrgbcolor /setrgbcolor load def
+/RealSethsbcolor /sethsbcolor load def
+end 
+/setgray { 
+	FrameDict begin
+	FrameSepIs FMnone eq
+		{ RealSetgray } 
+		{ 
+		FrameSepIs FMblack eq 
+			{ RealSetgray } 
+			{ FrameSepIs FMcustom eq 
+			  FrameSepRed 0 eq and
+			  FrameSepGreen 0 eq and
+			  FrameSepBlue 0 eq and {
+			  	RealSetgray
+			  } {
+				1 RealSetgray pop 
+			  } ifelse
+			} ifelse
+		} ifelse
+	end
+} bind def
+/setrgbcolor { 
+	FrameDict begin
+	FrameSepIs FMnone eq
+	{  RealSetrgbcolor }
+	{
+		3 copy [ 4 1 roll ] 
+		FrameColorInSepListRGB
+		{
+				FrameSepBlue eq exch 
+			 	FrameSepGreen eq and exch 
+			 	FrameSepRed eq and
+			 	{ 0 } { 1 } ifelse
+		}
+		{
+			FMPColor {
+				RealSetrgbcolor
+				currentcmykcolor
+			} {
+				RGBtoCMYK
+			} ifelse
+			FrameSepIs FMblack eq
+			{1.0 exch sub 4 1 roll pop pop pop} {
+			FrameSepIs FMyellow eq
+			{pop 1.0 exch sub 3 1 roll pop pop} {
+			FrameSepIs FMmagenta eq
+			{pop pop 1.0 exch sub exch pop } {
+			FrameSepIs FMcyan eq
+			{pop pop pop 1.0 exch sub } 
+			{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+		} ifelse
+		RealSetgray
+	} 
+	ifelse
+	end
+} bind def
+/sethsbcolor {
+	FrameDict begin
+	FrameSepIs FMnone eq 
+	{ RealSethsbcolor } 
+	{
+		RealSethsbcolor 
+		currentrgbcolor  
+		setrgbcolor 
+	} 
+	ifelse
+	end
+} bind def
+FrameDict begin
+/setcmykcolor where {
+	pop /RealSetcmykcolor /setcmykcolor load def
+} {
+	/RealSetcmykcolor {
+		4 1 roll
+		3 { 3 index add 0 max 1 min 1 exch sub 3 1 roll} repeat 
+		RealSetrgbcolor pop
+	} bind def
+} ifelse
+userdict /setcmykcolor { 
+		FrameDict begin
+		FrameSepIs FMnone eq
+		{ RealSetcmykcolor } 
+		{
+			4 copy [ 5 1 roll ]
+			FrameColorInSepListCMYK
+			{
+				FrameSepBlack eq exch 
+				FrameSepYellow eq and exch 
+				FrameSepMagenta eq and exch 
+				FrameSepCyan eq and 
+				{ 0 } { 1 } ifelse
+			}
+			{
+				FrameSepIs FMblack eq
+				{1.0 exch sub 4 1 roll pop pop pop} {
+				FrameSepIs FMyellow eq
+				{pop 1.0 exch sub 3 1 roll pop pop} {
+				FrameSepIs FMmagenta eq
+				{pop pop 1.0 exch sub exch pop } {
+				FrameSepIs FMcyan eq
+				{pop pop pop 1.0 exch sub } 
+				{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+			} ifelse
+			RealSetgray
+		}
+		ifelse
+		end
+	} bind put
+fMLevel1 { 
+	
+	
+	
+	/patScreenDict 7 dict dup begin
+		<0f1e3c78f0e1c387> [ 45  { pop } {exch pop} 		.5   2 sqrt] FmBD
+		<0f87c3e1f0783c1e> [ 135 { pop } {exch pop}			.5   2 sqrt] FmBD
+		<cccccccccccccccc> [ 0   { pop } dup				.5   2	   ] FmBD
+		<ffff0000ffff0000> [ 90  { pop } dup				.5   2	   ] FmBD
+		<8142241818244281> [ 45  { 2 copy lt {exch} if pop}	dup .75  2 sqrt] FmBD
+		<03060c183060c081> [ 45  { pop } {exch pop}			.875 2 sqrt] FmBD
+		<8040201008040201> [ 135 { pop } {exch pop}			.875 2 sqrt] FmBD
+	end def
+} { 
+	
+	/patProcDict 5 dict dup begin
+		<0f1e3c78f0e1c387> { 3 setlinewidth -1 -1 moveto 9 9 lineto stroke 
+											4 -4 moveto 12 4 lineto stroke
+											-4 4 moveto 4 12 lineto stroke} bind def
+		<0f87c3e1f0783c1e> { 3 setlinewidth -1 9 moveto 9 -1 lineto stroke 
+											-4 4 moveto 4 -4 lineto stroke
+											4 12 moveto 12 4 lineto stroke} bind def
+		<8142241818244281> { 1 setlinewidth -1 9 moveto 9 -1 lineto stroke
+											-1 -1 moveto 9 9 lineto stroke } bind def
+		<03060c183060c081> { 1 setlinewidth -1 -1 moveto 9 9 lineto stroke 
+											4 -4 moveto 12 4 lineto stroke
+											-4 4 moveto 4 12 lineto stroke} bind def
+		<8040201008040201> { 1 setlinewidth -1 9 moveto 9 -1 lineto stroke 
+											-4 4 moveto 4 -4 lineto stroke
+											4 12 moveto 12 4 lineto stroke} bind def
+	end def
+	/patDict 15 dict dup begin
+		/PatternType 1 def		
+		/PaintType 2 def		
+		/TilingType 3 def		
+		/BBox [ 0 0 8 8 ] def 	
+		/XStep 8 def			
+		/YStep 8 def			
+		/PaintProc {
+			begin
+			patProcDict bstring known {
+				patProcDict bstring get exec
+			} {
+				8 8 true [1 0 0 -1 0 8] bstring imagemask
+			} ifelse
+			end
+		} bind def
+	end def
+} ifelse
+/tintCMYK {
+	1 tintGray sub FrameCurColors 0 4 getinterval aload pop 	
+	4 index mul 5 1 roll										
+	3 index mul 5 1 roll										
+	2 index mul 5 1 roll										
+	mul 4 1 roll												
+}bind def
+/tintRGB {
+	1 tintGray sub FrameCurColors 4 3 getinterval aload pop 	
+	1 exch sub 3 index mul 1 exch sub 4 1 roll					
+	1 exch sub 2 index mul 1 exch sub 4 1 roll					
+	1 exch sub mul 1 exch sub 3 1 roll							
+}bind def
+/combineColor {
+	/tintGray 1 1 FrameCurGray sub FrameCurColors 7 get mul sub def
+    FrameSepIs FMnone eq
+	{
+		graymode fMLevel1 or not {
+			
+			[/Pattern [/DeviceCMYK]] setcolorspace
+			tintCMYK FrameCurPat setcolor
+		} {
+			FrameCurColors 3 get 1.0 ge {
+				tintGray RealSetgray
+			} {
+				fMAcrobat not FMPColor graymode and and {
+					tintCMYK
+					RealSetcmykcolor
+				} {
+					tintRGB
+					RealSetrgbcolor
+				} ifelse
+			} ifelse
+		} ifelse
+	} { 
+		FrameCurColors 0 4 getinterval aload
+		FrameColorInSepListCMYK {
+			FrameSepBlack eq exch 
+			FrameSepYellow eq and exch 
+			FrameSepMagenta eq and exch 
+			FrameSepCyan eq and
+			FrameSepIs FMcustom eq and
+			{ tintGray } { 1 } ifelse
+		} {
+			FrameSepIs FMblack eq
+			{tintGray 1.0 exch sub mul 1.0 exch sub 4 1 roll pop pop pop} {
+			FrameSepIs FMyellow eq
+			{pop tintGray 1.0 exch sub mul 1.0 exch sub 3 1 roll pop pop} {
+			FrameSepIs FMmagenta eq
+			{pop pop tintGray 1.0 exch sub mul 1.0 exch sub exch pop } {
+			FrameSepIs FMcyan eq
+			{pop pop pop tintGray 1.0 exch sub mul 1.0 exch sub } 
+			{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+		} ifelse
+		graymode fMLevel1 or not {
+			
+			[/Pattern [/DeviceGray]] setcolorspace
+			FrameCurPat setcolor
+		} { 
+			graymode not fMLevel1 and {
+				
+				dup 1 lt {pop FrameCurGray} if
+			} if
+			RealSetgray
+		} ifelse
+	} ifelse
+} bind def
+/savematrix {
+	orgmatrix currentmatrix pop
+	} bind def
+/restorematrix {
+	orgmatrix setmatrix
+	} bind def
+/fMDefaultMatrix matrix def
+/fMatrix2 matrix def
+/dpi    72 0 fMDefaultMatrix defaultmatrix dtransform
+    dup mul exch   dup mul add   sqrt def
+	
+/freq dpi dup 72 div round dup 0 eq {pop 1} if 8 mul div def
+/sangle 1 0 fMDefaultMatrix defaultmatrix dtransform exch atan def
+	sangle fMatrix2 rotate 
+	fMDefaultMatrix defaultmatrix fMatrix2 concatmatrix 
+	dup 0 get /sflipx exch def
+	    3 get /sflipy exch def
+/screenIndex {
+	0 1 dpiranges length 1 sub { dup dpiranges exch get 1 sub dpi le {exit} {pop} ifelse } for
+} bind def
+/getCyanScreen {
+	FMUseHighFrequencyScreens { CHighAngles CMHighFreqs} {CLowAngles CMLowFreqs} ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get /FMSpotFunction load
+} bind def
+/getMagentaScreen {
+	FMUseHighFrequencyScreens { MHighAngles CMHighFreqs } {MLowAngles CMLowFreqs} ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get /FMSpotFunction load
+} bind def
+/getYellowScreen {
+	FMUseHighFrequencyScreens { YHighTDot YHighFreqs} { YLowTDot YLowFreqs } ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get { 3 div
+			{2 { 1 add 2 div 3 mul dup floor sub 2 mul 1 sub exch} repeat
+			FMSpotFunction } } {/FMSpotFunction load } ifelse
+			0.0 exch
+} bind def
+/getBlackScreen  {
+	FMUseHighFrequencyScreens { KHighFreqs } { KLowFreqs } ifelse
+		screenIndex get 45.0 /FMSpotFunction load 
+} bind def
+/getSpotScreen {
+	getBlackScreen
+} bind def
+/getCompositeScreen {
+	getBlackScreen
+} bind def
+/FMSetScreen 
+	fMLevel1 { /setscreen load 
+	}{ {
+		8 dict begin
+		/HalftoneType 1 def
+		/SpotFunction exch def
+		/Angle exch def
+		/Frequency exch def
+		/AccurateScreens FMUseAcccurateScreens def
+		currentdict end sethalftone
+	} bind } ifelse
+def
+/setDefaultScreen {
+	fMLevel1 {
+		FMPColor {
+			orgrxfer cvx orggxfer cvx orgbxfer cvx orgxfer cvx setcolortransfer
+		}
+		{
+			orgxfer cvx settransfer
+		} ifelse
+		orgfreq organgle orgproc cvx setscreen
+	} {
+		orghalftone sethalftone
+	}ifelse
+} bind def
+/setCurrentScreen {
+	FrameSepIs FMnone eq {
+		FMUseDefaultNoSeparationScreen {
+			setDefaultScreen
+		} {
+			getCompositeScreen FMSetScreen
+		} ifelse
+	} {
+		FrameSepIs FMcustom eq {
+			FMUseDefaultSpotSeparationScreen {
+				setDefaultScreen
+			} {
+				getSpotScreen FMSetScreen
+			} ifelse
+		} {
+			FMUseDefaultProcessSeparationScreen {
+				setDefaultScreen
+			} {
+				FrameSepIs FMcyan eq {
+					getCyanScreen FMSetScreen
+				} {
+					FrameSepIs FMmagenta eq {
+						getMagentaScreen FMSetScreen
+					} {
+						FrameSepIs FMyellow eq {
+							getYellowScreen FMSetScreen
+						} {
+							getBlackScreen FMSetScreen
+						} ifelse
+					} ifelse
+				} ifelse
+			} ifelse
+		} ifelse
+	} ifelse 
+} bind def
+end
+	
+/FMDOCUMENT { 
+	array /FMfonts exch def 
+	dup 1 gt {/#copies exch def} {pop} ifelse
+	FrameDict begin
+	0 ne /manualfeed exch def
+	/paperheight exch def
+	/paperwidth exch def
+	0 ne /fMNegative exch def 
+	0 ne /edown exch def 
+	/yscale exch def
+	/xscale exch def
+	fMLevel1 {
+		manualfeed {setmanualfeed} if
+		/FMdicttop countdictstack 1 add def 
+		/FMoptop count def 
+		setpapername 
+		manualfeed {true} {papersize} ifelse 
+		{manualpapersize} {false} ifelse 
+		{desperatepapersize} {false} ifelse 
+		{papersizefailure} if
+		count -1 FMoptop {pop pop} for
+		countdictstack -1 FMdicttop {pop end} for 
+		}
+		{2 dict
+		 dup /PageSize [paperwidth paperheight] put
+		 manualfeed {dup /ManualFeed manualfeed put} if
+		 {setpagedevice} stopped {papersizefailure} if
+		}
+	ifelse 
+	
+	fMLevel1 not {
+		/orghalftone currenthalftone def
+	}if 
+	
+	FMPColor {
+		currentcolorscreen
+			cvlit /orgproc exch def
+				  /organgle exch def 
+				  /orgfreq exch def
+			cvlit /orgbproc exch def
+				  /orgbangle exch def 
+				  /orgbfreq exch def
+			cvlit /orggproc exch def
+				  /orggangle exch def 
+				  /orggfreq exch def
+			cvlit /orgrproc exch def
+				  /orgrangle exch def 
+				  /orgrfreq exch def
+			currentcolortransfer 
+			fMNegative {
+				1 1 4 { 
+					pop { 1 exch sub } fmConcatProcs 4 1 roll
+				} for
+				4 copy
+				setcolortransfer
+			} if
+			cvlit /orgxfer exch def
+			cvlit /orgbxfer exch def
+			cvlit /orggxfer exch def
+			cvlit /orgrxfer exch def
+	} {
+		currentscreen 
+			cvlit /orgproc exch def
+				  /organgle exch def 
+				  /orgfreq exch def
+				  
+		currenttransfer 
+		fMNegative {
+			{ 1 exch sub } fmConcatProcs
+			dup settransfer
+		} if 
+		cvlit /orgxfer exch def
+	} ifelse
+	end 
+} def 
+/FMENDDOCUMENT {
+	FMDocSave restore	
+} def
+/FMBEGINPAGE { 
+	FrameDict begin 
+	/pagesave save def
+	3.86 setmiterlimit
+	0 0 moveto paperwidth 0 lineto paperwidth paperheight lineto 
+	0 paperheight lineto 0 0 lineto 1 setgray fill
+	/landscape exch 0 ne def
+	landscape { 
+		90 rotate 0 exch dup /pwid exch def neg translate pop 
+	}{
+		pop /pwid exch def
+	} ifelse
+	edown { [-1 0 0 1 pwid 0] concat } if
+	xscale yscale scale
+	/orgmatrix matrix def
+	gsave 
+} def 
+/FMENDPAGE {
+	grestore 
+	pagesave restore
+	end 
+	showpage
+	} def 
+/FMFONTDEFINE { 
+	FrameDict begin
+	findfont 
+	ReEncode 
+	1 index exch 
+	definefont 
+	FMfonts 3 1 roll 
+	put
+	end 
+	} def 
+/FMFILLS {
+	FrameDict begin dup
+	array /fillvals exch def
+	dict /patCache exch def
+	end 
+	} def 
+/FMFILL {
+	FrameDict begin
+	 fillvals 3 1 roll put
+	end 
+	} def 
+/FMNORMALIZEGRAPHICS { 
+	newpath
+	1 setlinewidth
+	0 setlinecap
+	0 0 0 sethsbcolor
+	0 setgray 
+	} bind def
+/FMBEGINEPSF { 
+	end 
+	/FMEPSF save def 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	[/fy /fx /fh /fw /ury /urx /lly /llx] {exch def} forall 
+	fx fw 2 div add fy fh 2 div add  translate
+	rotate
+	fw 2 div neg fh 2 div neg translate
+	fw urx llx sub div fh ury lly sub div scale 
+	llx neg lly neg translate 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count def 
+	} bind def
+/FMENDEPSF {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMEPSF restore
+	FrameDict begin 
+	} bind def
+FrameDict begin 
+/setmanualfeed {
+%%BeginFeature: *ManualFeed True
+	 statusdict /manualfeed true put
+%%EndFeature
+	} bind def
+/max {2 copy lt {exch} if pop} bind def
+/min {2 copy gt {exch} if pop} bind def
+/inch {72 mul} def
+/pagedimen { 
+	paperheight sub abs 16 lt exch 
+	paperwidth sub abs 16 lt and
+	{/papername exch def} {pop} ifelse
+	} bind def
+/setpapername { 
+	/papersizedict 14 dict def 
+	papersizedict begin
+	/papername /unknown def 
+		/Letter 8.5 inch 11.0 inch pagedimen
+		/LetterSmall 7.68 inch 10.16 inch pagedimen
+		/Tabloid 11.0 inch 17.0 inch pagedimen
+		/Ledger 17.0 inch 11.0 inch pagedimen
+		/Legal 8.5 inch 14.0 inch pagedimen
+		/Statement 5.5 inch 8.5 inch pagedimen
+		/Executive 7.5 inch 10.0 inch pagedimen
+		/A3 11.69 inch 16.5 inch pagedimen
+		/A4 8.26 inch 11.69 inch pagedimen
+		/A4Small 7.47 inch 10.85 inch pagedimen
+		/B4 10.125 inch 14.33 inch pagedimen
+		/B5 7.16 inch 10.125 inch pagedimen
+	end
+	} bind def
+/papersize {
+	papersizedict begin
+		/Letter {lettertray letter} def
+		/LetterSmall {lettertray lettersmall} def
+		/Tabloid {11x17tray 11x17} def
+		/Ledger {ledgertray ledger} def
+		/Legal {legaltray legal} def
+		/Statement {statementtray statement} def
+		/Executive {executivetray executive} def
+		/A3 {a3tray a3} def
+		/A4 {a4tray a4} def
+		/A4Small {a4tray a4small} def
+		/B4 {b4tray b4} def
+		/B5 {b5tray b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	statusdict begin stopped end 
+	} bind def
+/manualpapersize {
+	papersizedict begin
+		/Letter {letter} def
+		/LetterSmall {lettersmall} def
+		/Tabloid {11x17} def
+		/Ledger {ledger} def
+		/Legal {legal} def
+		/Statement {statement} def
+		/Executive {executive} def
+		/A3 {a3} def
+		/A4 {a4} def
+		/A4Small {a4small} def
+		/B4 {b4} def
+		/B5 {b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	stopped 
+	} bind def
+/desperatepapersize {
+	
+	mark
+	statusdict begin 
+		/setpageparams where {
+			pop
+			paperwidth paperheight 0 1 
+			{setpageparams} stopped 
+		} { 
+			true 
+		} ifelse
+		
+		{
+			
+			/setpagedevice where {
+				pop 
+				1 dict dup begin
+					/PageSize [ paperwidth paperheight ] def
+				end 
+				{setpagedevice} stopped
+			} {
+				true	
+			} ifelse
+		} {
+			false		
+		} ifelse 
+	end
+	{cleartomark true}{cleartomark false}ifelse
+} bind def
+/papersizefailure {
+	FMAllowPaperSizeMismatch not
+		{
+(The requested paper size is not available in any currently-installed tray)
+(Edit the PS file to "FMAllowPaperSizeMismatch true" to use default tray)
+		 FMFAILURE } if
+	} def
+/DiacriticEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl
+/numbersign /dollar /percent /ampersand /quotesingle /parenleft
+/parenright /asterisk /plus /comma /hyphen /period /slash /zero /one
+/two /three /four /five /six /seven /eight /nine /colon /semicolon
+/less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K
+/L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash
+/bracketright /asciicircum /underscore /grave /a /b /c /d /e /f /g /h
+/i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar
+/braceright /asciitilde /.notdef /Adieresis /Aring /Ccedilla /Eacute
+/Ntilde /Odieresis /Udieresis /aacute /agrave /acircumflex /adieresis
+/atilde /aring /ccedilla /eacute /egrave /ecircumflex /edieresis
+/iacute /igrave /icircumflex /idieresis /ntilde /oacute /ograve
+/ocircumflex /odieresis /otilde /uacute /ugrave /ucircumflex
+/udieresis /dagger /.notdef /cent /sterling /section /bullet
+/paragraph /germandbls /registered /copyright /trademark /acute
+/dieresis /.notdef /AE /Oslash /.notdef /.notdef /.notdef /.notdef
+/yen /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/ordfeminine /ordmasculine /.notdef /ae /oslash /questiondown
+/exclamdown /logicalnot /.notdef /florin /.notdef /.notdef
+/guillemotleft /guillemotright /ellipsis /.notdef /Agrave /Atilde
+/Otilde /OE /oe /endash /emdash /quotedblleft /quotedblright
+/quoteleft /quoteright /.notdef /.notdef /ydieresis /Ydieresis
+/fraction /currency /guilsinglleft /guilsinglright /fi /fl /daggerdbl
+/periodcentered /quotesinglbase /quotedblbase /perthousand
+/Acircumflex /Ecircumflex /Aacute /Edieresis /Egrave /Iacute
+/Icircumflex /Idieresis /Igrave /Oacute /Ocircumflex /.notdef /Ograve
+/Uacute /Ucircumflex /Ugrave /dotlessi /circumflex /tilde /macron
+/breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron
+] def
+/ReEncode { 
+	dup 
+	length 
+	dict begin 
+	{
+	1 index /FID ne 
+		{def} 
+		{pop pop} ifelse 
+	} forall 
+	0 eq {/Encoding DiacriticEncoding def} if 
+	currentdict 
+	end 
+	} bind def
+FMPColor 
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPCOLOR} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPCOLORc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUECOLOR } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUECOLORc } def
+	/BEGINBITMAPCMYK { 
+		BITMAPCMYK } def
+	/BEGINBITMAPCMYKc { 
+		BITMAPCMYKc } def
+	}
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPGRAY} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPGRAYc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUEGRAY } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUEGRAYc } def
+	/BEGINBITMAPCMYK { 
+		BITMAPCMYKGRAY } def
+	/BEGINBITMAPCMYKc { 
+		BITMAPCMYKGRAYc } def
+	}
+ifelse
+/K { 
+	FMPrintAllColorsAsBlack {
+		8 1 roll
+		dup 1 eq 2 index 1 eq and 3 index 1 eq and not
+			{7 {pop} repeat 0 0 0 1 0 0 0} if
+		8 -1 roll
+	} if 
+	FrameCurColors astore 
+	pop combineColor
+} bind def
+/graymode true def
+fMLevel1 {
+	/fmGetFlip {
+		fMatrix2 exch get mul 0 lt { -1 } { 1 } ifelse
+	} FmBD
+} if
+/setPatternMode {
+	fMLevel1 {
+		2 index patScreenDict exch known {
+			pop pop
+			patScreenDict exch get aload pop 
+			freq 								
+			mul									
+			5 2 roll							
+			fMatrix2 currentmatrix 1 get 0 ne {
+				3 -1 roll 90 add 3 1 roll 		
+				sflipx 1 fmGetFlip sflipy 2 fmGetFlip neg mul
+			} {  								
+				sflipx 0 fmGetFlip sflipy 3 fmGetFlip mul 
+			} ifelse
+			0 lt {exch pop} {pop} ifelse 		
+			fMNegative { 
+				{neg} fmConcatProcs 			
+			} if
+			bind
+			
+			
+			
+			systemdict /setscreen get exec		
+			/FrameCurGray exch def
+		} {
+			/bwidth  exch def
+			/bpside  exch def
+			/bstring exch def
+			/onbits 0 def  /offbits 0 def
+			freq sangle landscape {90 add} if 
+				{/ypoint exch def
+				 /xpoint exch def
+				 /xindex xpoint 1 add 2 div bpside mul cvi def
+				 /yindex ypoint 1 add 2 div bpside mul cvi def
+				 bstring yindex bwidth mul xindex 8 idiv add get
+				 1 7 xindex 8 mod sub bitshift and 0 ne fMNegative {not} if
+				 {/onbits  onbits  1 add def 1}
+				 {/offbits offbits 1 add def 0}
+				 ifelse
+				}
+				setscreen
+			offbits offbits onbits add dup 0 ne {div} {pop pop .5} ifelse fMNegative {1.0 exch sub} if
+			/FrameCurGray exch def
+		} ifelse
+	} { 
+		pop pop
+		dup patCache exch known {
+			patCache exch get
+		} { 
+			dup
+			patDict /bstring 3 -1 roll put
+			patDict 
+			9 PatFreq screenIndex get div dup matrix scale
+			makepattern
+			dup 
+			patCache 4 -1 roll 3 -1 roll put
+		} ifelse
+		/FrameCurGray 0 def
+		/FrameCurPat exch def
+	} ifelse
+	/graymode false def
+	combineColor
+} bind def
+/setGrayScaleMode {
+	graymode not {
+		/graymode true def
+		fMLevel1 {
+			setCurrentScreen
+		} if
+	} if
+	/FrameCurGray exch def
+	combineColor
+} bind def
+/normalize {
+	transform round exch round exch itransform
+	} bind def
+/dnormalize {
+	dtransform round exch round exch idtransform
+	} bind def
+/lnormalize { 
+	0 dtransform exch cvi 2 idiv 2 mul 1 add exch idtransform pop
+	} bind def
+/H { 
+	lnormalize setlinewidth
+	} bind def
+/Z {
+	setlinecap
+	} bind def
+	
+/PFill {
+	graymode fMLevel1 or not {
+		gsave 1 setgray eofill grestore
+	} if
+} bind def
+/PStroke {
+	graymode fMLevel1 or not {
+		gsave 1 setgray stroke grestore
+	} if
+	stroke
+} bind def
+/X { 
+	fillvals exch get
+	dup type /stringtype eq
+	{8 1 setPatternMode} 
+	{setGrayScaleMode}
+	ifelse
+	} bind def
+/V { 
+	PFill gsave eofill grestore
+	} bind def
+/Vclip {
+	clip
+	} bind def
+/Vstrk {
+	currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/N { 
+	PStroke
+	} bind def
+/Nclip {
+	strokepath clip newpath
+	} bind def
+/Nstrk {
+	currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/M {newpath moveto} bind def
+/E {lineto} bind def
+/D {curveto} bind def
+/O {closepath} bind def
+/L { 
+ 	/n exch def
+	newpath
+	normalize
+	moveto 
+	2 1 n {pop normalize lineto} for
+	} bind def
+/Y { 
+	L 
+	closepath
+	} bind def
+/R { 
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	x1 y1
+	x2 y1
+	x2 y2
+	x1 y2
+	4 Y 
+	} bind def
+/rarc 
+	{rad 
+	 arcto
+	} bind def
+/RR { 
+	/rad exch def
+	normalize
+	/y2 exch def
+	/x2 exch def
+	normalize
+	/y1 exch def
+	/x1 exch def
+	mark
+	newpath
+	{
+	x1 y1 rad add moveto
+	x1 y2 x2 y2 rarc
+	x2 y2 x2 y1 rarc
+	x2 y1 x1 y1 rarc
+	x1 y1 x1 y2 rarc
+	closepath
+	} stopped {x1 y1 x2 y2 R} if 
+	cleartomark
+	} bind def
+/RRR { 
+	/rad exch def
+	normalize /y4 exch def /x4 exch def
+	normalize /y3 exch def /x3 exch def
+	normalize /y2 exch def /x2 exch def
+	normalize /y1 exch def /x1 exch def
+	newpath
+	normalize moveto 
+	mark
+	{
+	x2 y2 x3 y3 rarc
+	x3 y3 x4 y4 rarc
+	x4 y4 x1 y1 rarc
+	x1 y1 x2 y2 rarc
+	closepath
+	} stopped
+	 {x1 y1 x2 y2 x3 y3 x4 y4 newpath moveto lineto lineto lineto closepath} if
+	cleartomark
+	} bind def
+/C { 
+	grestore
+	gsave
+	R 
+	clip
+	setCurrentScreen
+} bind def
+/CP { 
+	grestore
+	gsave
+	Y 
+	clip
+	setCurrentScreen
+} bind def
+/F { 
+	FMfonts exch get
+	[FMsetsize 0 0 FMpointsize 0 0] makefont
+	setfont
+	} bind def
+/Q { 
+	/FMpointsize exch def
+	/FMsetsize FMpointsize def
+	F 
+	} bind def
+/QQ { 
+	/FMsetsize exch def
+	/FMpointsize exch def
+	F 
+	} bind def
+/T { 
+	moveto show
+	} bind def
+/RF { 
+	rotate
+	0 ne {-1 1 scale} if
+	} bind def
+/TF { 
+	gsave
+	moveto 
+	RF
+	show
+	grestore
+	} bind def
+/P { 
+	moveto
+	0 32 3 2 roll widthshow
+	} bind def
+/PF { 
+	gsave
+	moveto 
+	RF
+	0 32 3 2 roll widthshow
+	grestore
+	} bind def
+/S { 
+	moveto
+	0 exch ashow
+	} bind def
+/SF { 
+	gsave
+	moveto
+	RF
+	0 exch ashow
+	grestore
+	} bind def
+/B { 
+	moveto
+	0 32 4 2 roll 0 exch awidthshow
+	} bind def
+/BF { 
+	gsave
+	moveto
+	RF
+	0 32 4 2 roll 0 exch awidthshow
+	grestore
+	} bind def
+/G { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	PFill fill
+	grestore
+	} bind def
+/Gstrk {
+	savematrix
+    newpath
+    2 index 2 div add exch 3 index 2 div sub exch 
+    normalize 2 index 2 div sub exch 3 index 2 div add exch 
+    translate
+    scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    restorematrix
+    currentlinewidth exch setlinewidth PStroke setlinewidth
+    } bind def
+/Gclip { 
+	newpath
+	savematrix
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	clip newpath
+	restorematrix
+	} bind def
+/GG { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	rotate 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath
+	PFill
+	fill
+	grestore
+	} bind def
+/GGclip { 
+	savematrix
+	newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath
+	clip newpath
+	restorematrix
+	} bind def
+/GGstrk { 
+	savematrix
+    newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath 
+	restorematrix
+    currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/A { 
+	gsave
+	savematrix
+	newpath
+	2 index 2 div add exch 3 index 2 div sub exch 
+	normalize 2 index 2 div sub exch 3 index 2 div add exch 
+	translate 
+	scale 
+	2 copy 0.0 0.0 1.0 5 3 roll arc 
+	round cvi 360 mod exch round cvi 360 mod eq {closepath} if 
+	restorematrix
+	PStroke
+	grestore
+	} bind def
+/Aclip {
+	newpath
+	savematrix
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	strokepath clip newpath
+	restorematrix
+} bind def
+/Astrk {
+	Gstrk
+} bind def
+/AA { 
+	gsave
+	savematrix
+	newpath
+	
+	3 index 2 div add exch 4 index 2 div sub exch 
+	
+	normalize 3 index 2 div sub exch 4 index 2 div add exch
+	translate 
+	rotate 
+	scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	restorematrix
+	PStroke
+	grestore
+	} bind def
+/AAclip {
+	savematrix
+	newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath
+	strokepath clip newpath
+	restorematrix
+} bind def
+/AAstrk {
+	GGstrk
+} bind def
+/BEGINPRINTCODE { 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count 7 sub def 
+	/FMsaveobject save def
+	userdict begin 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	3 index neg 3 index neg translate
+	} bind def
+/ENDPRINTCODE {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMsaveobject restore 
+	} bind def
+/gn { 
+	0 
+	{	46 mul 
+		cf read pop 
+		32 sub 
+		dup 46 lt {exit} if 
+		46 sub add 
+		} loop
+	add 
+	} bind def
+/cfs { 
+	/str sl string def 
+	0 1 sl 1 sub {str exch val put} for 
+	str def 
+	} bind def
+/ic [ 
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0
+	{0 hx} {1 hx} {2 hx} {3 hx} {4 hx} {5 hx} {6 hx} {7 hx} {8 hx} {9 hx}
+	{10 hx} {11 hx} {12 hx} {13 hx} {14 hx} {15 hx} {16 hx} {17 hx} {18 hx}
+	{19 hx} {gn hx} {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12}
+	{13} {14} {15} {16} {17} {18} {19} {gn} {0 wh} {1 wh} {2 wh} {3 wh}
+	{4 wh} {5 wh} {6 wh} {7 wh} {8 wh} {9 wh} {10 wh} {11 wh} {12 wh}
+	{13 wh} {14 wh} {gn wh} {0 bl} {1 bl} {2 bl} {3 bl} {4 bl} {5 bl} {6 bl}
+	{7 bl} {8 bl} {9 bl} {10 bl} {11 bl} {12 bl} {13 bl} {14 bl} {gn bl}
+	{0 fl} {1 fl} {2 fl} {3 fl} {4 fl} {5 fl} {6 fl} {7 fl} {8 fl} {9 fl}
+	{10 fl} {11 fl} {12 fl} {13 fl} {14 fl} {gn fl}
+	] def
+/ms { 
+	/sl exch def 
+	/val 255 def 
+	/ws cfs 
+	/im cfs 
+	/val 0 def 
+	/bs cfs 
+	/cs cfs 
+	} bind def
+400 ms 
+/ip { 
+	is 
+	0 
+	cf cs readline pop 
+	{	ic exch get exec 
+		add 
+		} forall 
+	pop 
+	
+	} bind def
+/rip { 
+	   
+	  
+	  bis ris copy pop 
+      is
+      0
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop 
+	  ris gis copy pop 
+	  dup is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop
+	  gis bis copy pop 
+	  dup add is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+      pop 
+      
+      } bind def
+/rip4 { 
+	   
+	  
+	  kis cis copy pop 
+      is
+      0
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop 
+	  cis mis copy pop 
+	  dup is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop
+	  mis yis copy pop 
+	  dup dup add is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop
+	  yis kis copy pop 
+	  3 mul is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+      pop 
+      
+      } bind def
+/wh { 
+	/len exch def 
+	/pos exch def 
+	ws 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/bl { 
+	/len exch def 
+	/pos exch def 
+	bs 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/s1 1 string def
+/fl { 
+	/len exch def 
+	/pos exch def 
+	/val cf s1 readhexstring pop 0 get def
+	pos 1 pos len add 1 sub {im exch val put} for
+	pos len 
+	} bind def
+/hx { 
+	3 copy getinterval 
+	cf exch readhexstring pop pop 
+	} bind def
+/wbytes { 
+      dup dup
+      8 gt { pop 8 idiv mul }
+      { 8 eq {pop} {1 eq {7 add 8 idiv} {3 add 4 idiv} ifelse} ifelse } ifelse
+	} bind def
+/BEGINBITMAPBWc { 
+	1 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAPGRAYc { 
+	8 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAP2BITc { 
+	2 {} COMMONBITMAPc
+	} bind def
+/COMMONBITMAPc { 
+		 
+	/cvtProc exch def
+	/depth exch def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	cvtProc                
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	width height depth [width 0 0 height neg 0 height] 
+	{ip} image 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BEGINBITMAPBW { 
+	1 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAPGRAY { 
+	8 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAP2BIT { 
+	2 {} COMMONBITMAP
+	} bind def
+/COMMONBITMAP { 
+	/cvtProc exch def
+	/depth exch def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/bitmapsave save def 
+	cvtProc              
+	/is width depth wbytes string def
+	/cf currentfile def 
+	width height depth [width 0 0 height neg 0 height] 
+	{cf is readhexstring pop} image
+	bitmapsave restore 
+	grestore
+	} bind def
+/ngrayt 256 array def
+/nredt 256 array def
+/nbluet 256 array def
+/ngreent 256 array def
+fMLevel1 {
+/colorsetup {
+	currentcolortransfer
+	/gryt exch def
+	/blut exch def
+	/grnt exch def
+	/redt exch def
+	0 1 255 {
+		/indx exch def
+		/cynu 1 red indx get 255 div sub def
+		/magu 1 green indx get 255 div sub def
+		/yelu 1 blue indx get 255 div sub def
+		/kk cynu magu min yelu min def
+		/u kk currentundercolorremoval exec def
+%		/u 0 def
+		nredt indx 1 0 cynu u sub max sub redt exec put
+		ngreent indx 1 0 magu u sub max sub grnt exec put
+		nbluet indx 1 0 yelu u sub max sub blut exec put
+		ngrayt indx 1 kk currentblackgeneration exec sub gryt exec put
+	} for
+	{255 mul cvi nredt exch get}
+	{255 mul cvi ngreent exch get}
+	{255 mul cvi nbluet exch get}
+	{255 mul cvi ngrayt exch get}
+	setcolortransfer
+	{pop 0} setundercolorremoval
+	{} setblackgeneration
+	} bind def
+}
+{
+/colorSetup2 {
+	[ /Indexed /DeviceRGB 255 
+		{dup red exch get 255 div 
+		 exch dup green exch get 255 div 
+		 exch blue exch get 255 div}
+	] setcolorspace
+} bind def
+} ifelse
+/fakecolorsetup {
+	/tran 256 string def
+	0 1 255 {/indx exch def 
+		tran indx
+		red indx get 77 mul
+		green indx get 151 mul
+		blue indx get 28 mul
+		add add 256 idiv put} for
+	currenttransfer
+	{255 mul cvi tran exch get 255.0 div}
+	exch fmConcatProcs settransfer
+} bind def
+/BITMAPCOLOR { 
+	/depth 8 def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/bitmapsave save def
+	fMLevel1 {	
+		colorsetup
+		/is width depth wbytes string def
+		/cf currentfile def 
+		width height depth [width 0 0 height neg 0 height] 
+		{cf is readhexstring pop} {is} {is} true 3 colorimage 
+	} {
+		colorSetup2
+		/is width depth wbytes string def
+		/cf currentfile def 
+		7 dict dup begin
+			/ImageType 1 def
+			/Width width def
+			/Height height def
+			/ImageMatrix [width 0 0 height neg 0 height] def
+			/DataSource {cf is readhexstring pop} bind def
+			/BitsPerComponent depth def
+			/Decode [0 255] def
+		end image	
+	} ifelse
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPCOLORc { 
+	/depth 8 def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	fMLevel1 {	
+		colorsetup
+		/is im 0 lb getinterval def 
+		ws 0 lb getinterval is copy pop 
+		/cf currentfile def 
+		width height depth [width 0 0 height neg 0 height] 
+		{ip} {is} {is} true 3 colorimage
+	} {
+		colorSetup2
+		/is im 0 lb getinterval def 
+		ws 0 lb getinterval is copy pop 
+		/cf currentfile def 
+		7 dict dup begin
+			/ImageType 1 def
+			/Width width def
+			/Height height def
+			/ImageMatrix [width 0 0 height neg 0 height] def
+			/DataSource {ip} bind def
+			/BitsPerComponent depth def
+			/Decode [0 255] def
+		end image	
+	} ifelse
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPTRUECOLORc { 
+	/depth 24 def
+        gsave
+ 	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/ris im 0 width getinterval def	
+	/gis im width width getinterval def	
+	/bis im width 2 mul width getinterval def 
+        
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	width height 8 [width 0 0 height neg 0 height] 
+	{width rip pop ris} {gis} {bis} true 3 colorimage
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPCMYKc { 
+	/depth 32 def
+        gsave
+ 	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/cis im 0 width getinterval def	
+	/mis im width width getinterval def	
+	/yis im width 2 mul width getinterval def 
+	/kis im width 3 mul width getinterval def 
+        
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	width height 8 [width 0 0 height neg 0 height] 
+	{width rip4 pop cis} {mis} {yis} {kis} true 4 colorimage
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPTRUECOLOR { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/height exch def /width exch def
+        /bitmapsave save def 
+        /is width string def
+        /gis width string def
+        /bis width string def
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        { cf is readhexstring pop } 
+        { cf gis readhexstring pop } 
+        { cf bis readhexstring pop } 
+        true 3 colorimage 
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPCMYK { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/height exch def /width exch def
+        /bitmapsave save def 
+        /is width string def
+        /mis width string def
+        /yis width string def
+        /kis width string def
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        { cf is readhexstring pop } 
+        { cf mis readhexstring pop } 
+        { cf yis readhexstring pop } 
+        { cf kis readhexstring pop } 
+        true 4 colorimage 
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUEGRAYc { 
+	/depth 24 def
+        gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+        /bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/ris im 0 width getinterval def	
+	/gis im width width getinterval def	
+	/bis im width 2 mul width getinterval def 
+        ws 0 lb getinterval is copy pop 
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        {width rip pop ris gis bis width gray} image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPCMYKGRAYc { 
+	/depth 32 def
+        gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/height exch def /width exch def
+	/lb width depth wbytes def 
+	sl lb lt {lb ms} if 
+        /bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/cis im 0 width getinterval def	
+	/mis im width width getinterval def	
+	/yis im width 2 mul width getinterval def 
+	/kis im width 3 mul width getinterval def 
+        ws 0 lb getinterval is copy pop 
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        {width rip pop cis mis yis kis width cgray} image
+        bitmapsave restore 
+        grestore
+        } bind def
+/cgray { 
+        /ww exch def
+        /k exch def
+        /y exch def
+        /m exch def
+        /c exch def
+        0 1 ww 1 sub { /i exch def c i get m i get y i get k i get CMYKtoRGB
+				.144 mul 3 1 roll .587 mul 3 1 roll .299 mul add add
+				c i 3 -1 roll floor cvi put } for
+        c
+ 		} bind def
+/gray { 
+        /ww exch def
+        /b exch def
+        /g exch def
+        /r exch def
+        0 1 ww 1 sub { /i exch def r i get .299 mul g i get .587 mul
+			b i get .114 mul add add r i 3 -1 roll floor cvi put } for
+        r
+        } bind def
+/BITMAPTRUEGRAY { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/height exch def /width exch def
+        /bitmapsave save def 
+        /is width string def
+        /gis width string def
+        /bis width string def
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        { cf is readhexstring pop 
+          cf gis readhexstring pop 
+          cf bis readhexstring pop width gray}  image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPCMYKGRAY { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/height exch def /width exch def
+        /bitmapsave save def 
+        /is width string def
+        /yis width string def
+        /mis width string def
+        /kis width string def
+        /cf currentfile def 
+        width height 8 [width 0 0 height neg 0 height] 
+        { cf is readhexstring pop 
+          cf mis readhexstring pop 
+          cf yis readhexstring pop 
+          cf kis readhexstring pop width cgray}  image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPGRAY { 
+	8 {fakecolorsetup} COMMONBITMAP
+	} bind def
+/BITMAPGRAYc { 
+	8 {fakecolorsetup} COMMONBITMAPc
+	} bind def
+/ENDBITMAP {
+	} bind def
+end 
+	/ALDmatrix matrix def ALDmatrix currentmatrix pop
+/StartALD {
+	/ALDsave save def
+	 savematrix
+	 ALDmatrix setmatrix
+	} bind def
+/InALD {
+	 restorematrix
+	} bind def
+/DoneALD {
+	 ALDsave restore
+	} bind def
+/I { setdash } bind def
+/J { [] 0 setdash } bind def
+%%EndProlog
+%%BeginSetup
+(5.5) FMVERSION
+1 1 0 0 612 1008 1 1 16 FMDOCUMENT
+%%IncludeFont: Times-Bold
+0 0 /Times-Bold FMFONTDEFINE
+%%IncludeFont: Times-Roman
+1 0 /Times-Roman FMFONTDEFINE
+%%IncludeFont: Times-Italic
+2 0 /Times-Italic FMFONTDEFINE
+%%IncludeFont: Helvetica-BoldOblique
+3 0 /Helvetica-BoldOblique FMFONTDEFINE
+%%IncludeFont: Helvetica
+4 0 /Helvetica FMFONTDEFINE
+%%IncludeFont: Helvetica-Bold
+5 0 /Helvetica-Bold FMFONTDEFINE
+%%IncludeFont: Palatino-Roman
+6 0 /Palatino-Roman FMFONTDEFINE
+%%IncludeFont: Palatino-Bold
+7 0 /Palatino-Bold FMFONTDEFINE
+32 FMFILLS
+0 0 FMFILL
+1 0.1 FMFILL
+2 0.3 FMFILL
+3 0.5 FMFILL
+4 0.7 FMFILL
+5 0.9 FMFILL
+6 0.97 FMFILL
+7 1 FMFILL
+8 <0f1e3c78f0e1c387> FMFILL
+9 <0f87c3e1f0783c1e> FMFILL
+10 <cccccccccccccccc> FMFILL
+11 <ffff0000ffff0000> FMFILL
+12 <8142241818244281> FMFILL
+13 <03060c183060c081> FMFILL
+14 <8040201008040201> FMFILL
+16 1 FMFILL
+17 0.9 FMFILL
+18 0.7 FMFILL
+19 0.5 FMFILL
+20 0.3 FMFILL
+21 0.1 FMFILL
+22 0.03 FMFILL
+23 0 FMFILL
+24 <f0e1c3870f1e3c78> FMFILL
+25 <f0783c1e0f87c3e1> FMFILL
+26 <3333333333333333> FMFILL
+27 <0000ffff0000ffff> FMFILL
+28 <7ebddbe7e7dbbd7e> FMFILL
+29 <fcf9f3e7cf9f3f7e> FMFILL
+30 <7fbfdfeff7fbfdfe> FMFILL
+%%EndSetup
+%%Page: "1" 1
+%%BeginPaperSize: Legal
+%%EndPaperSize
+612 1008 1 FMBEGINPAGE
+0 FrameSetSepColors
+[
+/Creator (FrameMaker 5.5.6.)
+/Title (tce-19990402_P2)
+/CreationDate (D:19960429000055)
+/ModDate (D:19990922102521)
+/DOCINFO FmPD2
+FrameNoSep
+0 0 0 1 0 0 0 1 K
+J
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+0 14 Q
+0 X
+(Getting Y) 35.71 977.07 T
+(our T) 92.88 977.07 T
+(ok) 125.43 977.07 T
+(en Card PIN) 140.07 977.07 T
+1 10 Q
+(The) 18 957.73 T
+(T) 35.99 957.73 T
+(ok) 41.3 957.73 T
+(en) 51.2 957.73 T
+(Card) 63.08 957.73 T
+(\050Enigma) 84.96 957.73 T
+(Card\051) 121.84 957.73 T
+(is) 147.05 957.73 T
+(your) 156.17 957.73 T
+(k) 176.94 957.73 T
+(e) 181.84 957.73 T
+(y) 186.13 957.73 T
+(to) 193.57 957.73 T
+(remote) 203.79 957.73 T
+(connecti) 18 945.73 T
+(vity at Sun Microsystems. It is a passw) 51.63 945.73 T
+(ord) 207.64 945.73 T
+(generator that you use each time you mak) 18 933.73 T
+(e a remote) 184.81 933.73 T
+(connection. It calculates an alphanumeric passw) 18 921.73 T
+(ord) 210.63 921.73 T
+(which grants you access for that one login session.) 18 909.73 T
+0 F
+(BEFORE y) 18 889.73 T
+(ou dial in f) 66.37 889.73 T
+(or the \336rst time, y) 111.97 889.73 T
+(ou must) 188.09 889.73 T
+(get y) 18 877.73 T
+(our T) 38.02 877.73 T
+(ok) 61.27 877.73 T
+(en Card PIN.) 71.73 877.73 T
+1 F
+(Y) 131.17 877.73 T
+(ou can no) 137.29 877.73 T
+(w get your) 175.92 877.73 T
+(T) 18 865.73 T
+(ok) 23.31 865.73 T
+(en Card PIN online an) 33.21 865.73 T
+(ytime \05024 hours a day) 122.49 865.73 T
+(, 7) 209.05 865.73 T
+(days a week\051 at:) 18 853.73 T
+0 F
+(http://cts.central/ras/tcpin.html) 59.06 841.73 T
+(Note:) 18 825.73 T
+1 F
+(Y) 43.82 825.73 T
+(ou must be on a Sun Microsystems \050SW) 49.94 825.73 T
+(AN\051) 209.57 825.73 T
+(site in order to use the online PIN application.) 18 813.73 T
+(If you ha) 18 793.73 T
+(v) 53.9 793.73 T
+(e problems retrie) 58.75 793.73 T
+(ving your PIN \050or you are) 126.26 793.73 T
+(a contractor or temp\051, please contact the nearest) 18 781.73 T
+(Resolution) 18 769.73 T
+(Center) 63.72 769.73 T
+(.) 89.83 769.73 T
+(Please) 94.72 769.73 T
+(see) 122.65 769.73 T
+(the) 137.8 769.73 T
+(section) 152.41 769.73 T
+2 F
+(Getting) 183.12 769.73 T
+(Info) 215.51 769.73 T
+(and Getting Help) 18 757.73 T
+1 F
+(, on back, for contact information.) 87.44 757.73 T
+0 14 Q
+(Lost/Stolen/Br) 28.12 735.07 T
+(ok) 114.99 735.07 T
+(en T) 129.63 735.07 T
+(ok) 155.18 735.07 T
+(en Cards) 169.83 735.07 T
+1 10 Q
+(If your T) 18 719.73 T
+(ok) 53.3 719.73 T
+(en Card is lost or stolen,) 63.2 719.73 T
+0 F
+(immediately) 162.92 719.73 T
+1 F
+(notify) 18 707.73 T
+(the) 44.09 707.73 T
+(Resolution) 58.52 707.73 T
+(Center) 104.06 707.73 T
+(to) 132.92 707.73 T
+(deacti) 142.91 707.73 T
+(v) 166.54 707.73 T
+(ate) 171.29 707.73 T
+(the) 185.15 707.73 T
+(card.) 199.57 707.73 T
+(T) 221.49 707.73 T
+(o) 226.8 707.73 T
+(get) 18 695.73 T
+(a) 32.67 695.73 T
+(replacement) 39.57 695.73 T
+(card,) 90.89 695.73 T
+(submit) 113.05 695.73 T
+(a) 142.73 695.73 T
+(ServiceDesk) 149.63 695.73 T
+(request.) 202.62 695.73 T
+0 14 Q
+(Retur) 41.45 673.07 T
+(ning Y) 76.23 673.07 T
+(our T) 114.74 673.07 T
+(ok) 147.29 673.07 T
+(en Card) 161.94 673.07 T
+1 10 Q
+(T) 18 657.73 T
+(o return a T) 23.31 657.73 T
+(ok) 69.44 657.73 T
+(en Card that is damaged or that is no) 79.34 657.73 T
+(longer needed, please return the card by mail:) 18 645.73 T
+(               *Please do not FedEx returns*) 18 629.73 T
+0 F
+(US:) 27 609.73 T
+1 F
+(Sun Microsystems, Inc.) 27 597.73 T
+(500 Eldorado Blvd.) 27 585.73 T
+(\050S-B210\051 UBRM02-102) 27 573.73 T
+(Broom\336eld, CO 80021  USA) 27 561.73 T
+(Attn: T) 27 549.73 T
+(ok) 55.37 549.73 T
+(en Card Returns) 65.27 549.73 T
+0 F
+(Eur) 27 529.73 T
+(ope:) 43.49 529.73 T
+1 F
+(Sun Microsystems BV) 27 517.73 T
+(Attn: European Resolution Center AFT02) 27 505.73 T
+(2nd Floor \050C2\051) 27 493.73 T
+(Disk) 27 481.73 T
+(ette) 45.79 481.73 T
+(we) 59.98 481.73 T
+(g 2) 71.49 481.73 T
+(3821 AR Amersfoort) 27 469.73 T
+(Sun Proprietary/Con\336dential: Internal Use Only) 29.9 428.48 T
+0 14 Q
+(Using Y) 306.96 977.07 T
+(our T) 353.24 977.07 T
+(ok) 385.79 977.07 T
+(en Card) 400.43 977.07 T
+1 10 Q
+(\245) 270 909.37 T
+(Please) 279 909.37 T
+(read) 306.72 909.37 T
+(all) 326.11 909.37 T
+(instructions) 338.28 909.37 T
+(before) 387.12 909.37 T
+(using) 414.83 909.37 T
+(your) 438.67 909.37 T
+(T) 459.18 909.37 T
+(ok) 464.49 909.37 T
+(en) 474.39 909.37 T
+(Card) 279 897.37 T
+(\245) 270 885.37 T
+(Please ha) 279 885.37 T
+(v) 316.29 885.37 T
+(e your T) 321.14 885.37 T
+(ok) 354.22 885.37 T
+(en Card a) 364.12 885.37 T
+(v) 402.24 885.37 T
+(ailable before) 406.99 885.37 T
+(attempting to remotely connect to Sun\325) 279 873.37 T
+(s netw) 434.83 873.37 T
+(ork) 460.56 873.37 T
+(\245) 270 861.37 T
+(K) 279 861.37 T
+(eeping your T) 285.97 861.37 T
+(ok) 341.27 861.37 T
+(en Card PIN with your T) 351.17 861.37 T
+(ok) 450.08 861.37 T
+(en) 459.98 861.37 T
+(Card is a violation of Sun security) 279 849.37 T
+0 F
+(1. Dial into y) 270 821.21 T
+(our modempool \050or ISP f) 324.2 821.21 T
+(or Sun.Net\051) 430.61 821.21 T
+1 F
+(.) 480.05 821.21 T
+0 F
+(2. Once connected, y) 270 801.21 T
+(ou will be pr) 357.24 801.21 T
+(ompted f) 410.68 801.21 T
+(or y) 448.48 801.21 T
+(our) 465.17 801.21 T
+(T) 270 789.21 T
+(ok) 275.75 789.21 T
+(en) 286.21 789.21 T
+(Card) 298.35 789.21 T
+(ID) 322.71 789.21 T
+1 F
+(\050Sun.Net) 335.96 789.21 T
+(users,) 373.93 789.21 T
+(please) 399.12 789.21 T
+(see) 426.26 789.21 T
+(the) 441.17 789.21 T
+(section) 455.53 789.21 T
+2 F
+(Sun.Net Access) 270 777.21 T
+1 F
+(, at right, for URL information\051.) 331.1 777.21 T
+(Y) 270 759.21 T
+(our T) 276.12 759.21 T
+(ok) 297.26 759.21 T
+(en ID is your \336rst initial, last initial, and) 307.16 759.21 T
+(SunID. Y) 270 747.2 T
+(our \336rst and last initials are based on your) 307.23 747.2 T
+(name) 270 735.2 T
+(entry) 293.85 735.2 T
+(in) 316.6 735.2 T
+(the) 326.57 735.2 T
+(HR) 340.98 735.2 T
+(database.) 357.06 735.2 T
+(If) 396.19 735.2 T
+(you) 405.04 735.2 T
+(are) 422.23 735.2 T
+(a) 436.63 735.2 T
+(contractor) 443.27 735.2 T
+(or) 270 723.2 T
+(temp,) 280.65 723.2 T
+(your) 305.47 723.2 T
+(T) 326.12 723.2 T
+(ok) 331.43 723.2 T
+(en) 341.33 723.2 T
+(ID) 353.09 723.2 T
+(is) 365.95 723.2 T
+(your) 374.94 723.2 T
+(\336rst) 395.59 723.2 T
+(initial,) 413.47 723.2 T
+(last) 441.63 723.2 T
+(initial,) 457.84 723.2 T
+(the letter \322c\323 or \322t\323, and your SunID number) 270 711.2 T
+(. \050If you) 447.46 711.2 T
+(are using the Solaris PPP dialin windo) 270 699.2 T
+(w) 423.09 699.2 T
+(, the ID) 429.66 699.2 T
+(should) 270 687.2 T
+(be) 299.11 687.2 T
+(entered) 311 687.2 T
+(in) 342.87 687.2 T
+(the) 353.09 687.2 T
+(T) 367.76 687.2 T
+(ok) 373.07 687.2 T
+(en) 382.96 687.2 T
+(ID) 394.85 687.2 T
+(box) 407.84 687.2 T
+(prior) 425.28 687.2 T
+(to) 447.17 687.2 T
+(dialin.\051) 457.39 687.2 T
+0 F
+(3. The scr) 270 667.2 T
+(een displays a challenge number) 311.76 667.2 T
+(.) 448.55 667.2 T
+1 F
+(This challenge number appears in this format:) 270 655.2 T
+0 F
+(9 ####) 279.23 643.2 T
+1 F
+(  \050where #### is your four) 306.73 643.2 T
+(-digit challenge\051) 410.95 643.2 T
+0 F
+(4. The scr) 270 623.2 T
+(een will pr) 311.76 623.2 T
+(ompt y) 356.58 623.2 T
+(ou f) 386.05 623.2 T
+(or a passw) 402.19 623.2 T
+(ord) 447.09 623.2 T
+1 F
+(.) 462.09 623.2 T
+(Each passw) 270 611.2 T
+(ord is dynamically assigned using your) 316.83 611.2 T
+(T) 270 599.2 T
+(ok) 275.31 599.2 T
+(en Card, and is good for this session only) 285.21 599.2 T
+(.) 449.83 599.2 T
+0 F
+(5.) 270 579.2 T
+(T) 279.82 579.2 T
+(o) 285.57 579.2 T
+(tur) 292.89 579.2 T
+(n) 306.07 579.2 T
+(on) 313.94 579.2 T
+(the) 326.82 579.2 T
+(T) 342.47 579.2 T
+(ok) 348.22 579.2 T
+(en) 358.68 579.2 T
+(Card,) 371 579.2 T
+(pr) 398.04 579.2 T
+(ess) 407.86 579.2 T
+(the) 422.39 579.2 T
+(ON) 438.04 579.2 T
+(b) 455.36 579.2 T
+(utton.) 460.72 579.2 T
+1 F
+(The card\325) 270 567.2 T
+(s panel displays an EP prompt.) 308.04 567.2 T
+0 F
+(6. Enter y) 270 547.2 T
+(our 5-digit T) 311.69 547.2 T
+(ok) 365.22 547.2 T
+(en Card PIN.) 375.68 547.2 T
+1 F
+(The card\325) 270 535.2 T
+(s panel displays an EH prompt.) 308.04 535.2 T
+0 F
+(7. Enter the number nine \0509\051.) 270 515.2 T
+1 F
+(The card\325) 270 503.2 T
+(s panel displays a zero \0500\051.) 308.04 503.2 T
+0 F
+(8. Enter the 4-digit challenge \050####\051 fr) 270 483.21 T
+(om the) 432.3 483.21 T
+(scr) 270 471.21 T
+(een) 282.59 471.21 T
+(into) 299.35 471.21 T
+(the) 318.34 471.21 T
+(T) 334 471.21 T
+(ok) 339.75 471.21 T
+(en) 350.21 471.21 T
+(Card,) 362.53 471.21 T
+(and) 389.57 471.21 T
+(pr) 408.01 471.21 T
+(ess) 417.83 471.21 T
+(the) 432.37 471.21 T
+(Entr) 448.03 471.21 T
+(\050E\051) 470.35 471.21 T
+(k) 270 459.21 T
+(ey on the T) 275.46 459.21 T
+(ok) 322.04 459.21 T
+(en Card. Do not r) 332.5 459.21 T
+(e-enter the) 407.59 459.21 T
+(pr) 270 447.21 T
+(eceding nine \0509\051.) 279.82 447.21 T
+1 F
+(The card\325) 270 435.21 T
+(s panel displays an alphanumeric passw) 308.04 435.21 T
+(ord) 467.08 435.21 T
+(of 8 characters.) 270 423.21 T
+0 F
+(9. On y) 522 961.73 T
+(our terminal k) 552.59 961.73 T
+(eyboard, enter the) 614.71 961.73 T
+(alphanumeric passw) 522 949.73 T
+(ord that displays in the) 609.41 949.73 T
+(display panel of y) 522 937.73 T
+(our T) 596.49 937.73 T
+(ok) 619.74 937.73 T
+(en Card, and pr) 630.2 937.73 T
+(ess) 698.36 937.73 T
+(Retur) 522 925.73 T
+(n.) 546.84 925.73 T
+1 F
+(  The passw) 557.4 925.73 T
+(ord is NO) 604.79 925.73 T
+(T case-sensiti) 643.83 925.73 T
+(v) 698.29 925.73 T
+(e. The) 703.14 925.73 T
+(card\325) 522 913.73 T
+(s panel displays numbers zero \0500\051 through nine) 541.99 913.73 T
+(\0509\051 and letters A, C, E, F) 522 901.73 T
+(, H, and P) 619.8 901.73 T
+(.) 658.41 901.73 T
+0 F
+(Y) 663.41 901.73 T
+(ou must enter) 669.52 901.73 T
+(the passw) 522 889.73 T
+(ord within 30-45 seconds after the) 563.29 889.73 T
+(terminal has display) 522 877.73 T
+(ed the challenge, or the) 608.58 877.73 T
+(connection will timeout \050y) 522 865.73 T
+(ou\325ll need to r) 632.02 865.73 T
+(econnect\051.) 691.56 865.73 T
+(Caution:) 522 847.73 T
+1 F
+( Be careful) 559.78 847.73 T
+0 F
+(NO) 606.15 847.73 T
+(T) 620.75 847.73 T
+1 F
+( to press the Pin \050P\051 k) 627.42 847.73 T
+(e) 713.43 847.73 T
+(y on) 717.72 847.73 T
+(the T) 522 835.73 T
+(ok) 542.03 835.73 T
+(en Card while logging in. If you press the Pin) 551.93 835.73 T
+(\050P\051) 522 823.73 T
+(k) 536.47 823.73 T
+(e) 541.36 823.73 T
+(y) 545.66 823.73 T
+(on) 552.9 823.73 T
+(the) 565.15 823.73 T
+(card,) 579.61 823.73 T
+(you) 601.57 823.73 T
+(may) 618.81 823.73 T
+(change) 638.28 823.73 T
+(your) 668.84 823.73 T
+(T) 689.42 823.73 T
+(ok) 694.73 823.73 T
+(en) 704.63 823.73 T
+(Card) 716.31 823.73 T
+(PIN and lose your authentication ability) 522 811.73 T
+(.) 681.06 811.73 T
+(If you press the Pin \050P\051 k) 522 793.73 T
+(e) 621.89 793.73 T
+(y) 626.18 793.73 T
+(, the card\325) 630.53 793.73 T
+(s panel will) 670.24 793.73 T
+(display SP) 522 781.73 T
+(. Press the Clr \050C\051 k) 563.4 781.73 T
+(e) 642.74 781.73 T
+(y and then the ON) 647.03 781.73 T
+(b) 522 769.73 T
+(utton. Y) 526.8 769.73 T
+(our PIN will not change.) 558.48 769.73 T
+(If you do not press the Clr \050C\051 k) 522 751.73 T
+(e) 650.22 751.73 T
+(y) 654.51 751.73 T
+(, b) 658.86 751.73 T
+(ut enter other) 668.66 751.73 T
+(numbers instead, your PIN will change to the) 522 739.73 T
+(numbers you just entered!) 522 727.73 T
+0 F
+(10. Y) 522 707.73 T
+(ou ar) 543.11 707.73 T
+(e no) 565.43 707.73 T
+(w connected to Sun Micr) 582.83 707.73 T
+(osystems!) 688.75 707.73 T
+1 F
+(Be) 522 695.73 T
+(gin w) 532.96 695.73 T
+(ork, b) 555.36 695.73 T
+(ut remember you may see slo) 578.49 695.73 T
+(wer) 695.72 695.73 T
+(response times since you are w) 522 683.73 T
+(orking remotely) 646.04 683.73 T
+(.) 709.55 683.73 T
+0 14 Q
+( Sun.Net Access) 582.76 661.07 T
+1 10 Q
+(Sun.Net is an Internet site that pro) 522 645.73 T
+(vides Sun) 658.78 645.73 T
+(emplo) 522 633.73 T
+(yees with secure access to Sun's web-based) 546.9 633.73 T
+(resources through the Internet from a Ja) 522 621.73 T
+(v) 681.2 621.73 T
+(a-enabled,) 685.95 621.73 T
+(SSL \050Secure Sock) 522 609.73 T
+(et Layer\051 supported web bro) 594.67 609.73 T
+(wser) 707.72 609.73 T
+(.) 726.05 609.73 T
+(T) 522 593.73 T
+(o access Sun.Net, you need:) 527.31 593.73 T
+(\245) 522 581.73 T
+(A T) 531 581.73 T
+(ok) 546.03 581.73 T
+(en Card) 555.93 581.73 T
+(\245) 522 569.73 T
+(A web bro) 531 569.73 T
+(wser and access to the Internet) 572.96 569.73 T
+(T) 522 549.73 T
+(o get more information about Sun.Net, please visit:) 527.31 549.73 T
+0 F
+(http://cts.central/sun.net/) 576.39 537.73 T
+1 F
+(T) 522 517.73 T
+(o access the Sun.Net applications, please visit the) 527.31 517.73 T
+(Sun.Net site nearest to your current location:) 522 505.73 T
+0 F
+(http://sun.net/) 531 485.73 T
+1 F
+(\050US/W) 666 485.73 T
+(est\051) 693.53 485.73 T
+0 F
+(http://central.sun.net/) 531 473.73 T
+1 F
+(\050US/Central\051) 666 473.73 T
+0 F
+(http://eur) 531 461.73 T
+(o.sun.net/) 571.93 461.73 T
+1 F
+(\050Europe\051) 666 461.73 T
+0 F
+(http://pacrim.sun.net/) 531 449.73 T
+1 F
+(\050P) 666 449.73 T
+(ac. Rim\051) 674.74 449.73 T
+0 14 Q
+(T) 828.04 977.07 T
+(ok) 836.09 977.07 T
+(en Card F) 850.74 977.07 T
+(A) 910.14 977.07 T
+(Qs) 919.62 977.07 T
+0 10 Q
+(Q:) 774 955.48 T
+(Wh) 787.16 955.48 T
+(y) 802.57 955.48 T
+(do) 809.62 955.48 T
+(v) 822.23 955.48 T
+(ertical) 827.13 955.48 T
+(lines) 856.39 955.48 T
+(scr) 877.89 955.48 T
+(oll) 890.48 955.48 T
+(acr) 903.09 955.48 T
+(oss) 916.79 955.48 T
+(the) 931.62 955.48 T
+(display) 947 955.48 T
+(of) 979.62 955.48 T
+(the T) 774 943.48 T
+(ok) 795.58 943.48 T
+(en Card?) 806.04 943.48 T
+(A:) 774 931.48 T
+1 F
+(Entering your PIN incorrectly three consecuti) 787.05 931.48 T
+(v) 969.26 931.48 T
+(e) 974.11 931.48 T
+(times will cause the card to display scrolling lines.) 774 919.48 T
+(Lea) 774 907.48 T
+(v) 788.79 907.48 T
+(e the card on until it resets itself.) 793.64 907.48 T
+2 F
+(Don\325) 926.68 907.48 T
+(t turn of) 946.93 907.48 T
+(f) 978.98 907.48 T
+(the car) 774 895.48 T
+(d until it has r) 801.68 895.48 T
+(eset.) 857.99 895.48 T
+1 F
+( The card\325) 876.04 895.48 T
+(s panel will) 916.58 895.48 T
+(display EP once it has reset. This can tak) 774 883.48 T
+(e as long as) 937.49 883.48 T
+(10 minutes. After the card resets, enter your PIN. If) 774 871.48 T
+(the) 774 859.48 T
+(lines) 788.26 859.48 T
+(recur) 809.19 859.48 T
+(,) 829.33 859.48 T
+(submit) 833.88 859.48 T
+(a) 863.15 859.48 T
+(ServiceDesk) 869.63 859.48 T
+(request) 922.21 859.48 T
+(to) 953.14 859.48 T
+(obtain) 962.96 859.48 T
+(a replacement card.) 774 847.48 T
+0 F
+(Q: Wh) 774 831.48 T
+(y does the T) 803.02 831.48 T
+(ok) 853.49 831.48 T
+(en Card display \32200000000\323?) 863.95 831.48 T
+(A:) 774 819.48 T
+1 F
+(If) 786.79 819.48 T
+(the) 795.69 819.48 T
+(card) 810.16 819.48 T
+(displays) 829.61 819.48 T
+(eight) 864.63 819.48 T
+(0\325) 886.87 819.48 T
+(s,) 894.65 819.48 T
+(the) 903.28 819.48 T
+(programming) 917.75 819.48 T
+(has) 974.43 819.48 T
+(been lost, and the card will need to be replaced.) 774 807.48 T
+0 F
+(Q:) 774 791.48 T
+(Wh) 787.55 791.48 T
+(y) 802.96 791.48 T
+(do) 810.4 791.48 T
+(I) 823.39 791.48 T
+(r) 829.72 791.48 T
+(ecei) 833.98 791.48 T
+(v) 849.98 791.48 T
+(e) 854.88 791.48 T
+(2) 861.76 791.48 T
+(f) 869.2 791.48 T
+(our) 872.28 791.48 T
+(-digit) 886.91 791.48 T
+(challenges) 912.13 791.48 T
+(when) 958.45 791.48 T
+(I) 983.67 791.48 T
+(login, instead of the corr) 774 779.48 T
+(ect challenge of 9 ####?) 877.98 779.48 T
+(A:) 774 767.48 T
+1 F
+(Double-check that your T) 787.05 767.48 T
+(ok) 889.28 767.48 T
+(en Card ID w) 899.18 767.48 T
+(as) 953.23 767.48 T
+(entered) 774 755.48 T
+(correctly) 805.56 755.48 T
+(.) 840.45 755.48 T
+(If) 845.08 755.48 T
+(it) 853.86 755.48 T
+(w) 861.55 755.48 T
+(as) 868.67 755.48 T
+(entered) 879.13 755.48 T
+(correctly) 910.69 755.48 T
+(,) 945.58 755.48 T
+(your) 950.2 755.48 T
+(card) 970.66 755.48 T
+(has) 774 743.48 T
+(not) 789.4 743.48 T
+(been) 804.26 743.48 T
+(acti) 825.21 743.48 T
+(v) 839.4 743.48 T
+(ated) 844.15 743.48 T
+(correctly) 862.88 743.48 T
+(in) 900.5 743.48 T
+(the) 910.35 743.48 T
+(serv) 924.64 743.48 T
+(er) 941.15 743.48 T
+(database.) 951 743.48 T
+(Place a ServiceDesk request to acti) 774 731.48 T
+(v) 913.99 731.48 T
+(ate your card.) 918.74 731.48 T
+0 F
+(Q:) 774 715.48 T
+(Wh) 787.58 715.48 T
+(y) 802.99 715.48 T
+(does) 810.45 715.48 T
+(the) 831.81 715.48 T
+(terminal) 847.6 715.48 T
+(display) 886.73 715.48 T
+(\322) 919.77 715.48 T
+(Attack) 924.67 715.48 T
+(lock) 956.01 715.48 T
+(out) 973.64 715.48 T
+(acti) 774 703.48 T
+(v) 789.45 703.48 T
+(ated\323?) 794.35 703.48 T
+(A:) 774 691.48 T
+1 F
+(After four consecuti) 787.05 691.48 T
+(v) 867.33 691.48 T
+(e wrong passw) 872.18 691.48 T
+(ords, \322) 931.51 691.48 T
+(Attack) 957.37 691.48 T
+(lock) 774 679.48 T
+(out acti) 791.12 679.48 T
+(v) 820.59 679.48 T
+(ated\323 will display on your screen. Y) 825.34 679.48 T
+(ou) 968.38 679.48 T
+(must w) 774 667.48 T
+(ait 30 minutes for the attack lock) 803.07 667.48 T
+(out to clear) 934.62 667.48 T
+(.) 979.06 667.48 T
+(After 30 minutes, try logging in ag) 774 655.48 T
+(ain.) 913.11 655.48 T
+0 F
+(Q: Wh) 774 639.48 T
+(y does the terminal display \322Y) 803.02 639.48 T
+(our r) 931.08 639.48 T
+(ecord) 952.84 639.48 T
+(curr) 774 627.48 T
+(ently is in use\323?) 792.7 627.48 T
+(A:) 774 615.48 T
+1 F
+(This message indicates a locking issue within the) 787.05 615.48 T
+(authentication database. W) 774 603.48 T
+(ait \336) 881.23 603.48 T
+(v) 899.04 603.48 T
+(e minutes and then) 903.89 603.48 T
+(redial. The issue should be resolv) 774 591.48 T
+(ed.) 907.72 591.48 T
+0 14 Q
+(Changing Y) 785.09 568.82 T
+(our T) 855.5 568.82 T
+(ok) 888.05 568.82 T
+(en Card PIN) 902.69 568.82 T
+0 10 Q
+(1.) 774 553.48 T
+(Pr) 783.76 553.48 T
+(ess) 794.13 553.48 T
+(the) 808.61 553.48 T
+(T) 824.2 553.48 T
+(ok) 829.95 553.48 T
+(en) 840.41 553.48 T
+(Card\325) 852.67 553.48 T
+(s) 877.85 553.48 T
+(On) 884 553.48 T
+(b) 899.6 553.48 T
+(utton) 904.96 553.48 T
+(to) 930 553.48 T
+(tur) 940.59 553.48 T
+(n) 953.77 553.48 T
+(on) 961.59 553.48 T
+(the) 974.41 553.48 T
+(card) 774 541.48 T
+1 F
+(. The card\325) 793.44 541.48 T
+(s panel displays an EP prompt.) 836.48 541.48 T
+0 F
+(2. Enter y) 774 525.48 T
+(our 5-digit PIN.) 815.69 525.48 T
+1 F
+(The card\325) 885.69 525.48 T
+(s panel displays) 923.73 525.48 T
+(an EH prompt.) 774 513.48 T
+0 F
+(3.) 774 497.48 T
+(Pr) 783.8 497.48 T
+(ess) 794.17 497.48 T
+(the) 808.7 497.48 T
+(Pin) 824.33 497.48 T
+(\050P\051) 841.09 497.48 T
+(k) 856.16 497.48 T
+(ey) 861.62 497.48 T
+(.) 870.36 497.48 T
+1 F
+(The) 875.17 497.48 T
+(card\325) 893.02 497.48 T
+(s) 913.01 497.48 T
+(panel) 919.21 497.48 T
+(displays) 943.17 497.48 T
+(an) 978.26 497.48 T
+(SP prompt.) 774 485.48 T
+0 F
+(4.) 774 469.48 T
+(Enter) 783.98 469.48 T
+(y) 810.91 469.48 T
+(our) 815.66 469.48 T
+(new) 833.14 469.48 T
+(5-digit) 852.85 469.48 T
+(PIN.) 883.11 469.48 T
+(\050) 905.31 469.48 T
+1 F
+(Y) 908.64 469.48 T
+(our) 914.76 469.48 T
+(ne) 930.58 469.48 T
+(w) 939.77 469.48 T
+(PIN) 949.47 469.48 T
+(must) 968.07 469.48 T
+(ha) 774 457.48 T
+(v) 783.24 457.48 T
+(e 5 digits.\051 Y) 788.09 457.48 T
+(our PIN has just changed!) 839.21 457.48 T
+0 F
+(Note:) 774 445.48 T
+1 F
+(If you enter your ne) 802.32 445.48 T
+(w PIN incorrectly) 881.49 445.48 T
+(, press) 952.49 445.48 T
+(the Clr k) 774 433.48 T
+(e) 808.9 433.48 T
+(y to cancel the ne) 813.19 433.48 T
+(w number) 882.92 433.48 T
+(. Y) 922.64 433.48 T
+(our PIN) 933.76 433.48 T
+(re) 774 421.48 T
+(v) 781.52 421.48 T
+(erts back to your pre-e) 786.37 421.48 T
+(xisting number) 876.19 421.48 T
+(.) 935.92 421.48 T
+18 437.15 234 442.4 C
+0 0 0 1 0 0 0 1 K
+234.75 440.15 18.75 440.15 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+270 417.6 486 986.4 C
+270 916.04 486 972.4 C
+0 0 0 1 0 0 0 1 K
+372.16 958.93 364.87 959.97 362.14 960.4 360.33 959.69 357.05 957.1 342.49 940.69 341.01 938.81
+ 341.94 937.38 344.06 937.21 351.34 936.47 10 Y
+7 X
+V
+0.25 H
+2 Z
+0 X
+N
+331.37 935.03 404.89 926.92 426.13 957.66 359.12 963.16 4 Y
+3 X
+V
+0 X
+N
+354.52 934.75 371.33 950.11 414.17 947.6 401.93 930.36 4 Y
+3 X
+V
+0.6 H
+N
+331.19 934.96 331.32 930.13 404.86 921.99 404.77 927.08 4 Y
+V
+0.25 H
+0 X
+N
+404.86 921.83 426.42 953.39 425.96 957.58 404.77 926.91 4 Y
+3 X
+V
+0 X
+N
+0 0 0 0 1 1 1 1 K
+0 0 0 1 0 0 0 1 K
+335.21 937.26 357.07 959.92 359 960.87 361.38 961.35 364.37 961.37 401.4 958.01 6 L
+N
+401.59 958.53 417.9 957.07 421.66 956.47 422.88 955.39 404.65 929.18 401.95 928.54 399.43 928.68
+ 333.25 935.28 334.4 936.53 335.73 938.09 10 L
+N
+350.96 952.8 360.07 961.06 421.15 955.76 415.49 947.7 4 Y
+5 X
+V
+0 X
+N
+364.68 944.38 M
+ 364.69 944.6 364.45 944.77 364.14 944.77 D
+ 363.84 944.77 363.59 944.59 363.58 944.38 D
+ 363.57 944.16 363.81 943.99 364.11 943.99 D
+ 364.42 943.99 364.67 944.17 364.68 944.38 D
+O
+2 X
+V
+0.6 H
+3 X
+N
+366.72 944.24 M
+ 366.73 944.46 366.49 944.63 366.19 944.63 D
+ 365.88 944.62 365.63 944.45 365.62 944.23 D
+ 365.61 944.02 365.85 943.85 366.15 943.85 D
+ 366.46 943.85 366.71 944.03 366.72 944.24 D
+O
+2 X
+V
+3 X
+N
+368.61 944.1 M
+ 368.61 944.31 368.37 944.48 368.07 944.48 D
+ 367.77 944.48 367.51 944.3 367.5 944.09 D
+ 367.49 943.88 367.73 943.7 368.04 943.71 D
+ 368.34 943.71 368.6 943.88 368.61 944.1 D
+O
+2 X
+V
+3 X
+N
+362.43 943.28 M
+ 362.44 943.5 362.2 943.67 361.89 943.67 D
+ 361.59 943.67 361.34 943.49 361.33 943.28 D
+ 361.32 943.06 361.56 942.89 361.86 942.89 D
+ 362.17 942.89 362.42 943.07 362.43 943.28 D
+O
+2 X
+V
+3 X
+N
+364.94 942.99 M
+ 364.95 943.2 364.71 943.37 364.4 943.37 D
+ 364.1 943.37 363.85 943.2 363.84 942.98 D
+ 363.83 942.77 364.07 942.59 364.37 942.59 D
+ 364.68 942.6 364.93 942.77 364.94 942.99 D
+O
+2 X
+V
+3 X
+N
+367.29 942.69 M
+ 367.3 942.91 367.06 943.08 366.75 943.08 D
+ 366.45 943.07 366.2 942.9 366.19 942.68 D
+ 366.18 942.47 366.42 942.3 366.72 942.3 D
+ 367.03 942.3 367.28 942.48 367.29 942.69 D
+O
+2 X
+V
+3 X
+N
+369.17 942.39 M
+ 369.17 942.6 368.93 942.78 368.63 942.78 D
+ 368.33 942.77 368.07 942.6 368.06 942.38 D
+ 368.05 942.17 368.3 942 368.6 942 D
+ 368.9 942 369.16 942.18 369.17 942.39 D
+O
+2 X
+V
+3 X
+N
+354.95 954.88 359.86 959.51 388.37 957.11 384.34 952.51 4 Y
+V
+0.25 H
+0 X
+N
+343.19 940 M
+ 341.81 940.12 340.58 939.36 340.44 938.31 D
+ 340.44 938.31 340.44 938.31 340.44 938.31 D
+ 340.3 937.26 341.31 936.32 342.69 936.2 D
+ 343.36 936.14 344.03 936.09 344.7 936.03 D
+ 346.08 935.91 347.31 936.67 347.45 937.72 D
+ 347.45 937.72 347.45 937.72 347.45 937.72 D
+ 347.58 938.77 346.58 939.71 345.2 939.83 D
+ 344.53 939.89 343.86 939.94 343.19 940 D
+O
+4 X
+V
+0 X
+N
+408.67 946.85 M
+ 407.29 946.97 406.06 946.21 405.92 945.16 D
+ 405.92 945.16 405.92 945.16 405.92 945.16 D
+ 405.78 944.11 406.79 943.17 408.16 943.05 D
+ 408.83 943 409.5 942.94 410.17 942.89 D
+ 411.55 942.77 412.78 943.53 412.92 944.58 D
+ 412.92 944.58 412.92 944.58 412.92 944.58 D
+ 413.06 945.62 412.05 946.57 410.67 946.69 D
+ 410.01 946.74 409.34 946.8 408.67 946.85 D
+O
+4 X
+V
+0 X
+N
+405.58 942.6 M
+ 404.2 942.72 402.96 941.96 402.83 940.91 D
+ 402.83 940.91 402.83 940.91 402.83 940.91 D
+ 402.69 939.86 403.69 938.92 405.07 938.8 D
+ 405.74 938.75 406.41 938.69 407.08 938.64 D
+ 408.46 938.52 409.69 939.28 409.83 940.33 D
+ 409.83 940.33 409.83 940.33 409.83 940.33 D
+ 409.97 941.37 408.96 942.32 407.58 942.43 D
+ 406.91 942.49 406.24 942.55 405.58 942.6 D
+O
+4 X
+V
+0 X
+N
+402.65 938.34 M
+ 401.27 938.46 400.04 937.7 399.9 936.65 D
+ 399.9 936.65 399.9 936.65 399.9 936.65 D
+ 399.76 935.6 400.77 934.66 402.15 934.54 D
+ 402.82 934.48 403.48 934.43 404.15 934.37 D
+ 405.53 934.25 406.76 935.01 406.9 936.06 D
+ 406.9 936.06 406.9 936.06 406.9 936.06 D
+ 407.04 937.11 406.04 938.05 404.66 938.17 D
+ 403.99 938.23 403.32 938.28 402.65 938.34 D
+O
+4 X
+V
+0 X
+N
+399.56 934.09 M
+ 398.18 934.21 396.95 933.45 396.81 932.4 D
+ 396.81 932.4 396.81 932.4 396.81 932.4 D
+ 396.67 931.35 397.67 930.4 399.05 930.29 D
+ 399.72 930.23 400.39 930.18 401.06 930.12 D
+ 402.44 930 403.67 930.76 403.81 931.81 D
+ 403.81 931.81 403.81 931.81 403.81 931.81 D
+ 403.95 932.86 402.94 933.8 401.56 933.92 D
+ 400.89 933.98 400.23 934.03 399.56 934.09 D
+O
+4 X
+V
+0 X
+N
+396.48 947.71 M
+ 395.1 947.83 393.86 947.07 393.73 946.02 D
+ 393.73 946.02 393.73 946.02 393.73 946.02 D
+ 393.59 944.97 394.59 944.03 395.97 943.91 D
+ 396.64 943.86 397.31 943.8 397.98 943.74 D
+ 399.36 943.63 400.59 944.39 400.73 945.43 D
+ 400.73 945.43 400.73 945.43 400.73 945.43 D
+ 400.87 946.48 399.86 947.43 398.48 947.54 D
+ 397.81 947.6 397.14 947.66 396.48 947.71 D
+O
+4 X
+V
+0 X
+N
+393.38 943.46 M
+ 392 943.58 390.77 942.82 390.63 941.77 D
+ 390.63 941.77 390.63 941.77 390.63 941.77 D
+ 390.49 940.72 391.5 939.78 392.88 939.66 D
+ 393.55 939.61 394.22 939.55 394.89 939.49 D
+ 396.27 939.38 397.5 940.13 397.64 941.18 D
+ 397.64 941.18 397.64 941.18 397.64 941.18 D
+ 397.77 942.23 396.77 943.18 395.39 943.29 D
+ 394.72 943.35 394.05 943.41 393.38 943.46 D
+O
+4 X
+V
+0 X
+N
+390.46 939.2 M
+ 389.08 939.31 387.85 938.56 387.71 937.51 D
+ 387.71 937.51 387.71 937.51 387.71 937.51 D
+ 387.57 936.46 388.57 935.51 389.95 935.4 D
+ 390.62 935.34 391.29 935.29 391.96 935.23 D
+ 393.34 935.11 394.57 935.87 394.71 936.92 D
+ 394.71 936.92 394.71 936.92 394.71 936.92 D
+ 394.85 937.97 393.84 938.91 392.46 939.03 D
+ 391.8 939.09 391.13 939.14 390.46 939.2 D
+O
+4 X
+V
+0 X
+N
+387.36 934.95 M
+ 385.99 935.06 384.75 934.31 384.61 933.26 D
+ 384.61 933.26 384.61 933.26 384.61 933.26 D
+ 384.48 932.21 385.48 931.26 386.86 931.15 D
+ 387.53 931.09 388.2 931.03 388.87 930.98 D
+ 390.25 930.86 391.48 931.62 391.62 932.67 D
+ 391.62 932.67 391.62 932.67 391.62 932.67 D
+ 391.76 933.72 390.75 934.66 389.37 934.78 D
+ 388.7 934.84 388.03 934.89 387.36 934.95 D
+O
+4 X
+V
+0 X
+N
+388.14 948.41 M
+ 386.76 948.53 385.53 947.77 385.39 946.72 D
+ 385.39 946.72 385.39 946.72 385.39 946.72 D
+ 385.25 945.67 386.26 944.73 387.64 944.61 D
+ 388.3 944.56 388.97 944.5 389.64 944.45 D
+ 391.02 944.33 392.25 945.09 392.39 946.14 D
+ 392.39 946.14 392.39 946.14 392.39 946.14 D
+ 392.53 947.18 391.53 948.13 390.15 948.25 D
+ 389.48 948.3 388.81 948.36 388.14 948.41 D
+O
+4 X
+V
+0 X
+N
+385.05 944.16 M
+ 383.67 944.28 382.44 943.52 382.3 942.47 D
+ 382.3 942.47 382.3 942.47 382.3 942.47 D
+ 382.16 941.42 383.16 940.48 384.54 940.36 D
+ 385.21 940.31 385.88 940.25 386.55 940.2 D
+ 387.93 940.08 389.16 940.84 389.3 941.89 D
+ 389.3 941.89 389.3 941.89 389.3 941.89 D
+ 389.44 942.93 388.43 943.88 387.05 943.99 D
+ 386.39 944.05 385.72 944.11 385.05 944.16 D
+O
+4 X
+V
+0 X
+N
+382.12 939.9 M
+ 380.74 940.02 379.51 939.26 379.37 938.21 D
+ 379.37 938.21 379.37 938.21 379.37 938.21 D
+ 379.23 937.16 380.24 936.21 381.62 936.1 D
+ 382.29 936.04 382.95 935.99 383.62 935.93 D
+ 385 935.81 386.23 936.57 386.37 937.62 D
+ 386.37 937.62 386.37 937.62 386.37 937.62 D
+ 386.51 938.67 385.51 939.61 384.13 939.73 D
+ 383.46 939.79 382.79 939.84 382.12 939.9 D
+O
+4 X
+V
+0 X
+N
+379.03 935.65 M
+ 377.65 935.77 376.42 935.01 376.28 933.96 D
+ 376.28 933.96 376.28 933.96 376.28 933.96 D
+ 376.14 932.91 377.15 931.96 378.52 931.85 D
+ 379.19 931.79 379.86 931.74 380.53 931.68 D
+ 381.91 931.56 383.14 932.32 383.28 933.37 D
+ 383.28 933.37 383.28 933.37 383.28 933.37 D
+ 383.42 934.42 382.42 935.36 381.04 935.48 D
+ 380.37 935.54 379.7 935.59 379.03 935.65 D
+O
+4 X
+V
+0 X
+N
+380.49 949.22 M
+ 379.11 949.34 377.88 948.59 377.74 947.53 D
+ 377.74 947.53 377.74 947.53 377.74 947.53 D
+ 377.6 946.49 378.61 945.54 379.99 945.42 D
+ 380.66 945.37 381.33 945.31 381.99 945.26 D
+ 383.38 945.14 384.61 945.9 384.74 946.95 D
+ 384.74 946.95 384.74 946.95 384.74 946.95 D
+ 384.88 948 383.88 948.94 382.5 949.06 D
+ 381.83 949.11 381.16 949.17 380.49 949.22 D
+O
+4 X
+V
+0 X
+N
+377.4 944.97 M
+ 376.02 945.09 374.79 944.33 374.65 943.29 D
+ 374.65 943.29 374.65 943.29 374.65 943.29 D
+ 374.51 942.23 375.52 941.29 376.9 941.17 D
+ 377.57 941.12 378.23 941.06 378.9 941.01 D
+ 380.28 940.89 381.51 941.65 381.65 942.7 D
+ 381.65 942.7 381.65 942.7 381.65 942.7 D
+ 381.79 943.74 380.79 944.69 379.41 944.81 D
+ 378.74 944.86 378.07 944.92 377.4 944.97 D
+O
+4 X
+V
+0 X
+N
+374.47 940.71 M
+ 373.1 940.83 371.86 940.07 371.72 939.02 D
+ 371.72 939.02 371.72 939.02 371.72 939.02 D
+ 371.58 937.97 372.59 937.03 373.97 936.91 D
+ 374.64 936.85 375.31 936.8 375.98 936.74 D
+ 377.36 936.62 378.59 937.38 378.73 938.43 D
+ 378.73 938.43 378.73 938.43 378.73 938.43 D
+ 378.87 939.48 377.86 940.42 376.48 940.54 D
+ 375.81 940.6 375.14 940.65 374.47 940.71 D
+O
+4 X
+V
+0 X
+N
+371.38 936.46 M
+ 370 936.58 368.77 935.82 368.63 934.77 D
+ 368.63 934.77 368.63 934.77 368.63 934.77 D
+ 368.49 933.72 369.5 932.78 370.88 932.66 D
+ 371.55 932.6 372.22 932.55 372.88 932.49 D
+ 374.26 932.37 375.49 933.13 375.63 934.18 D
+ 375.63 934.18 375.63 934.18 375.63 934.18 D
+ 375.77 935.23 374.77 936.17 373.39 936.29 D
+ 372.72 936.35 372.05 936.4 371.38 936.46 D
+O
+4 X
+V
+0 X
+N
+3 2 Q
+(SAFE) 0 354 388.65 953.12 TF
+0 0 0 0 1 1 1 1 K
+7 X
+(W) 0 354 399.48 952.21 TF
+(ORD) 0 354 401.32 952.01 TF
+0 0 0 1 0 0 0 1 K
+387.23 953 415.91 950.59 2 L
+0 X
+N
+(P) 0 354 402.95 949.13 TF
+(L) 0 354 405.39 948.88 TF
+(A) 0 354 407.71 948.63 TF
+(T) 0 354 410.25 948.36 TF
+(I) 0 354 412.57 948.12 TF
+(U) 0 354 414.23 947.95 TF
+(M) 0 354 416.77 947.68 TF
+0 0 0 0 1 1 1 1 K
+4 F
+7 X
+(ON) 0 354 341.5 936.99 TF
+3 F
+(C) 0 354 407.16 943.96 TF
+3 1.6 Q
+(LR) 0 354 408.59 943.8 TF
+3 2 Q
+(B) 0 354 403.73 939.73 TF
+3 1.6 Q
+(KSP) 0 354 405.17 939.58 TF
+3 2 Q
+(P) 0 354 401.81 935.38 TF
+3 1.6 Q
+(IN) 0 354 403.13 935.24 TF
+3 2 Q
+(E) 0 354 398.4 931.33 TF
+3 1.6 Q
+(NTR) 0 354 399.73 931.19 TF
+3 2 Q
+(A) 0 354 370.86 933.35 TF
+(7) 0 354 373.88 937.11 TF
+(4) 0 354 377.04 941.85 TF
+(1) 0 354 380.15 946.27 TF
+(2) 0 354 387.74 944.96 TF
+(5) 0 354 384.52 941.06 TF
+(8) 0 354 381.7 936.28 TF
+(0) 0 354 378.62 932.2 TF
+(B) 0 354 386.98 931.66 TF
+(9) 0 354 389.74 935.94 TF
+(6) 0 354 393.33 940.15 TF
+(3) 0 354 396.12 944.59 TF
+350.2 949.6 359.16 948.51 355.2 942.83 344.91 944.03 4 Y
+3 H
+N
+354.18 949.1 357.4 946.66 2 L
+N
+357.19 946.34 353.25 943.33 2 L
+N
+354.47 948.74 349.75 943.63 2 L
+1 H
+N
+349.86 944.45 351.71 944.46 353.1 946.02 351.68 946.8 352.32 947.75 350.86 948.21 350.35 946.92
+ 348.95 946.53 347.52 944.65 350.84 945.54 348.52 944.56 11 L
+N
+0 0 0 1 0 0 0 1 K
+282 967.57 471 967.57 2 L
+0.5 H
+0 X
+N
+270 417.6 486 986.4 C
+-45 351 1053 1053 C
+270 837.87 486 846.04 C
+0 0 0 1 0 0 0 1 K
+283.5 842.54 472.5 842.54 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+774 966.15 990 972.4 C
+0 0 0 1 0 0 0 1 K
+989.25 969.15 773.25 969.15 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+FMENDPAGE
+%%EndPage: "1" 1
+%%Page: "2" 2
+612 1008 1 FMBEGINPAGE
+0 FrameSetSepColors
+FrameNoSep
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+0 14 Q
+0 X
+(Modempool Numbers) 60.87 977.07 T
+1 10 Q
+(F) 18.3 961.73 T
+(or the most up-to-date modempool info, please visit:) 23.71 961.73 T
+0 F
+(http://cts.central/ras/mod-a.html) 56.28 949.73 T
+0 14 Q
+(Modempool T) 579.37 977.07 T
+(ips) 663.51 977.07 T
+1 10 Q
+(T) 522 961.73 T
+(o mak) 527.31 961.73 T
+(e the best use of the Sun modempools, please) 551.93 961.73 T
+(observ) 522 949.73 T
+(e the follo) 548.51 949.73 T
+(wing modempool tips:) 588.81 949.73 T
+(\245) 522 929.73 T
+0 F
+(Do) 531 929.73 T
+1 F
+( al) 543.22 929.73 T
+(w) 552.84 929.73 T
+(ays use the lo) 559.96 929.73 T
+(west-cost method a) 613.87 929.73 T
+(v) 690.88 929.73 T
+(ailable.) 695.63 929.73 T
+(Al) 531 917.73 T
+(w) 540.9 917.73 T
+(ays use the local number) 548.02 917.73 T
+(, e) 646.49 917.73 T
+(xcept in Canada,) 655.78 917.73 T
+(where the 800 number is the lo) 531 905.73 T
+(west-cost method.) 654.62 905.73 T
+(\245) 522 887.73 T
+0 F
+(Do) 531 887.73 T
+1 F
+( observ) 543.22 887.73 T
+(e security) 572.23 887.73 T
+(. Al) 610.18 887.73 T
+(w) 625.08 887.73 T
+(ays log out when not in) 632.2 887.73 T
+(sight of your computer) 531 875.73 T
+(.) 621.83 875.73 T
+0 F
+(\245) 522 857.73 T
+(Do) 531 857.73 T
+1 F
+( log out whene) 543.22 857.73 T
+(v) 602.13 857.73 T
+(er possible. When using email,) 606.98 857.73 T
+(you may not need to remain connected. Do) 531 845.73 T
+(wnload) 702.94 845.73 T
+(mail) 531 833.73 T
+(\336les) 551.25 833.73 T
+(and) 570.4 833.73 T
+(read) 587.31 833.73 T
+(them) 606.99 833.73 T
+(of) 629.47 833.73 T
+(\337ine.) 637.55 833.73 T
+(Generate) 660.3 833.73 T
+(ne) 698.86 833.73 T
+(w) 708.05 833.73 T
+(mail) 717.75 833.73 T
+(while of) 531 821.73 T
+(\337ine and in the disconnected mode.) 563.8 821.73 T
+(\245) 522 803.73 T
+0 F
+(Don\325t) 531 803.73 T
+1 F
+( maintain a session unnecessarily) 555.44 803.73 T
+(. Once you) 687.55 803.73 T
+(ha) 531 791.73 T
+(v) 540.24 791.73 T
+(e completed your w) 545.09 791.73 T
+(ork, log out promptly) 624.14 791.73 T
+(.) 709.05 791.73 T
+(Staying connected not only costs Sun mone) 531 779.73 T
+(y) 705.29 779.73 T
+(, b) 709.64 779.73 T
+(ut) 719.44 779.73 T
+(you) 531 767.73 T
+(are) 548.34 767.73 T
+(also) 562.88 767.73 T
+(occup) 581.33 767.73 T
+(ying) 605.11 767.73 T
+(a) 625.22 767.73 T
+(modem) 632 767.73 T
+(port) 664.33 767.73 T
+(that) 682.78 767.73 T
+(someone) 700.11 767.73 T
+(else may need.) 531 755.73 T
+(\245) 522 737.73 T
+0 F
+(Do) 531 737.73 T
+1 F
+( consider using Sun.Net if you use Remote) 543.22 737.73 T
+(Access primarily for mail, and ha) 531 725.73 T
+(v) 664.66 725.73 T
+(e an Internet) 669.51 725.73 T
+(Service Pro) 531 713.73 T
+(vider \050ISP\051 for access to the Internet.) 577.23 713.73 T
+0 F
+(\245) 522 695.73 T
+(Do) 531 695.73 T
+1 F
+( consider cancelling your Remote Access) 543.22 695.73 T
+(account) 531 683.73 T
+(if) 564.28 683.73 T
+(you) 572.56 683.73 T
+(currently) 589.74 683.73 T
+(ha) 628.01 683.73 T
+(v) 637.25 683.73 T
+(e) 642.1 683.73 T
+(an) 648.72 683.73 T
+(account,) 660.34 683.73 T
+(b) 696.11 683.73 T
+(ut) 700.91 683.73 T
+(do) 710.87 683.73 T
+(not) 723.04 683.73 T
+(use it. A) 531 671.73 T
+(v) 563.87 671.73 T
+(oid unnecessary fees by submitting a) 568.67 671.73 T
+(ServiceDesk request to cancel Remote Access.) 531 659.73 T
+0 14 Q
+(Getting Inf) 539.95 637.07 T
+(o and Getting Help) 606.09 637.07 T
+1 10 Q
+(F) 522 621.73 T
+(or) 527.41 621.73 T
+(more) 537.93 621.73 T
+(information) 560.68 621.73 T
+(about) 610.09 621.73 T
+(connecting) 634.51 621.73 T
+(to) 680.59 621.73 T
+(Sun,) 690.56 621.73 T
+(please) 710.82 621.73 T
+(visit the) 522 609.73 T
+2 F
+(Connecting to Sun) 556.45 609.73 T
+1 F
+( website at:) 630.34 609.73 T
+0 F
+(http://cts.central/) 593.2 597.73 T
+1 F
+(F) 522 581.73 T
+(or all problems, please use ServiceDesk:) 527.41 581.73 T
+0 F
+(http://ser) 522 565.73 T
+(vicedesk) 561.34 565.73 T
+1 F
+(If you are unable to use ServiceDesk, please contact) 522 549.73 T
+(the nearest RC or Remote Service Center \050P) 522 537.73 T
+(ac Rim\051:) 698.21 537.73 T
+0 F
+(x27000) 522 521.73 T
+1 F
+( or \050303\051272-7000 in the Americas) 552 521.73 T
+0 F
+(x15555) 522 509.73 T
+1 F
+( or +31-33-454-2555 in Europe) 552 509.73 T
+0 F
+(x55119) 522 497.73 T
+1 F
+( or +81-3-5717-5119 in Japan) 552 497.73 T
+0 F
+(x56056) 522 485.73 T
+1 F
+( or +82-2-3469-0056 in K) 552 485.73 T
+(orea) 655.61 485.73 T
+0 F
+(x28168) 522 473.73 T
+1 F
+( or +852-2820-0168 in China/T) 552 473.73 T
+(aiw) 677.39 473.73 T
+(an) 691.73 473.73 T
+0 F
+(x56401) 522 461.73 T
+1 F
+( or +65-239-2401 in Asia South) 552 461.73 T
+0 F
+(x57300) 522 449.73 T
+1 F
+( or +61-2-9844-5300 in Australia /NZ) 552 449.73 T
+1 14 Q
+(Sun Information Resources) 805.4 977.07 T
+0 18 Q
+(T) 795.91 872.4 T
+(ok) 806.26 872.4 T
+(en Card Essentials) 825.08 872.4 T
+5 8 Q
+(Sun Micr) 774 496.67 T
+(osystems, Inc.) 807.62 496.67 T
+6 F
+(901 San Antonio Rd.) 774 486.67 T
+(Palo Alto, CA 94303-4900 U.S.A.) 774 476.67 T
+(Part) 774 456.67 T
+(Number:) 790.46 456.67 T
+(806-0172-10) 829.84 456.67 T
+(Rev) 925.04 456.67 T
+7 F
+(P) 940.59 456.67 T
+6 F
+(,) 944.45 456.67 T
+(09/22/1999) 948.3 456.67 T
+1 10 Q
+(Sun Proprietary/Con\336dential: Internal Use Only) 785.9 440.08 T
+0 F
+(T) 87.3 915.73 T
+(able 1: Americas) 93.05 915.73 T
+(Location) 38.71 893.73 T
+(Local #) 113.9 893.73 T
+(\050800\051 #) 183.42 893.73 T
+1 8 Q
+(CA: Menlo P) 20 875.07 T
+(ark) 62.55 875.07 T
+(650-568-3947) 99.2 875.07 T
+(1-800-224-4479) 164 875.07 T
+(CA: Milpitas) 20 857.07 T
+(408-942-2500) 99.2 857.07 T
+(1-800-727-4230) 164 857.07 T
+(CO: Broom\336eld) 20 839.07 T
+(303-466-7023) 99.2 839.07 T
+(1-800-779-7029) 164 839.07 T
+(MA: Chelmsford) 20 821.07 T
+(978-250-5600) 99.2 821.07 T
+(1-800-727-0344) 164 821.07 T
+(Ar) 20 803.07 T
+(gen: Buenos Aires) 28.3 803.07 T
+(317-5675) 114.27 803.07 T
+(n/a) 193.11 803.07 T
+(Brazil: Sao P) 20 785.07 T
+(aulo) 62.1 785.07 T
+(518-185-30) 110.94 785.07 T
+(n/a) 193.11 785.07 T
+(Canada) 20 767.07 T
+(n/a) 124.71 767.07 T
+(1-800-795-1108) 164 767.07 T
+(Colombia:  Bogot\207) 20 749.07 T
+(tbd) 99.2 749.07 T
+(tbd) 164 749.07 T
+(Me) 20 731.07 T
+(x: M\216xico City) 30.54 731.07 T
+(525-261-0392) 99.2 731.07 T
+(1-800-711-2297) 164 731.07 T
+0 10 Q
+(T) 83.04 705.73 T
+(able 2: P) 88.79 705.73 T
+(aci\336c Rim) 125.91 705.73 T
+(Location) 38.71 683.73 T
+(Local #) 113.9 683.73 T
+(Inter) 169.74 683.73 T
+(national) 191.25 683.73 T
+1 8 Q
+(Aus: Adelaide) 20 665.07 T
+(8-8231-7988) 99.2 665.07 T
+(+61-8-8231-7988) 164 665.07 T
+(Aus: Brisbane) 20 647.07 T
+(7-3221-6860) 99.2 647.07 T
+(+61-7-3221- 6860) 164 647.07 T
+(Aus: Canberra) 20 629.07 T
+(2-6217-5599) 99.2 629.07 T
+(+61-2-6217-5599) 164 629.07 T
+(Aus: Melbourne) 20 611.07 T
+(3-968-5103) 99.2 611.07 T
+(+61-3-9686-5103) 164 611.07 T
+(Aus: Perth) 20 593.07 T
+(8-9388-2466) 99.2 593.07 T
+(+61-8-9388-2466) 164 593.07 T
+(Aus: Sydne) 20 575.07 T
+(y) 56.99 575.07 T
+(2-9844-5141) 99.2 575.07 T
+(+61-2-9844-5141) 164 575.07 T
+(China: Beijing) 20 557.07 T
+(6804-2526) 99.2 557.07 T
+(+86-10-68042526) 164 557.07 T
+(China: Shanghai) 20 539.07 T
+(6445-4150) 99.2 539.07 T
+(+86-10-6445-4150) 164 539.07 T
+(Hong K) 20 521.07 T
+(ong) 45.27 521.07 T
+(2827-6670) 99.2 521.07 T
+(+852-2827-6670) 164 521.07 T
+(India: Bang) 20 503.07 T
+(alore) 57.51 503.07 T
+(558-0133) 99.2 503.07 T
+(+91-80-558-0133) 164 503.07 T
+(Japan: Osaka) 20 485.07 T
+(0120-219-222) 99.2 485.07 T
+(+81-6-6265-8317) 164 485.07 T
+(Japan: T) 20 467.07 T
+(ok) 46.69 467.07 T
+(yo) 54.57 467.07 T
+(0120-808-204) 99.2 467.07 T
+(+81-3-5717-2522) 164 467.07 T
+(K) 20 449.07 T
+(orea: Seoul) 25.5 449.07 T
+(563-8711) 99.2 449.07 T
+(+82-2-563-8711) 164 449.07 T
+(Mal: K) 20 431.07 T
+(uala Lumpur) 42.77 431.07 T
+(264-3481) 99.2 431.07 T
+(+60-3-264-3481) 164 431.07 T
+18 906.15 18 724.65 2 L
+V
+0.5 H
+0 Z
+N
+97.2 906.65 97.2 724.15 2 L
+V
+N
+162 906.65 162 724.15 2 L
+V
+N
+234 906.15 234 724.65 2 L
+V
+N
+17.75 906.4 234.25 906.4 2 L
+V
+N
+18.25 887.65 233.75 887.65 2 L
+V
+N
+18.25 885.15 233.75 885.15 2 L
+V
+N
+17.75 868.4 234.25 868.4 2 L
+V
+N
+17.75 850.4 234.25 850.4 2 L
+V
+N
+17.75 832.4 234.25 832.4 2 L
+V
+N
+17.75 814.4 234.25 814.4 2 L
+V
+N
+17.75 796.4 234.25 796.4 2 L
+V
+N
+17.75 778.4 234.25 778.4 2 L
+V
+N
+17.75 760.4 234.25 760.4 2 L
+V
+N
+17.75 742.4 234.25 742.4 2 L
+V
+N
+17.75 724.4 234.25 724.4 2 L
+V
+N
+18 696.15 18 424.65 2 L
+V
+N
+97.2 696.65 97.2 424.15 2 L
+V
+N
+162 696.65 162 424.15 2 L
+V
+N
+234 696.15 234 424.65 2 L
+V
+N
+17.75 696.4 234.25 696.4 2 L
+V
+N
+18.25 677.65 233.75 677.65 2 L
+V
+N
+18.25 675.15 233.75 675.15 2 L
+V
+N
+17.75 658.4 234.25 658.4 2 L
+V
+N
+17.75 640.4 234.25 640.4 2 L
+V
+N
+17.75 622.4 234.25 622.4 2 L
+V
+N
+17.75 604.4 234.25 604.4 2 L
+V
+N
+17.75 586.4 234.25 586.4 2 L
+V
+N
+17.75 568.4 234.25 568.4 2 L
+V
+N
+17.75 550.4 234.25 550.4 2 L
+V
+N
+17.75 532.4 234.25 532.4 2 L
+V
+N
+17.75 514.4 234.25 514.4 2 L
+V
+N
+17.75 496.4 234.25 496.4 2 L
+V
+N
+17.75 478.4 234.25 478.4 2 L
+V
+N
+17.75 460.4 234.25 460.4 2 L
+V
+N
+17.75 442.4 234.25 442.4 2 L
+V
+N
+17.75 424.4 234.25 424.4 2 L
+V
+N
+(NZ: Auckland) 272 939.07 T
+(9-379-6636) 351.2 939.07 T
+(+64-9-379- 6636) 416 939.07 T
+(NZ: W) 272 921.07 T
+(ellington) 293.8 921.07 T
+(4-473-4300) 351.2 921.07 T
+(+64-4-473-4300) 416 921.07 T
+(Sing) 272 903.07 T
+(apore) 286.63 903.07 T
+(438-7649) 351.2 903.07 T
+(+65-438-7649) 416 903.07 T
+(T) 272 885.07 T
+(aiw) 276.25 885.07 T
+(an: T) 287.72 885.07 T
+(aipei) 303.74 885.07 T
+(2717-0650) 351.2 885.07 T
+(886-2-2717-0650) 416 885.07 T
+(Thailand: Bangk) 272 867.07 T
+(ok) 325.47 867.07 T
+(636-1567) 351.2 867.07 T
+(+66-2-636-1567) 416 867.07 T
+0 10 Q
+(T) 323.55 841.73 T
+(able 3: Eur) 329.3 841.73 T
+(ope to Africa) 376.9 841.73 T
+(Location) 290.71 819.73 T
+(Local #) 365.9 819.73 T
+(Inter) 421.74 819.73 T
+(national) 443.25 819.73 T
+1 8 Q
+(Belgium: Brussels) 272 801.07 T
+(02-720-2474) 351.2 801.07 T
+(+32-2-720-2474) 416 801.07 T
+(Czech Rep: Prague) 272 783.07 T
+(02-2431-1911) 351.2 783.07 T
+(+42-02-2431-1911) 416 783.07 T
+(Finland: Helsinki) 272 765.07 T
+(0-8009-5255) 351.2 765.07 T
+(+358-9-5255-6276) 416 765.07 T
+(France: Grenoble) 272 747.07 T
+(04-7641-4266) 351.2 747.07 T
+(+33-4-7641-4266) 416 747.07 T
+(France: V) 272 729.07 T
+(elizy) 302.88 729.07 T
+(01-3458-2690) 351.2 729.07 T
+(+33-1-3458-2690) 416 729.07 T
+(German) 272 711.07 T
+(y: Munich) 297.65 711.07 T
+(089-460-6321) 351.2 711.07 T
+(+49-89 460 6321) 416 711.07 T
+(Greece: Athens) 272 693.07 T
+(01-680-8848) 351.2 693.07 T
+(+30-1-680-8848) 416 693.07 T
+(Hung) 272 675.07 T
+(ary: Budapest) 289.74 675.07 T
+(1-457-9177) 351.2 675.07 T
+(+36-1-457-9177) 416 675.07 T
+(Ireland: Dublin) 272 657.07 T
+(855-9044) 351.2 657.07 T
+(+353-1-855-9044) 416 657.07 T
+(Israel: T) 272 639.07 T
+(el A) 298.32 639.07 T
+(vi) 311.28 639.07 T
+(v) 317.3 639.07 T
+(954-8188) 351.2 639.07 T
+(+972-9-954-8188) 416 639.07 T
+(Italy: Milan) 272 621.07 T
+(39-689-9410) 351.2 621.07 T
+(+39-39-689-9410) 416 621.07 T
+(Netherl: Amersfoort) 272 603.07 T
+(033-457-0570) 351.2 603.07 T
+(+31-33-457-0570) 416 603.07 T
+(Poland: W) 272 585.07 T
+(arsa) 305.36 585.07 T
+(w) 318.12 585.07 T
+(01-874-7860) 351.2 585.07 T
+(+48-22-874-7860) 416 585.07 T
+(RSA: Johannesb) 272 567.07 T
+(ur) 324.95 567.07 T
+(g) 331.47 567.07 T
+(805-4703) 351.2 567.07 T
+(+27-11-805-4703) 416 567.07 T
+(Scotland:Linlithgo) 272 549.07 T
+(w) 331.81 549.07 T
+(01506-670-833) 351.2 549.07 T
+(+44-1506-670-833) 416 549.07 T
+(Spain: Madrid) 272 531.07 T
+(91-556-1913) 351.2 531.07 T
+(+34-91-556-1913) 416 531.07 T
+(Sweden: Stockholm) 272 513.07 T
+(08-5947-4160) 351.2 513.07 T
+(+46-8-5947-4160) 416 513.07 T
+(Switzerland: Zurich) 272 495.07 T
+(01-826-0104) 351.2 495.07 T
+(+41-1-826-0104) 416 495.07 T
+(U) 272 477.07 T
+(AE: Dubai) 277.46 477.07 T
+(01-367-447) 351.2 477.07 T
+(+971-4-367-447) 416 477.07 T
+(UK: F) 272 459.07 T
+(arnborough) 292.1 459.07 T
+(0125-375-886) 351.2 459.07 T
+(+44-1252-372-600) 416 459.07 T
+(UK: W) 272 441.07 T
+(atchmoor) 294.69 441.07 T
+(01276-671-304) 351.2 441.07 T
+(+44-1276-671-304) 416 441.07 T
+0 10 Q
+(T) 335.04 979.73 T
+(able 2: P) 340.79 979.73 T
+(aci\336c Rim) 377.91 979.73 T
+(Location) 290.71 957.73 T
+(Local #) 365.9 957.73 T
+(Inter) 421.74 957.73 T
+(national) 443.25 957.73 T
+270 970.15 270 860.65 2 L
+V
+N
+349.2 970.65 349.2 860.15 2 L
+V
+N
+414 970.65 414 860.15 2 L
+V
+N
+486 970.15 486 860.65 2 L
+V
+N
+269.75 970.4 486.25 970.4 2 L
+V
+N
+270.25 951.65 485.75 951.65 2 L
+V
+N
+270.25 949.15 485.75 949.15 2 L
+V
+N
+269.75 932.4 486.25 932.4 2 L
+V
+N
+269.75 914.4 486.25 914.4 2 L
+V
+N
+269.75 896.4 486.25 896.4 2 L
+V
+N
+269.75 878.4 486.25 878.4 2 L
+V
+N
+269.75 860.4 486.25 860.4 2 L
+V
+N
+270 832.15 270 434.65 2 L
+V
+N
+349.2 832.65 349.2 434.15 2 L
+V
+N
+414 832.65 414 434.15 2 L
+V
+N
+486 832.15 486 434.65 2 L
+V
+N
+269.75 832.4 486.25 832.4 2 L
+V
+N
+270.25 813.65 485.75 813.65 2 L
+V
+N
+270.25 811.15 485.75 811.15 2 L
+V
+N
+269.75 794.4 486.25 794.4 2 L
+V
+N
+269.75 776.4 486.25 776.4 2 L
+V
+N
+269.75 758.4 486.25 758.4 2 L
+V
+N
+269.75 740.4 486.25 740.4 2 L
+V
+N
+269.75 722.4 486.25 722.4 2 L
+V
+N
+269.75 704.4 486.25 704.4 2 L
+V
+N
+269.75 686.4 486.25 686.4 2 L
+V
+N
+269.75 668.4 486.25 668.4 2 L
+V
+N
+269.75 650.4 486.25 650.4 2 L
+V
+N
+269.75 632.4 486.25 632.4 2 L
+V
+N
+269.75 614.4 486.25 614.4 2 L
+V
+N
+269.75 596.4 486.25 596.4 2 L
+V
+N
+269.75 578.4 486.25 578.4 2 L
+V
+N
+269.75 560.4 486.25 560.4 2 L
+V
+N
+269.75 542.4 486.25 542.4 2 L
+V
+N
+269.75 524.4 486.25 524.4 2 L
+V
+N
+269.75 506.4 486.25 506.4 2 L
+V
+N
+269.75 488.4 486.25 488.4 2 L
+V
+N
+269.75 470.4 486.25 470.4 2 L
+V
+N
+269.75 452.4 486.25 452.4 2 L
+V
+N
+269.75 434.4 486.25 434.4 2 L
+V
+N
+774 417.6 990 986.4 C
+0 0 0 1 0 0 0 1 K
+774 670 990 836.4 C
+0 0 0 1 0 0 0 1 K
+779 723.58 978.75 798.7 R
+7 X
+V
+0 20 657 137 701 199.75 75.12 779 723.58 FMBEGINEPSF
+%%BeginDocument: <inline>
+%!PS-Adobe-3.0 EPSF-3.0%%Creator: Adobe Illustrator(TM) 5.5%%For: (Lynn Griggs) (Manual 3, Inc.)%%Title: (SMI.eps)%%CreationDate: (12/27/95) (1:46 PM)%%BoundingBox: 20 657 137 701%%HiResBoundingBox: 20.25 657.25 136.5 701%%DocumentProcessColors: Black%%DocumentFonts: AvantGarde-Book%%DocumentSuppliedResources: procset Adobe_level2_AI5 1.0 0%%+ procset Adobe_typography_AI5 1.0 0%%+ procset Adobe_IllustratorA_AI5 1.0 0%AI5_FileFormat 1.2%AI3_ColorUsage: Black&White%AI3_TemplateBox: 288 360 288 360%AI3_TileBox: 13 -5 565 725%AI3_DocumentPreview: Macintosh_Pic%AI5_ArtSize: 612 792%AI5_RulerUnits: 1%AI5_ArtFlags: 1 0 0 1 0 0 1 1 0%AI5_TargetResolution: 800%AI5_NumLayers: 1%AI5_OpenToView: -288 768 1 826 581 18 0 1 3 40%AI5_OpenViewLayers: 7%%EndComments%%BeginProlog%%BeginResource: procset Adobe_level2_AI5 1.0 0%%Title: (Adobe Illustrator (R) Version 5.0 Level 2 Emulation)%%Version: 1.0 %%CreationDate: (04/10/93) ()%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)userdict /Adobe_level2_AI5 21 dict dup begin	put	/packedarray where not	{		userdict begin		/packedarray		{			array astore readonly		} bind def		/setpacking /pop load def		/currentpacking false def	 end		0	} if	pop	userdict /defaultpacking currentpacking put true setpacking	/initialize	{		Adobe_level2_AI5 begin	} bind def	/terminate	{		currentdict Adobe_level2_AI5 eq		{		 end		} if	} bind def	mark	/setcustomcolor where not	{		/findcmykcustomcolor		{			5 packedarray		} bind def		/setcustomcolor		{			exch aload pop pop			4			{				4 index mul 4 1 roll			} repeat			5 -1 roll pop			setcmykcolor		}		def	} if		/gt38? mark {version cvx exec} stopped {cleartomark true} {38 gt exch pop} ifelse def	userdict /deviceDPI 72 0 matrix defaultmatrix dtransform dup mul exch dup mul add sqrt put	userdict /level2?	systemdict /languagelevel known dup	{		pop systemdict /languagelevel get 2 ge	} if	put	level2? not	{		/setcmykcolor where not		{			/setcmykcolor			{				exch .11 mul add exch .59 mul add exch .3 mul add				1 exch sub setgray			} def		} if		/currentcmykcolor where not		{			/currentcmykcolor			{				0 0 0 1 currentgray sub			} def		} if		/setoverprint where not		{			/setoverprint /pop load def		} if		/selectfont where not		{			/selectfont			{				exch findfont exch				dup type /arraytype eq				{					makefont				}				{					scalefont				} ifelse				setfont			} bind def		} if		/cshow where not		{			/cshow			{				[				0 0 5 -1 roll aload pop				] cvx bind forall			} bind def		} if	} if	cleartomark	/anyColor?	{		add add add 0 ne	} bind def	/testColor	{		gsave		setcmykcolor currentcmykcolor		grestore	} bind def	/testCMYKColorThrough	{		testColor anyColor?	} bind def	userdict /composite?	level2?	{		gsave 1 1 1 1 setcmykcolor currentcmykcolor grestore		add add add 4 eq	}	{		1 0 0 0 testCMYKColorThrough		0 1 0 0 testCMYKColorThrough		0 0 1 0 testCMYKColorThrough		0 0 0 1 testCMYKColorThrough		and and and	} ifelse	put	composite? not	{		userdict begin		gsave		/cyan? 1 0 0 0 testCMYKColorThrough def		/magenta? 0 1 0 0 testCMYKColorThrough def		/yellow? 0 0 1 0 testCMYKColorThrough def		/black? 0 0 0 1 testCMYKColorThrough def		grestore		/isCMYKSep? cyan? magenta? yellow? black? or or or def		/customColor? isCMYKSep? not def	 end	} if end defaultpacking setpacking%%EndResource%%BeginResource: procset Adobe_typography_AI5 1.0 1%%Title: (Typography Operators)%%Version: 1.0 %%CreationDate:(03/26/93) ()%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)currentpacking true setpackinguserdict /Adobe_typography_AI5 54 dict dup beginput/initialize{ begin begin	Adobe_typography_AI5 begin	Adobe_typography_AI5	{		dup xcheck		{			bind		} if		pop pop	} forall end end end	Adobe_typography_AI5 begin} def/terminate{	currentdict Adobe_typography_AI5 eq	{	 end	} if} def/modifyEncoding{	/_tempEncode exch ddef	/_pntr 0 ddef	{		counttomark -1 roll		dup type dup /marktype eq		{			pop pop exit		}		{			/nametype eq			{				_tempEncode /_pntr dup load dup 3 1 roll 1 add ddef 3 -1 roll				put			}			{				/_pntr exch ddef			} ifelse		} ifelse	} loop	_tempEncode} def/TE{	StandardEncoding 256 array copy modifyEncoding	/_nativeEncoding exch def} def%/TZ{	dup type /arraytype eq	{		/_wv exch def	}	{		/_wv 0 def	} ifelse	/_useNativeEncoding exch def	pop pop	findfont _wv type /arraytype eq	{		_wv makeblendedfont	} if	dup length 2 add dict begin	mark exch	{		1 index /FID ne		{			def		} if		cleartomark mark	} forall	pop	/FontName exch def	counttomark 0 eq	{		1 _useNativeEncoding eq		{			/Encoding _nativeEncoding def		} if		cleartomark	}	{		/Encoding load 256 array copy		modifyEncoding /Encoding exch def	} ifelse	FontName currentdict end	definefont pop} def/tr{	_ax _ay 3 2 roll} def/trj{	_cx _cy _sp _ax _ay 6 5 roll} def/a0{	/Tx	{		dup		currentpoint 3 2 roll		tr _psf		newpath moveto		tr _ctm _pss	} ddef	/Tj	{		dup		currentpoint 3 2 roll		trj _pjsf		newpath moveto		trj _ctm _pjss	} ddef} def/a1{	/Tx	{		dup currentpoint 4 2 roll gsave		dup currentpoint 3 2 roll		tr _psf		newpath moveto		tr _ctm _pss		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll gsave		dup currentpoint 3 2 roll		trj _pjsf		newpath moveto		trj _ctm _pjss		grestore 3 1 roll moveto tr jsp	} ddef} def/e0{	/Tx	{		tr _psf	} ddef	/Tj	{		trj _pjsf	} ddef} def/e1{	/Tx	{		dup currentpoint 4 2 roll gsave		tr _psf		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll gsave		trj _pjsf		grestore 3 1 roll moveto tr jsp	} ddef} def/i0{	/Tx	{		tr sp	} ddef	/Tj	{		trj jsp	} ddef} def/i1{	W N} def/o0{	/Tx	{		tr sw rmoveto	} ddef	/Tj	{		trj swj rmoveto	} ddef} def/r0{	/Tx	{		tr _ctm _pss	} ddef	/Tj	{		trj _ctm _pjss	} ddef} def/r1{	/Tx	{		dup currentpoint 4 2 roll currentpoint gsave newpath moveto		tr _ctm _pss		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll currentpoint gsave newpath moveto		trj _ctm _pjss		grestore 3 1 roll moveto tr jsp	} ddef} def/To{	pop _ctm currentmatrix pop} def/TO{	iTe _ctm setmatrix newpath} def/Tp{	pop _tm astore pop _ctm setmatrix	_tDict begin	/W	{	} def	/h	{	} def} def/TP{ end	iTm 0 0 moveto} def/Tr{	_render 3 le	{		currentpoint newpath moveto	} if	dup 8 eq	{		pop 0	}	{		dup 9 eq		{			pop 1		} if	} ifelse	dup /_render exch ddef	_renderStart exch get load exec} def/iTm{	_ctm setmatrix _tm concat 0 _rise translate _hs 1 scale} def/Tm{	_tm astore pop iTm 0 0 moveto} def/Td{	_mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto} def/iTe{	_render -1 eq	{	}	{		_renderEnd _render get dup null ne		{			load exec		}		{			pop		} ifelse	} ifelse	/_render -1 ddef} def/Ta{	pop} def/Tf{	dup 1000 div /_fScl exch ddef%	selectfont} def/Tl{	pop	0 exch _leading astore pop} def/Tt{	pop} def/TW{	3 npop} def/Tw{	/_cx exch ddef} def/TC{	3 npop} def/Tc{	/_ax exch ddef} def/Ts{	/_rise exch ddef	currentpoint	iTm	moveto} def/Ti{	3 npop} def/Tz{	100 div /_hs exch ddef	iTm} def/TA{	pop} def/Tq{	pop} def/Th{	pop pop pop pop pop} def/TX{	pop} def/Tk{	exch pop _fScl mul neg 0 rmoveto} def/TK{	2 npop} def/T*{	_leading aload pop neg Td} def/T*-{	_leading aload pop Td} def/T-{	_hyphen Tx} def/T+{} def/TR{	_ctm currentmatrix pop	_tm astore pop	iTm 0 0 moveto} def/TS{	currentfont 3 1 roll	/_Symbol_ _fScl 1000 mul selectfont		0 eq	{		Tx	}	{		Tj	} ifelse	setfont} def/Xb{	pop pop} def/Tb /Xb load def/Xe{	pop pop pop pop} def/Te /Xe load def/XB{} def/TB /XB load defcurrentdict readonly popendsetpacking%%EndResource%%BeginResource: procset Adobe_IllustratorA_AI5 1.1 0%%Title: (Adobe Illustrator (R) Version 5.0 Abbreviated Prolog)%%Version: 1.1 %%CreationDate: (3/7/1994) ()%%Copyright: ((C) 1987-1994 Adobe Systems Incorporated All Rights Reserved)currentpacking true setpackinguserdict /Adobe_IllustratorA_AI5_vars 70 dict dup beginput/_lp /none def/_pf{} def/_ps{} def/_psf{} def/_pss{} def/_pjsf{} def/_pjss{} def/_pola 0 def/_doClip 0 def/cf currentflat def/_tm matrix def/_renderStart[/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def/_renderEnd[null null null null /i1 /i1 /i1 /i1] def/_render -1 def/_rise 0 def/_ax 0 def/_ay 0 def/_cx 0 def/_cy 0 def/_leading[0 0] def/_ctm matrix def/_mtx matrix def/_sp 16#020 def/_hyphen (-) def/_fScl 0 def/_cnt 0 def/_hs 1 def/_nativeEncoding 0 def/_useNativeEncoding 0 def/_tempEncode 0 def/_pntr 0 def/_tDict 2 dict def/_wv 0 def/Tx{} def/Tj{} def/CRender{} def/_AI3_savepage{} def/_gf null def/_cf 4 array def/_if null def/_of false def/_fc{} def/_gs null def/_cs 4 array def/_is null def/_os false def/_sc{} def/discardSave null def/buffer 256 string def/beginString null def/endString null def/endStringLength null def/layerCnt 1 def/layerCount 1 def/perCent (%) 0 get def/perCentSeen? false def/newBuff null def/newBuffButFirst null def/newBuffLast null def/clipForward? false defenduserdict /Adobe_IllustratorA_AI5 74 dict dup beginput/initialize{	Adobe_IllustratorA_AI5 dup begin	Adobe_IllustratorA_AI5_vars begin	discardDict	{		bind pop pop	} forall	dup /nc get begin	{		dup xcheck 1 index type /operatortype ne and		{			bind		} if		pop pop	} forall end	newpath} def/terminate{ end end} def/_null def/ddef{	Adobe_IllustratorA_AI5_vars 3 1 roll put} def/xput{	dup load dup length exch maxlength eq	{		dup dup load dup		length 2 mul dict copy def	} if	load begin	def end} def/npop{	{		pop	} repeat} def/sw{	dup length exch stringwidth	exch 5 -1 roll 3 index mul add	4 1 roll 3 1 roll mul add} def/swj{	dup 4 1 roll	dup length exch stringwidth	exch 5 -1 roll 3 index mul add	4 1 roll 3 1 roll mul add	6 2 roll /_cnt 0 ddef	{		1 index eq		{			/_cnt _cnt 1 add ddef		} if	} forall	pop	exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop} def/ss{	4 1 roll	{		2 npop		(0) exch 2 copy 0 exch put pop		gsave		false charpath currentpoint		4 index setmatrix		stroke		grestore		moveto		2 copy rmoveto	} exch cshow	3 npop} def/jss{	4 1 roll	{		2 npop		(0) exch 2 copy 0 exch put		gsave		_sp eq		{			exch 6 index 6 index 6 index 5 -1 roll widthshow			currentpoint		}		{			false charpath currentpoint			4 index setmatrix stroke		} ifelse		grestore		moveto		2 copy rmoveto	} exch cshow	6 npop} def/sp{	{		2 npop (0) exch		2 copy 0 exch put pop		false charpath		2 copy rmoveto	} exch cshow	2 npop} def/jsp{	{		2 npop		(0) exch 2 copy 0 exch put		_sp eq		{			exch 5 index 5 index 5 index 5 -1 roll widthshow		}		{			false charpath		} ifelse		2 copy rmoveto	} exch cshow	5 npop} def/pl{	transform	0.25 sub round 0.25 add exch	0.25 sub round 0.25 add exch	itransform} def/setstrokeadjust where{	pop true setstrokeadjust	/c	{		curveto	} def	/C	/c load def	/v	{		currentpoint 6 2 roll curveto	} def	/V	/v load def	/y	{		2 copy curveto	} def	/Y	/y load def	/l	{		lineto	} def	/L	/l load def	/m	{		moveto	} def}{	/c	{		pl curveto	} def	/C	/c load def	/v	{		currentpoint 6 2 roll pl curveto	} def	/V	/v load def	/y	{		pl 2 copy curveto	} def	/Y	/y load def	/l	{		pl lineto	} def	/L	/l load def	/m	{		pl moveto	} def} ifelse/d{	setdash} def/cf{} def/i{	dup 0 eq	{		pop cf	} if	setflat} def/j{	setlinejoin} def/J{	setlinecap} def/M{	setmiterlimit} def/w{	setlinewidth} def/H{} def/h{	closepath} def/N{	_pola 0 eq	{		_doClip 1 eq		{			clip /_doClip 0 ddef		} if		newpath	}	{		/CRender		{			N		} ddef	} ifelse} def/n{	N} def/F{	_pola 0 eq	{		_doClip 1 eq		{			gsave _pf grestore clip newpath /_lp /none ddef _fc			/_doClip 0 ddef		}		{			_pf		} ifelse	}	{		/CRender		{			F		} ddef	} ifelse} def/f{	closepath	F} def/S{	_pola 0 eq	{		_doClip 1 eq		{			gsave _ps grestore clip newpath /_lp /none ddef _sc			/_doClip 0 ddef		}		{			_ps		} ifelse	}	{		/CRender		{			S		} ddef	} ifelse} def/s{	closepath	S} def/B{	_pola 0 eq	{		_doClip 1 eq		gsave F grestore		{			gsave S grestore clip newpath /_lp /none ddef _sc			/_doClip 0 ddef		}		{			S		} ifelse	}	{		/CRender		{			B		} ddef	} ifelse} def/b{	closepath	B} def/W{	/_doClip 1 ddef} def/*{	count 0 ne	{		dup type /stringtype eq		{			pop		} if	} if	newpath} def/u{} def/U{} def/q{	_pola 0 eq	{		gsave	} if} def/Q{	_pola 0 eq	{		grestore	} if} def/*u{	_pola 1 add /_pola exch ddef} def/*U{	_pola 1 sub /_pola exch ddef	_pola 0 eq	{		CRender	} if} def/D{	pop} def/*w{} def/*W{} def/`{	/_i save ddef	clipForward?	{		nulldevice	} if	6 1 roll 4 npop	concat pop	userdict begin	/showpage	{	} def	0 setgray	0 setlinecap	1 setlinewidth	0 setlinejoin	10 setmiterlimit	[] 0 setdash	/setstrokeadjust where {pop false setstrokeadjust} if	newpath	0 setgray	false setoverprint} def/~{ end	_i restore} def/O{	0 ne	/_of exch ddef	/_lp /none ddef} def/R{	0 ne	/_os exch ddef	/_lp /none ddef} def/g{	/_gf exch ddef	/_fc	{		_lp /fill ne		{			_of setoverprint			_gf setgray			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/G{	/_gs exch ddef	/_sc	{		_lp /stroke ne		{			_os setoverprint			_gs setgray			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/k{	_cf astore pop	/_fc	{		_lp /fill ne		{			_of setoverprint			_cf aload pop setcmykcolor			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/K{	_cs astore pop	/_sc	{		_lp /stroke ne		{			_os setoverprint			_cs aload pop setcmykcolor			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/x{	/_gf exch ddef	findcmykcustomcolor	/_if exch ddef	/_fc	{		_lp /fill ne		{			_of setoverprint			_if _gf 1 exch sub setcustomcolor			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/X{	/_gs exch ddef	findcmykcustomcolor	/_is exch ddef	/_sc	{		_lp /stroke ne		{			_os setoverprint			_is _gs 1 exch sub setcustomcolor			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/A{	pop} def/annotatepage{userdict /annotatepage 2 copy known {get exec} {pop pop} ifelse} def/discard{	save /discardSave exch store	discardDict begin	/endString exch store	gt38?	{		2 add	} if	load	stopped	pop end	discardSave restore} bind defuserdict /discardDict 7 dict dup beginput/pre38Initialize{	/endStringLength endString length store	/newBuff buffer 0 endStringLength getinterval store	/newBuffButFirst newBuff 1 endStringLength 1 sub getinterval store	/newBuffLast newBuff endStringLength 1 sub 1 getinterval store} def/shiftBuffer{	newBuff 0 newBuffButFirst putinterval	newBuffLast 0	currentfile read not	{	stop	} if	put} def0{	pre38Initialize	mark	currentfile newBuff readstring exch pop	{		{			newBuff endString eq			{				cleartomark stop			} if			shiftBuffer		} loop	}	{	stop	} ifelse} def1{	pre38Initialize	/beginString exch store	mark	currentfile newBuff readstring exch pop	{		{			newBuff beginString eq			{				/layerCount dup load 1 add store			}			{				newBuff endString eq				{					/layerCount dup load 1 sub store					layerCount 0 eq					{						cleartomark stop					} if				} if			} ifelse			shiftBuffer		} loop	}	{	stop	} ifelse} def2{	mark	{		currentfile buffer readline not		{		stop		} if		endString eq		{			cleartomark stop		} if	} loop} def3{	/beginString exch store	/layerCnt 1 store	mark	{		currentfile buffer readline not		{		stop		} if		dup beginString eq		{			pop /layerCnt dup load 1 add store		}		{			endString eq			{				layerCnt 1 eq				{					cleartomark stop				}				{					/layerCnt dup load 1 sub store				} ifelse			} if		} ifelse	} loop} defenduserdict /clipRenderOff 15 dict dup beginput{	/n /N /s /S /f /F /b /B}{	{		_doClip 1 eq		{			/_doClip 0 ddef clip		} if		newpath	} def} forall/Tr /pop load def/Bb {} def/BB /pop load def/Bg {12 npop} def/Bm {6 npop} def/Bc /Bm load def/Bh {4 npop} defend/Lb{	4 npop	6 1 roll	pop	4 1 roll	pop pop pop	0 eq	{		0 eq		{			(%AI5_BeginLayer) 1 (%AI5_EndLayer--) discard		}		{			/clipForward? true def						/Tx /pop load def			/Tj /pop load def			currentdict end clipRenderOff begin begin		} ifelse	}	{		0 eq		{			save /discardSave exch store		} if	} ifelse} bind def/LB{	discardSave dup null ne	{		restore	}	{		pop		clipForward?		{			currentdict		 end		 end		 begin						/clipForward? false ddef		} if	} ifelse} bind def/Pb{	pop pop	0 (%AI5_EndPalette) discard} bind def/Np{	0 (%AI5_End_NonPrinting--) discard} bind def/Ln /pop load def/Ap/pop load def/Ar{	72 exch div	0 dtransform dup mul exch dup mul add sqrt	dup 1 lt	{		pop 1	} if	setflat} def/Mb{	q} def/Md{} def/MB{	Q} def/nc 3 dict defnc begin/setgray{	pop} bind def/setcmykcolor{	4 npop} bind def/setcustomcolor{	2 npop} bind defcurrentdict readonly popendcurrentdict readonly popendsetpacking%%EndResource%%EndProlog%%BeginSetup%%IncludeFont: AvantGarde-BookAdobe_level2_AI5 /initialize get execAdobe_IllustratorA_AI5_vars Adobe_IllustratorA_AI5 Adobe_typography_AI5 /initialize get execAdobe_IllustratorA_AI5 /initialize get exec[39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla/hungarumlaut/ogonek/caronTE%AI3_BeginEncoding: _AvantGarde-Book AvantGarde-Book[/_AvantGarde-Book/AvantGarde-Book 0 0 1 TZ%AI3_EndEncoding AdobeType%AI5_BeginPalette27 14 PbPnPc1 gPc0 gPc0 0 0 0 kPc0.75 gPc0.5 gPc0.25 gPc0 gPc0 0 0 0 kPc0.25 0 0 0 kPc0.5 0 0 0 kPc0.75 0 0 0 kPc1 0 0 0 kPc0.25 0.25 0 0 kPc0.5 0.5 0 0 kPc0.75 0.75 0 0 kPc1 1 0 0 kPc0 0 0 0 kPc0 0.25 0 0 kPc0 0.5 0 0 kPc0 0.75 0 0 kPc0 1 0 0 kPc0 0.25 0.25 0 kPc0 0.5 0.5 0 kPc0 0.75 0.75 0 kPc0 1 1 0 kPc0 0 0 0 kPc0 0 0.25 0 kPc0 0 0.5 0 kPc0 0 0.75 0 kPc0 0 1 0 kPc0.25 0 0.25 0 kPc0.5 0 0.5 0 kPc0.75 0 0.75 0 kPc1 0 1 0 kPcPB%AI5_EndPalette%%EndSetup%AI5_BeginLayer1 1 1 1 0 0 0 79 128 255 Lb(Layer 1) Ln0 Auu0 O1 g800 Ar0 J 0 j 1 w 4 M []0 d%AI3_Note:0 D136.5 657.25 m136.5 701 L20.25 701 L20.25 657.25 L136.5 657.25 Lf78.375 679.125 mFUu0 g52.592 667.791 m51.092 666.291 l44.576 672.806 l41.904 675.478 45.835 679.041 48.46 676.369 C54.748 670.088 l53.276 668.588 l47.442 674.494 L46.656 675.267 45.906 674.47 46.656 673.72 C52.592 667.791 lf39.695 671.728 m38.148 670.181 l44.546 663.783 l47.218 661.111 50.945 664.838 48.25 667.533 C41.898 673.884 l40.392 672.419 l46.351 666.478 L47.078 665.752 46.398 665.025 45.718 665.705 C39.695 671.728 lf52.404 686.166 m50.904 684.666 l44.389 691.181 l41.717 693.853 45.648 697.416 48.273 694.744 C54.56 688.463 l53.089 686.963 l47.254 692.869 L46.468 693.642 45.718 692.845 46.468 692.095 C52.404 686.166 lf39.507 690.103 m37.96 688.556 l44.359 682.158 l47.031 679.486 50.757 683.213 48.062 685.908 C41.71 692.259 l40.204 690.794 l46.164 684.853 L46.89 684.127 46.21 683.4 45.531 684.08 C39.507 690.103 lf53.171 673.252 m51.671 674.752 l58.187 681.267 l60.859 683.939 64.421 680.008 61.75 677.383 C55.468 671.095 l53.968 672.567 l59.875 678.402 L60.648 679.187 59.851 679.937 59.101 679.187 C53.171 673.252 lf57.109 686.148 m55.562 687.695 l49.164 681.297 l46.492 678.625 50.218 674.898 52.914 677.594 C59.265 683.945 l57.8 685.451 l51.859 679.492 L51.132 678.766 50.406 679.445 51.085 680.125 C57.109 686.148 lf34.796 673.158 m33.296 674.658 l39.812 681.173 l42.484 683.845 46.046 679.914 43.375 677.289 C37.093 671.002 l35.593 672.473 l41.5 678.308 L42.273 679.094 41.476 679.844 40.726 679.094 C34.796 673.158 lf38.734 686.055 m37.187 687.602 l30.789 681.203 l28.117 678.531 31.843 674.805 34.539 677.5 C40.89 683.852 l39.425 685.358 l33.484 679.398 L32.757 678.672 32.031 679.352 32.71 680.031 C38.734 686.055 lf79.375 686.752 m78.062 687.314 74.968 688.345 72.343 687.127 c69.718 685.908 68.781 684.408 68.781 682.064 c68.781 679.72 70.38 678.569 72.343 677.658 c74.968 676.439 76.562 677.377 76.468 674.939 c76.429 673.904 76 672.502 74.125 672.502 c71.68 672.502 70.488 673.437 70.562 674.47 c70.656 675.783 69.906 676.439 69.25 675.502 C69.25 671.377 L69.718 670.533 69.812 670.627 70.843 670.533 c71.875 670.439 75.343 670.252 76.468 670.908 c77.593 671.564 79.093 672.502 79.656 673.158 c80.218 673.814 80.593 674.752 80.593 676.345 c80.593 677.939 80.031 679.345 78.156 680.095 c75.618 681.11 74.031 681.314 73.375 682.72 c72.718 684.127 73.141 685.158 74.125 685.72 c74.781 686.095 76.75 686.095 77.125 685.908 c77.5 685.72 78.01 684.901 78.062 684.22 c78.156 683.002 79.468 682.814 79.656 683.939 c79.843 685.064 79.562 685.345 79.75 685.627 c79.937 685.908 80.031 686.377 79.375 686.752 Cf87.718 685.158 m87.718 676.345 L87.718 672.502 93.625 673.72 93.625 675.689 C93.625 683.377 L93.062 684.22 92.875 684.877 91.656 684.877 c90.437 684.877 90.062 686.658 91.187 686.564 c92.312 686.47 93.531 686.564 94.375 686.47 c95.218 686.377 96.25 686.658 96.625 686.939 c97 687.22 97.75 687.595 97.937 686.845 C97.937 673.814 L98.687 672.877 98.968 672.689 99.343 672.595 c99.718 672.502 100.187 671.189 99.062 671.095 c97.937 671.002 97.375 671.189 96.531 671.189 c95.687 671.189 94.843 671.002 94.093 670.908 c93.343 670.814 93.437 671.095 93.437 671.564 c93.437 672.033 93.343 672.502 93.343 672.877 c93.343 673.252 92.875 673.533 92.125 672.783 c91.375 672.033 89.875 670.814 87.812 670.814 c85.75 670.814 83.875 672.22 83.593 673.345 C83.593 683.939 L83.125 684.502 82.75 684.595 82.093 684.689 c81.437 684.783 81.062 686.47 82 686.47 c82.937 686.47 83.968 686.658 84.718 686.47 c85.468 686.283 86.406 686.564 86.687 686.845 c86.968 687.127 87.718 687.408 87.906 686.752 c88.093 686.095 88 685.439 87.718 685.158 Cfu118.746 673.158 m118.09 673.252 117.996 673.064 117.527 673.627 C117.527 684.408 L117.246 685.533 116.59 687.408 112.746 687.408 c110.683 687.408 109.09 686.47 108.34 685.72 c107.59 684.97 107.215 684.97 107.215 685.345 c107.215 685.72 107.121 686.189 107.121 686.658 c107.121 687.127 106.746 687.408 106.465 687.314 c105.748 687.075 104.965 686.47 104.121 686.47 c103.277 686.47 102.621 686.377 101.496 686.283 c100.371 686.189 100.84 684.877 101.215 684.783 c101.59 684.689 101.777 685.064 102.527 684.127 C102.527 674.283 L102.433 673.627 101.636 672.97 100.699 672.502 c99.761 672.033 100.09 671.377 101.027 671.283 C108.902 671.283 l110.027 671.189 109.578 672.527 108.386 672.783 c107.074 673.064 107.496 674.002 106.933 674.845 C106.933 682.252 L106.933 684.22 112.84 685.439 112.84 681.595 C112.84 673.064 L112.558 672.783 112.301 672.056 112.652 671.47 c112.793 671.236 112.886 671.33 113.355 671.236 C118.886 671.236 L119.261 671.611 119.683 672.689 118.746 673.158 CfU0 To0.375 0 0 0.375 93.437 662.845 0 TpTP-66.0238 0 Td0 Tr/_AvantGarde-Book 19 Tf0 Ts100 Tz53 Tt0 TA%_ 0 XL36 0 XbXB0 0 5 TC100 100 200 TW0 0 0 Ti1 Ta0 0 2 2 3 Th0 Tq12 0 Tl1.0069 Tc0 Tw(microsystems) Tx (\r) TX TOUULB%AI5_EndLayer--%%PageTrailergsave annotatepage grestore showpage%%TrailerAdobe_IllustratorA_AI5 /terminate get execAdobe_typography_AI5 /terminate get execAdobe_level2_AI5 /terminate get exec%%EOF
+%%EndDocument
+FMENDEPSF
+774 417.6 990 986.4 C
+-45 351 1053 1053 C
+774 448.75 990 454 C
+0 0 0 1 0 0 0 1 K
+990.75 451.75 774.75 451.75 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+FMENDPAGE
+%%EndPage: "2" 2
+%%Page: "1" 3
+612 1008 1 FMBEGINPAGE
+0 FrameSetSepColors
+[
+/Creator (FrameMaker 5.5.6.)
+/Title (tce-19990402_P2)
+/CreationDate (D:19960429000055)
+/ModDate (D:19990922102521)
+/DOCINFO FmPD2
+FrameNoSep
+0 0 0 1 0 0 0 1 K
+J
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+0 14 Q
+0 X
+(Getting Y) 35.71 977.07 T
+(our T) 92.88 977.07 T
+(ok) 125.43 977.07 T
+(en Card PIN) 140.07 977.07 T
+1 10 Q
+(The) 18 957.73 T
+(T) 35.99 957.73 T
+(ok) 41.3 957.73 T
+(en) 51.2 957.73 T
+(Card) 63.08 957.73 T
+(\050Enigma) 84.96 957.73 T
+(Card\051) 121.84 957.73 T
+(is) 147.05 957.73 T
+(your) 156.17 957.73 T
+(k) 176.94 957.73 T
+(e) 181.84 957.73 T
+(y) 186.13 957.73 T
+(to) 193.57 957.73 T
+(remote) 203.79 957.73 T
+(connecti) 18 945.73 T
+(vity at Sun Microsystems. It is a passw) 51.63 945.73 T
+(ord) 207.64 945.73 T
+(generator that you use each time you mak) 18 933.73 T
+(e a remote) 184.81 933.73 T
+(connection. It calculates an alphanumeric passw) 18 921.73 T
+(ord) 210.63 921.73 T
+(which grants you access for that one login session.) 18 909.73 T
+0 F
+(BEFORE y) 18 889.73 T
+(ou dial in f) 66.37 889.73 T
+(or the \336rst time, y) 111.97 889.73 T
+(ou must) 188.09 889.73 T
+(get y) 18 877.73 T
+(our T) 38.02 877.73 T
+(ok) 61.27 877.73 T
+(en Card PIN.) 71.73 877.73 T
+1 F
+(Y) 131.17 877.73 T
+(ou can no) 137.29 877.73 T
+(w get your) 175.92 877.73 T
+(T) 18 865.73 T
+(ok) 23.31 865.73 T
+(en Card PIN online an) 33.21 865.73 T
+(ytime \05024 hours a day) 122.49 865.73 T
+(, 7) 209.05 865.73 T
+(days a week\051 at:) 18 853.73 T
+0 F
+(http://cts.central/ras/tcpin.html) 59.06 841.73 T
+(Note:) 18 825.73 T
+1 F
+(Y) 43.82 825.73 T
+(ou must be on a Sun Microsystems \050SW) 49.94 825.73 T
+(AN\051) 209.57 825.73 T
+(site in order to use the online PIN application.) 18 813.73 T
+(If you ha) 18 793.73 T
+(v) 53.9 793.73 T
+(e problems retrie) 58.75 793.73 T
+(ving your PIN \050or you are) 126.26 793.73 T
+(a contractor or temp\051, please contact the nearest) 18 781.73 T
+(Resolution) 18 769.73 T
+(Center) 63.72 769.73 T
+(.) 89.83 769.73 T
+(Please) 94.72 769.73 T
+(see) 122.65 769.73 T
+(the) 137.8 769.73 T
+(section) 152.41 769.73 T
+2 F
+(Getting) 183.12 769.73 T
+(Info) 215.51 769.73 T
+(and Getting Help) 18 757.73 T
+1 F
+(, on back, for contact information.) 87.44 757.73 T
+0 14 Q
+(Lost/Stolen/Br) 28.12 735.07 T
+(ok) 114.99 735.07 T
+(en T) 129.63 735.07 T
+(ok) 155.18 735.07 T
+(en Cards) 169.83 735.07 T
+1 10 Q
+(If your T) 18 719.73 T
+(ok) 53.3 719.73 T
+(en Card is lost or stolen,) 63.2 719.73 T
+0 F
+(immediately) 162.92 719.73 T
+1 F
+(notify) 18 707.73 T
+(the) 44.09 707.73 T
+(Resolution) 58.52 707.73 T
+(Center) 104.06 707.73 T
+(to) 132.92 707.73 T
+(deacti) 142.91 707.73 T
+(v) 166.54 707.73 T
+(ate) 171.29 707.73 T
+(the) 185.15 707.73 T
+(card.) 199.57 707.73 T
+(T) 221.49 707.73 T
+(o) 226.8 707.73 T
+(get) 18 695.73 T
+(a) 32.67 695.73 T
+(replacement) 39.57 695.73 T
+(card,) 90.89 695.73 T
+(submit) 113.05 695.73 T
+(a) 142.73 695.73 T
+(ServiceDesk) 149.63 695.73 T
+(request.) 202.62 695.73 T
+0 14 Q
+(Retur) 41.45 673.07 T
+(ning Y) 76.23 673.07 T
+(our T) 114.74 673.07 T
+(ok) 147.29 673.07 T
+(en Card) 161.94 673.07 T
+1 10 Q
+(T) 18 657.73 T
+(o return a T) 23.31 657.73 T
+(ok) 69.44 657.73 T
+(en Card that is damaged or that is no) 79.34 657.73 T
+(longer needed, please return the card by mail:) 18 645.73 T
+(               *Please do not FedEx returns*) 18 629.73 T
+0 F
+(US:) 27 609.73 T
+1 F
+(Sun Microsystems, Inc.) 27 597.73 T
+(500 Eldorado Blvd.) 27 585.73 T
+(\050S-B210\051 UBRM02-102) 27 573.73 T
+(Broom\336eld, CO 80021  USA) 27 561.73 T
+(Attn: T) 27 549.73 T
+(ok) 55.37 549.73 T
+(en Card Returns) 65.27 549.73 T
+0 F
+(Eur) 27 529.73 T
+(ope:) 43.49 529.73 T
+1 F
+(Sun Microsystems BV) 27 517.73 T
+(Attn: European Resolution Center AFT02) 27 505.73 T
+(2nd Floor \050C2\051) 27 493.73 T
+(Disk) 27 481.73 T
+(ette) 45.79 481.73 T
+(we) 59.98 481.73 T
+(g 2) 71.49 481.73 T
+(3821 AR Amersfoort) 27 469.73 T
+(Sun Proprietary/Con\336dential: Internal Use Only) 29.9 428.48 T
+0 14 Q
+(Using Y) 306.96 977.07 T
+(our T) 353.24 977.07 T
+(ok) 385.79 977.07 T
+(en Card) 400.43 977.07 T
+1 10 Q
+(\245) 270 909.37 T
+(Please) 279 909.37 T
+(read) 306.72 909.37 T
+(all) 326.11 909.37 T
+(instructions) 338.28 909.37 T
+(before) 387.12 909.37 T
+(using) 414.83 909.37 T
+(your) 438.67 909.37 T
+(T) 459.18 909.37 T
+(ok) 464.49 909.37 T
+(en) 474.39 909.37 T
+(Card) 279 897.37 T
+(\245) 270 885.37 T
+(Please ha) 279 885.37 T
+(v) 316.29 885.37 T
+(e your T) 321.14 885.37 T
+(ok) 354.22 885.37 T
+(en Card a) 364.12 885.37 T
+(v) 402.24 885.37 T
+(ailable before) 406.99 885.37 T
+(attempting to remotely connect to Sun\325) 279 873.37 T
+(s netw) 434.83 873.37 T
+(ork) 460.56 873.37 T
+(\245) 270 861.37 T
+(K) 279 861.37 T
+(eeping your T) 285.97 861.37 T
+(ok) 341.27 861.37 T
+(en Card PIN with your T) 351.17 861.37 T
+(ok) 450.08 861.37 T
+(en) 459.98 861.37 T
+(Card is a violation of Sun security) 279 849.37 T
+0 F
+(1. Dial into y) 270 821.21 T
+(our modempool \050or ISP f) 324.2 821.21 T
+(or Sun.Net\051) 430.61 821.21 T
+1 F
+(.) 480.05 821.21 T
+0 F
+(2. Once connected, y) 270 801.21 T
+(ou will be pr) 357.24 801.21 T
+(ompted f) 410.68 801.21 T
+(or y) 448.48 801.21 T
+(our) 465.17 801.21 T
+(T) 270 789.21 T
+(ok) 275.75 789.21 T
+(en) 286.21 789.21 T
+(Card) 298.35 789.21 T
+(ID) 322.71 789.21 T
+1 F
+(\050Sun.Net) 335.96 789.21 T
+(users,) 373.93 789.21 T
+(please) 399.12 789.21 T
+(see) 426.26 789.21 T
+(the) 441.17 789.21 T
+(section) 455.53 789.21 T
+2 F
+(Sun.Net Access) 270 777.21 T
+1 F
+(, at right, for URL information\051.) 331.1 777.21 T
+(Y) 270 759.21 T
+(our T) 276.12 759.21 T
+(ok) 297.26 759.21 T
+(en ID is your \336rst initial, last initial, and) 307.16 759.21 T
+(SunID. Y) 270 747.2 T
+(our \336rst and last initials are based on your) 307.23 747.2 T
+(name) 270 735.2 T
+(entry) 293.85 735.2 T
+(in) 316.6 735.2 T
+(the) 326.57 735.2 T
+(HR) 340.98 735.2 T
+(database.) 357.06 735.2 T
+(If) 396.19 735.2 T
+(you) 405.04 735.2 T
+(are) 422.23 735.2 T
+(a) 436.63 735.2 T
+(contractor) 443.27 735.2 T
+(or) 270 723.2 T
+(temp,) 280.65 723.2 T
+(your) 305.47 723.2 T
+(T) 326.12 723.2 T
+(ok) 331.43 723.2 T
+(en) 341.33 723.2 T
+(ID) 353.09 723.2 T
+(is) 365.95 723.2 T
+(your) 374.94 723.2 T
+(\336rst) 395.59 723.2 T
+(initial,) 413.47 723.2 T
+(last) 441.63 723.2 T
+(initial,) 457.84 723.2 T
+(the letter \322c\323 or \322t\323, and your SunID number) 270 711.2 T
+(. \050If you) 447.46 711.2 T
+(are using the Solaris PPP dialin windo) 270 699.2 T
+(w) 423.09 699.2 T
+(, the ID) 429.66 699.2 T
+(should) 270 687.2 T
+(be) 299.11 687.2 T
+(entered) 311 687.2 T
+(in) 342.87 687.2 T
+(the) 353.09 687.2 T
+(T) 367.76 687.2 T
+(ok) 373.07 687.2 T
+(en) 382.96 687.2 T
+(ID) 394.85 687.2 T
+(box) 407.84 687.2 T
+(prior) 425.28 687.2 T
+(to) 447.17 687.2 T
+(dialin.\051) 457.39 687.2 T
+0 F
+(3. The scr) 270 667.2 T
+(een displays a challenge number) 311.76 667.2 T
+(.) 448.55 667.2 T
+1 F
+(This challenge number appears in this format:) 270 655.2 T
+0 F
+(9 ####) 279.23 643.2 T
+1 F
+(  \050where #### is your four) 306.73 643.2 T
+(-digit challenge\051) 410.95 643.2 T
+0 F
+(4. The scr) 270 623.2 T
+(een will pr) 311.76 623.2 T
+(ompt y) 356.58 623.2 T
+(ou f) 386.05 623.2 T
+(or a passw) 402.19 623.2 T
+(ord) 447.09 623.2 T
+1 F
+(.) 462.09 623.2 T
+(Each passw) 270 611.2 T
+(ord is dynamically assigned using your) 316.83 611.2 T
+(T) 270 599.2 T
+(ok) 275.31 599.2 T
+(en Card, and is good for this session only) 285.21 599.2 T
+(.) 449.83 599.2 T
+0 F
+(5.) 270 579.2 T
+(T) 279.82 579.2 T
+(o) 285.57 579.2 T
+(tur) 292.89 579.2 T
+(n) 306.07 579.2 T
+(on) 313.94 579.2 T
+(the) 326.82 579.2 T
+(T) 342.47 579.2 T
+(ok) 348.22 579.2 T
+(en) 358.68 579.2 T
+(Card,) 371 579.2 T
+(pr) 398.04 579.2 T
+(ess) 407.86 579.2 T
+(the) 422.39 579.2 T
+(ON) 438.04 579.2 T
+(b) 455.36 579.2 T
+(utton.) 460.72 579.2 T
+1 F
+(The card\325) 270 567.2 T
+(s panel displays an EP prompt.) 308.04 567.2 T
+0 F
+(6. Enter y) 270 547.2 T
+(our 5-digit T) 311.69 547.2 T
+(ok) 365.22 547.2 T
+(en Card PIN.) 375.68 547.2 T
+1 F
+(The card\325) 270 535.2 T
+(s panel displays an EH prompt.) 308.04 535.2 T
+0 F
+(7. Enter the number nine \0509\051.) 270 515.2 T
+1 F
+(The card\325) 270 503.2 T
+(s panel displays a zero \0500\051.) 308.04 503.2 T
+0 F
+(8. Enter the 4-digit challenge \050####\051 fr) 270 483.21 T
+(om the) 432.3 483.21 T
+(scr) 270 471.21 T
+(een) 282.59 471.21 T
+(into) 299.35 471.21 T
+(the) 318.34 471.21 T
+(T) 334 471.21 T
+(ok) 339.75 471.21 T
+(en) 350.21 471.21 T
+(Card,) 362.53 471.21 T
+(and) 389.57 471.21 T
+(pr) 408.01 471.21 T
+(ess) 417.83 471.21 T
+(the) 432.37 471.21 T
+(Entr) 448.03 471.21 T
+(\050E\051) 470.35 471.21 T
+(k) 270 459.21 T
+(ey on the T) 275.46 459.21 T
+(ok) 322.04 459.21 T
+(en Card. Do not r) 332.5 459.21 T
+(e-enter the) 407.59 459.21 T
+(pr) 270 447.21 T
+(eceding nine \0509\051.) 279.82 447.21 T
+1 F
+(The card\325) 270 435.21 T
+(s panel displays an alphanumeric passw) 308.04 435.21 T
+(ord) 467.08 435.21 T
+(of 8 characters.) 270 423.21 T
+0 F
+(9. On y) 522 961.73 T
+(our terminal k) 552.59 961.73 T
+(eyboard, enter the) 614.71 961.73 T
+(alphanumeric passw) 522 949.73 T
+(ord that displays in the) 609.41 949.73 T
+(display panel of y) 522 937.73 T
+(our T) 596.49 937.73 T
+(ok) 619.74 937.73 T
+(en Card, and pr) 630.2 937.73 T
+(ess) 698.36 937.73 T
+(Retur) 522 925.73 T
+(n.) 546.84 925.73 T
+1 F
+(  The passw) 557.4 925.73 T
+(ord is NO) 604.79 925.73 T
+(T case-sensiti) 643.83 925.73 T
+(v) 698.29 925.73 T
+(e. The) 703.14 925.73 T
+(card\325) 522 913.73 T
+(s panel displays numbers zero \0500\051 through nine) 541.99 913.73 T
+(\0509\051 and letters A, C, E, F) 522 901.73 T
+(, H, and P) 619.8 901.73 T
+(.) 658.41 901.73 T
+0 F
+(Y) 663.41 901.73 T
+(ou must enter) 669.52 901.73 T
+(the passw) 522 889.73 T
+(ord within 30-45 seconds after the) 563.29 889.73 T
+(terminal has display) 522 877.73 T
+(ed the challenge, or the) 608.58 877.73 T
+(connection will timeout \050y) 522 865.73 T
+(ou\325ll need to r) 632.02 865.73 T
+(econnect\051.) 691.56 865.73 T
+(Caution:) 522 847.73 T
+1 F
+( Be careful) 559.78 847.73 T
+0 F
+(NO) 606.15 847.73 T
+(T) 620.75 847.73 T
+1 F
+( to press the Pin \050P\051 k) 627.42 847.73 T
+(e) 713.43 847.73 T
+(y on) 717.72 847.73 T
+(the T) 522 835.73 T
+(ok) 542.03 835.73 T
+(en Card while logging in. If you press the Pin) 551.93 835.73 T
+(\050P\051) 522 823.73 T
+(k) 536.47 823.73 T
+(e) 541.36 823.73 T
+(y) 545.66 823.73 T
+(on) 552.9 823.73 T
+(the) 565.15 823.73 T
+(card,) 579.61 823.73 T
+(you) 601.57 823.73 T
+(may) 618.81 823.73 T
+(change) 638.28 823.73 T
+(your) 668.84 823.73 T
+(T) 689.42 823.73 T
+(ok) 694.73 823.73 T
+(en) 704.63 823.73 T
+(Card) 716.31 823.73 T
+(PIN and lose your authentication ability) 522 811.73 T
+(.) 681.06 811.73 T
+(If you press the Pin \050P\051 k) 522 793.73 T
+(e) 621.89 793.73 T
+(y) 626.18 793.73 T
+(, the card\325) 630.53 793.73 T
+(s panel will) 670.24 793.73 T
+(display SP) 522 781.73 T
+(. Press the Clr \050C\051 k) 563.4 781.73 T
+(e) 642.74 781.73 T
+(y and then the ON) 647.03 781.73 T
+(b) 522 769.73 T
+(utton. Y) 526.8 769.73 T
+(our PIN will not change.) 558.48 769.73 T
+(If you do not press the Clr \050C\051 k) 522 751.73 T
+(e) 650.22 751.73 T
+(y) 654.51 751.73 T
+(, b) 658.86 751.73 T
+(ut enter other) 668.66 751.73 T
+(numbers instead, your PIN will change to the) 522 739.73 T
+(numbers you just entered!) 522 727.73 T
+0 F
+(10. Y) 522 707.73 T
+(ou ar) 543.11 707.73 T
+(e no) 565.43 707.73 T
+(w connected to Sun Micr) 582.83 707.73 T
+(osystems!) 688.75 707.73 T
+1 F
+(Be) 522 695.73 T
+(gin w) 532.96 695.73 T
+(ork, b) 555.36 695.73 T
+(ut remember you may see slo) 578.49 695.73 T
+(wer) 695.72 695.73 T
+(response times since you are w) 522 683.73 T
+(orking remotely) 646.04 683.73 T
+(.) 709.55 683.73 T
+0 14 Q
+( Sun.Net Access) 582.76 661.07 T
+1 10 Q
+(Sun.Net is an Internet site that pro) 522 645.73 T
+(vides Sun) 658.78 645.73 T
+(emplo) 522 633.73 T
+(yees with secure access to Sun's web-based) 546.9 633.73 T
+(resources through the Internet from a Ja) 522 621.73 T
+(v) 681.2 621.73 T
+(a-enabled,) 685.95 621.73 T
+(SSL \050Secure Sock) 522 609.73 T
+(et Layer\051 supported web bro) 594.67 609.73 T
+(wser) 707.72 609.73 T
+(.) 726.05 609.73 T
+(T) 522 593.73 T
+(o access Sun.Net, you need:) 527.31 593.73 T
+(\245) 522 581.73 T
+(A T) 531 581.73 T
+(ok) 546.03 581.73 T
+(en Card) 555.93 581.73 T
+(\245) 522 569.73 T
+(A web bro) 531 569.73 T
+(wser and access to the Internet) 572.96 569.73 T
+(T) 522 549.73 T
+(o get more information about Sun.Net, please visit:) 527.31 549.73 T
+0 F
+(http://cts.central/sun.net/) 576.39 537.73 T
+1 F
+(T) 522 517.73 T
+(o access the Sun.Net applications, please visit the) 527.31 517.73 T
+(Sun.Net site nearest to your current location:) 522 505.73 T
+0 F
+(http://sun.net/) 531 485.73 T
+1 F
+(\050US/W) 666 485.73 T
+(est\051) 693.53 485.73 T
+0 F
+(http://central.sun.net/) 531 473.73 T
+1 F
+(\050US/Central\051) 666 473.73 T
+0 F
+(http://eur) 531 461.73 T
+(o.sun.net/) 571.93 461.73 T
+1 F
+(\050Europe\051) 666 461.73 T
+0 F
+(http://pacrim.sun.net/) 531 449.73 T
+1 F
+(\050P) 666 449.73 T
+(ac. Rim\051) 674.74 449.73 T
+0 14 Q
+(T) 828.04 977.07 T
+(ok) 836.09 977.07 T
+(en Card F) 850.74 977.07 T
+(A) 910.14 977.07 T
+(Qs) 919.62 977.07 T
+0 10 Q
+(Q:) 774 955.48 T
+(Wh) 787.16 955.48 T
+(y) 802.57 955.48 T
+(do) 809.62 955.48 T
+(v) 822.23 955.48 T
+(ertical) 827.13 955.48 T
+(lines) 856.39 955.48 T
+(scr) 877.89 955.48 T
+(oll) 890.48 955.48 T
+(acr) 903.09 955.48 T
+(oss) 916.79 955.48 T
+(the) 931.62 955.48 T
+(display) 947 955.48 T
+(of) 979.62 955.48 T
+(the T) 774 943.48 T
+(ok) 795.58 943.48 T
+(en Card?) 806.04 943.48 T
+(A:) 774 931.48 T
+1 F
+(Entering your PIN incorrectly three consecuti) 787.05 931.48 T
+(v) 969.26 931.48 T
+(e) 974.11 931.48 T
+(times will cause the card to display scrolling lines.) 774 919.48 T
+(Lea) 774 907.48 T
+(v) 788.79 907.48 T
+(e the card on until it resets itself.) 793.64 907.48 T
+2 F
+(Don\325) 926.68 907.48 T
+(t turn of) 946.93 907.48 T
+(f) 978.98 907.48 T
+(the car) 774 895.48 T
+(d until it has r) 801.68 895.48 T
+(eset.) 857.99 895.48 T
+1 F
+( The card\325) 876.04 895.48 T
+(s panel will) 916.58 895.48 T
+(display EP once it has reset. This can tak) 774 883.48 T
+(e as long as) 937.49 883.48 T
+(10 minutes. After the card resets, enter your PIN. If) 774 871.48 T
+(the) 774 859.48 T
+(lines) 788.26 859.48 T
+(recur) 809.19 859.48 T
+(,) 829.33 859.48 T
+(submit) 833.88 859.48 T
+(a) 863.15 859.48 T
+(ServiceDesk) 869.63 859.48 T
+(request) 922.21 859.48 T
+(to) 953.14 859.48 T
+(obtain) 962.96 859.48 T
+(a replacement card.) 774 847.48 T
+0 F
+(Q: Wh) 774 831.48 T
+(y does the T) 803.02 831.48 T
+(ok) 853.49 831.48 T
+(en Card display \32200000000\323?) 863.95 831.48 T
+(A:) 774 819.48 T
+1 F
+(If) 786.79 819.48 T
+(the) 795.69 819.48 T
+(card) 810.16 819.48 T
+(displays) 829.61 819.48 T
+(eight) 864.63 819.48 T
+(0\325) 886.87 819.48 T
+(s,) 894.65 819.48 T
+(the) 903.28 819.48 T
+(programming) 917.75 819.48 T
+(has) 974.43 819.48 T
+(been lost, and the card will need to be replaced.) 774 807.48 T
+0 F
+(Q:) 774 791.48 T
+(Wh) 787.55 791.48 T
+(y) 802.96 791.48 T
+(do) 810.4 791.48 T
+(I) 823.39 791.48 T
+(r) 829.72 791.48 T
+(ecei) 833.98 791.48 T
+(v) 849.98 791.48 T
+(e) 854.88 791.48 T
+(2) 861.76 791.48 T
+(f) 869.2 791.48 T
+(our) 872.28 791.48 T
+(-digit) 886.91 791.48 T
+(challenges) 912.13 791.48 T
+(when) 958.45 791.48 T
+(I) 983.67 791.48 T
+(login, instead of the corr) 774 779.48 T
+(ect challenge of 9 ####?) 877.98 779.48 T
+(A:) 774 767.48 T
+1 F
+(Double-check that your T) 787.05 767.48 T
+(ok) 889.28 767.48 T
+(en Card ID w) 899.18 767.48 T
+(as) 953.23 767.48 T
+(entered) 774 755.48 T
+(correctly) 805.56 755.48 T
+(.) 840.45 755.48 T
+(If) 845.08 755.48 T
+(it) 853.86 755.48 T
+(w) 861.55 755.48 T
+(as) 868.67 755.48 T
+(entered) 879.13 755.48 T
+(correctly) 910.69 755.48 T
+(,) 945.58 755.48 T
+(your) 950.2 755.48 T
+(card) 970.66 755.48 T
+(has) 774 743.48 T
+(not) 789.4 743.48 T
+(been) 804.26 743.48 T
+(acti) 825.21 743.48 T
+(v) 839.4 743.48 T
+(ated) 844.15 743.48 T
+(correctly) 862.88 743.48 T
+(in) 900.5 743.48 T
+(the) 910.35 743.48 T
+(serv) 924.64 743.48 T
+(er) 941.15 743.48 T
+(database.) 951 743.48 T
+(Place a ServiceDesk request to acti) 774 731.48 T
+(v) 913.99 731.48 T
+(ate your card.) 918.74 731.48 T
+0 F
+(Q:) 774 715.48 T
+(Wh) 787.58 715.48 T
+(y) 802.99 715.48 T
+(does) 810.45 715.48 T
+(the) 831.81 715.48 T
+(terminal) 847.6 715.48 T
+(display) 886.73 715.48 T
+(\322) 919.77 715.48 T
+(Attack) 924.67 715.48 T
+(lock) 956.01 715.48 T
+(out) 973.64 715.48 T
+(acti) 774 703.48 T
+(v) 789.45 703.48 T
+(ated\323?) 794.35 703.48 T
+(A:) 774 691.48 T
+1 F
+(After four consecuti) 787.05 691.48 T
+(v) 867.33 691.48 T
+(e wrong passw) 872.18 691.48 T
+(ords, \322) 931.51 691.48 T
+(Attack) 957.37 691.48 T
+(lock) 774 679.48 T
+(out acti) 791.12 679.48 T
+(v) 820.59 679.48 T
+(ated\323 will display on your screen. Y) 825.34 679.48 T
+(ou) 968.38 679.48 T
+(must w) 774 667.48 T
+(ait 30 minutes for the attack lock) 803.07 667.48 T
+(out to clear) 934.62 667.48 T
+(.) 979.06 667.48 T
+(After 30 minutes, try logging in ag) 774 655.48 T
+(ain.) 913.11 655.48 T
+0 F
+(Q: Wh) 774 639.48 T
+(y does the terminal display \322Y) 803.02 639.48 T
+(our r) 931.08 639.48 T
+(ecord) 952.84 639.48 T
+(curr) 774 627.48 T
+(ently is in use\323?) 792.7 627.48 T
+(A:) 774 615.48 T
+1 F
+(This message indicates a locking issue within the) 787.05 615.48 T
+(authentication database. W) 774 603.48 T
+(ait \336) 881.23 603.48 T
+(v) 899.04 603.48 T
+(e minutes and then) 903.89 603.48 T
+(redial. The issue should be resolv) 774 591.48 T
+(ed.) 907.72 591.48 T
+0 14 Q
+(Changing Y) 785.09 568.82 T
+(our T) 855.5 568.82 T
+(ok) 888.05 568.82 T
+(en Card PIN) 902.69 568.82 T
+0 10 Q
+(1.) 774 553.48 T
+(Pr) 783.76 553.48 T
+(ess) 794.13 553.48 T
+(the) 808.61 553.48 T
+(T) 824.2 553.48 T
+(ok) 829.95 553.48 T
+(en) 840.41 553.48 T
+(Card\325) 852.67 553.48 T
+(s) 877.85 553.48 T
+(On) 884 553.48 T
+(b) 899.6 553.48 T
+(utton) 904.96 553.48 T
+(to) 930 553.48 T
+(tur) 940.59 553.48 T
+(n) 953.77 553.48 T
+(on) 961.59 553.48 T
+(the) 974.41 553.48 T
+(card) 774 541.48 T
+1 F
+(. The card\325) 793.44 541.48 T
+(s panel displays an EP prompt.) 836.48 541.48 T
+0 F
+(2. Enter y) 774 525.48 T
+(our 5-digit PIN.) 815.69 525.48 T
+1 F
+(The card\325) 885.69 525.48 T
+(s panel displays) 923.73 525.48 T
+(an EH prompt.) 774 513.48 T
+0 F
+(3.) 774 497.48 T
+(Pr) 783.8 497.48 T
+(ess) 794.17 497.48 T
+(the) 808.7 497.48 T
+(Pin) 824.33 497.48 T
+(\050P\051) 841.09 497.48 T
+(k) 856.16 497.48 T
+(ey) 861.62 497.48 T
+(.) 870.36 497.48 T
+1 F
+(The) 875.17 497.48 T
+(card\325) 893.02 497.48 T
+(s) 913.01 497.48 T
+(panel) 919.21 497.48 T
+(displays) 943.17 497.48 T
+(an) 978.26 497.48 T
+(SP prompt.) 774 485.48 T
+0 F
+(4.) 774 469.48 T
+(Enter) 783.98 469.48 T
+(y) 810.91 469.48 T
+(our) 815.66 469.48 T
+(new) 833.14 469.48 T
+(5-digit) 852.85 469.48 T
+(PIN.) 883.11 469.48 T
+(\050) 905.31 469.48 T
+1 F
+(Y) 908.64 469.48 T
+(our) 914.76 469.48 T
+(ne) 930.58 469.48 T
+(w) 939.77 469.48 T
+(PIN) 949.47 469.48 T
+(must) 968.07 469.48 T
+(ha) 774 457.48 T
+(v) 783.24 457.48 T
+(e 5 digits.\051 Y) 788.09 457.48 T
+(our PIN has just changed!) 839.21 457.48 T
+0 F
+(Note:) 774 445.48 T
+1 F
+(If you enter your ne) 802.32 445.48 T
+(w PIN incorrectly) 881.49 445.48 T
+(, press) 952.49 445.48 T
+(the Clr k) 774 433.48 T
+(e) 808.9 433.48 T
+(y to cancel the ne) 813.19 433.48 T
+(w number) 882.92 433.48 T
+(. Y) 922.64 433.48 T
+(our PIN) 933.76 433.48 T
+(re) 774 421.48 T
+(v) 781.52 421.48 T
+(erts back to your pre-e) 786.37 421.48 T
+(xisting number) 876.19 421.48 T
+(.) 935.92 421.48 T
+18 437.15 234 442.4 C
+0 0 0 1 0 0 0 1 K
+234.75 440.15 18.75 440.15 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+270 417.6 486 986.4 C
+270 916.04 486 972.4 C
+0 0 0 1 0 0 0 1 K
+372.16 958.93 364.87 959.97 362.14 960.4 360.33 959.69 357.05 957.1 342.49 940.69 341.01 938.81
+ 341.94 937.38 344.06 937.21 351.34 936.47 10 Y
+7 X
+V
+0.25 H
+2 Z
+0 X
+N
+331.37 935.03 404.89 926.92 426.13 957.66 359.12 963.16 4 Y
+3 X
+V
+0 X
+N
+354.52 934.75 371.33 950.11 414.17 947.6 401.93 930.36 4 Y
+3 X
+V
+0.6 H
+N
+331.19 934.96 331.32 930.13 404.86 921.99 404.77 927.08 4 Y
+V
+0.25 H
+0 X
+N
+404.86 921.83 426.42 953.39 425.96 957.58 404.77 926.91 4 Y
+3 X
+V
+0 X
+N
+0 0 0 0 1 1 1 1 K
+0 0 0 1 0 0 0 1 K
+335.21 937.26 357.07 959.92 359 960.87 361.38 961.35 364.37 961.37 401.4 958.01 6 L
+N
+401.59 958.53 417.9 957.07 421.66 956.47 422.88 955.39 404.65 929.18 401.95 928.54 399.43 928.68
+ 333.25 935.28 334.4 936.53 335.73 938.09 10 L
+N
+350.96 952.8 360.07 961.06 421.15 955.76 415.49 947.7 4 Y
+5 X
+V
+0 X
+N
+364.68 944.38 M
+ 364.69 944.6 364.45 944.77 364.14 944.77 D
+ 363.84 944.77 363.59 944.59 363.58 944.38 D
+ 363.57 944.16 363.81 943.99 364.11 943.99 D
+ 364.42 943.99 364.67 944.17 364.68 944.38 D
+O
+2 X
+V
+0.6 H
+3 X
+N
+366.72 944.24 M
+ 366.73 944.46 366.49 944.63 366.19 944.63 D
+ 365.88 944.62 365.63 944.45 365.62 944.23 D
+ 365.61 944.02 365.85 943.85 366.15 943.85 D
+ 366.46 943.85 366.71 944.03 366.72 944.24 D
+O
+2 X
+V
+3 X
+N
+368.61 944.1 M
+ 368.61 944.31 368.37 944.48 368.07 944.48 D
+ 367.77 944.48 367.51 944.3 367.5 944.09 D
+ 367.49 943.88 367.73 943.7 368.04 943.71 D
+ 368.34 943.71 368.6 943.88 368.61 944.1 D
+O
+2 X
+V
+3 X
+N
+362.43 943.28 M
+ 362.44 943.5 362.2 943.67 361.89 943.67 D
+ 361.59 943.67 361.34 943.49 361.33 943.28 D
+ 361.32 943.06 361.56 942.89 361.86 942.89 D
+ 362.17 942.89 362.42 943.07 362.43 943.28 D
+O
+2 X
+V
+3 X
+N
+364.94 942.99 M
+ 364.95 943.2 364.71 943.37 364.4 943.37 D
+ 364.1 943.37 363.85 943.2 363.84 942.98 D
+ 363.83 942.77 364.07 942.59 364.37 942.59 D
+ 364.68 942.6 364.93 942.77 364.94 942.99 D
+O
+2 X
+V
+3 X
+N
+367.29 942.69 M
+ 367.3 942.91 367.06 943.08 366.75 943.08 D
+ 366.45 943.07 366.2 942.9 366.19 942.68 D
+ 366.18 942.47 366.42 942.3 366.72 942.3 D
+ 367.03 942.3 367.28 942.48 367.29 942.69 D
+O
+2 X
+V
+3 X
+N
+369.17 942.39 M
+ 369.17 942.6 368.93 942.78 368.63 942.78 D
+ 368.33 942.77 368.07 942.6 368.06 942.38 D
+ 368.05 942.17 368.3 942 368.6 942 D
+ 368.9 942 369.16 942.18 369.17 942.39 D
+O
+2 X
+V
+3 X
+N
+354.95 954.88 359.86 959.51 388.37 957.11 384.34 952.51 4 Y
+V
+0.25 H
+0 X
+N
+343.19 940 M
+ 341.81 940.12 340.58 939.36 340.44 938.31 D
+ 340.44 938.31 340.44 938.31 340.44 938.31 D
+ 340.3 937.26 341.31 936.32 342.69 936.2 D
+ 343.36 936.14 344.03 936.09 344.7 936.03 D
+ 346.08 935.91 347.31 936.67 347.45 937.72 D
+ 347.45 937.72 347.45 937.72 347.45 937.72 D
+ 347.58 938.77 346.58 939.71 345.2 939.83 D
+ 344.53 939.89 343.86 939.94 343.19 940 D
+O
+4 X
+V
+0 X
+N
+408.67 946.85 M
+ 407.29 946.97 406.06 946.21 405.92 945.16 D
+ 405.92 945.16 405.92 945.16 405.92 945.16 D
+ 405.78 944.11 406.79 943.17 408.16 943.05 D
+ 408.83 943 409.5 942.94 410.17 942.89 D
+ 411.55 942.77 412.78 943.53 412.92 944.58 D
+ 412.92 944.58 412.92 944.58 412.92 944.58 D
+ 413.06 945.62 412.05 946.57 410.67 946.69 D
+ 410.01 946.74 409.34 946.8 408.67 946.85 D
+O
+4 X
+V
+0 X
+N
+405.58 942.6 M
+ 404.2 942.72 402.96 941.96 402.83 940.91 D
+ 402.83 940.91 402.83 940.91 402.83 940.91 D
+ 402.69 939.86 403.69 938.92 405.07 938.8 D
+ 405.74 938.75 406.41 938.69 407.08 938.64 D
+ 408.46 938.52 409.69 939.28 409.83 940.33 D
+ 409.83 940.33 409.83 940.33 409.83 940.33 D
+ 409.97 941.37 408.96 942.32 407.58 942.43 D
+ 406.91 942.49 406.24 942.55 405.58 942.6 D
+O
+4 X
+V
+0 X
+N
+402.65 938.34 M
+ 401.27 938.46 400.04 937.7 399.9 936.65 D
+ 399.9 936.65 399.9 936.65 399.9 936.65 D
+ 399.76 935.6 400.77 934.66 402.15 934.54 D
+ 402.82 934.48 403.48 934.43 404.15 934.37 D
+ 405.53 934.25 406.76 935.01 406.9 936.06 D
+ 406.9 936.06 406.9 936.06 406.9 936.06 D
+ 407.04 937.11 406.04 938.05 404.66 938.17 D
+ 403.99 938.23 403.32 938.28 402.65 938.34 D
+O
+4 X
+V
+0 X
+N
+399.56 934.09 M
+ 398.18 934.21 396.95 933.45 396.81 932.4 D
+ 396.81 932.4 396.81 932.4 396.81 932.4 D
+ 396.67 931.35 397.67 930.4 399.05 930.29 D
+ 399.72 930.23 400.39 930.18 401.06 930.12 D
+ 402.44 930 403.67 930.76 403.81 931.81 D
+ 403.81 931.81 403.81 931.81 403.81 931.81 D
+ 403.95 932.86 402.94 933.8 401.56 933.92 D
+ 400.89 933.98 400.23 934.03 399.56 934.09 D
+O
+4 X
+V
+0 X
+N
+396.48 947.71 M
+ 395.1 947.83 393.86 947.07 393.73 946.02 D
+ 393.73 946.02 393.73 946.02 393.73 946.02 D
+ 393.59 944.97 394.59 944.03 395.97 943.91 D
+ 396.64 943.86 397.31 943.8 397.98 943.74 D
+ 399.36 943.63 400.59 944.39 400.73 945.43 D
+ 400.73 945.43 400.73 945.43 400.73 945.43 D
+ 400.87 946.48 399.86 947.43 398.48 947.54 D
+ 397.81 947.6 397.14 947.66 396.48 947.71 D
+O
+4 X
+V
+0 X
+N
+393.38 943.46 M
+ 392 943.58 390.77 942.82 390.63 941.77 D
+ 390.63 941.77 390.63 941.77 390.63 941.77 D
+ 390.49 940.72 391.5 939.78 392.88 939.66 D
+ 393.55 939.61 394.22 939.55 394.89 939.49 D
+ 396.27 939.38 397.5 940.13 397.64 941.18 D
+ 397.64 941.18 397.64 941.18 397.64 941.18 D
+ 397.77 942.23 396.77 943.18 395.39 943.29 D
+ 394.72 943.35 394.05 943.41 393.38 943.46 D
+O
+4 X
+V
+0 X
+N
+390.46 939.2 M
+ 389.08 939.31 387.85 938.56 387.71 937.51 D
+ 387.71 937.51 387.71 937.51 387.71 937.51 D
+ 387.57 936.46 388.57 935.51 389.95 935.4 D
+ 390.62 935.34 391.29 935.29 391.96 935.23 D
+ 393.34 935.11 394.57 935.87 394.71 936.92 D
+ 394.71 936.92 394.71 936.92 394.71 936.92 D
+ 394.85 937.97 393.84 938.91 392.46 939.03 D
+ 391.8 939.09 391.13 939.14 390.46 939.2 D
+O
+4 X
+V
+0 X
+N
+387.36 934.95 M
+ 385.99 935.06 384.75 934.31 384.61 933.26 D
+ 384.61 933.26 384.61 933.26 384.61 933.26 D
+ 384.48 932.21 385.48 931.26 386.86 931.15 D
+ 387.53 931.09 388.2 931.03 388.87 930.98 D
+ 390.25 930.86 391.48 931.62 391.62 932.67 D
+ 391.62 932.67 391.62 932.67 391.62 932.67 D
+ 391.76 933.72 390.75 934.66 389.37 934.78 D
+ 388.7 934.84 388.03 934.89 387.36 934.95 D
+O
+4 X
+V
+0 X
+N
+388.14 948.41 M
+ 386.76 948.53 385.53 947.77 385.39 946.72 D
+ 385.39 946.72 385.39 946.72 385.39 946.72 D
+ 385.25 945.67 386.26 944.73 387.64 944.61 D
+ 388.3 944.56 388.97 944.5 389.64 944.45 D
+ 391.02 944.33 392.25 945.09 392.39 946.14 D
+ 392.39 946.14 392.39 946.14 392.39 946.14 D
+ 392.53 947.18 391.53 948.13 390.15 948.25 D
+ 389.48 948.3 388.81 948.36 388.14 948.41 D
+O
+4 X
+V
+0 X
+N
+385.05 944.16 M
+ 383.67 944.28 382.44 943.52 382.3 942.47 D
+ 382.3 942.47 382.3 942.47 382.3 942.47 D
+ 382.16 941.42 383.16 940.48 384.54 940.36 D
+ 385.21 940.31 385.88 940.25 386.55 940.2 D
+ 387.93 940.08 389.16 940.84 389.3 941.89 D
+ 389.3 941.89 389.3 941.89 389.3 941.89 D
+ 389.44 942.93 388.43 943.88 387.05 943.99 D
+ 386.39 944.05 385.72 944.11 385.05 944.16 D
+O
+4 X
+V
+0 X
+N
+382.12 939.9 M
+ 380.74 940.02 379.51 939.26 379.37 938.21 D
+ 379.37 938.21 379.37 938.21 379.37 938.21 D
+ 379.23 937.16 380.24 936.21 381.62 936.1 D
+ 382.29 936.04 382.95 935.99 383.62 935.93 D
+ 385 935.81 386.23 936.57 386.37 937.62 D
+ 386.37 937.62 386.37 937.62 386.37 937.62 D
+ 386.51 938.67 385.51 939.61 384.13 939.73 D
+ 383.46 939.79 382.79 939.84 382.12 939.9 D
+O
+4 X
+V
+0 X
+N
+379.03 935.65 M
+ 377.65 935.77 376.42 935.01 376.28 933.96 D
+ 376.28 933.96 376.28 933.96 376.28 933.96 D
+ 376.14 932.91 377.15 931.96 378.52 931.85 D
+ 379.19 931.79 379.86 931.74 380.53 931.68 D
+ 381.91 931.56 383.14 932.32 383.28 933.37 D
+ 383.28 933.37 383.28 933.37 383.28 933.37 D
+ 383.42 934.42 382.42 935.36 381.04 935.48 D
+ 380.37 935.54 379.7 935.59 379.03 935.65 D
+O
+4 X
+V
+0 X
+N
+380.49 949.22 M
+ 379.11 949.34 377.88 948.59 377.74 947.53 D
+ 377.74 947.53 377.74 947.53 377.74 947.53 D
+ 377.6 946.49 378.61 945.54 379.99 945.42 D
+ 380.66 945.37 381.33 945.31 381.99 945.26 D
+ 383.38 945.14 384.61 945.9 384.74 946.95 D
+ 384.74 946.95 384.74 946.95 384.74 946.95 D
+ 384.88 948 383.88 948.94 382.5 949.06 D
+ 381.83 949.11 381.16 949.17 380.49 949.22 D
+O
+4 X
+V
+0 X
+N
+377.4 944.97 M
+ 376.02 945.09 374.79 944.33 374.65 943.29 D
+ 374.65 943.29 374.65 943.29 374.65 943.29 D
+ 374.51 942.23 375.52 941.29 376.9 941.17 D
+ 377.57 941.12 378.23 941.06 378.9 941.01 D
+ 380.28 940.89 381.51 941.65 381.65 942.7 D
+ 381.65 942.7 381.65 942.7 381.65 942.7 D
+ 381.79 943.74 380.79 944.69 379.41 944.81 D
+ 378.74 944.86 378.07 944.92 377.4 944.97 D
+O
+4 X
+V
+0 X
+N
+374.47 940.71 M
+ 373.1 940.83 371.86 940.07 371.72 939.02 D
+ 371.72 939.02 371.72 939.02 371.72 939.02 D
+ 371.58 937.97 372.59 937.03 373.97 936.91 D
+ 374.64 936.85 375.31 936.8 375.98 936.74 D
+ 377.36 936.62 378.59 937.38 378.73 938.43 D
+ 378.73 938.43 378.73 938.43 378.73 938.43 D
+ 378.87 939.48 377.86 940.42 376.48 940.54 D
+ 375.81 940.6 375.14 940.65 374.47 940.71 D
+O
+4 X
+V
+0 X
+N
+371.38 936.46 M
+ 370 936.58 368.77 935.82 368.63 934.77 D
+ 368.63 934.77 368.63 934.77 368.63 934.77 D
+ 368.49 933.72 369.5 932.78 370.88 932.66 D
+ 371.55 932.6 372.22 932.55 372.88 932.49 D
+ 374.26 932.37 375.49 933.13 375.63 934.18 D
+ 375.63 934.18 375.63 934.18 375.63 934.18 D
+ 375.77 935.23 374.77 936.17 373.39 936.29 D
+ 372.72 936.35 372.05 936.4 371.38 936.46 D
+O
+4 X
+V
+0 X
+N
+3 2 Q
+(SAFE) 0 354 388.65 953.12 TF
+0 0 0 0 1 1 1 1 K
+7 X
+(W) 0 354 399.48 952.21 TF
+(ORD) 0 354 401.32 952.01 TF
+0 0 0 1 0 0 0 1 K
+387.23 953 415.91 950.59 2 L
+0 X
+N
+(P) 0 354 402.95 949.13 TF
+(L) 0 354 405.39 948.88 TF
+(A) 0 354 407.71 948.63 TF
+(T) 0 354 410.25 948.36 TF
+(I) 0 354 412.57 948.12 TF
+(U) 0 354 414.23 947.95 TF
+(M) 0 354 416.77 947.68 TF
+0 0 0 0 1 1 1 1 K
+4 F
+7 X
+(ON) 0 354 341.5 936.99 TF
+3 F
+(C) 0 354 407.16 943.96 TF
+3 1.6 Q
+(LR) 0 354 408.59 943.8 TF
+3 2 Q
+(B) 0 354 403.73 939.73 TF
+3 1.6 Q
+(KSP) 0 354 405.17 939.58 TF
+3 2 Q
+(P) 0 354 401.81 935.38 TF
+3 1.6 Q
+(IN) 0 354 403.13 935.24 TF
+3 2 Q
+(E) 0 354 398.4 931.33 TF
+3 1.6 Q
+(NTR) 0 354 399.73 931.19 TF
+3 2 Q
+(A) 0 354 370.86 933.35 TF
+(7) 0 354 373.88 937.11 TF
+(4) 0 354 377.04 941.85 TF
+(1) 0 354 380.15 946.27 TF
+(2) 0 354 387.74 944.96 TF
+(5) 0 354 384.52 941.06 TF
+(8) 0 354 381.7 936.28 TF
+(0) 0 354 378.62 932.2 TF
+(B) 0 354 386.98 931.66 TF
+(9) 0 354 389.74 935.94 TF
+(6) 0 354 393.33 940.15 TF
+(3) 0 354 396.12 944.59 TF
+350.2 949.6 359.16 948.51 355.2 942.83 344.91 944.03 4 Y
+3 H
+N
+354.18 949.1 357.4 946.66 2 L
+N
+357.19 946.34 353.25 943.33 2 L
+N
+354.47 948.74 349.75 943.63 2 L
+1 H
+N
+349.86 944.45 351.71 944.46 353.1 946.02 351.68 946.8 352.32 947.75 350.86 948.21 350.35 946.92
+ 348.95 946.53 347.52 944.65 350.84 945.54 348.52 944.56 11 L
+N
+0 0 0 1 0 0 0 1 K
+282 967.57 471 967.57 2 L
+0.5 H
+0 X
+N
+270 417.6 486 986.4 C
+-45 351 1053 1053 C
+270 837.87 486 846.04 C
+0 0 0 1 0 0 0 1 K
+283.5 842.54 472.5 842.54 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+774 966.15 990 972.4 C
+0 0 0 1 0 0 0 1 K
+989.25 969.15 773.25 969.15 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+FMENDPAGE
+%%EndPage: "1" 3
+%%Page: "2" 4
+612 1008 1 FMBEGINPAGE
+0 FrameSetSepColors
+FrameNoSep
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+0 14 Q
+0 X
+(Modempool Numbers) 60.87 977.07 T
+1 10 Q
+(F) 18.3 961.73 T
+(or the most up-to-date modempool info, please visit:) 23.71 961.73 T
+0 F
+(http://cts.central/ras/mod-a.html) 56.28 949.73 T
+0 14 Q
+(Modempool T) 579.37 977.07 T
+(ips) 663.51 977.07 T
+1 10 Q
+(T) 522 961.73 T
+(o mak) 527.31 961.73 T
+(e the best use of the Sun modempools, please) 551.93 961.73 T
+(observ) 522 949.73 T
+(e the follo) 548.51 949.73 T
+(wing modempool tips:) 588.81 949.73 T
+(\245) 522 929.73 T
+0 F
+(Do) 531 929.73 T
+1 F
+( al) 543.22 929.73 T
+(w) 552.84 929.73 T
+(ays use the lo) 559.96 929.73 T
+(west-cost method a) 613.87 929.73 T
+(v) 690.88 929.73 T
+(ailable.) 695.63 929.73 T
+(Al) 531 917.73 T
+(w) 540.9 917.73 T
+(ays use the local number) 548.02 917.73 T
+(, e) 646.49 917.73 T
+(xcept in Canada,) 655.78 917.73 T
+(where the 800 number is the lo) 531 905.73 T
+(west-cost method.) 654.62 905.73 T
+(\245) 522 887.73 T
+0 F
+(Do) 531 887.73 T
+1 F
+( observ) 543.22 887.73 T
+(e security) 572.23 887.73 T
+(. Al) 610.18 887.73 T
+(w) 625.08 887.73 T
+(ays log out when not in) 632.2 887.73 T
+(sight of your computer) 531 875.73 T
+(.) 621.83 875.73 T
+0 F
+(\245) 522 857.73 T
+(Do) 531 857.73 T
+1 F
+( log out whene) 543.22 857.73 T
+(v) 602.13 857.73 T
+(er possible. When using email,) 606.98 857.73 T
+(you may not need to remain connected. Do) 531 845.73 T
+(wnload) 702.94 845.73 T
+(mail) 531 833.73 T
+(\336les) 551.25 833.73 T
+(and) 570.4 833.73 T
+(read) 587.31 833.73 T
+(them) 606.99 833.73 T
+(of) 629.47 833.73 T
+(\337ine.) 637.55 833.73 T
+(Generate) 660.3 833.73 T
+(ne) 698.86 833.73 T
+(w) 708.05 833.73 T
+(mail) 717.75 833.73 T
+(while of) 531 821.73 T
+(\337ine and in the disconnected mode.) 563.8 821.73 T
+(\245) 522 803.73 T
+0 F
+(Don\325t) 531 803.73 T
+1 F
+( maintain a session unnecessarily) 555.44 803.73 T
+(. Once you) 687.55 803.73 T
+(ha) 531 791.73 T
+(v) 540.24 791.73 T
+(e completed your w) 545.09 791.73 T
+(ork, log out promptly) 624.14 791.73 T
+(.) 709.05 791.73 T
+(Staying connected not only costs Sun mone) 531 779.73 T
+(y) 705.29 779.73 T
+(, b) 709.64 779.73 T
+(ut) 719.44 779.73 T
+(you) 531 767.73 T
+(are) 548.34 767.73 T
+(also) 562.88 767.73 T
+(occup) 581.33 767.73 T
+(ying) 605.11 767.73 T
+(a) 625.22 767.73 T
+(modem) 632 767.73 T
+(port) 664.33 767.73 T
+(that) 682.78 767.73 T
+(someone) 700.11 767.73 T
+(else may need.) 531 755.73 T
+(\245) 522 737.73 T
+0 F
+(Do) 531 737.73 T
+1 F
+( consider using Sun.Net if you use Remote) 543.22 737.73 T
+(Access primarily for mail, and ha) 531 725.73 T
+(v) 664.66 725.73 T
+(e an Internet) 669.51 725.73 T
+(Service Pro) 531 713.73 T
+(vider \050ISP\051 for access to the Internet.) 577.23 713.73 T
+0 F
+(\245) 522 695.73 T
+(Do) 531 695.73 T
+1 F
+( consider cancelling your Remote Access) 543.22 695.73 T
+(account) 531 683.73 T
+(if) 564.28 683.73 T
+(you) 572.56 683.73 T
+(currently) 589.74 683.73 T
+(ha) 628.01 683.73 T
+(v) 637.25 683.73 T
+(e) 642.1 683.73 T
+(an) 648.72 683.73 T
+(account,) 660.34 683.73 T
+(b) 696.11 683.73 T
+(ut) 700.91 683.73 T
+(do) 710.87 683.73 T
+(not) 723.04 683.73 T
+(use it. A) 531 671.73 T
+(v) 563.87 671.73 T
+(oid unnecessary fees by submitting a) 568.67 671.73 T
+(ServiceDesk request to cancel Remote Access.) 531 659.73 T
+0 14 Q
+(Getting Inf) 539.95 637.07 T
+(o and Getting Help) 606.09 637.07 T
+1 10 Q
+(F) 522 621.73 T
+(or) 527.41 621.73 T
+(more) 537.93 621.73 T
+(information) 560.68 621.73 T
+(about) 610.09 621.73 T
+(connecting) 634.51 621.73 T
+(to) 680.59 621.73 T
+(Sun,) 690.56 621.73 T
+(please) 710.82 621.73 T
+(visit the) 522 609.73 T
+2 F
+(Connecting to Sun) 556.45 609.73 T
+1 F
+( website at:) 630.34 609.73 T
+0 F
+(http://cts.central/) 593.2 597.73 T
+1 F
+(F) 522 581.73 T
+(or all problems, please use ServiceDesk:) 527.41 581.73 T
+0 F
+(http://ser) 522 565.73 T
+(vicedesk) 561.34 565.73 T
+1 F
+(If you are unable to use ServiceDesk, please contact) 522 549.73 T
+(the nearest RC or Remote Service Center \050P) 522 537.73 T
+(ac Rim\051:) 698.21 537.73 T
+0 F
+(x27000) 522 521.73 T
+1 F
+( or \050303\051272-7000 in the Americas) 552 521.73 T
+0 F
+(x15555) 522 509.73 T
+1 F
+( or +31-33-454-2555 in Europe) 552 509.73 T
+0 F
+(x55119) 522 497.73 T
+1 F
+( or +81-3-5717-5119 in Japan) 552 497.73 T
+0 F
+(x56056) 522 485.73 T
+1 F
+( or +82-2-3469-0056 in K) 552 485.73 T
+(orea) 655.61 485.73 T
+0 F
+(x28168) 522 473.73 T
+1 F
+( or +852-2820-0168 in China/T) 552 473.73 T
+(aiw) 677.39 473.73 T
+(an) 691.73 473.73 T
+0 F
+(x56401) 522 461.73 T
+1 F
+( or +65-239-2401 in Asia South) 552 461.73 T
+0 F
+(x57300) 522 449.73 T
+1 F
+( or +61-2-9844-5300 in Australia /NZ) 552 449.73 T
+1 14 Q
+(Sun Information Resources) 805.4 977.07 T
+0 18 Q
+(T) 795.91 872.4 T
+(ok) 806.26 872.4 T
+(en Card Essentials) 825.08 872.4 T
+5 8 Q
+(Sun Micr) 774 496.67 T
+(osystems, Inc.) 807.62 496.67 T
+6 F
+(901 San Antonio Rd.) 774 486.67 T
+(Palo Alto, CA 94303-4900 U.S.A.) 774 476.67 T
+(Part) 774 456.67 T
+(Number:) 790.46 456.67 T
+(806-0172-10) 829.84 456.67 T
+(Rev) 925.04 456.67 T
+7 F
+(P) 940.59 456.67 T
+6 F
+(,) 944.45 456.67 T
+(09/22/1999) 948.3 456.67 T
+1 10 Q
+(Sun Proprietary/Con\336dential: Internal Use Only) 785.9 440.08 T
+0 F
+(T) 87.3 915.73 T
+(able 1: Americas) 93.05 915.73 T
+(Location) 38.71 893.73 T
+(Local #) 113.9 893.73 T
+(\050800\051 #) 183.42 893.73 T
+1 8 Q
+(CA: Menlo P) 20 875.07 T
+(ark) 62.55 875.07 T
+(650-568-3947) 99.2 875.07 T
+(1-800-224-4479) 164 875.07 T
+(CA: Milpitas) 20 857.07 T
+(408-942-2500) 99.2 857.07 T
+(1-800-727-4230) 164 857.07 T
+(CO: Broom\336eld) 20 839.07 T
+(303-466-7023) 99.2 839.07 T
+(1-800-779-7029) 164 839.07 T
+(MA: Chelmsford) 20 821.07 T
+(978-250-5600) 99.2 821.07 T
+(1-800-727-0344) 164 821.07 T
+(Ar) 20 803.07 T
+(gen: Buenos Aires) 28.3 803.07 T
+(317-5675) 114.27 803.07 T
+(n/a) 193.11 803.07 T
+(Brazil: Sao P) 20 785.07 T
+(aulo) 62.1 785.07 T
+(518-185-30) 110.94 785.07 T
+(n/a) 193.11 785.07 T
+(Canada) 20 767.07 T
+(n/a) 124.71 767.07 T
+(1-800-795-1108) 164 767.07 T
+(Colombia:  Bogot\207) 20 749.07 T
+(tbd) 99.2 749.07 T
+(tbd) 164 749.07 T
+(Me) 20 731.07 T
+(x: M\216xico City) 30.54 731.07 T
+(525-261-0392) 99.2 731.07 T
+(1-800-711-2297) 164 731.07 T
+0 10 Q
+(T) 83.04 705.73 T
+(able 2: P) 88.79 705.73 T
+(aci\336c Rim) 125.91 705.73 T
+(Location) 38.71 683.73 T
+(Local #) 113.9 683.73 T
+(Inter) 169.74 683.73 T
+(national) 191.25 683.73 T
+1 8 Q
+(Aus: Adelaide) 20 665.07 T
+(8-8231-7988) 99.2 665.07 T
+(+61-8-8231-7988) 164 665.07 T
+(Aus: Brisbane) 20 647.07 T
+(7-3221-6860) 99.2 647.07 T
+(+61-7-3221- 6860) 164 647.07 T
+(Aus: Canberra) 20 629.07 T
+(2-6217-5599) 99.2 629.07 T
+(+61-2-6217-5599) 164 629.07 T
+(Aus: Melbourne) 20 611.07 T
+(3-968-5103) 99.2 611.07 T
+(+61-3-9686-5103) 164 611.07 T
+(Aus: Perth) 20 593.07 T
+(8-9388-2466) 99.2 593.07 T
+(+61-8-9388-2466) 164 593.07 T
+(Aus: Sydne) 20 575.07 T
+(y) 56.99 575.07 T
+(2-9844-5141) 99.2 575.07 T
+(+61-2-9844-5141) 164 575.07 T
+(China: Beijing) 20 557.07 T
+(6804-2526) 99.2 557.07 T
+(+86-10-68042526) 164 557.07 T
+(China: Shanghai) 20 539.07 T
+(6445-4150) 99.2 539.07 T
+(+86-10-6445-4150) 164 539.07 T
+(Hong K) 20 521.07 T
+(ong) 45.27 521.07 T
+(2827-6670) 99.2 521.07 T
+(+852-2827-6670) 164 521.07 T
+(India: Bang) 20 503.07 T
+(alore) 57.51 503.07 T
+(558-0133) 99.2 503.07 T
+(+91-80-558-0133) 164 503.07 T
+(Japan: Osaka) 20 485.07 T
+(0120-219-222) 99.2 485.07 T
+(+81-6-6265-8317) 164 485.07 T
+(Japan: T) 20 467.07 T
+(ok) 46.69 467.07 T
+(yo) 54.57 467.07 T
+(0120-808-204) 99.2 467.07 T
+(+81-3-5717-2522) 164 467.07 T
+(K) 20 449.07 T
+(orea: Seoul) 25.5 449.07 T
+(563-8711) 99.2 449.07 T
+(+82-2-563-8711) 164 449.07 T
+(Mal: K) 20 431.07 T
+(uala Lumpur) 42.77 431.07 T
+(264-3481) 99.2 431.07 T
+(+60-3-264-3481) 164 431.07 T
+18 906.15 18 724.65 2 L
+V
+0.5 H
+0 Z
+N
+97.2 906.65 97.2 724.15 2 L
+V
+N
+162 906.65 162 724.15 2 L
+V
+N
+234 906.15 234 724.65 2 L
+V
+N
+17.75 906.4 234.25 906.4 2 L
+V
+N
+18.25 887.65 233.75 887.65 2 L
+V
+N
+18.25 885.15 233.75 885.15 2 L
+V
+N
+17.75 868.4 234.25 868.4 2 L
+V
+N
+17.75 850.4 234.25 850.4 2 L
+V
+N
+17.75 832.4 234.25 832.4 2 L
+V
+N
+17.75 814.4 234.25 814.4 2 L
+V
+N
+17.75 796.4 234.25 796.4 2 L
+V
+N
+17.75 778.4 234.25 778.4 2 L
+V
+N
+17.75 760.4 234.25 760.4 2 L
+V
+N
+17.75 742.4 234.25 742.4 2 L
+V
+N
+17.75 724.4 234.25 724.4 2 L
+V
+N
+18 696.15 18 424.65 2 L
+V
+N
+97.2 696.65 97.2 424.15 2 L
+V
+N
+162 696.65 162 424.15 2 L
+V
+N
+234 696.15 234 424.65 2 L
+V
+N
+17.75 696.4 234.25 696.4 2 L
+V
+N
+18.25 677.65 233.75 677.65 2 L
+V
+N
+18.25 675.15 233.75 675.15 2 L
+V
+N
+17.75 658.4 234.25 658.4 2 L
+V
+N
+17.75 640.4 234.25 640.4 2 L
+V
+N
+17.75 622.4 234.25 622.4 2 L
+V
+N
+17.75 604.4 234.25 604.4 2 L
+V
+N
+17.75 586.4 234.25 586.4 2 L
+V
+N
+17.75 568.4 234.25 568.4 2 L
+V
+N
+17.75 550.4 234.25 550.4 2 L
+V
+N
+17.75 532.4 234.25 532.4 2 L
+V
+N
+17.75 514.4 234.25 514.4 2 L
+V
+N
+17.75 496.4 234.25 496.4 2 L
+V
+N
+17.75 478.4 234.25 478.4 2 L
+V
+N
+17.75 460.4 234.25 460.4 2 L
+V
+N
+17.75 442.4 234.25 442.4 2 L
+V
+N
+17.75 424.4 234.25 424.4 2 L
+V
+N
+(NZ: Auckland) 272 939.07 T
+(9-379-6636) 351.2 939.07 T
+(+64-9-379- 6636) 416 939.07 T
+(NZ: W) 272 921.07 T
+(ellington) 293.8 921.07 T
+(4-473-4300) 351.2 921.07 T
+(+64-4-473-4300) 416 921.07 T
+(Sing) 272 903.07 T
+(apore) 286.63 903.07 T
+(438-7649) 351.2 903.07 T
+(+65-438-7649) 416 903.07 T
+(T) 272 885.07 T
+(aiw) 276.25 885.07 T
+(an: T) 287.72 885.07 T
+(aipei) 303.74 885.07 T
+(2717-0650) 351.2 885.07 T
+(886-2-2717-0650) 416 885.07 T
+(Thailand: Bangk) 272 867.07 T
+(ok) 325.47 867.07 T
+(636-1567) 351.2 867.07 T
+(+66-2-636-1567) 416 867.07 T
+0 10 Q
+(T) 323.55 841.73 T
+(able 3: Eur) 329.3 841.73 T
+(ope to Africa) 376.9 841.73 T
+(Location) 290.71 819.73 T
+(Local #) 365.9 819.73 T
+(Inter) 421.74 819.73 T
+(national) 443.25 819.73 T
+1 8 Q
+(Belgium: Brussels) 272 801.07 T
+(02-720-2474) 351.2 801.07 T
+(+32-2-720-2474) 416 801.07 T
+(Czech Rep: Prague) 272 783.07 T
+(02-2431-1911) 351.2 783.07 T
+(+42-02-2431-1911) 416 783.07 T
+(Finland: Helsinki) 272 765.07 T
+(0-8009-5255) 351.2 765.07 T
+(+358-9-5255-6276) 416 765.07 T
+(France: Grenoble) 272 747.07 T
+(04-7641-4266) 351.2 747.07 T
+(+33-4-7641-4266) 416 747.07 T
+(France: V) 272 729.07 T
+(elizy) 302.88 729.07 T
+(01-3458-2690) 351.2 729.07 T
+(+33-1-3458-2690) 416 729.07 T
+(German) 272 711.07 T
+(y: Munich) 297.65 711.07 T
+(089-460-6321) 351.2 711.07 T
+(+49-89 460 6321) 416 711.07 T
+(Greece: Athens) 272 693.07 T
+(01-680-8848) 351.2 693.07 T
+(+30-1-680-8848) 416 693.07 T
+(Hung) 272 675.07 T
+(ary: Budapest) 289.74 675.07 T
+(1-457-9177) 351.2 675.07 T
+(+36-1-457-9177) 416 675.07 T
+(Ireland: Dublin) 272 657.07 T
+(855-9044) 351.2 657.07 T
+(+353-1-855-9044) 416 657.07 T
+(Israel: T) 272 639.07 T
+(el A) 298.32 639.07 T
+(vi) 311.28 639.07 T
+(v) 317.3 639.07 T
+(954-8188) 351.2 639.07 T
+(+972-9-954-8188) 416 639.07 T
+(Italy: Milan) 272 621.07 T
+(39-689-9410) 351.2 621.07 T
+(+39-39-689-9410) 416 621.07 T
+(Netherl: Amersfoort) 272 603.07 T
+(033-457-0570) 351.2 603.07 T
+(+31-33-457-0570) 416 603.07 T
+(Poland: W) 272 585.07 T
+(arsa) 305.36 585.07 T
+(w) 318.12 585.07 T
+(01-874-7860) 351.2 585.07 T
+(+48-22-874-7860) 416 585.07 T
+(RSA: Johannesb) 272 567.07 T
+(ur) 324.95 567.07 T
+(g) 331.47 567.07 T
+(805-4703) 351.2 567.07 T
+(+27-11-805-4703) 416 567.07 T
+(Scotland:Linlithgo) 272 549.07 T
+(w) 331.81 549.07 T
+(01506-670-833) 351.2 549.07 T
+(+44-1506-670-833) 416 549.07 T
+(Spain: Madrid) 272 531.07 T
+(91-556-1913) 351.2 531.07 T
+(+34-91-556-1913) 416 531.07 T
+(Sweden: Stockholm) 272 513.07 T
+(08-5947-4160) 351.2 513.07 T
+(+46-8-5947-4160) 416 513.07 T
+(Switzerland: Zurich) 272 495.07 T
+(01-826-0104) 351.2 495.07 T
+(+41-1-826-0104) 416 495.07 T
+(U) 272 477.07 T
+(AE: Dubai) 277.46 477.07 T
+(01-367-447) 351.2 477.07 T
+(+971-4-367-447) 416 477.07 T
+(UK: F) 272 459.07 T
+(arnborough) 292.1 459.07 T
+(0125-375-886) 351.2 459.07 T
+(+44-1252-372-600) 416 459.07 T
+(UK: W) 272 441.07 T
+(atchmoor) 294.69 441.07 T
+(01276-671-304) 351.2 441.07 T
+(+44-1276-671-304) 416 441.07 T
+0 10 Q
+(T) 335.04 979.73 T
+(able 2: P) 340.79 979.73 T
+(aci\336c Rim) 377.91 979.73 T
+(Location) 290.71 957.73 T
+(Local #) 365.9 957.73 T
+(Inter) 421.74 957.73 T
+(national) 443.25 957.73 T
+270 970.15 270 860.65 2 L
+V
+N
+349.2 970.65 349.2 860.15 2 L
+V
+N
+414 970.65 414 860.15 2 L
+V
+N
+486 970.15 486 860.65 2 L
+V
+N
+269.75 970.4 486.25 970.4 2 L
+V
+N
+270.25 951.65 485.75 951.65 2 L
+V
+N
+270.25 949.15 485.75 949.15 2 L
+V
+N
+269.75 932.4 486.25 932.4 2 L
+V
+N
+269.75 914.4 486.25 914.4 2 L
+V
+N
+269.75 896.4 486.25 896.4 2 L
+V
+N
+269.75 878.4 486.25 878.4 2 L
+V
+N
+269.75 860.4 486.25 860.4 2 L
+V
+N
+270 832.15 270 434.65 2 L
+V
+N
+349.2 832.65 349.2 434.15 2 L
+V
+N
+414 832.65 414 434.15 2 L
+V
+N
+486 832.15 486 434.65 2 L
+V
+N
+269.75 832.4 486.25 832.4 2 L
+V
+N
+270.25 813.65 485.75 813.65 2 L
+V
+N
+270.25 811.15 485.75 811.15 2 L
+V
+N
+269.75 794.4 486.25 794.4 2 L
+V
+N
+269.75 776.4 486.25 776.4 2 L
+V
+N
+269.75 758.4 486.25 758.4 2 L
+V
+N
+269.75 740.4 486.25 740.4 2 L
+V
+N
+269.75 722.4 486.25 722.4 2 L
+V
+N
+269.75 704.4 486.25 704.4 2 L
+V
+N
+269.75 686.4 486.25 686.4 2 L
+V
+N
+269.75 668.4 486.25 668.4 2 L
+V
+N
+269.75 650.4 486.25 650.4 2 L
+V
+N
+269.75 632.4 486.25 632.4 2 L
+V
+N
+269.75 614.4 486.25 614.4 2 L
+V
+N
+269.75 596.4 486.25 596.4 2 L
+V
+N
+269.75 578.4 486.25 578.4 2 L
+V
+N
+269.75 560.4 486.25 560.4 2 L
+V
+N
+269.75 542.4 486.25 542.4 2 L
+V
+N
+269.75 524.4 486.25 524.4 2 L
+V
+N
+269.75 506.4 486.25 506.4 2 L
+V
+N
+269.75 488.4 486.25 488.4 2 L
+V
+N
+269.75 470.4 486.25 470.4 2 L
+V
+N
+269.75 452.4 486.25 452.4 2 L
+V
+N
+269.75 434.4 486.25 434.4 2 L
+V
+N
+774 417.6 990 986.4 C
+0 0 0 1 0 0 0 1 K
+774 670 990 836.4 C
+0 0 0 1 0 0 0 1 K
+779 723.58 978.75 798.7 R
+7 X
+V
+0 20 657 137 701 199.75 75.12 779 723.58 FMBEGINEPSF
+%%BeginDocument: <inline>
+%!PS-Adobe-3.0 EPSF-3.0%%Creator: Adobe Illustrator(TM) 5.5%%For: (Lynn Griggs) (Manual 3, Inc.)%%Title: (SMI.eps)%%CreationDate: (12/27/95) (1:46 PM)%%BoundingBox: 20 657 137 701%%HiResBoundingBox: 20.25 657.25 136.5 701%%DocumentProcessColors: Black%%DocumentFonts: AvantGarde-Book%%DocumentSuppliedResources: procset Adobe_level2_AI5 1.0 0%%+ procset Adobe_typography_AI5 1.0 0%%+ procset Adobe_IllustratorA_AI5 1.0 0%AI5_FileFormat 1.2%AI3_ColorUsage: Black&White%AI3_TemplateBox: 288 360 288 360%AI3_TileBox: 13 -5 565 725%AI3_DocumentPreview: Macintosh_Pic%AI5_ArtSize: 612 792%AI5_RulerUnits: 1%AI5_ArtFlags: 1 0 0 1 0 0 1 1 0%AI5_TargetResolution: 800%AI5_NumLayers: 1%AI5_OpenToView: -288 768 1 826 581 18 0 1 3 40%AI5_OpenViewLayers: 7%%EndComments%%BeginProlog%%BeginResource: procset Adobe_level2_AI5 1.0 0%%Title: (Adobe Illustrator (R) Version 5.0 Level 2 Emulation)%%Version: 1.0 %%CreationDate: (04/10/93) ()%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)userdict /Adobe_level2_AI5 21 dict dup begin	put	/packedarray where not	{		userdict begin		/packedarray		{			array astore readonly		} bind def		/setpacking /pop load def		/currentpacking false def	 end		0	} if	pop	userdict /defaultpacking currentpacking put true setpacking	/initialize	{		Adobe_level2_AI5 begin	} bind def	/terminate	{		currentdict Adobe_level2_AI5 eq		{		 end		} if	} bind def	mark	/setcustomcolor where not	{		/findcmykcustomcolor		{			5 packedarray		} bind def		/setcustomcolor		{			exch aload pop pop			4			{				4 index mul 4 1 roll			} repeat			5 -1 roll pop			setcmykcolor		}		def	} if		/gt38? mark {version cvx exec} stopped {cleartomark true} {38 gt exch pop} ifelse def	userdict /deviceDPI 72 0 matrix defaultmatrix dtransform dup mul exch dup mul add sqrt put	userdict /level2?	systemdict /languagelevel known dup	{		pop systemdict /languagelevel get 2 ge	} if	put	level2? not	{		/setcmykcolor where not		{			/setcmykcolor			{				exch .11 mul add exch .59 mul add exch .3 mul add				1 exch sub setgray			} def		} if		/currentcmykcolor where not		{			/currentcmykcolor			{				0 0 0 1 currentgray sub			} def		} if		/setoverprint where not		{			/setoverprint /pop load def		} if		/selectfont where not		{			/selectfont			{				exch findfont exch				dup type /arraytype eq				{					makefont				}				{					scalefont				} ifelse				setfont			} bind def		} if		/cshow where not		{			/cshow			{				[				0 0 5 -1 roll aload pop				] cvx bind forall			} bind def		} if	} if	cleartomark	/anyColor?	{		add add add 0 ne	} bind def	/testColor	{		gsave		setcmykcolor currentcmykcolor		grestore	} bind def	/testCMYKColorThrough	{		testColor anyColor?	} bind def	userdict /composite?	level2?	{		gsave 1 1 1 1 setcmykcolor currentcmykcolor grestore		add add add 4 eq	}	{		1 0 0 0 testCMYKColorThrough		0 1 0 0 testCMYKColorThrough		0 0 1 0 testCMYKColorThrough		0 0 0 1 testCMYKColorThrough		and and and	} ifelse	put	composite? not	{		userdict begin		gsave		/cyan? 1 0 0 0 testCMYKColorThrough def		/magenta? 0 1 0 0 testCMYKColorThrough def		/yellow? 0 0 1 0 testCMYKColorThrough def		/black? 0 0 0 1 testCMYKColorThrough def		grestore		/isCMYKSep? cyan? magenta? yellow? black? or or or def		/customColor? isCMYKSep? not def	 end	} if end defaultpacking setpacking%%EndResource%%BeginResource: procset Adobe_typography_AI5 1.0 1%%Title: (Typography Operators)%%Version: 1.0 %%CreationDate:(03/26/93) ()%%Copyright: ((C) 1987-1993 Adobe Systems Incorporated All Rights Reserved)currentpacking true setpackinguserdict /Adobe_typography_AI5 54 dict dup beginput/initialize{ begin begin	Adobe_typography_AI5 begin	Adobe_typography_AI5	{		dup xcheck		{			bind		} if		pop pop	} forall end end end	Adobe_typography_AI5 begin} def/terminate{	currentdict Adobe_typography_AI5 eq	{	 end	} if} def/modifyEncoding{	/_tempEncode exch ddef	/_pntr 0 ddef	{		counttomark -1 roll		dup type dup /marktype eq		{			pop pop exit		}		{			/nametype eq			{				_tempEncode /_pntr dup load dup 3 1 roll 1 add ddef 3 -1 roll				put			}			{				/_pntr exch ddef			} ifelse		} ifelse	} loop	_tempEncode} def/TE{	StandardEncoding 256 array copy modifyEncoding	/_nativeEncoding exch def} def%/TZ{	dup type /arraytype eq	{		/_wv exch def	}	{		/_wv 0 def	} ifelse	/_useNativeEncoding exch def	pop pop	findfont _wv type /arraytype eq	{		_wv makeblendedfont	} if	dup length 2 add dict begin	mark exch	{		1 index /FID ne		{			def		} if		cleartomark mark	} forall	pop	/FontName exch def	counttomark 0 eq	{		1 _useNativeEncoding eq		{			/Encoding _nativeEncoding def		} if		cleartomark	}	{		/Encoding load 256 array copy		modifyEncoding /Encoding exch def	} ifelse	FontName currentdict end	definefont pop} def/tr{	_ax _ay 3 2 roll} def/trj{	_cx _cy _sp _ax _ay 6 5 roll} def/a0{	/Tx	{		dup		currentpoint 3 2 roll		tr _psf		newpath moveto		tr _ctm _pss	} ddef	/Tj	{		dup		currentpoint 3 2 roll		trj _pjsf		newpath moveto		trj _ctm _pjss	} ddef} def/a1{	/Tx	{		dup currentpoint 4 2 roll gsave		dup currentpoint 3 2 roll		tr _psf		newpath moveto		tr _ctm _pss		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll gsave		dup currentpoint 3 2 roll		trj _pjsf		newpath moveto		trj _ctm _pjss		grestore 3 1 roll moveto tr jsp	} ddef} def/e0{	/Tx	{		tr _psf	} ddef	/Tj	{		trj _pjsf	} ddef} def/e1{	/Tx	{		dup currentpoint 4 2 roll gsave		tr _psf		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll gsave		trj _pjsf		grestore 3 1 roll moveto tr jsp	} ddef} def/i0{	/Tx	{		tr sp	} ddef	/Tj	{		trj jsp	} ddef} def/i1{	W N} def/o0{	/Tx	{		tr sw rmoveto	} ddef	/Tj	{		trj swj rmoveto	} ddef} def/r0{	/Tx	{		tr _ctm _pss	} ddef	/Tj	{		trj _ctm _pjss	} ddef} def/r1{	/Tx	{		dup currentpoint 4 2 roll currentpoint gsave newpath moveto		tr _ctm _pss		grestore 3 1 roll moveto tr sp	} ddef	/Tj	{		dup currentpoint 4 2 roll currentpoint gsave newpath moveto		trj _ctm _pjss		grestore 3 1 roll moveto tr jsp	} ddef} def/To{	pop _ctm currentmatrix pop} def/TO{	iTe _ctm setmatrix newpath} def/Tp{	pop _tm astore pop _ctm setmatrix	_tDict begin	/W	{	} def	/h	{	} def} def/TP{ end	iTm 0 0 moveto} def/Tr{	_render 3 le	{		currentpoint newpath moveto	} if	dup 8 eq	{		pop 0	}	{		dup 9 eq		{			pop 1		} if	} ifelse	dup /_render exch ddef	_renderStart exch get load exec} def/iTm{	_ctm setmatrix _tm concat 0 _rise translate _hs 1 scale} def/Tm{	_tm astore pop iTm 0 0 moveto} def/Td{	_mtx translate _tm _tm concatmatrix pop iTm 0 0 moveto} def/iTe{	_render -1 eq	{	}	{		_renderEnd _render get dup null ne		{			load exec		}		{			pop		} ifelse	} ifelse	/_render -1 ddef} def/Ta{	pop} def/Tf{	dup 1000 div /_fScl exch ddef%	selectfont} def/Tl{	pop	0 exch _leading astore pop} def/Tt{	pop} def/TW{	3 npop} def/Tw{	/_cx exch ddef} def/TC{	3 npop} def/Tc{	/_ax exch ddef} def/Ts{	/_rise exch ddef	currentpoint	iTm	moveto} def/Ti{	3 npop} def/Tz{	100 div /_hs exch ddef	iTm} def/TA{	pop} def/Tq{	pop} def/Th{	pop pop pop pop pop} def/TX{	pop} def/Tk{	exch pop _fScl mul neg 0 rmoveto} def/TK{	2 npop} def/T*{	_leading aload pop neg Td} def/T*-{	_leading aload pop Td} def/T-{	_hyphen Tx} def/T+{} def/TR{	_ctm currentmatrix pop	_tm astore pop	iTm 0 0 moveto} def/TS{	currentfont 3 1 roll	/_Symbol_ _fScl 1000 mul selectfont		0 eq	{		Tx	}	{		Tj	} ifelse	setfont} def/Xb{	pop pop} def/Tb /Xb load def/Xe{	pop pop pop pop} def/Te /Xe load def/XB{} def/TB /XB load defcurrentdict readonly popendsetpacking%%EndResource%%BeginResource: procset Adobe_IllustratorA_AI5 1.1 0%%Title: (Adobe Illustrator (R) Version 5.0 Abbreviated Prolog)%%Version: 1.1 %%CreationDate: (3/7/1994) ()%%Copyright: ((C) 1987-1994 Adobe Systems Incorporated All Rights Reserved)currentpacking true setpackinguserdict /Adobe_IllustratorA_AI5_vars 70 dict dup beginput/_lp /none def/_pf{} def/_ps{} def/_psf{} def/_pss{} def/_pjsf{} def/_pjss{} def/_pola 0 def/_doClip 0 def/cf currentflat def/_tm matrix def/_renderStart[/e0 /r0 /a0 /o0 /e1 /r1 /a1 /i0] def/_renderEnd[null null null null /i1 /i1 /i1 /i1] def/_render -1 def/_rise 0 def/_ax 0 def/_ay 0 def/_cx 0 def/_cy 0 def/_leading[0 0] def/_ctm matrix def/_mtx matrix def/_sp 16#020 def/_hyphen (-) def/_fScl 0 def/_cnt 0 def/_hs 1 def/_nativeEncoding 0 def/_useNativeEncoding 0 def/_tempEncode 0 def/_pntr 0 def/_tDict 2 dict def/_wv 0 def/Tx{} def/Tj{} def/CRender{} def/_AI3_savepage{} def/_gf null def/_cf 4 array def/_if null def/_of false def/_fc{} def/_gs null def/_cs 4 array def/_is null def/_os false def/_sc{} def/discardSave null def/buffer 256 string def/beginString null def/endString null def/endStringLength null def/layerCnt 1 def/layerCount 1 def/perCent (%) 0 get def/perCentSeen? false def/newBuff null def/newBuffButFirst null def/newBuffLast null def/clipForward? false defenduserdict /Adobe_IllustratorA_AI5 74 dict dup beginput/initialize{	Adobe_IllustratorA_AI5 dup begin	Adobe_IllustratorA_AI5_vars begin	discardDict	{		bind pop pop	} forall	dup /nc get begin	{		dup xcheck 1 index type /operatortype ne and		{			bind		} if		pop pop	} forall end	newpath} def/terminate{ end end} def/_null def/ddef{	Adobe_IllustratorA_AI5_vars 3 1 roll put} def/xput{	dup load dup length exch maxlength eq	{		dup dup load dup		length 2 mul dict copy def	} if	load begin	def end} def/npop{	{		pop	} repeat} def/sw{	dup length exch stringwidth	exch 5 -1 roll 3 index mul add	4 1 roll 3 1 roll mul add} def/swj{	dup 4 1 roll	dup length exch stringwidth	exch 5 -1 roll 3 index mul add	4 1 roll 3 1 roll mul add	6 2 roll /_cnt 0 ddef	{		1 index eq		{			/_cnt _cnt 1 add ddef		} if	} forall	pop	exch _cnt mul exch _cnt mul 2 index add 4 1 roll 2 index add 4 1 roll pop pop} def/ss{	4 1 roll	{		2 npop		(0) exch 2 copy 0 exch put pop		gsave		false charpath currentpoint		4 index setmatrix		stroke		grestore		moveto		2 copy rmoveto	} exch cshow	3 npop} def/jss{	4 1 roll	{		2 npop		(0) exch 2 copy 0 exch put		gsave		_sp eq		{			exch 6 index 6 index 6 index 5 -1 roll widthshow			currentpoint		}		{			false charpath currentpoint			4 index setmatrix stroke		} ifelse		grestore		moveto		2 copy rmoveto	} exch cshow	6 npop} def/sp{	{		2 npop (0) exch		2 copy 0 exch put pop		false charpath		2 copy rmoveto	} exch cshow	2 npop} def/jsp{	{		2 npop		(0) exch 2 copy 0 exch put		_sp eq		{			exch 5 index 5 index 5 index 5 -1 roll widthshow		}		{			false charpath		} ifelse		2 copy rmoveto	} exch cshow	5 npop} def/pl{	transform	0.25 sub round 0.25 add exch	0.25 sub round 0.25 add exch	itransform} def/setstrokeadjust where{	pop true setstrokeadjust	/c	{		curveto	} def	/C	/c load def	/v	{		currentpoint 6 2 roll curveto	} def	/V	/v load def	/y	{		2 copy curveto	} def	/Y	/y load def	/l	{		lineto	} def	/L	/l load def	/m	{		moveto	} def}{	/c	{		pl curveto	} def	/C	/c load def	/v	{		currentpoint 6 2 roll pl curveto	} def	/V	/v load def	/y	{		pl 2 copy curveto	} def	/Y	/y load def	/l	{		pl lineto	} def	/L	/l load def	/m	{		pl moveto	} def} ifelse/d{	setdash} def/cf{} def/i{	dup 0 eq	{		pop cf	} if	setflat} def/j{	setlinejoin} def/J{	setlinecap} def/M{	setmiterlimit} def/w{	setlinewidth} def/H{} def/h{	closepath} def/N{	_pola 0 eq	{		_doClip 1 eq		{			clip /_doClip 0 ddef		} if		newpath	}	{		/CRender		{			N		} ddef	} ifelse} def/n{	N} def/F{	_pola 0 eq	{		_doClip 1 eq		{			gsave _pf grestore clip newpath /_lp /none ddef _fc			/_doClip 0 ddef		}		{			_pf		} ifelse	}	{		/CRender		{			F		} ddef	} ifelse} def/f{	closepath	F} def/S{	_pola 0 eq	{		_doClip 1 eq		{			gsave _ps grestore clip newpath /_lp /none ddef _sc			/_doClip 0 ddef		}		{			_ps		} ifelse	}	{		/CRender		{			S		} ddef	} ifelse} def/s{	closepath	S} def/B{	_pola 0 eq	{		_doClip 1 eq		gsave F grestore		{			gsave S grestore clip newpath /_lp /none ddef _sc			/_doClip 0 ddef		}		{			S		} ifelse	}	{		/CRender		{			B		} ddef	} ifelse} def/b{	closepath	B} def/W{	/_doClip 1 ddef} def/*{	count 0 ne	{		dup type /stringtype eq		{			pop		} if	} if	newpath} def/u{} def/U{} def/q{	_pola 0 eq	{		gsave	} if} def/Q{	_pola 0 eq	{		grestore	} if} def/*u{	_pola 1 add /_pola exch ddef} def/*U{	_pola 1 sub /_pola exch ddef	_pola 0 eq	{		CRender	} if} def/D{	pop} def/*w{} def/*W{} def/`{	/_i save ddef	clipForward?	{		nulldevice	} if	6 1 roll 4 npop	concat pop	userdict begin	/showpage	{	} def	0 setgray	0 setlinecap	1 setlinewidth	0 setlinejoin	10 setmiterlimit	[] 0 setdash	/setstrokeadjust where {pop false setstrokeadjust} if	newpath	0 setgray	false setoverprint} def/~{ end	_i restore} def/O{	0 ne	/_of exch ddef	/_lp /none ddef} def/R{	0 ne	/_os exch ddef	/_lp /none ddef} def/g{	/_gf exch ddef	/_fc	{		_lp /fill ne		{			_of setoverprint			_gf setgray			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/G{	/_gs exch ddef	/_sc	{		_lp /stroke ne		{			_os setoverprint			_gs setgray			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/k{	_cf astore pop	/_fc	{		_lp /fill ne		{			_of setoverprint			_cf aload pop setcmykcolor			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/K{	_cs astore pop	/_sc	{		_lp /stroke ne		{			_os setoverprint			_cs aload pop setcmykcolor			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/x{	/_gf exch ddef	findcmykcustomcolor	/_if exch ddef	/_fc	{		_lp /fill ne		{			_of setoverprint			_if _gf 1 exch sub setcustomcolor			/_lp /fill ddef		} if	} ddef	/_pf	{		_fc		fill	} ddef	/_psf	{		_fc		ashow	} ddef	/_pjsf	{		_fc		awidthshow	} ddef	/_lp /none ddef} def/X{	/_gs exch ddef	findcmykcustomcolor	/_is exch ddef	/_sc	{		_lp /stroke ne		{			_os setoverprint			_is _gs 1 exch sub setcustomcolor			/_lp /stroke ddef		} if	} ddef	/_ps	{		_sc		stroke	} ddef	/_pss	{		_sc		ss	} ddef	/_pjss	{		_sc		jss	} ddef	/_lp /none ddef} def/A{	pop} def/annotatepage{userdict /annotatepage 2 copy known {get exec} {pop pop} ifelse} def/discard{	save /discardSave exch store	discardDict begin	/endString exch store	gt38?	{		2 add	} if	load	stopped	pop end	discardSave restore} bind defuserdict /discardDict 7 dict dup beginput/pre38Initialize{	/endStringLength endString length store	/newBuff buffer 0 endStringLength getinterval store	/newBuffButFirst newBuff 1 endStringLength 1 sub getinterval store	/newBuffLast newBuff endStringLength 1 sub 1 getinterval store} def/shiftBuffer{	newBuff 0 newBuffButFirst putinterval	newBuffLast 0	currentfile read not	{	stop	} if	put} def0{	pre38Initialize	mark	currentfile newBuff readstring exch pop	{		{			newBuff endString eq			{				cleartomark stop			} if			shiftBuffer		} loop	}	{	stop	} ifelse} def1{	pre38Initialize	/beginString exch store	mark	currentfile newBuff readstring exch pop	{		{			newBuff beginString eq			{				/layerCount dup load 1 add store			}			{				newBuff endString eq				{					/layerCount dup load 1 sub store					layerCount 0 eq					{						cleartomark stop					} if				} if			} ifelse			shiftBuffer		} loop	}	{	stop	} ifelse} def2{	mark	{		currentfile buffer readline not		{		stop		} if		endString eq		{			cleartomark stop		} if	} loop} def3{	/beginString exch store	/layerCnt 1 store	mark	{		currentfile buffer readline not		{		stop		} if		dup beginString eq		{			pop /layerCnt dup load 1 add store		}		{			endString eq			{				layerCnt 1 eq				{					cleartomark stop				}				{					/layerCnt dup load 1 sub store				} ifelse			} if		} ifelse	} loop} defenduserdict /clipRenderOff 15 dict dup beginput{	/n /N /s /S /f /F /b /B}{	{		_doClip 1 eq		{			/_doClip 0 ddef clip		} if		newpath	} def} forall/Tr /pop load def/Bb {} def/BB /pop load def/Bg {12 npop} def/Bm {6 npop} def/Bc /Bm load def/Bh {4 npop} defend/Lb{	4 npop	6 1 roll	pop	4 1 roll	pop pop pop	0 eq	{		0 eq		{			(%AI5_BeginLayer) 1 (%AI5_EndLayer--) discard		}		{			/clipForward? true def						/Tx /pop load def			/Tj /pop load def			currentdict end clipRenderOff begin begin		} ifelse	}	{		0 eq		{			save /discardSave exch store		} if	} ifelse} bind def/LB{	discardSave dup null ne	{		restore	}	{		pop		clipForward?		{			currentdict		 end		 end		 begin						/clipForward? false ddef		} if	} ifelse} bind def/Pb{	pop pop	0 (%AI5_EndPalette) discard} bind def/Np{	0 (%AI5_End_NonPrinting--) discard} bind def/Ln /pop load def/Ap/pop load def/Ar{	72 exch div	0 dtransform dup mul exch dup mul add sqrt	dup 1 lt	{		pop 1	} if	setflat} def/Mb{	q} def/Md{} def/MB{	Q} def/nc 3 dict defnc begin/setgray{	pop} bind def/setcmykcolor{	4 npop} bind def/setcustomcolor{	2 npop} bind defcurrentdict readonly popendcurrentdict readonly popendsetpacking%%EndResource%%EndProlog%%BeginSetup%%IncludeFont: AvantGarde-BookAdobe_level2_AI5 /initialize get execAdobe_IllustratorA_AI5_vars Adobe_IllustratorA_AI5 Adobe_typography_AI5 /initialize get execAdobe_IllustratorA_AI5 /initialize get exec[39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla/hungarumlaut/ogonek/caronTE%AI3_BeginEncoding: _AvantGarde-Book AvantGarde-Book[/_AvantGarde-Book/AvantGarde-Book 0 0 1 TZ%AI3_EndEncoding AdobeType%AI5_BeginPalette27 14 PbPnPc1 gPc0 gPc0 0 0 0 kPc0.75 gPc0.5 gPc0.25 gPc0 gPc0 0 0 0 kPc0.25 0 0 0 kPc0.5 0 0 0 kPc0.75 0 0 0 kPc1 0 0 0 kPc0.25 0.25 0 0 kPc0.5 0.5 0 0 kPc0.75 0.75 0 0 kPc1 1 0 0 kPc0 0 0 0 kPc0 0.25 0 0 kPc0 0.5 0 0 kPc0 0.75 0 0 kPc0 1 0 0 kPc0 0.25 0.25 0 kPc0 0.5 0.5 0 kPc0 0.75 0.75 0 kPc0 1 1 0 kPc0 0 0 0 kPc0 0 0.25 0 kPc0 0 0.5 0 kPc0 0 0.75 0 kPc0 0 1 0 kPc0.25 0 0.25 0 kPc0.5 0 0.5 0 kPc0.75 0 0.75 0 kPc1 0 1 0 kPcPB%AI5_EndPalette%%EndSetup%AI5_BeginLayer1 1 1 1 0 0 0 79 128 255 Lb(Layer 1) Ln0 Auu0 O1 g800 Ar0 J 0 j 1 w 4 M []0 d%AI3_Note:0 D136.5 657.25 m136.5 701 L20.25 701 L20.25 657.25 L136.5 657.25 Lf78.375 679.125 mFUu0 g52.592 667.791 m51.092 666.291 l44.576 672.806 l41.904 675.478 45.835 679.041 48.46 676.369 C54.748 670.088 l53.276 668.588 l47.442 674.494 L46.656 675.267 45.906 674.47 46.656 673.72 C52.592 667.791 lf39.695 671.728 m38.148 670.181 l44.546 663.783 l47.218 661.111 50.945 664.838 48.25 667.533 C41.898 673.884 l40.392 672.419 l46.351 666.478 L47.078 665.752 46.398 665.025 45.718 665.705 C39.695 671.728 lf52.404 686.166 m50.904 684.666 l44.389 691.181 l41.717 693.853 45.648 697.416 48.273 694.744 C54.56 688.463 l53.089 686.963 l47.254 692.869 L46.468 693.642 45.718 692.845 46.468 692.095 C52.404 686.166 lf39.507 690.103 m37.96 688.556 l44.359 682.158 l47.031 679.486 50.757 683.213 48.062 685.908 C41.71 692.259 l40.204 690.794 l46.164 684.853 L46.89 684.127 46.21 683.4 45.531 684.08 C39.507 690.103 lf53.171 673.252 m51.671 674.752 l58.187 681.267 l60.859 683.939 64.421 680.008 61.75 677.383 C55.468 671.095 l53.968 672.567 l59.875 678.402 L60.648 679.187 59.851 679.937 59.101 679.187 C53.171 673.252 lf57.109 686.148 m55.562 687.695 l49.164 681.297 l46.492 678.625 50.218 674.898 52.914 677.594 C59.265 683.945 l57.8 685.451 l51.859 679.492 L51.132 678.766 50.406 679.445 51.085 680.125 C57.109 686.148 lf34.796 673.158 m33.296 674.658 l39.812 681.173 l42.484 683.845 46.046 679.914 43.375 677.289 C37.093 671.002 l35.593 672.473 l41.5 678.308 L42.273 679.094 41.476 679.844 40.726 679.094 C34.796 673.158 lf38.734 686.055 m37.187 687.602 l30.789 681.203 l28.117 678.531 31.843 674.805 34.539 677.5 C40.89 683.852 l39.425 685.358 l33.484 679.398 L32.757 678.672 32.031 679.352 32.71 680.031 C38.734 686.055 lf79.375 686.752 m78.062 687.314 74.968 688.345 72.343 687.127 c69.718 685.908 68.781 684.408 68.781 682.064 c68.781 679.72 70.38 678.569 72.343 677.658 c74.968 676.439 76.562 677.377 76.468 674.939 c76.429 673.904 76 672.502 74.125 672.502 c71.68 672.502 70.488 673.437 70.562 674.47 c70.656 675.783 69.906 676.439 69.25 675.502 C69.25 671.377 L69.718 670.533 69.812 670.627 70.843 670.533 c71.875 670.439 75.343 670.252 76.468 670.908 c77.593 671.564 79.093 672.502 79.656 673.158 c80.218 673.814 80.593 674.752 80.593 676.345 c80.593 677.939 80.031 679.345 78.156 680.095 c75.618 681.11 74.031 681.314 73.375 682.72 c72.718 684.127 73.141 685.158 74.125 685.72 c74.781 686.095 76.75 686.095 77.125 685.908 c77.5 685.72 78.01 684.901 78.062 684.22 c78.156 683.002 79.468 682.814 79.656 683.939 c79.843 685.064 79.562 685.345 79.75 685.627 c79.937 685.908 80.031 686.377 79.375 686.752 Cf87.718 685.158 m87.718 676.345 L87.718 672.502 93.625 673.72 93.625 675.689 C93.625 683.377 L93.062 684.22 92.875 684.877 91.656 684.877 c90.437 684.877 90.062 686.658 91.187 686.564 c92.312 686.47 93.531 686.564 94.375 686.47 c95.218 686.377 96.25 686.658 96.625 686.939 c97 687.22 97.75 687.595 97.937 686.845 C97.937 673.814 L98.687 672.877 98.968 672.689 99.343 672.595 c99.718 672.502 100.187 671.189 99.062 671.095 c97.937 671.002 97.375 671.189 96.531 671.189 c95.687 671.189 94.843 671.002 94.093 670.908 c93.343 670.814 93.437 671.095 93.437 671.564 c93.437 672.033 93.343 672.502 93.343 672.877 c93.343 673.252 92.875 673.533 92.125 672.783 c91.375 672.033 89.875 670.814 87.812 670.814 c85.75 670.814 83.875 672.22 83.593 673.345 C83.593 683.939 L83.125 684.502 82.75 684.595 82.093 684.689 c81.437 684.783 81.062 686.47 82 686.47 c82.937 686.47 83.968 686.658 84.718 686.47 c85.468 686.283 86.406 686.564 86.687 686.845 c86.968 687.127 87.718 687.408 87.906 686.752 c88.093 686.095 88 685.439 87.718 685.158 Cfu118.746 673.158 m118.09 673.252 117.996 673.064 117.527 673.627 C117.527 684.408 L117.246 685.533 116.59 687.408 112.746 687.408 c110.683 687.408 109.09 686.47 108.34 685.72 c107.59 684.97 107.215 684.97 107.215 685.345 c107.215 685.72 107.121 686.189 107.121 686.658 c107.121 687.127 106.746 687.408 106.465 687.314 c105.748 687.075 104.965 686.47 104.121 686.47 c103.277 686.47 102.621 686.377 101.496 686.283 c100.371 686.189 100.84 684.877 101.215 684.783 c101.59 684.689 101.777 685.064 102.527 684.127 C102.527 674.283 L102.433 673.627 101.636 672.97 100.699 672.502 c99.761 672.033 100.09 671.377 101.027 671.283 C108.902 671.283 l110.027 671.189 109.578 672.527 108.386 672.783 c107.074 673.064 107.496 674.002 106.933 674.845 C106.933 682.252 L106.933 684.22 112.84 685.439 112.84 681.595 C112.84 673.064 L112.558 672.783 112.301 672.056 112.652 671.47 c112.793 671.236 112.886 671.33 113.355 671.236 C118.886 671.236 L119.261 671.611 119.683 672.689 118.746 673.158 CfU0 To0.375 0 0 0.375 93.437 662.845 0 TpTP-66.0238 0 Td0 Tr/_AvantGarde-Book 19 Tf0 Ts100 Tz53 Tt0 TA%_ 0 XL36 0 XbXB0 0 5 TC100 100 200 TW0 0 0 Ti1 Ta0 0 2 2 3 Th0 Tq12 0 Tl1.0069 Tc0 Tw(microsystems) Tx (\r) TX TOUULB%AI5_EndLayer--%%PageTrailergsave annotatepage grestore showpage%%TrailerAdobe_IllustratorA_AI5 /terminate get execAdobe_typography_AI5 /terminate get execAdobe_level2_AI5 /terminate get exec%%EOF
+%%EndDocument
+FMENDEPSF
+774 417.6 990 986.4 C
+-45 351 1053 1053 C
+774 448.75 990 454 C
+0 0 0 1 0 0 0 1 K
+990.75 451.75 774.75 451.75 2 L
+0.5 H
+2 Z
+0 X
+N
+-45 351 1053 1053 C
+0 0 0 1 0 0 0 1 K
+FMENDPAGE
+%%EndPage: "2" 4
+%%Trailer
+FMENDDOCUMENT
+%%BoundingBox: 0 0 612 1008
+%%PageOrder: Ascend
+%%Pages: 4
+%%DocumentFonts: Times-Bold
+%%+ Times-Roman
+%%+ Times-Italic
+%%+ Helvetica-BoldOblique
+%%+ Helvetica
+%%+ Helvetica-Bold
+%%+ Palatino-Roman
+%%+ Palatino-Bold
+%%DocumentNeedsFonts: Times-Bold
+%%+ Times-Roman
+%%+ Times-Italic
+%%+ Helvetica-BoldOblique
+%%+ Helvetica
+%%+ Helvetica-Bold
+%%+ Palatino-Roman
+%%+ Palatino-Bold
+%%DocumentSuppliedFonts:
+%%EOF

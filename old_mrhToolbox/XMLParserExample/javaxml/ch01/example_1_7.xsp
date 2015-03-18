@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<xsp:page
+  language="java"
+  xmlns:xsp="http://www.apache.org/1999/XSP/Core"
+>
+
+  <title>A Simple XSP Page</title>
+  <p>Hi, I've been hit <counter /> times.</p>
+</xsp:page>

@@ -1,0 +1,1 @@
+java -ms512m -mx1024m SWList

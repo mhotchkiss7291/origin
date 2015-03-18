@@ -1,0 +1,17 @@
+Open browser
+Click Communicator/AddressBook
+In new window, click File/New Directory
+Description: Whatever
+LDAP Server: ebayldap1.ebay.sun.com
+	or
+			centralldap1.central.sun.com
+Server Root: dc=sun, dc=com
+Port Number: 389
+OK
+
+Type in a string into "Show names containing:"
+listing will begin.
+Double click on a name and a complete listing of attributes 
+will be displayed.
+
+

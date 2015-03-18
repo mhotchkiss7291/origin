@@ -1,0 +1,39 @@
+search_owner_cert_base=o=Sun Microsystems
+search_owner_cert_filter1=usercertificate;binary
+search_owner_cert_search_prefix=cn=*
+search_owner_cert_search_suffix=*
+search_owner_cert_url=ldap://dbcserve-8.central.sun.com:389
+
+searchcerts.approver.base=o=PartnerEnrollments
+searchcerts.approver.filter1=approvedby
+searchcerts.approver.filter2=uid
+searchcerts.approver.password=password
+searchcerts.approver.principal=uid=EnrollmentManager,o=sun.com
+searchcerts.approver.search_prefix=cn=
+searchcerts.approver.url=ldap://pkivadb.central:2000
+
+searchcerts.company.base=o=Sun Microsystems
+searchcerts.company.filter1=ou
+searchcerts.company.password=password
+searchcerts.company.principal=cn=Directory Manager
+searchcerts.company.search_prefix=(ou=
+searchcerts.company.search_suffix=)
+searchcerts.company.url=ldap://dbcserve-8.central.sun.com:389
+
+searchcerts.compcert.base_arg_prefix=ou=  
+searchcerts.compcert.base_arg_suffix=,o=Sun Microsystems
+searchcerts.compcert.filter1=usercertificate;binary
+searchcerts.compcert.password=password
+searchcerts.compcert.principal=cn=Directory Manager
+searchcerts.compcert.search_prefix=cn=*
+searchcerts.compcert.url=ldap://dbcserve-8.central.sun.com:389
+
+searchcerts.email.base=dc=sun,dc=com
+searchcerts.email.filter1=mail
+searchcerts.email.search_prefix=employeenumber=
+searchcerts.email.url=ldap://sun-ds.sun.com:389
+
+searchcerts.name.base=dc=sun,dc=com
+searchcerts.name.filter1=cn
+searchcerts.name.search_prefix=employeenumber=
+searchcerts.name.url=ldap://sun-ds.sun.com:389

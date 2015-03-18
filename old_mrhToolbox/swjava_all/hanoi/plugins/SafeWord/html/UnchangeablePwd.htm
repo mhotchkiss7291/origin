@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Visual Page 2.0 for Windows">
+	<TITLE>SafeWord Authentication</TITLE>
+</HEAD>
+
+<BODY TEXT="#006600" BGCOLOR="#FFFFF0" onLoad="document.SafeWordForm.SafeWordPassword.focus()">
+
+<FORM ACTION="/SafeWord/Command.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded" NAME="SafeWordForm">
+<P>
+<CENTER>
+<P><A HREF="http://www.securecomputing.com"><IMG SRC="/SafeWord/Images/scclogo.gif" WIDTH="108" HEIGHT="34" ALIGN="BOTTOM"
+BORDER="0" VSPACE="2"></A> 
+<TABLE BORDER="1" CELLPADDING="4" CELLSPACING="0" BGCOLOR="#99FF99">
+	<TR>
+		<TD>
+			<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="3" WIDTH="431" BGCOLOR="#99FF99">
+				<TR>
+					<TD ALIGN="CENTER" COLSPAN="2">
+						<P ALIGN="CENTER"><B><FONT SIZE="5">SafeWord Web Access</FONT></B><FONT SIZE="4"><BR>
+						**STATUSMSG**<BR>
+						**PASSWORDPROMPT**</FONT>
+					</TD>
+				</TR>
+				<TR>
+					<TD COLSPAN="2">
+						<CENTER>
+						<P><INPUT TYPE="PASSWORD" NAME="SafeWordPassword" SIZE="25">
+</CENTER>
+					</TD>
+				</TR>
+				<TR>
+					<TD WIDTH="50%">
+						<DIV ALIGN="RIGHT">
+						<P><INPUT TYPE="SUBMIT" VALUE="     OK     " onClick="return VerifyCookiesEnabled()">
+</DIV>
+					</TD>
+					<TD><INPUT TYPE="SUBMIT" NAME="Cancel" VALUE=" Cancel "></TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+Note: You must have cookies enabled to authenticate.<BR>
+<INPUT TYPE="HIDDEN" NAME="Command" SIZE="-1" VALUE="SafeWordAuthentication"> <INPUT TYPE="HIDDEN" NAME="passRedirect"
+SIZE="-1" VALUE="**PASSREDIRECT**"><INPUT TYPE="HIDDEN" NAME="failRedirect" SIZE="-1" VALUE="**FAILREDIRECT**"><INPUT
+TYPE="HIDDEN" NAME="RedirectPost" SIZE="-1" VALUE="**REDIRECTPOST**"><INPUT TYPE="HIDDEN" NAME="SafeWordData1"
+SIZE="-1" VALUE="**SAFEWORDDATA1**"></P>
+</CENTER>
+<P><SCRIPT Language="JavaScript">
+function GetCookie(name) 
+{
+	var end = 0; 
+	var result = 0;
+	var myCookie = " " + document.cookie + ";";
+	var searchFor = " " + name + "=";
+	var start = myCookie.indexOf(searchFor);
+	if (start > -1) 
+	{
+		start += searchFor.length; end = myCookie.indexOf(";", start);
+		 if (end > -1)
+			 result = unescape(myCookie.substring(start, end));
+	}
+	return result;
+}
+function SetCookie(name, value, expires) 
+{
+	var expString = ((expires == 0) ? "" : ("; expires =" + expires.toGMTString()));
+	document.cookie = name + "=" + (value == 0 ? "" : escape(value)) + expString +"; path=/"; 
+}
+function ClearCookie(name) 
+{
+	var expDate = new Date();
+	expDate.setTime(200000);
+	SetCookie(name, 0, expDate);
+}
+function VerifyCookiesEnabled() 
+{ 
+	var date = new Date();
+	var value = date.getTime().toString();
+	SetCookie("Reg2CookieTest", value, 0);
+	var realValue = GetCookie("Reg2CookieTest");
+	ClearCookie("Reg2CookieTest");
+	if(realValue == 0 || realValue != value)
+	{
+		alert("You currently have cookies disabled on your browser. You must enable cookies to proceed.");
+		return false;
+	}
+	return true;
+}
+function key_up(e)
+{
+	if (e.which == 13 && VerifyCookiesEnabled())
+		document.SafeWordForm.submit(); 
+}	
+if (navigator.appName == "Netscape")
+{
+	document.onkeyup=key_up;
+	document.captureEvents(Event.KEYUP);
+}
+</SCRIPT>
+</FORM>
+
+</BODY>
+
+</HTML>
+

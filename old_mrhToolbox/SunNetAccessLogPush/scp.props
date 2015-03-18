@@ -1,0 +1,4 @@
+server:crdevsrc.central.sun.com
+username:mirror
+port:3784
+auth-method:publickey

@@ -1,0 +1,19 @@
+# SunPublish Site Configuration File
+# SunPublish v2.0
+# Generated Thu Jul 26 12:51:28 MDT 2001
+
+site.archive.directory=zArchive
+site.archive.max_saved=0
+site.content.root=/opt/netscape/server4/docs/TokenCards
+site.content.suffix=.content
+site.file.policy=replace
+site.ignored.directories=.sunpublish*|zArchive
+site.ignored.files=*%|.sunpublish*|*.ps
+site.livePage.root=/opt/netscape/server4/docs/TokenCards
+site.livePage.suffix=.html
+site.noPublish.directories=
+site.noPublish.files=
+site.noPublish.suffix=.html-nt
+site.published.root=/opt/netscape/server4/docs/TokenCards
+site.published.suffix=.html
+site.url=https://hanoi.central:443/TokenCards

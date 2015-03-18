@@ -1,0 +1,8 @@
+* Increase semaphores to see if 2016 error goes away
+* See Don Munro, Billy Hawk, or Mark Hotchkiss
+        set semsys:seminfo_semmsl = 40
+        set semsys:seminfo_semmni = 50
+        set semsys:seminfo_semmnu = 50
+        set semsys:seminfo_semmns = 2000
+        set shmsys:shminfo_shmmni = 150
+

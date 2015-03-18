@@ -1,0 +1,104 @@
+
+Mark Hotchkiss
+
+7291 Brockway Dr.
+Boulder, CO 80303
+303-499-9850
+mark.hotchkiss@sun.com
+
+An accomplished Software Engineer and Systems Administrator/Integrator 
+specializing in Object-Oriented Design and Analysis with extensive 
+experience in web-based applications, GUI development, business 
+operation logic, security, from prototyping through deployment 
+and testing.
+
+
+Summary of Qualifications:
+
+- 5 years experience in Java, servlets/JSP, JDBC, and multi-tiered 
+  applications development and deployment
+
+- Strong knowlege in OO Design, XP Programming, quick prototyping
+
+- 20 years experience in UNIX and C, C++, OO environments.
+
+- Extensive experience iPlanet and Apache Web, Application, and 
+  Identity server products
+
+- Excels in thorough and complete documentation generation for support and
+  troubleshooting teams
+
+
+Skill Set and Product Experience:
+
+- Solaris, Linux, Windows and scripting
+- Java servlets, SWING, JDBC
+- C, C++, HTML, CVS, SCCS
+- Apache, Tomcat, iPlanet servers
+- Jakarta Struts Framework, Eclipse, XML knowlege
+- MySQL, mSQL, Sybase, Oracle interfaces
+
+
+Professional Experience:
+
+1998-Present  Sun Microsystems Inc., Broomfield, CO
+Software Engineer specializing in web-based applications development 
+and Internet Security
+  - Started at Sun as Course Developer for Sun Educational Services authoring
+    courses in Solaris Security, Java Programming and C System Interface.
+    Left education for more challenges in programming after 1 year.
+  - Joined Sun Authentication Technologies group as sole software developer
+    developing and deploying products related to Token Cards, Certificates,
+    and database administration. Entire application for token card database
+    transaction and maintainence developed single-handedly. Also supplied
+    all supporting documentation for Resolution Center support.
+
+    See: 
+     https://hanoi.central.sun.com:443/servlet/TokenCardReg
+    and:
+     http://hanoi.central.sun.com:88/BCA/GeneralServices
+
+    Both applications were developed and deployed entirely by M. Hotchkiss.
+    No software errors encountered or outages for past 24 months.
+
+  - Developed a complete GUI, Java servlet, and JDBC interface to MySQL
+    for AT&T Internet dial-up account membership management for remote
+    access for Sun employees worldwide.
+  - Designed and deployed JavaBadge personalization website and applet
+    interface using ActivCard vendor interface for first pilot of Sun's 
+    JavaBadge program. Exposure to XML and SOAP was included.
+  - 18 months experience as Systems Integrator of Sun Access Management 
+    System (SAMS/SIMS) using iPlanet Identity Server, Directory Server (LDAP),
+    and external facing deployment. Extensive experience in the installation
+    and configuration of servers. Included extensive documentation, Solaris
+    package building and product team consultation.
+
+1996-1998 and 1986-1991 - Spatial Technology Inc.; Boulder, CO
+Software and Support Engineer for C++ kernel product for precision mathematical
+solid modeling for Mechanical CAD/CAM software development.
+  - Began as system designer and GUI developer for end-user mechanical design
+    and manufacturing system. Developed GUIs using PHIGs/HOOPs programming
+    languages.
+  - Later supported C++ developers as support desk engineer. Provided C++ code
+    examples, developed code interfaces, processed and tracked bug reports.
+  - Authored and delivered numerous training classes on the integration of
+    the kernel products.
+
+1994-1996 - CTA, Incorporated; Englewood, CO
+Software subject matter expert and Product packaging enginee
+  - Employed as subject matter expert of the Pro-Engineer design/manufacturing
+    system for numerical controlled machining.
+  - Acted as Solaris, IRIX, AIX, HP-UX, WindowsNT systems administrator which
+    later became full time support job.
+
+
+Education:
+
+BS in Mechancial Engineering, University of Colorado at Boulder
+
+Sun Systems Administrator course - 1991
+Sun Java Programming SL275 and JDBC development interface workshop
+Sun Object Oriented Design Workshop
+
+
+

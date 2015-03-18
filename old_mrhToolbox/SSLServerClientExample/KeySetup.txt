@@ -1,0 +1,108 @@
+
+Setup for example
+
+
+buster# keytool -genkey -v -alias serveralias -keystore /usr/sslserver/serverkeystore
+Enter keystore password:  serverpw
+What is your first and last name?
+  [Unknown]:  Mark Hotchkiss
+What is the name of your organizational unit?
+  [Unknown]:  Sun Security
+What is the name of your organization?
+  [Unknown]:  Sun Microsystems Inc
+What is the name of your City or Locality?
+  [Unknown]:  Broomfield
+What is the name of your State or Province?
+  [Unknown]:  CO
+What is the two-letter country code for this unit?
+  [Unknown]:  US
+Is <CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US> correct?
+  [no]:  yes
+
+Generating 1024 bit DSA key pair and self-signed certificate (SHA1WithDSA)
+        for: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Enter key password for <serveralias>
+        (RETURN if same as keystore password):  
+[Saving /usr/sslserver/serverkeystore]
+buster# ls
+Listen.class    Listen.java     serverkeystore
+buster# 
+buster# keytool -export -alias serveralias -keystore /usr/sslserver/serverkeystore -file server.cert
+Enter keystore password:  serverpw
+Certificate stored in file <server.cert>
+buster# mv server.cert /usr/sslclient
+buster# cd /usr/sslclient
+buster# ls
+Client.class  Client.java   server.cert
+buster# 
+buster# keytool -genkey -v -alias clientalias -keystore /usr/sslclient/clientkeystore
+Enter keystore password:  clientpw
+What is your first and last name?
+  [Unknown]:  Mark Hotchkiss
+What is the name of your organizational unit?
+  [Unknown]:  Sun Security
+What is the name of your organization?
+  [Unknown]:  Sun Microsystems Inc
+What is the name of your City or Locality?
+  [Unknown]:  Broomfield
+What is the name of your State or Province?
+  [Unknown]:  CO
+What is the two-letter country code for this unit?
+  [Unknown]:  US
+Is <CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US> correct?
+  [no]:  yes
+
+Generating 1024 bit DSA key pair and self-signed certificate (SHA1WithDSA)
+        for: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Enter key password for <clientalias>
+        (RETURN if same as keystore password):  
+[Saving /usr/sslclient/clientkeystore]
+buster# ls
+Client.class    Client.java     clientkeystore  server.cert
+buster# keytool -export -alias clientalias -keystore /usr/sslclient/clientkeystore -file client.cert
+Enter keystore password:  clientpw
+keytool error: Keystore was tampered with, or password was incorrect
+buster# keytool -export -alias clientalias -keystore /usr/sslclient/clientkeystore -file /usr/sslclient/client.cert
+Enter keystore password:  clientpw
+Certificate stored in file </usr/sslclient/client.cert>
+buster# 
+buster# ls
+Client.class    Client.java     client.cert     clientkeystore  server.cert
+buster# mv client.cert /usr/sslserver
+buster# ls
+Client.class    Client.java     clientkeystore  server.cert
+buster#        
+buster# keytool -import -alias serveralias -keystore /usr/sslclient/clientkeystore -file /usr/sslclient/server.cert
+Enter keystore password:  clientpw
+Owner: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Issuer: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Serial number: 3a52539e
+Valid from: Tue Jan 02 15:18:06 MST 2001 until: Mon Apr 02 16:18:06 MDT 2001
+Certificate fingerprints:
+         MD5:  C5:9B:63:E6:69:B2:19:1B:03:92:F0:F2:7A:09:4B:3B
+         SHA1: FF:9F:EE:26:9F:B9:40:34:E3:E1:8C:DF:A0:B1:FF:5F:A1:92:F8:98
+Trust this certificate? [no]:  yes
+Certificate was added to keystore
+buster# 
+buster# ls
+Client.class    Client.java     clientkeystore  server.cert
+buster# cd ../sslserver
+buster# ls
+Listen.class    Listen.java     client.cert     serverkeystore
+buster# keytool -import -alias clientalias -keystore /usr/sslserver/serverkeystore -file /usr/sslserver/client.cert
+Enter keystore password:  serverpw
+Owner: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Issuer: CN=Mark Hotchkiss, OU=Sun Security, O=Sun Microsystems Inc, L=Broomfield, ST=CO, C=US
+Serial number: 3a525476
+Valid from: Tue Jan 02 15:21:42 MST 2001 until: Mon Apr 02 16:21:42 MDT 2001
+Certificate fingerprints:
+         MD5:  8C:F9:61:CA:90:1F:18:7E:D0:F7:AC:EB:57:E8:B8:5A
+         SHA1: 31:05:CE:54:2C:8A:1D:14:A3:DC:18:94:72:F3:0D:6E:B0:53:5A:5B
+Trust this certificate? [no]:  yes
+Certificate was added to keystore
+buster# ls
+Listen.class    Listen.java     client.cert     serverkeystore
+buster# 
+
+
+

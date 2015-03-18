@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xsp"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="myStylesheet.xsl" type="text/xsl"?>
+
+<xsp:page language="java" 
+          xmlns:xsp="http://www.apache.org/1999/XSP/Core"
+>
+ 
+ <xsp:logic>
+  private static int numHits = 0; 
+  
+  private synchronized int getNumHits() { 
+   return ++numHits; 
+  }
+ </xsp:logic>
+
+ <page>
+  <title>Hit Counter</title>
+ 
+  <p>I've been requested <xsp:expr>getNumHits()</xsp:expr> times.</p>
+ </page>
+</xsp:page>

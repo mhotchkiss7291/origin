@@ -1,0 +1,141 @@
+#!/bin/sh
+DSAMEHOME=$IDENTITY_HOME
+JARSTOADD="CR_CL.jar CS_IntegrationLib_1.0.jar CS_SessionTransfer_1.1.jar"
+ORIGINALJARSDIR=../build
+IWS_NAME=$IDENTITY_WEBSERVER_NAME
+
+MYDN=amadmin
+MYPW=$AMADMIN_PW
+
+AWKSCRIPT=/tmp/install$$.awk
+/bin/rm -f $AWKSCRIPT
+/bin/cat << EOSCRIPT > $AWKSCRIPT
+
+/<Value>objectClass=iplanet-am-managed-person/ {
+        print
+        
+        print "<Value>objectClass=samsPerson</Value>"
+
+        next
+}
+
+{print}
+EOSCRIPT
+
+cd $DSAMEHOME/config/ums
+/usr/bin/mv ums.xml ums.xml.FACTORY
+/usr/bin/nawk -f $AWKSCRIPT < ums.xml.FACTORY > ums.xml
+
+
+echo "Updating amAuth.xml..."
+AWKSCRIPT=/tmp/install$$.awk
+/bin/rm -f $AWKSCRIPT
+/bin/cat << EOSCRIPT > $AWKSCRIPT
+BEGIN {
+    inMenu=0;
+    inClasses=0;
+}
+
+/AttributeSchema name="iplanet-am-auth-menu"/ {
+        inMenu=1;
+}
+
+/AttributeSchema name="iplanet-am-auth-authenticators"/ {
+        inClasses=1;
+}
+
+/<Value>com.iplanet.authentication.modules.safeword.SafeWord/ {
+        print
+        if (1==inClasses) {
+                print "<Value>com.sun.sams.auth.getusername.GetUserName</Value>"
+                print "<Value>com.sun.sams.auth.resetpassword.ResetPassword</Value>"
+                print "<Value>com.sun.sams.auth.login.Login</Value>"
+                print "<Value>com.sun.sams.auth.register.SamsMembership</Value>"
+                inClasses=0;
+        }
+        next
+}
+
+/<ChoiceValue i18nKey="SafeWord">SafeWord/ {
+        print
+        if (1==inMenu) {
+                print "<ChoiceValue i18nKey=\"GetUserName\">GetUserName</ChoiceValue>"
+                print "<ChoiceValue i18nKey=\"ResetPassword\">ResetPassword</ChoiceValue>"
+                print "<ChoiceValue i18nKey=\"Login\">Login</ChoiceValue>"
+                print "<ChoiceValue i18nKey=\"SamsMembership\">SamsMembership</ChoiceValue>"
+                inMenu=0;
+        }
+        next
+}
+
+{print}
+EOSCRIPT
+
+cd $DSAMEHOME/config/xml
+/usr/bin/mv amAuth.xml amAuth.xml.FACTORY
+/usr/bin/awk -f $AWKSCRIPT < amAuth.xml.FACTORY > amAuth.xml
+/bin/rm -f $AWKSCRIPT
+
+echo "Done modifying amAuth.xml..."
+
+echo "Updating CLASSPATH..."
+echo "Building jar list..."
+JARSPATH=""
+for i in $JARSTOADD
+ do
+  JARSPATH=${JARSPATH}:$DSAMEHOME/web-apps/services/WEB-INF/lib/$i
+ done
+
+/bin/rm -f $AWKSCRIPT
+/bin/cat << EOSCRIPT > $AWKSCRIPT
+/^jvm.classpath=/ {
+    printf("%s%s\n",\$0,"$JARSPATH");
+	next
+}
+
+{print}
+EOSCRIPT
+
+CONF_DIR=$DSAMEHOME/servers/https-${IWS_NAME}/config
+echo "Updating ${CONF_DIR}/jvm12.conf..."
+cd $CONF_DIR
+/usr/bin/mv jvm12.conf jvm12.conf.FACTORY
+/usr/bin/nawk -f $AWKSCRIPT < jvm12.conf.FACTORY > jvm12.conf
+/usr/bin/chmod 644 jvm12.conf
+/bin/rm -f $AWKSCRIPT
+
+cd $DSAMEHOME/bin
+echo "Removing existing UMS configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --deleteService DAI
+echo "Removing existing auth configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --deleteService iPlanetAMAuthService
+echo "Installing updated auth configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --schema $DSAMEHOME/config/xml/amAuth.xml
+echo "Installing updated UMS configuration..."
+./amadmin --runAsDN "$MYDN" --password "$MYPW" --schema $DSAMEHOME/config/ums/ums.xml
+echo "Done updating auth config."
+
+EDITFILES="$DSAMEHOME/locale/amAuthSamsMembership.properties"
+
+# Variables to replace:
+echo "Editing configuration files"
+for file in $EDITFILES
+do
+	cp -p $file $file.tmpl
+
+	sed -e "s:DIRECTORY_HOST:$DIRECTORY_HOST:g"  \
+	-e "s:DIRECTORY_PORT:$DIRECTORY_PORT:g"  \
+	-e "s:DSAMEUSER_PW:$DSAMEUSER_PW:g"  \
+	-e "s:SAMS_PROXY_SERVER:$SAMS_PROXY_SERVER:g"  \
+	-e "s:SAMS_PROXY_PORT:$SAMS_PROXY_PORT:g"  \
+		$file.tmpl > $file
+	rm -f $file.tmpl
+	echo ". \c"
+done
+
+echo "making soft link for login.sun.com.jsp"
+ln -s $DSAMEHOME/web-apps/services/login.sun.com.jsp $DSAMEHOME/public_html/login.sun.com.jsp
+
+exit 0
+
+

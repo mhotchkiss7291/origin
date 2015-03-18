@@ -1,0 +1,4 @@
+
+./ldapmodify -h gsoit-sandbox1 -p 10389 -D "cn=directory manager" -w dmanager123 -acf ./pwdchange.ldif
+
+Loads the LDIF file pwdchange.ldif

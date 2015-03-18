@@ -1,0 +1,22 @@
+
+PKG:sh=grep -w PKG pkginfo | cut -f2 -d=
+VERS:sh=grep -w VERSION pkginfo | cut -f2 -d= | cut -f1 -d_
+
+ARCH=all
+
+PKGFILE=$(PKG).pkg
+
+FILES=
+
+pkg: build_pkg $(PKGFILE)
+
+$(PKGFILE): prototype $(FILES)
+	pkgmk -o -v $(VERS) -d . -a $(ARCH)
+	touch $(PKGFILE)
+	pkgtrans -s . $(PKGFILE) $(PKG) 
+	/bin/rm -rf $(PKG)
+
+clean::
+	/bin/rm -rf ./$(PKG)*
+
+build_pkg::

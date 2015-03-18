@@ -1,0 +1,1 @@
+/opt/SENSrsync/bin/rsync --progress -v -e /usr/dist/share/SENSsshc,v1.2.2/bin/ssh filename webpush@sams-ame-an-alpha.sun.com:/tmp

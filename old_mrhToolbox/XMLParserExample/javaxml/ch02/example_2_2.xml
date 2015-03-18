@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<addressBook xmlns:xsi="http://www.w3.org/1999/XMLSchema/instance"
+             xmlns="http://www.oreilly.com/catalog/javaxml/"
+             xsi:schemaLocation="http://www.oreilly.com/catalog/javaxml/
+                                 mySchema.xsd"
+>
+  <person>
+    <name>
+      <firstName>Brett</firstName>
+      <lastName>McLaughlin</lastName>
+    </name>
+    <email>brettmclaughlin@earthlink.net</email>
+  </person>
+  <person>
+    <name>
+      <firstName>Eddie</firstName>
+      <lastName>Balucci</lastName>
+    </name>
+    <email>eddieb@freeworld.net</email>
+  </person>
+</addressBook>  

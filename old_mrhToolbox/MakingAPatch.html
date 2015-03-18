@@ -1,0 +1,351 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content=" Dan Delany">
+   <meta name="GENERATOR" content="Mozilla/4.79C-CCK-MCD  [en] (X11; U; SunOS 5.9 sun4u) [Netscape]">
+</head>
+<body>
+Creating a patch:
+<p>A Solaris patch is a package with a few extras.&nbsp; The first thing
+you need to get is a unique patch ID.&nbsp; You can get a patch ID allocated
+to yourself by running
+<br><tt>/net/pip-tools.eng/latest/getpatchid</tt>
+<br>in a terminal window.&nbsp; It asks you a few simple questions, and
+then it generates your patch id.
+<p>The following is the structure of a patch.&nbsp; The files that are
+italicized are ones that are interesting to us:
+<br><tt></tt>&nbsp;
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>drwx--x--x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/</tt>
+<br><i><tt>-r-------- 33939/10&nbsp;&nbsp; 31588 Mar 26 07:41 2003 114900-01/Install.info</tt></i>
+<br><i><tt>-r-x--x--x 33939/10&nbsp;&nbsp; 53238 Mar 26 07:41 2003 114900-01/backoutpatch</tt></i>
+<br><i><tt>-r-x--x--x 33939/10&nbsp; 119239 Mar 26 07:41 2003 114900-01/installpatch</tt></i>
+<br><i><tt>-r-------- 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 Mar 26
+07:41 2003 114900-01/postbackout</tt></i>
+<br><i><tt>-rwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp; 5038 Mar 26 07:41 2003
+114900-01/postpatch</tt></i>
+<br><i><tt>-rwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 Mar 26
+07:41 2003 114900-01/prepatch</tt></i>
+<br><i><tt>-r-------- 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 76 Mar 26
+07:41 2003 114900-01/.diPatch</tt></i>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp;&nbsp; 914 Mar 26 07:41 2003
+114900-01/SUNWsmssu/pkgmap</tt>
+<br><i><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp;&nbsp; 550 Mar 26 07:41
+2003 114900-01/SUNWsmssu/pkginfo</tt></i>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/reloc/</tt>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/reloc/bin/</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp;&nbsp; 791 Mar 24 10:12 2003
+114900-01/SUNWsmssu/reloc/bin/sams-user-checks.sh</tt>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/reloc/users/</tt>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/reloc/users/release1/</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 4411 Mar 24 10:12 2003 114900-01/SUNWsmssu/reloc/users/release1/sams-admin-roles-assign.ldif</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp; 13618 Mar 24 10:12 2003 114900-01/SUNWsmssu/reloc/users/release1/sams-admin-users.ldif</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp;&nbsp; 923 Mar 24 10:12 2003
+114900-01/SUNWsmssu/reloc/users/release1/sams-all-users-orig-delete.ldif</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 1639 Mar 24 10:12 2003 114900-01/SUNWsmssu/reloc/users/release1/sams-appsvcs-users-delete.ldif</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 6373 Mar 24 10:12 2003 114900-01/SUNWsmssu/reloc/users/release1/sams-appsvcs-users.ldif</tt>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/reloc/users/release2/</tt>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 4282 Mar 24 10:12 2003 114900-01/SUNWsmssu/reloc/users/release2/sams-admin-roles-assign.ldif</tt>
+<br><tt>drwxr-xr-x 33939/10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Mar 26
+07:41 2003 114900-01/SUNWsmssu/install/</tt>
+<br><i><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 5052 Mar&nbsp; 6 16:01
+2003 114900-01/SUNWsmssu/install/checkinstall</tt></i>
+<br><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp;&nbsp; 189 Feb&nbsp; 5 15:24
+2003 114900-01/SUNWsmssu/install/copyright</tt>
+<br><i><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 6384 Mar&nbsp; 6 16:01
+2003 114900-01/SUNWsmssu/install/postinstall</tt></i>
+<br><i><tt>-rw-r--r-- 33939/10&nbsp;&nbsp;&nbsp; 6554 Mar&nbsp; 6 16:01
+2003 114900-01/SUNWsmssu/install/preinstall</tt></i>
+<br><tt></tt>&nbsp;
+<br><tt></tt>&nbsp;
+<h1>
+Descriptions of files:</h1>
+
+<h4>
+Install.info</h4>
+This is a standard text file for a patch.&nbsp; It's not needed for the
+functioning of a patch, but it is like a README file with instructions
+to add a patch to a system.
+<br>&nbsp;
+<h4>
+backoutpatch</h4>
+This is a script that is already written, and we do not need or want to
+modify it.
+<br>&nbsp;
+<h4>
+installpatch</h4>
+
+<p><br>Again, this is a script that is already written, and we do not need
+or want to modify it.
+<br>&nbsp;
+<h4>
+postbackout</h4>
+
+<p><br>This is a script that is patch-specific, and can be considered analagous
+to a postremove script for a package.&nbsp; In this particular patch, the
+script is just
+<p><tt>#!/bin/sh</tt>
+<br><tt>exit 0</tt>
+<br>&nbsp;
+<h4>
+postpatch</h4>
+This is a script that is patch-specific, and can be considered analagous
+to a postinstall script.&nbsp; This script needs to be interactive, containing
+the functionality that a package would put into the request and postinstall
+scripts.&nbsp; This script contains:
+<br>&nbsp;<tt></tt>
+<p><tt>#!/bin/sh</tt><tt></tt>
+<p><tt>#========================================================</tt>
+<br><tt># SETUP</tt>
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt># Are we in a chroot?</tt>
+<br><tt>CHROOT_BASE=/</tt>
+<br><tt>if [ -f /var/sadm/pkg/SUNWsmscr/pkginfo ]</tt>
+<br><tt>&nbsp;then</tt>
+<br><tt>&nbsp; CHROOT_BASE=`grep 'CHROOT_TARGET_DIR=' /var/sadm/pkg/SUNWsmscr/pkginfo
+| awk -F= '{print $2}'`</tt>
+<br><tt>&nbsp; echo Chroot detected at $CHROOT_BASE</tt>
+<br><tt>&nbsp;fi</tt><tt></tt>
+<p><tt>PKGINFO=$CHROOT_BASE/var/sadm/pkg/SUNWsmssu/pkginfo</tt><tt></tt>
+<p><tt>IDENTITY_HOME=`grep '^IDENTITY_HOME=' $PKGINFO | sed 's/IDENTITY_HOME=//'`</tt>
+<br><tt>BASEDIR=`grep '^BASEDIR=' $PKGINFO | sed 's/BASEDIR=//'`</tt>
+<br><tt>DIRECTORY_HOST=`grep '^DIRECTORY_HOST=' $PKGINFO | sed 's/DIRECTORY_HOST=//'`</tt>
+<br><tt>DIRECTORY_PORT=`grep '^DIRECTORY_PORT=' $PKGINFO | sed 's/DIRECTORY_PORT=//'`</tt>
+<br><tt>AMADMIN_DN=`grep '^AMADMIN_DN=' $PKGINFO | sed 's/AMADMIN_DN=//'`</tt>
+<br><tt>AMADMIN_PW=`grep '^AMADMIN_PW=' $PKGINFO | sed 's/AMADMIN_PW=//'`</tt>
+<br><tt>DMANAGER_PW=`grep '^DMANAGER_PW=' $PKGINFO | sed 's/DMANAGER_PW=//'`</tt><tt></tt>
+<p><tt>DMANAGER_DN='cn=Directory Manager'</tt>
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>BASEDIR=$CHROOT_BASE/$BASEDIR</tt>
+<br><tt>IDENTITY_HOME=$CHROOT_BASE/$IDENTITY_HOME</tt>
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>yesno() {</tt>
+<br><tt>&nbsp; ok="no"</tt>
+<br><tt>&nbsp; question=$1</tt>
+<br><tt>&nbsp; default=`echo $2 | cut -c1 | sed y/YN/yn/`</tt>
+<br><tt>&nbsp; while [ "$ok" = "no" ]; do</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; if [ "$default" = "y" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "$question [y]/n \c"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; default="y"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; elif [ "$default" = "n" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "$question y/[n] \c"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; default="n"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo "$question y/n \c"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; default=""</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fi</tt><tt></tt>
+<p><tt>&nbsp;&nbsp;&nbsp; read ans</tt><tt></tt>
+<p><tt>&nbsp;&nbsp;&nbsp; if [ "$ans" = "" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; if [ "$default" != "" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ans=$default</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ok="yes"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fi</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ans=`echo $ans | cut -c1 | sed y/YN/yn/`</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; if [ "$ans" = "y" ] || [ "$ans" = "n" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ok="yes"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fi</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fi</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; if [ "$ok" = "no" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo ""</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo "Invalid response"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo ""</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; fi</tt>
+<br><tt>&nbsp; done</tt>
+<br><tt>}</tt>
+<br><tt>show_vars(){</tt>
+<br><tt>echo "BASEDIR=$BASEDIR"</tt>
+<br><tt>echo "IDENTITY_HOME=$IDENTITY_HOME"</tt>
+<br><tt>echo "DIRECTORY_HOST=$DIRECTORY_HOST"</tt>
+<br><tt>echo "DIRECTORY_PORT=$DIRECTORY_PORT"</tt>
+<br><tt>echo "AMADMIN_DN=$AMADMIN_DN"</tt>
+<br><tt>echo "AMADMIN_PW=$AMADMIN_PW"</tt>
+<br><tt>echo "DMANAGER_DN=$DMANAGER_DN"</tt>
+<br><tt>echo "DMANAGER_PW=$DMANAGER_PW"</tt>
+<br><tt>}</tt>
+<br><tt>get_ans(){</tt>
+<br><tt>&nbsp; message=$1</tt>
+<br><tt>&nbsp; ans=$2</tt>
+<br><tt>&nbsp; echo "$message [$ans]: \c"</tt>
+<br><tt>&nbsp; read TEST</tt>
+<br><tt>&nbsp; if [ "$TEST" != "" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ans=$TEST</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>}</tt>
+<br><tt></tt>&nbsp;
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>while [ 1 ]</tt>
+<br><tt>do</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; show_vars</tt>
+<br><tt>&nbsp; yesno "Use this configuration" "y"</tt>
+<br><tt>&nbsp; if [ "$ans" = "n" ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "Identity Server Home (example: /opt/SUNWam)
+" "$IDENTITY_HOME"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; IDENTITY_HOME=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "BASEDIR " "$BASEDIR"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; BASEDIR=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "Directory Server Host " "$DIRECTORY_HOST"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; DIRECTORY_HOST=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "Directory Server Port " "$DIRECTORY_PORT"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; DIRECTORY_PORT=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "amAdmin DN " "$AMADMIN_DN"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; AMADMIN_DN=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "amAdmin password " "$AMADMIN_PW"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; AMADMIN_PW=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "Directory Manager DN " "$DMANAGER_DN"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; DMANAGER_DN=$ans</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; get_ans "Directory Manager password " "$DMANAGER_PW"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; DMANAGER_PW=$ans</tt><tt></tt>
+<p><tt>&nbsp;&nbsp;&nbsp; else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; break</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>done</tt>
+<br><tt></tt>&nbsp;
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>LD_LIBRARY_PATH=$IDENTITY_HOME/lib/solaris/sparc</tt>
+<br><tt>export LD_LIBRARY_PATH</tt><tt></tt>
+<p><tt># Initialize the installation log.</tt><tt></tt>
+<p><tt>INSTALL_LOG=$BASEDIR/logs/sams-users-install.log</tt>
+<br><tt>/bin/rm -f $INSTALL_LOG</tt>
+<br><tt>cat /dev/null > $INSTALL_LOG</tt><tt></tt>
+<p><tt>logmsg() {</tt>
+<br><tt>&nbsp;&nbsp; echo [`date +"%Y/%M/%d %H:%M:%S %Z"`]" $1" >> $INSTALL_LOG</tt>
+<br><tt>&nbsp;&nbsp; echo "$1"</tt>
+<br><tt>}</tt><tt></tt>
+<p><tt># Edit scripts and add the directory server info.</tt><tt></tt>
+<p><tt>replace_param() {</tt>
+<br><tt>&nbsp;&nbsp; sed "s+$1+$2+g" $3 > $3-new</tt>
+<br><tt>&nbsp;&nbsp; mv $3-new $3</tt>
+<br><tt>}</tt><tt></tt>
+<p><tt>insert_directory_info() {</tt>
+<br><tt>&nbsp;&nbsp; replace_param DIRECTORY_HOST "$DIRECTORY_HOST" $1</tt>
+<br><tt>&nbsp;&nbsp; replace_param DIRECTORY_PORT "$DIRECTORY_PORT" $1</tt>
+<br><tt>&nbsp;&nbsp; replace_param IDENTITY_HOME "$IDENTITY_HOME" $1</tt>
+<br><tt>&nbsp;&nbsp; replace_param AMADMIN_DN "$AMADMIN_DN" $1</tt>
+<br><tt>&nbsp;&nbsp; chmod 555 $1</tt>
+<br><tt>}</tt><tt></tt>
+<p><tt>insert_directory_info $BASEDIR/bin/sams-user-checks.sh</tt><tt></tt>
+<p><tt># Define the file system directories where release1 and release2
+users info can be found.</tt><tt></tt>
+<p><tt>RELEASE1=$BASEDIR/users/release1</tt>
+<br><tt>RELEASE2=$BASEDIR/users/release2</tt><tt></tt>
+<p><tt># Define functions to use when searching and modifying the directory
+server.</tt><tt></tt>
+<p><tt>check_directory () {</tt>
+<br><tt>&nbsp;&nbsp; $BASEDIR/bin/sams-user-checks.sh $AMADMIN_PW >> $INSTALL_LOG
+2>&amp;1</tt>
+<br><tt>}</tt><tt></tt>
+<p><tt>modify_directory () {</tt>
+<br><tt>&nbsp;&nbsp; if [ ! -f $1 ]; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logmsg "ERROR: $1 does not exist."</tt>
+<br><tt>&nbsp;&nbsp; else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo `date`" Modifying directory
+with $1" >> $INSTALL_LOG 2>&amp;1</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $IDENTITY_HOME/bin/ldapmodify -h
+$DIRECTORY_HOST -p $DIRECTORY_PORT -D "$DMANAGER_DN" -w $DMANAGER_PW -a
+-c -f $1 >> $INSTALL_LOG 2>&amp;1</tt>
+<br><tt>&nbsp;&nbsp; fi</tt>
+<br><tt>}</tt><tt></tt>
+<p><tt>#========================================================</tt><tt></tt>
+<p><tt>logmsg "Starting Users install into ldap://"$DIRECTORY_HOST":"$DIRECTORY_PORT</tt><tt></tt>
+<p><tt># USER DELETES</tt><tt></tt>
+<p><tt>logmsg "Removing all old SAMS admin users."</tt><tt></tt>
+<p><tt>modify_directory $RELEASE1/sams-all-users-orig-delete.ldif</tt><tt></tt>
+<p><tt>logmsg "Ensuring all AppSvc users are not in directory."</tt><tt></tt>
+<p><tt>modify_directory $RELEASE1/sams-appsvcs-users-delete.ldif</tt><tt></tt>
+<p><tt>check_directory</tt>
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt># USER ADDS (New with Delete then Add)</tt><tt></tt>
+<p><tt>logmsg "Adding SAMS admin users."</tt><tt></tt>
+<p><tt>modify_directory $RELEASE1/sams-admin-users.ldif</tt><tt></tt>
+<p><tt>#logmsg "Adding all users under o=App_Services."</tt><tt></tt>
+<p><tt>modify_directory $RELEASE1/sams-appsvcs-users.ldif</tt>
+<br><tt></tt>&nbsp;
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt># ROLE ASSIGNS (New)</tt><tt></tt>
+<p><tt>logmsg "Assigning SAMS admin roles to SAMS admin users."</tt><tt></tt>
+<p><tt>modify_directory $RELEASE1/sams-admin-roles-assign.ldif</tt>
+<br><tt>#modify_directory $RELEASE2/sams-admin-roles-assign.ldif</tt><tt></tt>
+<p><tt>check_directory</tt>
+<br><tt></tt>&nbsp;<tt></tt>
+<p><tt>logmsg "Users install finished."</tt><tt></tt>
+<p><tt>echo "Users installation log is at "$INSTALL_LOG</tt>
+<br><tt></tt>&nbsp;
+<h4>
+prepatch</h4>
+
+<p><br>This is a script that is patch-specific, and can be considered analagous
+to a postremove script for a package.&nbsp; In this particular patch, the
+script is just
+<p><tt>#!/bin/sh</tt>
+<br><tt>exit 0</tt>
+<br><tt></tt>&nbsp;
+<h4>
+.diPatch</h4>
+
+<p><br>The existence of this file tells patchadd that this patch is a "direct
+injection"&nbsp;patch.&nbsp; I'm not sure what that means, but I&nbsp;couldn't
+get a patch to work without doing this.
+<br>&nbsp;
+<h4>
+pkginfo</h4>
+
+<p><br>The pkginfo is a standard pkginfo file, with a few special quirks:
+<p>PKG is the name of the package that this patch will update.
+<br>VERSION is the version of that package that this patch will update.&nbsp;
+A patch will only install if that version of the package is installed.
+<br>SUNW_PATCHID is the only new field n this pkginfo file.
+<br>&nbsp;
+<p><tt>PKG=<b>SUNWsmssu</b></tt>
+<br><tt>NAME=Sun Microsystems SAMS Users</tt>
+<br><tt>ARCH=SPARC</tt>
+<br><tt>PRODNAME=Sun Microsystems SAMS Users package</tt>
+<br><tt>DESC=This package contains everything needed to install Users specific
+to SAMS.</tt>
+<br><tt>VENDOR=Sun Microsystems Inc.</tt>
+<br><tt>CLASSES=none</tt>
+<br><tt>CATEGORY=Application</tt>
+<br><tt>VERSION=<b>015</b></tt>
+<br><tt>BASEDIR=/opt/SUNWsms</tt>
+<br><tt>IDENTITY_HOME=/opt/SUNWam</tt>
+<br><tt>DIRECTORY_HOST=gsoit-sandbox1.central.sun.com</tt>
+<br><tt>DIRECTORY_PORT=10389</tt>
+<br><tt>DMANAGER_DN="cn=Directory Manager"</tt>
+<br><tt>DMANAGER_PW=password</tt>
+<br><tt>AMADMIN_DN="uid=amadmin,ou=People,o=Sun,dc=sun,dc=com"</tt>
+<br><tt>AMADMIN_PW=password</tt>
+<br><tt>SUNW_PATCHID=<b>114900-01</b></tt>
+<h4>
+checkinstall</h4>
+
+<p><br>This is a script that is already written, and we do not want or
+need to modify it.
+<br>&nbsp;
+<h4>
+postinstall</h4>
+
+<p><br>This is a script that is already written, and we do not want or
+need to modify it.
+<br>&nbsp;
+<br>&nbsp;
+<h4>
+preinstall</h4>
+
+<p><br>This is a script that is already written, and we do not want or
+need to modify it.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

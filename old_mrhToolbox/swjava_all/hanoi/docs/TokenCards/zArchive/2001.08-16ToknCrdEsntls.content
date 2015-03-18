@@ -1,0 +1,413 @@
+<html>
+<head>
+   <title> Token Card Essentials</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="URL" content="https://hanoi.central:443/TokenCards/ToknCrdEsntls.html">
+   <meta name="DOC" content="hanoi.central:/opt/netscape/server4/docs/TokenCards/ToknCrdEsntls.html">
+   <meta name="LAST-MODIFIED" content="26-Jul-2001">
+   <meta name="LAST-MODIFIED-TEXT" content="judith.price@Sun.COM">
+   <meta name="OWNER" content="bryan.haynes@sun.com">
+   <meta name="DESCRIPTION" content="Token Cards Essentials">
+   <meta name="KEYWORDS" content="Token, Cards,connecting to sun, ras, awt ,snap ,aol, at&t ,remote access">
+   <meta name="SECURITY" content="Sun Proprietary/Confidential: Internal Use Only">
+   <meta name="EXPIRES" content="Wed, 31 Dec 2003 23:59:00 GMT">
+</head>
+<body bgcolor="#FFFFFF">
+
+<!-- ***** START CONTENT HERE ***** -->
+
+<B><A NAME="top">Index:</A></B>
+<UL>
+<P><LI><a href="#register_new">Registering Your New Token Card</a>
+
+<p><LI><a href="#register_replacement">Registering Your Replacement Token Card</a>
+
+<p><LI><a href="#retrieve_PIN">Retrieving Your Token Card PIN</a>
+
+<p><LI><a href="#changing_PIN">Changing Your Token Card PIN</a>
+
+<p><LI><a href="#using">Using Your Token Card</a>
+
+<p><LI><a href="#challenge_response">Challenge/Response Authentication</a>
+
+<p><LI><a href="#password_auth_VPN">Password Authentication (VPN Only)</a>
+
+<p><LI><a href="#lost_stolen">Lost/Stolen Token Cards</a>
+
+<p><LI><a href="#returning">Returning Your Token Card</a>
+
+<p><LI><a href="#FAQs">Token Card FAQs</a>
+
+<p><LI><a href="#info_help">Getting Info and Getting Help</a>
+</UL>
+<P>
+<HR>
+<P>
+
+<b><i>The Token Card is your key to authentication at Sun Microsystems.
+It calculates an alphanumeric password which grants you access for one
+login session.</i></b>
+<br>
+<hr WIDTH="100%">
+
+<h2><A NAME="register_new">Registering Your New Token Card</A></h2>
+<b>Note: </b>You must change your Regis Password from its original default
+to something else for you to be authenticated for any of these services.
+
+<ol>
+<li>
+Visit the NetAdmin site.&nbsp; Enter your Sun ID number and Regis Password.&nbsp;
+
+<br><b><a href="https://hanoi.central:443/servlet/TokenCardReg">http://netadmin</a></b>
+<br>&nbsp;
+<li>
+Click on the link, "Token Card Administration".
+
+<li>
+Click on the link, "Token Card Registration".
+
+<li>
+Enter your Sun ID and Regis Password.
+
+<li>
+Enter the Token Card Serial Number and select the submit button.
+
+<li>
+Enter the Token Card Serial Number again, for confirmation, and select
+the submit button.
+
+<li>
+A confirmation will be displayed when the Token Card is activated. Please
+note your Login ID.
+
+<li>
+You will need a PIN for your Token Card. Click on "Retrieve Your Token
+Card PIN".
+</ol>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="register_replacement">Registering Your Replacement Token Card</a></h2>
+
+<ol>
+<li>
+Visit the NetAdmin site.&nbsp; Enter your Sun ID number and Regis Password.&nbsp;
+
+<br><b><a href="https://hanoi.central:443/servlet/TokenCardReg">http://netadmin</a></b>
+<br>&nbsp;
+<li>
+Click on the link, "Token Card Administration".
+
+<li>
+Click on the link, "Replacement Token Card Registration".
+
+<li>
+Enter your Sun ID and Regis Password.
+
+<li>
+Enter the Replacement Token Card Serial Number and select the submit button.&nbsp;
+
+<li>
+Enter the Token Card Serial Number again, for confirmation, and select
+the submit button.
+
+<li>
+A confirmation will be displayed when the Token Card is activated. Please
+note your Login ID.
+
+<li>
+You will need a new PIN for your Token Card. Click on "Retrieve Your Token
+Card PIN".
+</ol>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="retrieve_PIN">Retrieving Your Token Card PIN</A></h2>
+<b>Before</b> you connect for the first time, you must get your Token Card
+PIN. You can get your Token Card PIN online anytime&nbsp;
+<ol>
+<li>
+Visit the NetAdmin site.&nbsp; Enter your Sun ID number and Regis Password.&nbsp;
+
+<br><b><a href="https://hanoi.central:443/servlet/TokenCardReg">http://netadmin</a></b>
+<br>&nbsp;
+<li>
+Click on the link, "Token Card Administration".
+
+<li>
+Click on the link, "Retrieve Your Token Card PIN".&nbsp;
+
+<li>
+Enter your Sun ID and Regis Password.
+
+<li>
+Enter the Token Card Serial Number and select the submit button.&nbsp;
+
+<li>
+Your Token Card PIN is displayed.
+</ol>
+If you have problems activating your Token Card and/or retrieving your
+PIN (or if you are a contractor or temp), please contact the nearest Resolution
+Center, or <b><a href="http://servicedesk/">http://servicedesk/</a></b>.
+
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="changing_PIN">Changing Your Token Card PIN</A></h2>
+
+<ol>
+<li>
+Press the Token Card's <B>On</B> button to turn on the card. The card's panel
+displays an EP prompt.
+
+<li>
+Enter your 5-digit PIN. The card's panel displays an EH prompt.
+
+<li>
+Press the Pin key. The card's panel displays an SP prompt.
+
+<li>
+Enter your new 5-digit PIN. (Your new PIN must have 5 digits.) Your PIN
+has just changed!
+</ol>
+
+<blockquote><b>Note:</b> If you enter your new PIN incorrectly, press
+the Clr key to cancel the new number. Your PIN reverts back to your
+pre-existing number.</blockquote>
+
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><a NAME="using">Using Your Token Card</a></h2>
+Please read all instructions before using your Token Card.
+<ul>
+<li>
+Your Token Card can be used for asynchronous challenge/response authentication,
+and synchronous password authentication.
+
+<P><li>
+Read all instructions before using your Token Card.
+
+<P><li>
+Please have your Token Card available before attempting to authenticate
+to Sun's network.
+
+<P><li>
+Keeping your Token Card PIN with your Token Card is a violation of Sun
+Security Policy.
+</ul>
+
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="challenge_response">Challenge/Response Authentication</A></h2>
+
+<ol>
+<li>
+Once connected, you will be prompted for your Login ID. Your Login ID is
+your first initial, last initial, and SunID. Your first and last initials
+are based on your name entry in the HR database. If you are a contractor
+or temp, your Token ID is your first initial, last initial, the letter
+"c" or "t", and your SunID number.&nbsp;
+
+<li>
+The screen displays a challenge number. This challenge number appears in
+this format&nbsp; 9 #### (where #### is your 4-digit challenge)
+
+<P><li>
+The screen will prompt you for a password. Each password is dynamically
+assigned using your Token Card, and is good for this session only.&nbsp;
+
+<P><li>
+To turn on the Token Card, press the ON button. The card's panel displays
+an EP prompt.
+
+<P><li>
+Enter your 5-digit Token Card PIN. The card's panel displays an EH prompt.
+
+<P><li>
+Enter the number nine (9). The card's panel displays a zero (0).
+
+<P><li>
+Enter the 4-digit challenge (####) from the screen into the Token Card,
+and press the Entr key on the Token Card. Do not re-enter the preceding
+nine (9). The card's panel displays an alphanumeric password of 8 characters.
+
+<P><li>
+On your terminal keyboard, enter the alphanumeric password that displays
+in the display panel of your Token Card, and press Return.&nbsp;&nbsp;
+The password is NOT case-sensitive. The card's panel displays numbers zero
+(0) through nine (9) and letters A, C, E, F, H, and P. You must enter the
+password within 60 seconds after the terminal has displayed the challenge,
+or the connection will time out (you'll need to reconnect).&nbsp;
+
+<blockquote><b>Caution: </b>Be careful NOT to press the Pin key on the Token Card
+while logging in. If you press the Pin key on the card, you may change
+your Token Card PIN and lose your authentication ability. If you press
+the Pin key, the card's panel will display SP. Press the Clr key and then
+the ON button. Your PIN will not change.</blockquote>
+
+<li>
+You are now connected to Sun Microsystems!&nbsp;
+</ol>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="password_auth_VPN">Password Authentication (VPN Only)</A></h2>
+
+<ol>
+<li>
+<font size="+0">Once connected, you will be prompted for your password. Each
+password is dynamically assigned using your Token Card, and is good for
+this session only.</font>
+
+<P><li>
+<font size="+0">To turn on the Token Card, press the ON button. The card's
+panel displays an EP prompt.</font>
+
+<P><li>
+<font size="+0">Enter your 5-digit Token Card PIN. The card's panel displays
+an EH prompt.</font>
+
+<P><li>
+<font size="+0">To generate a password, enter the number eight (8), and the
+Token Card will generate a password. An eight (8) will dance across the
+Token Card display, and an alphanumeric password will appear.</font>
+
+<P><li>
+<font size="+0">On your terminal keyboard, enter the alphanumeric password
+that displays in the display panel of your Token Card, and press Return.&nbsp;&nbsp;
+The password is NOT case-sensitive. The Token Card panel displays numbers
+zero (0) through nine (9) and letters A, C, E, F, H, and P. You must enter
+the password within 60 seconds after the terminal has prompted you for
+a password, or the connection will time out (you'll need to reconnect).</font>
+</ol>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="lost_stolen">Lost/Stolen Token Cards</A></h2>
+
+If your Token Card is lost or stolen, immediately submit a 
+<A HREF="http://servicedesk/">ServiceDesk</A>
+ticket. A replacement Token Card will be distributed to you.
+
+<ol>
+<li>
+Open Service Desk, and select "Report a Problem".&nbsp;
+
+<br><b><a href="http://servicedesk/">http://servicedesk/</a></b>
+<br>&nbsp;
+<li>
+Select "Remote Connectivity".
+
+<li>
+Select "Token Card Lost/Stolen", and fill out any comments relevant to
+the issue.
+</ol>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="returning">Returning Your Token Card</A></h2>
+To return a Token Card that is damaged or that is no longer needed, please
+return the card by <B>mail</B>:
+<p><b>*Please do not FedEx returns*</b>
+<p><b>US:</b>
+<br>Sun Microsystems, Inc.
+<br>Attn: Token Card Returns
+<br>500 Eldorado Blvd.
+<br>UBRM05-102
+<br>Broomfield, CO 80021 USA&nbsp;
+<p><b>Europe:</b>
+<br>Sun Microsystems BV
+<br>Attn: European Resolution Center AFT02
+<br>2nd Floor (C2)
+<br>Disketteweg 2&nbsp;
+<br>3821 AR Amersfoort
+<p><b>PacRim:</b>
+<br>Sun Microsystems Pte Ltd
+<br>Attn: PACRIM-RC
+<br>1 Magazine Road #07-01/13
+<br>Central Mall
+<br>Singapore 059567&nbsp;
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="FAQs">Token Card FAQs</A></h2>
+<b>Q:</b> <b>Why do vertical lines scroll across the display of the Token
+Card?</b>
+<br><b>A: </b>Entering your PIN incorrectly three consecutive times will
+cause the card to display scrolling lines. Leave the card on until it resets
+itself. <i>Don't turn off the card until it has reset.</i> The card's panel
+will display EP once it has reset. This can take as long as 10 minutes.
+After the card resets, enter your PIN. If the lines recur, submit a ServiceDesk
+request to obtain a replacement card.
+<p><b>Q: Why does the Token Card display "00000000"?</b>
+<br><b>A:</b> If the card displays eight 0's, the programming has been
+lost, and the card must be replaced.
+<p><b>Q:</b> <b>Why do I receive 2 four-digit challenges when I login,
+instead of the correct challenge of 9 ####?</b>
+<br><b>A:</b> Double-check that your Token Card ID was entered correctly.
+If it was entered correctly, place a ServiceDesk request to activate your
+card.
+<p><b>Q:</b> <b>Why does the terminal display "Attack lockout activated"?</b>
+<br><b>A:</b> After four consecutive wrong passwords, "Attack lockout activated"
+will display on your screen. You must wait 30 minutes for the attack lockout
+to clear. After 30 minutes, try logging in again.
+<p><b>Q: Why does the terminal display "Your record currently is in use"?</b>
+<br><b>A:</b> This message indicates a locking issue within the authentication
+database. Wait five minutes and then redial. The issue should be resolved.&nbsp;
+<br>&nbsp;
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+<h2><A NAME="info_help">Getting Info and Getting Help</a></h2>
+For all problems, please use ServiceDesk:
+<blockquote><b><a href="http://servicedesk/">http://servicedesk/</a></b></blockquote>
+If you are unable to use ServiceDesk, please contact the nearest Resolution
+Center:
+<p>x27000 <b>or</b> (303)272-7000 <b>or</b> (866)SUN-HELP <b>in the Americas</b>
+<p>x15555 <b>or </b>+31-33-45-15555 <b>in Europe</b>
+<p>x58666 <b>or</b> +65-239-2666 <b>in the PacRim</b>
+<p>x57300 <b>or</b> +612-9844-5300 <b>in Australia, New Zealand</b>
+<p>x69168 <b>or</b> +852-2202-6168 <b>in Hong Kong</b>
+<p>x55119 <b>or</b> +81-3-5717-5119 <b>in Japan</b>
+<p>x56056 <b>or</b> +82-2-34690056 <b>in Korea</b>
+<p>x58666 <b>or</b> +65-239-2666 <b>in Singapore</b>
+<p>x51186 <b>or</b> +886-2-5141186 <b>in Taiwan</b>
+<p>For Sun Microsystems Security Information, click here:
+<blockquote><b><a href="http://security.corp/keepitsafe/">http://security.corp/keepitsafe/</a></b></blockquote>
+To download a brochure of Token Card Essentials, click here:
+<blockquote><b><a href="tce-19990402_P2.ps">Token Card Essentials Brochure</a></b>
+</BLOCKQUOTE>
+
+<P ALIGN="RIGHT"><FONT SIZE="-1">(<A HREF="#top">return to top</A>)</FONT></P>
+<HR>
+<P>
+
+
+<!-- ****** END CONTENT HERE ****** -->
+
+
+</body>
+</html>
+

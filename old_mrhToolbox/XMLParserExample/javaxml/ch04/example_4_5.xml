@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="XSL\JavaXML.html.xsl" type="text/xsl"?>
+<?xml-stylesheet href="XSL\JavaXML.wml.xsl" type="text/xsl" 
+                 media="wap"?>
+<?cocoon-process type="xslt"?>
+<!DOCTYPE JavaXML:Book SYSTEM "DTD\JavaXML.dtd">
+
+<JavaXML:Topic>
+  <JavaXML:Book>Here’s my Book</JavaXML:Book>
+  <JavaXML:Copyright>
+    <JavaXML:Chapter>Chapter One</JavaXML:Chapter>
+  </JavaXML:Copyright>
+  <JavaXML:SectionBreak>Here’s a Section</JavaXML:SectionBreak>
+</JavaXML:Topic>
