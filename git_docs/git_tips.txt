@@ -59,4 +59,7 @@ Now you have a branch that needs to merge to master
 I have a question on this process. Do you have to 
 checkout master to perform the merge? I think you do.
 
+git checkout master
+
+git merge master my_new_branch
 
