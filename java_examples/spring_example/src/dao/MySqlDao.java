@@ -9,6 +9,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import dao.mapper.PersonRowMapper;
 import domainmodel.Person;
 
+
+// Not working yet. Still having problems with defining
+// the database before transactions. Derby does this
+// injection differently than MySQL and I haven't
+// figured out how to include the MySQL database moniker
+
 public class MySqlDao implements iDao {
 	private DataSource dataSource;
 
