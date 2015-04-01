@@ -1,0 +1,65 @@
+Install Jenkins on 
+
+# As root
+rpm -ivh jenkins-1.607-1.1.noarch.rpm
+
+service jenkins start [restart]
+
+Open browser and go to localhost:8080
+
+Install Git plugins:
+
+Manage Jenkins -> Manage Plugins: Click "Available" tab.
+
+Scroll to find GitHub Plugin, Git Client Plugin, Click Install without restart.
+
+Wait for all plugins to download. Check box "Restart Jenkins when installation is complete..."
+
+Jenkins restarts
+
+Check if plugin is installed from Manage Plugins -> Installed tab
+
+Check the path to the executable for Git in Jenkins. Manage Jenkins -> Configure System
+By default on CentOS git is at: /usr/local/git/bin/git
+
+Manage Jenkins -> Manage Users; add a user with email and save.
+Log in as mhotchkiss
+Manage Jenkins -> Configure Global Security;
+Click Security Realm/Jenkins' own user database/Allow users to sign up
+Authorization/Matrix-based security/ Check all boxes for mhotchkiss and just Read for Anonymous
+
+Credential generation:
+
+ssh-keygen -t rsa
+
+Use defaults
+
+cat .ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzJod8hBfDsqPiDkalv3bxN86w4jOyowpDwKXTh3TlmlcOwIxCP/DgGe8hvhmO9Bzz56/nTL5keVH9lMxVpBuHVPX/GOl0dUDozG0pICCigI0IgTOIWwxtwY0lJHAj/xQozEGOTxKFpy/MJESqWlGpqgUXY+JMQ4NrtyTqmxhI1zS5jxIUREslOFKo10VZqxd7JGEr9pW+1k2A6iIuERxxJRa7xsiyboIIZziKymN3H94LCsYpSoK+52KGrtn6JpWmeS4dNdar+gLAy07CsImzWEXa4IDBBUsbKZIHH+suF/SnJoW/aQua4sQPqNuPqyOZpFsg7ieWSb+SDuwnvHs+w== mhotchkiss@localhost.localdomain
+
+Return to Jenkins config page under Git section and Add Credentials:
+
+Dialog Add Credentials Kind: SSH Username with private key; Username mhotchkiss; 
+
+Copy the generated pub key into the Key field. Click the Add button.
+
+Return to the Git section and apply the new credentials.
+
+start Jenkins: As root, service jenkins restart:
+
+
+Click Create new Jobs link: Enter Item name, click Freestyle project; Click OK.
+
+Enter a Project Name: MrhJenkinsProject
+
+Leave GitHub project field blank
+
+Click Git radio button
+
+Enter my remote repository address of https://github.com/mhotchkiss7291/origin.git
+for my public repository. Set the proper credentials.
+
+Under the Build Triggers section click Poll SCM. In the Schedule section, using
+cron notation enter "H/15 * * * *" which runs every 15 minutes. 
+
+Click Add build step. Execute shell: Enter a command like echo "Testing...."
