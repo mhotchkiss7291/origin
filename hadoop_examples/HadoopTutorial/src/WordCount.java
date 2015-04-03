@@ -16,15 +16,22 @@ public class WordCount {
 	public static class TokenizerMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
 
+		// What the hell is this?!
+		// A constant with a class IntWritable? I don't get it
 		private final static IntWritable one = new IntWritable(1);
+
 		private Text word = new Text();
 
 		public void map(Object key, Text value, Context context)
 				throws IOException, InterruptedException {
+
 			StringTokenizer itr = new StringTokenizer(value.toString());
+
 			while (itr.hasMoreTokens()) {
+
 				word.set(itr.nextToken());
 				context.write(word, one);
+
 			}
 		}
 	}
@@ -47,9 +54,10 @@ public class WordCount {
 	public static void main(String[] args) throws Exception {
 
 		Configuration conf = new Configuration();
-		
+
 		Job job = Job.getInstance(conf, "word count");
 
+		// Set job methods 
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(TokenizerMapper.class);
 		job.setCombinerClass(IntSumReducer.class);
@@ -57,6 +65,7 @@ public class WordCount {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
+		// Set input/output paths and exit
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
