@@ -16,8 +16,6 @@ public class WordCount {
 	public static class TokenizerMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
 
-		// What the hell is this?!
-		// A constant with a class IntWritable? I don't get it
 		private final static IntWritable one = new IntWritable(1);
 
 		private Text word = new Text();
