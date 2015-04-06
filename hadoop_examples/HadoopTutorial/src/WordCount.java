@@ -14,6 +14,58 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 // Class to be turned into an HDFS jar file for task
 public class WordCount {
 
+
+	public static void main(String[] args) {
+		WordCount wc = new WordCount();
+		wc.configureJob(args[0], args[1]);
+	}
+
+	public void configureJob(String inputPath, String outputPath) {
+
+		Configuration conf = new Configuration();
+
+		Job job = null;
+		try {
+			job = Job.getInstance(null, conf);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// Set job methods
+		
+		// Job jar file name
+		job.setJarByClass(WordCount.class);
+		
+		// MapPhase
+		// Mapper component
+		job.setMapperClass(TokenizerMapper.class);
+		// Combiner class
+		job.setCombinerClass(IntSumReducer.class);
+		
+		// ReducePhase
+		// Reducer class
+		job.setReducerClass(IntSumReducer.class);
+		
+		// Output classes
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+
+		// Input and Output paths as main args[]
+		try {
+			FileInputFormat.addInputPath(job, new Path(inputPath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		FileOutputFormat.setOutputPath(job, new Path(outputPath));
+		
+		// Wait for completion
+		try {
+			System.exit(job.waitForCompletion(true) ? 0 : 1);
+		} catch (ClassNotFoundException | IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	// Map Phase extension
 	public static class TokenizerMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
@@ -72,59 +124,6 @@ public class WordCount {
 
 			// Write 
 			context.write(key, result);
-		}
-	}
-
-	public static void main(String[] args) {
-		
-		WordCount wc = new WordCount();
-		wc.configure(args[0], args[1]);
-		
-	}
-
-	public void configure(String inputPath, String outputPath) {
-
-		Configuration conf = new Configuration();
-
-		Job job = null;
-		try {
-			job = Job.getInstance(null, conf);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		// Set job methods
-		
-		// Job jar file name
-		job.setJarByClass(WordCount.class);
-		
-		// MapPhase
-		// Mapper component
-		job.setMapperClass(TokenizerMapper.class);
-		// Combiner class
-		job.setCombinerClass(IntSumReducer.class);
-		
-		// ReducePhase
-		// Reducer class
-		job.setReducerClass(IntSumReducer.class);
-		
-		// Output classes
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
-
-		// Input and Output paths as main args[]
-		try {
-			FileInputFormat.addInputPath(job, new Path(inputPath));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		FileOutputFormat.setOutputPath(job, new Path(outputPath));
-		
-		// Wait for completion
-		try {
-			System.exit(job.waitForCompletion(true) ? 0 : 1);
-		} catch (ClassNotFoundException | IOException | InterruptedException e) {
-			e.printStackTrace();
 		}
 	}
 }
