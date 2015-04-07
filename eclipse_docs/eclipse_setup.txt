@@ -1,0 +1,34 @@
+Install and configure Eclipse on Linux
+
+1. Download Eclipse tar.gz file. 
+2. Put it in $HOME/bin
+3. Unpack it: tar xvf eclipse-java...tar.gz
+4. Make sure you have Java installed and know the path.
+5. Open ./eclipse/eclipse.ini and add the following lines just before the -vmargs line:
+
+-vm
+/usr/java/bin
+
+6. Create Launcher on desktop: 
+Name: Eclipse, 
+Command: /home/mhotchkiss/bin/eclipse/eclipse 
+Select icon
+
+7. Double click desktop launcher, click Mark Executable.
+8. Set Workspace to /home/mhotchkiss/bin/workspace and use as default.
+
+Install VRapper vim plugin
+
+1. Open Help -> Install New Software.
+2. Find VRapper web page and confirm the URL for the plugin install:
+
+http://vrapper.sourceforge.net/update-site/stable
+
+3. Click Add... and add Name: VRapper, URL from above, Click OK.
+4. Check box "Vrapper" -> Next
+5. Accept defaults and click Next. Accept Terms of Agreement, Click Finish.
+6. Click OK to Security Warning.
+7. Click Yes to restart Eclipse. Find the Vrapper button in the upper left.
+
+
+
