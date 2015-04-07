@@ -1,0 +1,38 @@
+Install Apache Maven plugin to Eclipse and 
+Configure quickstart Maven Java Project.
+
+Maven may already be installed in the version of Eclipse you installed. 
+If not follow these steps.
+
+1. Locate http://eclipse.org/m2e and verify Installation URL:
+
+http://download.eclipse.org/technology/m2e/releases
+
+2. Click Help -> Install New Software -> Add...
+3. Enter Name: Maven and copy and paste the above URL to Location. Click OK.
+4. Check box "Maven Integration for Eclipse". Click Next.
+5. Accept defaults and click Next. Accept Terms of Agreement, Click Finish.
+6. Click OK to Security Warning.
+7. Click Yes to restart Eclipse. 
+
+Maven plugin should be installed.
+
+Create a basic "quickstart" archetype Maven project.
+
+1. Right click in the Package Explorer column and select 
+New -> Project... -> Maven Project. Click Next.
+2. Click Next again to use an archetype configuration.
+3. Highlight Artifact Id: maven-archetype-quickstart, Click Next.
+4. Enter Group id, something like: org.mrh
+5. Enter Artifact id, something like: HelloWorldMaven
+6. Package: org.mrh.helloworld
+7. Click Finish.
+8. Expand the created project tree and open pom.xml and format the code using
+Ctrl-Shift-F. Write the file in the modified format.
+9. Expand the src/main/java/ folder to the org.mrh.hello package and open
+the App.java and format and write the code.
+10. Right click over the pom.xml file and select Run as... Maven build...
+11. In the Main tab default dialog, in the Goals text field enter: clean verify.
+12. Click Run.
+13. Maven repositories will be downloaded to $HOME/.m2. Browse your local repository.
+
