@@ -5,11 +5,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 // Class to be turned into an HDFS jar file for task
 public class WordCount {
@@ -24,12 +21,7 @@ public class WordCount {
 
 		Configuration conf = new Configuration();
 
-		Job job = null;
-		try {
-			job = Job.getInstance(null, conf);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Job job = new Job(conf, "Word Count"); 
 
 		// Set job methods
 		
