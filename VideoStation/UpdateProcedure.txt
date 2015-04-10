@@ -1,0 +1,63 @@
+
+Running the report on the Video Station computers
+
+Java source code for conversion for web site are in this directory.
+
+Running the report:
+
+1. Log in to VS shell as root and cd /usr/bms/video9
+2. Delete any old *_report.gz files
+3. Log out as root and log in as "mvab". Got Owner Functions -> Reports 
+.....
+Create a XV046.WK report file and rename it to <month>_report.txt.
+Compress it to <month>_report.txt.gz
+Move it from vdostn1 to vdostn2:/tmp
+
+Process report
+
+Compile VS.java
+
+javac VS.java
+
+The input file name from the report should be named  
+
+	vs_report.txt 
+
+for this simple app to run. 
+
+Run processing
+
+java Vs
+
+File output will be "file_rec.txt"
+
+
+Instructions on mounting a thumb drive at Video Station machines:
+
+1. Insert thumb drive
+2. dmesg | tail
+  Look for the USB device name. It came up as /dev/sb  ( or /dev/sb1 )
+3. Mount the device
+If you think step 2 is ok then:
+mount /dev/sb /mnt/cdrom
+4. df -h (see if it is mounted.)
+5.  cp /usr/bms/video9/report_report.txt.gz /mnt/cdrom
+6. Unmout the device
+   umount /mnt/cdrom
+7. Remove the thumb drive.
+
+New Steps:
+
+ Insert the usb thumb drive in the slot for the backup server, vdostn2.
+ Log in to the vdostn console as root.
+
+ cd /usr/bms/video9
+ scp <report_name> vdostn2:/tmp/<report_name>
+ ssh vdostn2
+ mount /dev/sdb /mnt/cdrom
+ cp /tmp/<report_name> /mnt/cdrom/
+ umount /dev/sdb
+ exit
+ exit
+
+
