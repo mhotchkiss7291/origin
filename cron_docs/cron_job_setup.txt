@@ -1,6 +1,11 @@
 CentOS cron job setup
 _____________________
 
+If cron is not installed, install
+
+# yum -y install cronie-noanacron 
+
+
 For system level files (as root)
 
 Look at cron related files:
@@ -25,10 +30,9 @@ readahead-monthly.cron
 *******
 vi /etc/crontab
 ****************
-HELL=/bin/bash
+SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
-HOME=/
 
 # For details see man 4 crontabs
 
@@ -82,21 +86,27 @@ vi restart_mysqld.sh
 # If checking service status returns "stopped"
 # in the string, restart the service
 # and log every minute whether the service is running
-# or not. This will fill up log files. 
+# or not. This will fill up log files.
 
-if [[ "$(service mysqld status)" =~ "stopped" ]]; then
+if [[ "$(systemctl status mysqld)" =~ "Stopped" ]]; then
 
-	echo service is stopped
-	service mysqld restart
-	echo "MySQL restarted on $(date)" >> /root/mysql.log
+        echo "MySQL service is stopped"
+        systemctl restart mysqld
+        echo "MySQL restarted on $(date)" >> /root/mysql.log
 
 else
 
-	echo service is running
-	echo service is running at $(date) >> /root/mysql.log
+        echo "MySQL service is running"
+        echo "MySQL service is running at $(date)" >> /root/mysql.log
 
 fi
 ***********
 
-Still not working
- 
+tail -f /root/mysql.log
+
+and wait to see. Stop the service and wait again to see it restart 
+
+systemctl stop mysqld
+
+
+Complete.
