@@ -1,0 +1,40 @@
+
+1. Eclipse -> Help -> Install New Software.
+2. In Work with: enter:
+
+  http://download.eclipse.org/releases/juno/
+
+2. Check the entire catagory of 
+"Web, XML, Java EE and OSGI Enterprise Development" for simplicity and then
+Next.
+
+3. Accept license agreement and install.
+
+
+
+Configure for Tomcat service for Webapps
+
+1. Create a new empty tomcat directory where the container will live:
+
+  mkdir /home/mhotchkiss/bin/tomcat
+
+2. Click Window -> Preferences -> Server -> Runtime Environments -> Add...
+
+ -> Apache -> Tomcat 7.0 -> Next
+
+/home/mhotchkiss/bin/tomcat
+
+3. Click "Download and Install", accept the agreement, Finish, OK. 
+
+4. Create a new Tomcat server instance by: New -> Other... -> Server
+  -> Next. 
+Select Tomcat v7.0 Server, Finish.
+
+5. Open a View for the server: Click Window -> Show View -> Other ->
+  Server -> Servers -> OK.
+
+....Not done
+ 
+ 
+
+
