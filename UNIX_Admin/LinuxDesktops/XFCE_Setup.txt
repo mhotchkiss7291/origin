@@ -1,0 +1,8 @@
+
+http://jensd.be/?p=125
+
+# yum install epel-release
+# yum groupinstall "X Window system"
+# yum groupinstall xfce 
+
+See page for details on setting Xfce as default desktop
