@@ -24,8 +24,8 @@ public final class Main {
 		dataSource.setDriverClassName("org.apache.derby.jdbc.EmbeddedDriver");
 		//dataSource.setDriverClassName("org.gjt.mm.mysql.Driver");
 
-		dataSource.setUrl("jdbc:derby:c:\\temp\\database\\test01;create=true");
-		// dataSource.setUrl("jdbc:derby:/home/mhotchkiss/derby/database/test01;create=true");
+		//dataSource.setUrl("jdbc:derby:c:\\temp\\database\\test01;create=true");
+		dataSource.setUrl("jdbc:derby:/home/mhotchkiss/derby/database/test01;create=true");
 		// dataSource.setUrl("jdbc:mysql://localhost:3306/spring");
 		// dataSource.setUrl("jdbc:mysql://localhost:3306");
 		// dataSource.setUsername("root");
