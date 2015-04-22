@@ -42,4 +42,13 @@
 
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>MRHSpringJavaRelease</id>
+			<name>MRH repository</name>
+			<!-- <url>http://localhost:8081/nexus/content/repositories/Core-Api-Release</url> -->
+			<url>file:///home/mhotchkiss/testMrhRepo</url>
+		</repository>
+	</distributionManagement>
+
 </project>
