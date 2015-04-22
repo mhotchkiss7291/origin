@@ -1,0 +1,72 @@
+
+See origin/Java/Spring/spring_maven/pom.xml as a working sample
+
+Default location for local repository is in $HOME/.m2
+
+*********
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.mrh</groupId>
+	<artifactId>spring_maven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>spring_maven</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>1.2.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.wisdom-framework</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.11.1.1_2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+
+	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>MRHSpringJavaRelease</id>
+			<name>MRH repository</name>
+			<!-- <url>http://localhost:8081/nexus/content/repositories/Core-Api-Release</url> -->
+			<url>file:///home/mhotchkiss/testMrhRepo</url>
+		</repository>
+	</distributionManagement>
+
+</project>
+*********
+
+mvn clean install
+
+Before being able to "deploy" to an alternative repository you need the <distributionManagement> tags 
+to redirect it
+
+mvn deploy
+
+This command will create the folder if it has permissions. Otherwise upload to the http site. 
+
+
