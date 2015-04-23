@@ -13,42 +13,41 @@ import org.glassfish.jersey.client.ClientConfig;
 public class Test {
 
 	public static void main(String[] args) {
+		Test test = new Test();
+		test.run();
+	}
 
-		/***
-		 * Old API
-		 * ClientConfig config = new DefaultClientConfig();
-		 * Client client = Client.create(config);
-		 * WebResource service = client.resource(getBaseURI());
-		 * // Fluent interfaces
-		 * System.out.println(service.path("rest").path("hello").accept(*
-		 * MediaType.TEXT_PLAIN).get(ClientResponse.class).toString());
-		 * // Get plain text
-		 * System.out.println(service.path("rest").path("hello").accept(*
-		 * MediaType.TEXT_PLAIN).get(String.class));
-		 * // Get XML
-		 * System.out.println(service.path("rest").path("hello").accept(*
-		 * MediaType.TEXT_XML).get(String.class));
-		 * // The HTML
-		 * System.out.println(service.path("rest").path("hello").accept(*
-		 * MediaType.TEXT_HTML).get(String.class));
-		 ***/
+	private void run() {
 
 		ClientConfig config = new ClientConfig();
 		Client client = ClientBuilder.newClient(config);
 		WebTarget target = client.target(getBaseURI());
-		System.out.println(target.path("rest").path("hello").request()
-				.accept(MediaType.TEXT_PLAIN).get(Response.class).toString());
-		System.out.println(target.path("rest").path("hello").request()
-				.accept(MediaType.TEXT_PLAIN).get(String.class));
-		System.out.println(target.path("rest").path("hello").request()
-				.accept(MediaType.TEXT_XML).get(String.class));
-		System.out.println(target.path("rest").path("hello").request()
-				.accept(MediaType.TEXT_HTML).get(String.class));
 
+		// Response class returns log message 
+		log(target.path("rest").path("hello").request()
+				.accept(MediaType.TEXT_PLAIN).get(Response.class).toString());
+
+		// Plain text response content
+		log(target.path("rest").path("hello").request()
+				.accept(MediaType.TEXT_PLAIN).get(String.class));
+
+		// XML response content
+		log(target.path("rest").path("hello").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+
+		// HTML response content
+		log(target.path("rest").path("hello").request()
+				.accept(MediaType.TEXT_HTML).get(String.class));
 	}
 
 	private static URI getBaseURI() {
+		
+		// Return the URL as a URI to Client WebTarget
 		return UriBuilder.fromUri(
 				"http://localhost:8080/com.vogella.jersey.first").build();
+	}
+	
+	private void log(String message) {
+		System.out.println(message);
 	}
 }
