@@ -6,9 +6,7 @@
  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="restaruantBean" class="org.gontuseries.springcore.Restaruant">
-	<constructor-arg ref="teaBean"/>
+		<property name="welcomeNote" value="Welcome to our Restaurant"></property>
 	</bean>
-
-	<bean id="teaBean" class="org.gontuseries.spingcore.Tea"></bean>
 
 </beans>
