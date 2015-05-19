@@ -39,7 +39,7 @@ public class Critic {
 		return expertise;
 	}
 
-	public void setExpertise(String expertise) {
+	public void setExpertise( String expertise){
 		this.expertise = expertise;
 	}
 
