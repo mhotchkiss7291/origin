@@ -1,4 +1,8 @@
-package org.eac.critic;
+package org.eac.opinion;
+
+import org.eac.critic.Critic;
+import org.eac.opinion.Opinion;
+import org.eac.opinion.OpinionDAO;
 
 import java.util.List;
 
@@ -12,14 +16,15 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/critic")
-public class CriticResource {
+// Convert the critic class to Opinion
+@Path("/opinion")
+public class OpinionResource {
 
-	CriticDAO dao = new CriticDAO();
+	OpinionDAO dao = new OpinionDAO();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Critic> findAll() {
+	public List<Opinion> findAll() {
 		System.out.println("findAll");
 		return dao.findAll();
 	}
@@ -27,7 +32,7 @@ public class CriticResource {
 	@GET
 	@Path("search/{query}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Critic> findByName(@PathParam("query") String query) {
+	public List<Opinion> findByName(@PathParam("query") String query) {
 		System.out.println("findByName: " + query);
 		return dao.findByName(query);
 	}
@@ -35,7 +40,7 @@ public class CriticResource {
 	@GET
 	@Path("{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Critic findById(@PathParam("id") String id) {
+	public Opinion findById(@PathParam("id") String id) {
 		System.out.println("findById " + id);
 		return dao.findById(Integer.parseInt(id));
 	}
@@ -43,7 +48,7 @@ public class CriticResource {
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Critic create(Critic critic) {
+	public Opinion create(Opinion critic) {
 		System.out.println("creating critic");
 		return dao.create(critic);
 	}
@@ -52,10 +57,10 @@ public class CriticResource {
 	@Path("{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Critic update(Critic critic) {
-		System.out.println("Updating critic: " + critic.getName());
-		dao.update(critic);
-		return critic;
+	public Opinion update(Opinion opinion) {
+		System.out.println("Updating opinion: " + opinion.getCritic());
+		dao.update(opinion);
+		return opinion;
 	}
 
 	@DELETE

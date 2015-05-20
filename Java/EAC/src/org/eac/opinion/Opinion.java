@@ -7,6 +7,7 @@ public class Opinion {
 	private int id;
 	private Critic critic;
 	private String description;
+	private String expertise;
 
 	public int getId() {
 		return id;
@@ -16,11 +17,14 @@ public class Opinion {
 		this.id = id;
 	}
 
-	public Critic getCritic() {
-		return critic;
+	public String getCritic() {
+
+		// This is a table join of sorts // Bad!!
+		//return critic.toString();
+		return this.critic.getName();
 	}
 
-	public void setCritic(Critic critic) {
+	public void setCritic(String string) {
 		this.critic = critic;
 	}
 
@@ -31,4 +35,13 @@ public class Opinion {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getExpertise() {
+		return expertise;
+	}
+
+	public void setExpertise(String expertise) {
+		this.expertise = expertise;
+	}
+
 }
