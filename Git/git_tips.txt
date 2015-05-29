@@ -63,3 +63,9 @@ git checkout master
 
 git merge master my_new_branch
 
+Now push the master changes to the origin
+
+git push origin master
+
+Enter credentials
+Push should be complete.
