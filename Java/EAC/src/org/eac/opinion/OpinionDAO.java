@@ -1,4 +1,4 @@
-package org.eac.critic;
+package org.eac.opinion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,12 +10,12 @@ import java.util.List;
 
 import org.eac.connection.ConnectionHelper;
 
-public class CriticDAO {
+public class OpinionDAO {
 
-	public List<Critic> findAll() {
-		List<Critic> list = new ArrayList<Critic>();
+	public List<Opinion> findAll() {
+		List<Opinion> list = new ArrayList<Opinion>();
 		Connection c = null;
-		String sql = "SELECT * FROM critic ORDER BY name";
+		String sql = "SELECT * FROM opinion ORDER BY name";
 		try {
 			c = ConnectionHelper.getConnection();
 			Statement s = c.createStatement();
@@ -32,10 +32,10 @@ public class CriticDAO {
 		return list;
 	}
 
-	public List<Critic> findByName(String name) {
-		List<Critic> list = new ArrayList<Critic>();
+	public List<Opinion> findByName(String name) {
+		List<Opinion> list = new ArrayList<Opinion>();
 		Connection c = null;
-		String sql = "SELECT * FROM critic as e " + "WHERE UPPER(name) LIKE ? "
+		String sql = "SELECT * FROM opinion as e " + "WHERE UPPER(name) LIKE ? "
 				+ "ORDER BY name";
 		try {
 			c = ConnectionHelper.getConnection();
@@ -54,9 +54,9 @@ public class CriticDAO {
 		return list;
 	}
 
-	public Critic findById(int id) {
-		String sql = "SELECT * FROM critic WHERE id = ?";
-		Critic critic = null;
+	public Opinion findById(int id) {
+		String sql = "SELECT * FROM opinion WHERE id = ?";
+		Opinion opinion = null;
 		Connection c = null;
 		try {
 			c = ConnectionHelper.getConnection();
@@ -64,7 +64,7 @@ public class CriticDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				critic = processRow(rs);
+				opinion = processRow(rs);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,52 +72,52 @@ public class CriticDAO {
 		} finally {
 			ConnectionHelper.close(c);
 		}
-		return critic;
+		return opinion;
 	}
 
-	public Critic save(Critic critic) {
-		return critic.getId() > 0 ? update(critic) : create(critic);
+	public Opinion save(Opinion opinion) {
+		return opinion.getId() > 0 ? update(opinion) : create(opinion);
 	}
 
-	public Critic create(Critic critic) {
+	public Opinion create(Opinion opinion) {
 		Connection c = null;
 		PreparedStatement ps = null;
 		try {
 			c = ConnectionHelper.getConnection();
 			ps = c.prepareStatement(
-					"INSERT INTO critic (name, email, expertise, description) VALUES (?, ?, ?, ?)",
+					"INSERT INTO opinion (name, email, expertise, description) VALUES (?, ?, ?, ?)",
 					new String[] { "ID" });
-			ps.setString(1, critic.getName());
-			ps.setString(2, critic.getEmail());
-			ps.setString(3, critic.getExpertise());
-			ps.setString(4, critic.getDescription());
+			ps.setString(1, opinion.getName());
+			ps.setString(2, opinion.getEmail());
+			ps.setString(3, opinion.getExpertise());
+			ps.setString(4, opinion.getDescription());
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
 			rs.next();
 			// Update the id in the returned object. This is important as this
 			// value must be returned to the client.
 			int id = rs.getInt(1);
-			critic.setId(id);
+			opinion.setId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			ConnectionHelper.close(c);
 		}
-		return critic;
+		return opinion;
 	}
 
-	public Critic update(Critic critic) {
+	public Opinion update(Opinion opinion) {
 		Connection c = null;
 		try {
 			c = ConnectionHelper.getConnection();
 			PreparedStatement ps = c
-					.prepareStatement("UPDATE critic SET name=?, email=?, expertise=?, description=? WHERE id=?");
-			ps.setString(1, critic.getName());
-			ps.setString(2, critic.getEmail());
-			ps.setString(3, critic.getExpertise());
-			ps.setString(4, critic.getDescription());
-			ps.setInt(5, critic.getId());
+					.prepareStatement("UPDATE opinion SET name=?, email=?, expertise=?, description=? WHERE id=?");
+			ps.setString(1, opinion.getName());
+			ps.setString(2, opinion.getEmail());
+			ps.setString(3, opinion.getExpertise());
+			ps.setString(4, opinion.getDescription());
+			ps.setInt(5, opinion.getId());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -125,7 +125,7 @@ public class CriticDAO {
 		} finally {
 			ConnectionHelper.close(c);
 		}
-		return critic;
+		return opinion;
 	}
 
 	public boolean remove(int id) {
@@ -133,7 +133,7 @@ public class CriticDAO {
 		try {
 			c = ConnectionHelper.getConnection();
 			PreparedStatement ps = c
-					.prepareStatement("DELETE FROM critic WHERE id=?");
+					.prepareStatement("DELETE FROM opinion WHERE id=?");
 			ps.setInt(1, id);
 			int count = ps.executeUpdate();
 			return count == 1;
@@ -145,14 +145,14 @@ public class CriticDAO {
 		}
 	}
 
-	protected Critic processRow(ResultSet rs) throws SQLException {
-		Critic critic = new Critic();
-		critic.setId(rs.getInt("id"));
-		critic.setName(rs.getString("name"));
-		critic.setEmail(rs.getString("email"));
-		critic.setExpertise(rs.getString("expertise"));
-		critic.setDescription(rs.getString("description"));
-		return critic;
+	protected Opinion processRow(ResultSet rs) throws SQLException {
+		Opinion opinion = new Opinion();
+		opinion.setId(rs.getInt("id"));
+		opinion.setName(rs.getString("name"));
+		opinion.setEmail(rs.getString("email"));
+		opinion.setExpertise(rs.getString("expertise"));
+		opinion.setDescription(rs.getString("description"));
+		return opinion;
 	}
 
 }

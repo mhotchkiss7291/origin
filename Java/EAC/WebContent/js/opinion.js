@@ -1,9 +1,9 @@
 // The root URL for the RESTful services
-var rootURL = "http://localhost:8080/eac/rest/critic";
+var rootURL = "http://localhost:8080/eac/rest/opinion";
 
-var currentCritic;
+var currentOpinion;
 
-// Retrieve critic list when application starts
+// Retrieve opinion list when application starts
 findAll();
 
 // Nothing to delete in initial application state
@@ -24,33 +24,33 @@ $('#searchKey').keypress(function(e) {
 	}
 });
 
-// Add Critic
+// Add Opinion
 $('#btnAdd').click(function() {
-	newCritic();
+	newOpinion();
 	return false;
 });
 
-// Save Critic
+// Save Opinion
 $('#btnSave').click(function() {
-	if ($('#criticId').val() == '')
-		addCritic();
+	if ($('#opinionId').val() == '')
+		addOpinion();
 	else
-		updateCritic();
+		updateOpinion();
 	return false;
 });
 
-// Delete Critic
+// Delete Opinion
 $('#btnDelete').click(function() {
-	deleteCritic();
+	deleteOpinion();
 	return false;
 });
 
 // Search by Id
-$('#criticList a').live('click', function() {
+$('#opinionList a').live('click', function() {
 	findById($(this).data('identity'));
 });
 
-// Replace broken images with generic critic bottle
+// Replace broken images with generic opinion bottle
 $("img").error(function() {
 	$(this).attr("src", "pics/generic.jpg");
 
@@ -66,14 +66,14 @@ function search(searchKey) {
 		findByName(searchKey);
 }
 
-// New Critic
-function newCritic() {
+// New Opinion
+function newOpinion() {
 	$('#btnDelete').hide();
-	currentCritic = {};
-	renderDetails(currentCritic); // Display empty form
+	currentOpinion = {};
+	renderDetails(currentOpinion); // Display empty form
 }
 
-// Find all Critics
+// Find all Opinions
 function findAll() {
 	console.log('findAll');
 	$.ajax({
@@ -105,15 +105,15 @@ function findById(id) {
 		success : function(data) {
 			$('#btnDelete').show();
 			console.log('findById success: ' + data.name);
-			currentCritic = data;
-			renderDetails(currentCritic);
+			currentOpinion = data;
+			renderDetails(currentOpinion);
 		}
 	});
 }
 
-// Add Critic
-function addCritic() {
-	console.log('addCritic');
+// Add Opinion
+function addOpinion() {
+	console.log('addOpinion');
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -121,45 +121,45 @@ function addCritic() {
 		dataType : "json",
 		data : formToJSON(),
 		success : function(data, textStatus, jqXHR) {
-			alert('Critic created successfully');
+			alert('Opinion created successfully');
 			$('#btnDelete').show();
-			$('#criticId').val(data.id);
+			$('#opinionId').val(data.id);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert('addCritic error: ' + textStatus);
+			alert('addOpinion error: ' + textStatus);
 		}
 	});
 }
 
-// Update Critic
-function updateCritic() {
-	console.log('updateCritic');
+// Update Opinion
+function updateOpinion() {
+	console.log('updateOpinion');
 	$.ajax({
 		type : 'PUT',
 		contentType : 'application/json',
-		url : rootURL + '/' + $('#criticId').val(),
+		url : rootURL + '/' + $('#opinionId').val(),
 		dataType : "json",
 		data : formToJSON(),
 		success : function(data, textStatus, jqXHR) {
-			alert('Critic updated successfully');
+			alert('Opinion updated successfully');
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert('updateCritic error: ' + textStatus);
+			alert('updateOpinion error: ' + textStatus);
 		}
 	});
 }
 
-// Delete Critic
-function deleteCritic() {
-	console.log('deleteCritic');
+// Delete Opinion
+function deleteOpinion() {
+	console.log('deleteOpinion');
 	$.ajax({
 		type : 'DELETE',
-		url : rootURL + '/' + $('#criticId').val(),
+		url : rootURL + '/' + $('#opinionId').val(),
 		success : function(data, textStatus, jqXHR) {
-			alert('Critic deleted successfully');
+			alert('Opinion deleted successfully');
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert('deleteCritic error');
+			alert('deleteOpinion error');
 		}
 	});
 }
@@ -172,27 +172,27 @@ function renderList(data) {
 	// object (not an 'array of one')
 	var list = data == null ? [] : (data instanceof Array ? data : [ data ]);
 
-	$('#criticList li').remove();
-	$.each(list, function(index, critic) {
-		$('#criticList').append(
-				'<li><a href="#" data-identity="' + critic.id + '">'
-						+ critic.name + '</a></li>');
+	$('#opinionList li').remove();
+	$.each(list, function(index, opinion) {
+		$('#opinionList').append(
+				'<li><a href="#" data-identity="' + opinion.id + '">'
+						+ opinion.name + '</a></li>');
 	});
 }
 
-function renderDetails(critic) {
-	$('#criticId').val(critic.id);
-	$('#name').val(critic.name);
-	$('#email').val(critic.email);
-	$('#expertise').val(critic.expertise);
-	$('#description').val(critic.description);
+function renderDetails(opinion) {
+	$('#opinionId').val(opinion.id);
+	$('#name').val(opinion.name);
+	$('#email').val(opinion.email);
+	$('#expertise').val(opinion.expertise);
+	$('#description').val(opinion.description);
 }
 
 // Helper function to serialize all the form fields into a JSON string
 function formToJSON() {
-	var criticId = $('#criticId').val();
+	var opinionId = $('#opinionId').val();
 	return JSON.stringify({
-		"id" : criticId == "" ? null : criticId,
+		"id" : opinionId == "" ? null : opinionId,
 		"name" : $('#name').val(),
 		"email" : $('#email').val(),
 		"expertise" : $('#expertise').val(),
