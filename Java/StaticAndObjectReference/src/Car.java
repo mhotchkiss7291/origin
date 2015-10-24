@@ -5,6 +5,16 @@ public class Car {
 	int price;
 	static int wheels = 4;
 
+	public Car(String model, int price) {
+		this.model = model;
+		this.price = price;
+	}
+	
+	public Car() {
+		System.out.println("in car constructor - no arg");
+	}
+	
+
 	public static void main(String[] args) {
 
 		// c1 is the reference to the object
