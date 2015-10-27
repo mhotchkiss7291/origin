@@ -48,6 +48,8 @@ public class UnderstandingAssertions {
 			System.out.println("Error Encountered");
 			errorCollector.addError(t);
 		}
+		
+		Assert.assertTrue("error msg", 4 < 3);
 	}
 
 }
