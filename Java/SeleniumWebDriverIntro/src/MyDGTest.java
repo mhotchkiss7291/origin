@@ -1,4 +1,3 @@
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,14 +30,10 @@ public class MyDGTest {
 
 	public void login() {
 
-		loadProperties();
+		//loadProperties();
 
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
 		proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
-		proxy.setFtpProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
-		proxy.setSocksUsername("EWICO\\username");
-		proxy.setSocksPassword("password");
-
 		DesiredCapabilities dc = DesiredCapabilities.firefox();
 		dc.setCapability(CapabilityType.PROXY, proxy);
 
@@ -96,10 +91,10 @@ public class MyDGTest {
 		}
 	}
 
+	// not used right now
 	public void loadProperties() {
 
 		InputStream inputStream = null;
-
 		try {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";
@@ -111,7 +106,6 @@ public class MyDGTest {
 			} else {
 				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
 			}
-
 			this.username = prop.getProperty("username");
 			this.password = prop.getProperty("password");
 			System.out.println("username = " + username + " , password = " + password);
