@@ -39,6 +39,7 @@ public class MyDGTest {
 
 		this.driver = new FirefoxDriver(dc);
 		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
+		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("markh_dibu");
 		driver.findElement(By.xpath("//*[@id='pw']")).sendKeys("test");
 		driver.findElement(By.xpath("//*[@id='acceptTOS']")).click();
@@ -62,16 +63,20 @@ public class MyDGTest {
 
 		wait(2);
 
-		//Point drawAOILocation = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i")).getLocation();
-		//System.out.println("x = " + drawAOILocation.x + " , y = " + drawAOILocation.y );
-		
-		//Point topLeft = new Point( drawAOILocation.x + 50, drawAOILocation.y);
-		//System.out.println("x = " + topLeft.x + " , y = " + topLeft.y );
 
 		WebElement drawAOIButton =  driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
-		Actions builder = new Actions(driver);   
-		builder.moveToElement(drawAOIButton, 80, 0).click().build().perform();
 
+		Point buttonLocation = drawAOIButton.getLocation();
+		Point start = new Point(buttonLocation.getX(), buttonLocation.getY());
+		System.out.println("x = " + start.getX() + " , y = " + start.getY());
+
+		Actions actions = new Actions(driver);
+        actions.moveToElement(drawAOIButton).build().perform();
+        actions.moveByOffset( 30, 0).build().perform();;
+        actions.clickAndHold().build().perform();;
+        actions.moveByOffset( 300, 300).build().perform();;
+        actions.release().build().perform();;
+		wait(5);
 	}
 
 	public void quit() {
