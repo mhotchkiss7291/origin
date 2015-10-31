@@ -1,8 +1,12 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -24,13 +28,14 @@ public class MyDGTest {
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOI();
-		mdgt.quit();
+		mdgt.selectArchive();
+		// mdgt.quit();
 
 	}
 
 	public void login() {
 
-		//loadProperties();
+		// loadProperties();
 
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
 		proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
@@ -38,8 +43,9 @@ public class MyDGTest {
 		dc.setCapability(CapabilityType.PROXY, proxy);
 
 		this.driver = new FirefoxDriver(dc);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("markh_dibu");
 		driver.findElement(By.xpath("//*[@id='pw']")).sendKeys("test");
 		driver.findElement(By.xpath("//*[@id='acceptTOS']")).click();
@@ -65,17 +71,33 @@ public class MyDGTest {
 
 		WebElement drawAOIButton = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
 
-		Point buttonLocation = drawAOIButton.getLocation();
-		Point start = new Point(buttonLocation.getX(), buttonLocation.getY());
-		System.out.println("x = " + start.getX() + " , y = " + start.getY());
-
 		Actions actions = new Actions(driver);
 		actions.moveToElement(drawAOIButton).build().perform();
 		actions.moveByOffset(30, 0).build().perform();
 		actions.clickAndHold().build().perform();
-		actions.moveByOffset(300, 300).build().perform();
+		actions.moveByOffset(600, 400).build().perform();
 		actions.release().build().perform();
 		wait(5);
+	}
+
+	public void selectArchive() {
+
+		driver.switchTo().defaultContent();
+		
+		//WebElement archiveElement = null;
+		//archiveElement = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[6]/td[5]"));
+		
+		WebElement archiveTable = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
+
+		//List<WebElement> rows = archiveTable.findElements(By.tagName("your tagName"));
+		List<WebElement> rows = archiveTable.findElements(By.tagName("tr"));
+
+		java.util.Iterator<WebElement> i = rows.iterator();
+		while(i.hasNext()) {
+		    WebElement row = i.next();
+		    System.out.println(row.getText());
+		}
+		 
 	}
 
 	public void quit() {
@@ -117,6 +139,15 @@ public class MyDGTest {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	public void elementHighlight(WebElement element) {
+		for (int i = 0; i < 2; i++) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
+					"color: red; border: 3px solid red;");
+			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
 		}
 	}
 
