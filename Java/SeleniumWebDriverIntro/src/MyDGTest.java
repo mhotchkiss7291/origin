@@ -28,7 +28,7 @@ public class MyDGTest {
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOI();
-		mdgt.selectArchive();
+		mdgt.scanSifResultsGrid();
 		// mdgt.quit();
 
 	}
@@ -45,7 +45,7 @@ public class MyDGTest {
 		this.driver = new FirefoxDriver(dc);
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
-		//driver.manage().window().maximize();
+		// driver.manage().window().maximize();
 		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("markh_dibu");
 		driver.findElement(By.xpath("//*[@id='pw']")).sendKeys("test");
 		driver.findElement(By.xpath("//*[@id='acceptTOS']")).click();
@@ -66,11 +66,8 @@ public class MyDGTest {
 
 		driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i")).click();
 		driver.findElement(By.xpath("//*[@id='sif-search-rect']")).click();
-
 		wait(2);
-
 		WebElement drawAOIButton = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
-
 		Actions actions = new Actions(driver);
 		actions.moveToElement(drawAOIButton).build().perform();
 		actions.moveByOffset(30, 0).build().perform();
@@ -80,24 +77,31 @@ public class MyDGTest {
 		wait(5);
 	}
 
-	public void selectArchive() {
+	public void scanSifResultsGrid() {
 
 		driver.switchTo().defaultContent();
-		
-		//WebElement archiveElement = null;
-		//archiveElement = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[6]/td[5]"));
-		
+
+		// Scan the feature sifResultsGrid for feature labels
 		WebElement archiveTable = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
 
-		//List<WebElement> rows = archiveTable.findElements(By.tagName("your tagName"));
 		List<WebElement> rows = archiveTable.findElements(By.tagName("tr"));
-
 		java.util.Iterator<WebElement> i = rows.iterator();
-		while(i.hasNext()) {
-		    WebElement row = i.next();
-		    System.out.println(row.getText());
+
+		while (i.hasNext()) {
+			WebElement row = i.next();
+			//System.out.println(row.getText());
+
+			if (row.getText().equals("Archive 2015-09-17 WV02")) {
+				driver.findElement(By.xpath(".//*[@id='advFeatureOptionsButton']/a/i")).click();
+				List<WebElement> advFeatureOptionsRows = archiveTable.findElements(By.tagName("li"));
+				java.util.Iterator<WebElement> j = advFeatureOptionsRows.iterator();
+				while (j.hasNext()) {
+					WebElement advFeatureOptionsRow = j.next();
+					System.out.println(advFeatureOptionsRow.getText());
+				}
+			}
 		}
-		 
+
 	}
 
 	public void quit() {
