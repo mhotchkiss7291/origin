@@ -21,6 +21,7 @@ public class MyDGTest {
 	WebDriver driver = null;
 	String username = null;
 	String password = null;
+	List<WebElement> feature_list = null;
 
 	public static void main(String[] args) {
 
@@ -29,6 +30,7 @@ public class MyDGTest {
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOI();
 		mdgt.scanSifResultsGrid();
+		mdgt.scanFeatureListForArchive();
 		// mdgt.quit();
 
 	}
@@ -80,27 +82,96 @@ public class MyDGTest {
 	public void scanSifResultsGrid() {
 
 		driver.switchTo().defaultContent();
+		WebElement archiveRows = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
 
-		// Scan the feature sifResultsGrid for feature labels
-		WebElement archiveTable = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
-
-		List<WebElement> rows = archiveTable.findElements(By.tagName("tr"));
+		// Get List of rows
+		List<WebElement> rows = archiveRows.findElements(By.tagName("tr"));
 		java.util.Iterator<WebElement> i = rows.iterator();
+
+		this.feature_list = rows;
+
+	}
+
+	public void scanFeatureListForArchive() {
+
+		java.util.Iterator<WebElement> i = this.feature_list.iterator();
 
 		while (i.hasNext()) {
 			WebElement row = i.next();
-			//System.out.println(row.getText());
+			System.out.println("data-featureid = " + row.getAttribute("data-featureid"));
 
-			if (row.getText().equals("Archive 2015-09-17 WV02")) {
-				driver.findElement(By.xpath(".//*[@id='advFeatureOptionsButton']/a/i")).click();
-				List<WebElement> advFeatureOptionsRows = archiveTable.findElements(By.tagName("li"));
-				java.util.Iterator<WebElement> j = advFeatureOptionsRows.iterator();
-				while (j.hasNext()) {
-					WebElement advFeatureOptionsRow = j.next();
-					System.out.println(advFeatureOptionsRow.getText());
-				}
+			List<WebElement> cells = row.findElements(By.tagName("td"));
+			java.util.Iterator<WebElement> j = cells.iterator();
+
+			while (j.hasNext()) {
+				WebElement cell = j.next();
+				//System.out.println("cell text = " + cell.getText());
+				//System.out.println("clss = " + cell.getAttribute(arg0));
 			}
 		}
+
+		// driver.switchTo().defaultContent();
+		// click on the 5th feature in the list's advFeatureOptionsButton
+		// WebElement archive =
+		// driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[5]/td/*[@id='advFeatureOptionsButton']/a/i"));
+
+		// WebElement archiveRows =
+		// driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
+
+		// Get List of cells
+		// List<WebElement> cells = archiveRows.findElements(By.tagName("tr"));
+		// java.util.Iterator<WebElement> i = rows.iterator();
+
+		// while (i.hasNext()) {
+		// WebElement row = i.next();
+		// System.out.println("text = " + row.getText());
+		// }
+
+		// this.feature_list = rows;
+
+		// archive.click();
+
+		// highlightElement(archive);
+		// wait(30);
+
+		// Scan the feature sifResultsGrid for feature labels
+		// WebElement archiveTable =
+		// driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr"));
+
+		// List<WebElement> rows = archiveTable.findElements(By.tagName("td"));
+		// java.util.Iterator<WebElement> i = rows.iterator();
+
+		// while (i.hasNext()) {
+		// WebElement row = i.next();
+		// System.out.println("text = " + row.getText());
+		// System.out.println("tag = " + row.getTagName());
+		// System.out.println("class = " + row.getClass());
+		// }
+
+		// 1030010049849E00
+		// /html/body/div[1]/div/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/table/tbody/tr[7]
+
+		// driver.findElement(By.cssSelector(".dataLabel,.dataLabelWide");
+
+		// if (row.getText().equals("Archive 2015-09-17 WV02")) {
+
+		// System.out.println("i = " + i);
+
+		// wait(30);
+
+		// WebElement desiredFeature =
+		// driver.findElement(By.xpath("//*[@id='advFeatureOptionsButton']/a/i"));
+		// highlightElement(desiredFeature);
+		// List<WebElement> advFeatureOptionsRows =
+		// archiveTable.findElements(By.tagName("li"));
+		// java.util.Iterator<WebElement> j =
+		// advFeatureOptionsRows.iterator();
+		// while (j.hasNext()) {
+		// WebElement advFeatureOptionsRow = j.next();
+		// System.out.println(advFeatureOptionsRow.getText());
+		// }
+		// }
+		// }
 
 	}
 
@@ -146,13 +217,15 @@ public class MyDGTest {
 		}
 	}
 
-	public void elementHighlight(WebElement element) {
-		for (int i = 0; i < 2; i++) {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
-					"color: red; border: 3px solid red;");
-			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+	public void highlightElement(WebElement element) {
+		String originalStyle = element.getAttribute("style");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
 		}
+		js.executeScript("arguments[0].setAttribute('style', '" + originalStyle + "');", element);
 	}
 
 }
