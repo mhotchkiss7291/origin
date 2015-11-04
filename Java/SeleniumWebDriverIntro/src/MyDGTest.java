@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 
 public class MyDGTest {
 
@@ -26,14 +27,14 @@ public class MyDGTest {
 	public static void main(String[] args) {
 
 		String catID = "1030010049849E00";
-		
+
 		MyDGTest mdgt = new MyDGTest();
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOIOverLongBeach();
 		mdgt.scanSifResultsGrid();
 		mdgt.scanAndSelectArchiveFeatureFromList(catID);
-		
+
 		// mdgt.quit();
 
 	}
@@ -78,9 +79,7 @@ public class MyDGTest {
 		try {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";
-
 			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
 			if (inputStream != null) {
 				prop.load(inputStream);
 			} else {
@@ -136,21 +135,18 @@ public class MyDGTest {
 
 		driver.switchTo().defaultContent();
 		WebElement archiveRows = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
-
 		// Get List of rows
 		List<WebElement> rows = archiveRows.findElements(By.tagName("tr"));
 		java.util.Iterator<WebElement> i = rows.iterator();
-
 		this.feature_list = rows;
-
 	}
 
 	public void scanAndSelectArchiveFeatureFromList(String catID) {
 
 		// Scan feature list for a particular archive CatID
 		java.util.Iterator<WebElement> element = this.feature_list.iterator();
-
-		// Count the rows to find the CatID arg and click the advFeaturOptionsButton
+		// Count the rows to find the CatID arg and click the
+		// advFeaturOptionsButton
 		int i = 0;
 		while (element.hasNext()) {
 			WebElement row = element.next();
@@ -164,9 +160,12 @@ public class MyDGTest {
 				WebElement button = driver.findElement(By.xpath(
 						"//*[@id='sifResultsGrid']/table/tbody/tr[" + i + "]/td/*[@id='advFeatureOptionsButton']/a/i"));
 				button.click();
+
+				// Look again at how dropdowns are selected
+				//Select dropdown = new Select(button);
+				//dropdown.selectByVisibleText("Add Image To Cart");
 			}
 		}
 	}
-
 
 }
