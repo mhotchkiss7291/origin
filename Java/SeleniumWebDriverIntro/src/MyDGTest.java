@@ -145,6 +145,7 @@ public class MyDGTest {
 
 		// Scan feature list for a particular archive CatID
 		java.util.Iterator<WebElement> element = this.feature_list.iterator();
+
 		// Count the rows to find the CatID arg and click the
 		// advFeaturOptionsButton
 		int i = 0;
@@ -156,14 +157,23 @@ public class MyDGTest {
 
 			if (row.getAttribute("data-featureid").equals(catID)) {
 				driver.switchTo().defaultContent();
+				
+				// Print which row of the Feature table you are selecting
 				System.out.println("i = " + i);
+				
+				// This click action displays the dropdown just fine
 				WebElement button = driver.findElement(By.xpath(
 						"//*[@id='sifResultsGrid']/table/tbody/tr[" + i + "]/td/*[@id='advFeatureOptionsButton']/a/i"));
 				button.click();
 
-				// Look again at how dropdowns are selected
-				//Select dropdown = new Select(button);
-				//dropdown.selectByVisibleText("Add Image To Cart");
+				// This is the line in question. I have tried all manner of xpath locators and this was my best guess
+				WebElement addImageToCart = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[" + i
+						+ "]/td/*[@id='advFeatureOptionsButton']/td/*[@id='menuOptionAddToLibrary']/a/i/ul/li[3]"));
+				addImageToCart.click();
+
+				wait(5);
+
+
 			}
 		}
 	}
