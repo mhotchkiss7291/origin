@@ -8,14 +8,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.Select;
 
 public class MyDGTest {
 
@@ -34,8 +32,12 @@ public class MyDGTest {
 		mdgt.drawRectangleAOIOverLongBeach();
 		mdgt.scanSifResultsGrid();
 		mdgt.scanAndSelectArchiveFeatureFromList(catID);
-
-		// mdgt.quit();
+		mdgt.enterOrderName();
+		mdgt.addToCartAndClose();
+		mdgt.goToCart();
+		mdgt.submitOrdersAndClose();
+		mdgt.logout();
+		mdgt.quit();
 
 	}
 
@@ -49,13 +51,25 @@ public class MyDGTest {
 		dc.setCapability(CapabilityType.PROXY, proxy);
 
 		this.driver = new FirefoxDriver(dc);
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("markh_dibu");
 		driver.findElement(By.xpath("//*[@id='pw']")).sendKeys("test");
 		driver.findElement(By.xpath("//*[@id='acceptTOS']")).click();
 		driver.findElement(By.xpath("//*[@id='loginButton']")).click();
+
+	}
+	
+	public void logout() {
+		
+		WebElement userMenuDropdown = driver.findElement(By.xpath("//*[@id='test_userMenu']/span[1]"));
+		userMenuDropdown.click();
+
+		WebElement logout = driver.findElement(By.xpath("//*[@id='logout']"));
+		logout.click();
+		
+		wait(2);
 
 	}
 
@@ -157,25 +171,60 @@ public class MyDGTest {
 
 			if (row.getAttribute("data-featureid").equals(catID)) {
 				driver.switchTo().defaultContent();
-				
+
 				// Print which row of the Feature table you are selecting
-				System.out.println("i = " + i);
-				
+				// System.out.println("i = " + i);
+
 				// This click action displays the dropdown just fine
 				WebElement button = driver.findElement(By.xpath(
 						"//*[@id='sifResultsGrid']/table/tbody/tr[" + i + "]/td/*[@id='advFeatureOptionsButton']/a/i"));
 				button.click();
 
-				// This is the line in question. I have tried all manner of xpath locators and this was my best guess
-				WebElement addImageToCart = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[" + i
-						+ "]/td/*[@id='advFeatureOptionsButton']/td/*[@id='menuOptionAddToLibrary']/a/i/ul/li[3]"));
+				WebElement addImageToCart = driver.findElement(By
+						.xpath("//*[@id='sifResultsGrid']/table/tbody/tr[" + i + "]//*[@id='menuOptionOrderImage']/a"));
 				addImageToCart.click();
-
-				wait(5);
-
-
 			}
 		}
 	}
 
+	public void enterOrderName() {
+
+		WebElement orderNameText = driver.findElement(By.xpath("//*[@id='orderTitle']"));
+		orderNameText.sendKeys("mrhLongBeach");
+		wait(1);
+
+	}
+
+	public void addToCartAndClose() {
+
+		// Due to multiple ids of "submitBtn" need to you absolute path with id
+		// to help
+		WebElement addToCartButton = driver.findElement(By.xpath("html/body/div[9]/div/div/div[3]/*[@id='submitBtn']"));
+		addToCartButton.click();
+
+		WebElement closeButton = driver.findElement(By.xpath("//*[@id='mapPage']/div[28]/div/div/div[2]/button[1]"));
+		closeButton.click();
+	}
+
+	public void goToCart() {
+
+		WebElement cartIcon = driver
+				.findElement(By.xpath("//*[@id='mapPage']/div[1]/header/div/div/nav/div/div[2]/ul[2]/li[1]/a/i"));
+		cartIcon.click();
+
+		WebElement cartSelection = driver.findElement(By.xpath("//*[@id='test_cart']"));
+		cartSelection.click();
+		wait(2);
+
+	}
+
+	public void submitOrdersAndClose() {
+
+		WebElement submitOrdersButton = driver.findElement(By.xpath("//*[@id='cartOrderBtn']"));
+		submitOrdersButton.click();
+
+		WebElement closeButton = driver.findElement(By.xpath("//*[@id='cartCancelBtn']"));
+		closeButton.click();
+
+	}
 }
