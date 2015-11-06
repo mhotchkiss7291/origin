@@ -1,13 +1,7 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,15 +28,15 @@ public class MyDGCbuTest {
 		
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
-		//mdgt.drawRectangleAOIOverLongBeach();
-		//mdgt.scanSifResultsGrid();
-		//mdgt.scanAndSelectArchiveFeatureFromList(this.targetCatID);
-		//mdgt.enterOrderName();
-		//mdgt.addToCartAndClose();
-		//mdgt.goToCart();
-		//mdgt.submitOrdersAndClose();
-		//mdgt.logout();
-		//mdgt.quit();
+		mdgt.drawRectangleAOIOverLongBeach();
+		mdgt.scanSifResultsGrid();
+		mdgt.scanAndSelectArchiveFeatureFromList();
+		mdgt.enterRecipeParameters();
+		mdgt.addToCartAndClose();
+		mdgt.goToCart();
+		mdgt.submitOrdersAndClose();
+		mdgt.logout();
+		mdgt.quit();
 
 	}
 
@@ -50,7 +44,7 @@ public class MyDGCbuTest {
 		
 		this.targetUsername = "MRH_User";
 		this.targetPassword = "test";
-		this.targetCatID = "103001004A20CD00";
+		this.targetCatID = "103001004A43D900";
 		
 		// Not needed at the moment
 		// loadProperties();
@@ -76,6 +70,7 @@ public class MyDGCbuTest {
 		// Enter credentials and log in
 		WebElement cbuUsernameText = driver.findElement(By.xpath("//*[@id='username']"));
 		cbuUsernameText.sendKeys(this.targetUsername);
+		wait(1);
 		WebElement cbuPasswordText = driver.findElement(By.xpath("//*[@id='pw']"));
 		cbuPasswordText.sendKeys(this.targetPassword);
 		wait(2);
@@ -112,53 +107,20 @@ public class MyDGCbuTest {
 		}
 	}
 
-	// not used right now
-	/*
-	public void loadProperties() {
-
-		InputStream inputStream = null;
-		try {
-			Properties prop = new Properties();
-			String propFileName = "config.properties";
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-			if (inputStream != null) {
-				prop.load(inputStream);
-			} else {
-				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-			}
-			this.username = prop.getProperty("username");
-			this.password = prop.getProperty("password");
-			System.out.println("username = " + username + " , password = " + password);
-		} catch (Exception e) {
-			System.out.println("Exception: " + e);
-		} finally {
-			try {
-				inputStream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void highlightElement(WebElement element) {
-		String originalStyle = element.getAttribute("style");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-		}
-		js.executeScript("arguments[0].setAttribute('style', '" + originalStyle + "');", element);
-	}
-	*/
-
 	public void goToAdvancedSearch() {
 
 		WebElement searchTextWindow = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-qry']"));
 		searchTextWindow.sendKeys("Long Beach, CA");
-
-		WebElement searchButton = driver.findElement(By.xpath(".//*[@id='leaflet-control-geosearch-submit-qry']"));
+		
+		WebElement searchButton = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-submit-qry']"));
 		searchButton.click();
+
+		WebElement myImageryButton = driver.findElement(By.xpath("//*[@id='test_myImagery']/span"));
+		myImageryButton.click();
+
+		WebElement advancedSearchButton = driver.findElement(By.xpath("//*[@id='test_sifSearch']/span"));
+		advancedSearchButton.click();
+
 
 	}
 
@@ -173,13 +135,14 @@ public class MyDGCbuTest {
 		actions.clickAndHold().build().perform();
 		actions.moveByOffset(600, 400).build().perform();
 		actions.release().build().perform();
-		wait(5);
+		wait(7);
 	}
 
 	public void scanSifResultsGrid() {
 
 		driver.switchTo().defaultContent();
 		WebElement archiveRows = driver.findElement(By.xpath("//*[@id='sifResultsGrid']/table/tbody"));
+
 		// Get List of rows
 		List<WebElement> rows = archiveRows.findElements(By.tagName("tr"));
 		java.util.Iterator<WebElement> i = rows.iterator();
@@ -216,13 +179,27 @@ public class MyDGCbuTest {
 				addImageToCart.click();
 			}
 		}
+		
+		wait(4);
+
 	}
 
-	public void enterOrderName() {
+	public void enterRecipeParameters() {
 
-		WebElement orderNameText = driver.findElement(By.xpath("//*[@id='orderTitle']"));
-		orderNameText.sendKeys("mrhLongBeach");
-		wait(1);
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhCbuLongBeach");
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhCbuLongBeach Comments");
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[2]"));
+		endUse.click();
+
+		WebElement deliverTo = driver.findElement(By.xpath(".//*[@id='param_deliverTo']/option[2]"));
+		deliverTo.click();
+
+		WebElement productType = driver.findElement(By.xpath(".//*[@id='param_recipe']/option[2]"));
+		productType.click();
 
 	}
 
@@ -230,10 +207,10 @@ public class MyDGCbuTest {
 
 		// Due to multiple ids of "submitBtn" need to you absolute path with id
 		// to help
-		WebElement addToCartButton = driver.findElement(By.xpath("html/body/div[9]/div/div/div[3]/*[@id='submitBtn']"));
-		addToCartButton.click();
+		WebElement addToCart = driver.findElement(By.xpath("html/body/div[9]/div/div/form/div[3]/button[1]"));
+		addToCart.click();
 
-		WebElement closeButton = driver.findElement(By.xpath("//*[@id='mapPage']/div[28]/div/div/div[2]/button[1]"));
+		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[27]/div/div/div[2]/button[1]"));
 		closeButton.click();
 	}
 
