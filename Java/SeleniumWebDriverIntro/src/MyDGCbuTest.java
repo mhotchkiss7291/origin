@@ -39,6 +39,8 @@ public class MyDGCbuTest {
 
 		// mdgt.enterRecipeParameters();
 		// mdgt.enterAdvancedParameters();
+		
+		// Add a specific type of order
 		mdgt.order_L1_Pan_WV02_1B();
 
 		// Submit your order
