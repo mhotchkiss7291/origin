@@ -15,6 +15,7 @@ public class MyDGCbuTest {
 	String targetUsername = null;
 	String targetPassword = null;
 	String targetCatID = null;
+	String targetLocationByName = null;
 
 	// Test framework member variables
 	WebDriver driver = null;
@@ -37,7 +38,8 @@ public class MyDGCbuTest {
 		mdgt.scanAndSelectArchiveFeatureFromList();
 
 		// mdgt.enterRecipeParameters();
-		mdgt.enterAdvancedParameters();
+		// mdgt.enterAdvancedParameters();
+		mdgt.order_L1_Pan_WV02_1B();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -45,15 +47,16 @@ public class MyDGCbuTest {
 		mdgt.submitOrdersAndClose();
 		mdgt.logout();
 		mdgt.quit();
-
+		
 	}
-	
+
 	public void placeTheOrderWithCredentialsAndCatId() {
 
 		this.targetUsername = "MRH_User";
 		this.targetPassword = "test";
 
 		// A WV02 archive feature over Long Beach for test
+		this.targetLocationByName = "Long Beach, CA";
 		this.targetCatID = "103001004A43D900";
 	}
 
@@ -120,7 +123,7 @@ public class MyDGCbuTest {
 	public void goToAdvancedSearch() {
 
 		WebElement searchTextWindow = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-qry']"));
-		searchTextWindow.sendKeys("Long Beach, CA");
+		searchTextWindow.sendKeys(this.targetLocationByName);
 
 		WebElement searchButton = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-submit-qry']"));
 		searchButton.click();
@@ -326,6 +329,33 @@ public class MyDGCbuTest {
 		 * driver.findElement(By.xpath(".//*[@id='param_tilingSize']/option[1]")
 		 * ); fileFormat.click(); wait(1);
 		 */
+
+	}
+
+	public void order_L1_Pan_WV02_1B() {
+
+		/*
+		 * Material Number: L1 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: 1B
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrh_order_L1_Pan_WV02_1B");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("order_L1_Pan_WV02_1B Comments");
+		wait(1);
+
+		// End Use is arbitrarily Agriculture
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+
+		wait(1);
 
 	}
 }
