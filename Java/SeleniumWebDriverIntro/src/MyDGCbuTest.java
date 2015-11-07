@@ -15,7 +15,7 @@ public class MyDGCbuTest {
 	String targetUsername = null;
 	String targetPassword = null;
 	String targetCatID = null;
-	
+
 	// Test framework member variables
 	WebDriver driver = null;
 	String username = null;
@@ -25,13 +25,21 @@ public class MyDGCbuTest {
 	public static void main(String[] args) {
 
 		MyDGCbuTest mdgt = new MyDGCbuTest();
-		
+
+		// Do you want to place an order?
+		mdgt.placeTheOrderWithCredentialsAndCatId();
+
+		// Search for an archive...
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOIOverLongBeach();
 		mdgt.scanSifResultsGrid();
 		mdgt.scanAndSelectArchiveFeatureFromList();
-		mdgt.enterRecipeParameters();
+
+		// mdgt.enterRecipeParameters();
+		mdgt.enterAdvancedParameters();
+
+		// Submit your order
 		mdgt.addToCartAndClose();
 		mdgt.goToCart();
 		mdgt.submitOrdersAndClose();
@@ -39,15 +47,17 @@ public class MyDGCbuTest {
 		mdgt.quit();
 
 	}
+	
+	public void placeTheOrderWithCredentialsAndCatId() {
 
-	public void login() {
-		
 		this.targetUsername = "MRH_User";
 		this.targetPassword = "test";
+
+		// A WV02 archive feature over Long Beach for test
 		this.targetCatID = "103001004A43D900";
-		
-		// Not needed at the moment
-		// loadProperties();
+	}
+
+	public void login() {
 
 		// Get past the DG proxy for test
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
@@ -58,11 +68,11 @@ public class MyDGCbuTest {
 		// Open the firefox driver and set timeout for inaction
 		this.driver = new FirefoxDriver(dc);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		
+
 		// Get to MyDG in #INT
 		driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
 		driver.manage().window().maximize();
-		
+
 		// Get past the Ad Gov Portal
 		WebElement adGovPortalCloseButton = driver.findElement(By.xpath("//*[@id='loginAlert']/div/div/div[3]/button"));
 		adGovPortalCloseButton.click();
@@ -74,22 +84,22 @@ public class MyDGCbuTest {
 		WebElement cbuPasswordText = driver.findElement(By.xpath("//*[@id='pw']"));
 		cbuPasswordText.sendKeys(this.targetPassword);
 		wait(2);
-		
+
 		// Click the Log In button
 		WebElement loginButton = driver.findElement(By.xpath(".//*[@id='loginButton']"));
 		loginButton.click();
 		wait(1);
 
 	}
-	
+
 	public void logout() {
-		
+
 		WebElement userMenuDropdown = driver.findElement(By.xpath("//*[@id='test_userMenu']/span[1]"));
 		userMenuDropdown.click();
 
 		WebElement logout = driver.findElement(By.xpath("//*[@id='logout']"));
 		logout.click();
-		
+
 		wait(2);
 
 	}
@@ -111,7 +121,7 @@ public class MyDGCbuTest {
 
 		WebElement searchTextWindow = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-qry']"));
 		searchTextWindow.sendKeys("Long Beach, CA");
-		
+
 		WebElement searchButton = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-submit-qry']"));
 		searchButton.click();
 
@@ -120,7 +130,6 @@ public class MyDGCbuTest {
 
 		WebElement advancedSearchButton = driver.findElement(By.xpath("//*[@id='test_sifSearch']/span"));
 		advancedSearchButton.click();
-
 
 	}
 
@@ -160,8 +169,6 @@ public class MyDGCbuTest {
 		while (element.hasNext()) {
 			WebElement row = element.next();
 			i++;
-			// System.out.println("data-featureid =
-			// "row.getAttribute("data-featureid"));
 
 			if (row.getAttribute("data-featureid").equals(this.targetCatID)) {
 				driver.switchTo().defaultContent();
@@ -179,27 +186,8 @@ public class MyDGCbuTest {
 				addImageToCart.click();
 			}
 		}
-		
+
 		wait(4);
-
-	}
-
-	public void enterRecipeParameters() {
-
-		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("mrhCbuLongBeach");
-
-		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("mrhCbuLongBeach Comments");
-
-		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[2]"));
-		endUse.click();
-
-		WebElement deliverTo = driver.findElement(By.xpath(".//*[@id='param_deliverTo']/option[2]"));
-		deliverTo.click();
-
-		WebElement productType = driver.findElement(By.xpath(".//*[@id='param_recipe']/option[2]"));
-		productType.click();
 
 	}
 
@@ -233,6 +221,111 @@ public class MyDGCbuTest {
 
 		WebElement closeButton = driver.findElement(By.xpath("//*[@id='cartCancelBtn']"));
 		closeButton.click();
+
+	}
+
+	public void enterRecipeParameters() {
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhCbuLongBeach");
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhCbuLongBeach Comments");
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[2]"));
+		endUse.click();
+
+		WebElement deliverTo = driver.findElement(By.xpath(".//*[@id='param_deliverTo']/option[2]"));
+		deliverTo.click();
+
+		WebElement productType = driver.findElement(By.xpath(".//*[@id='param_recipe']/option[2]"));
+		productType.click();
+
+	}
+
+	public void enterAdvancedParameters() {
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhCbuLongBeachAdvancedOptions");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhCbuLongBeachAdvancedOptions Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+
+		wait(1);
+
+		// WebElement endUse =
+		// driver.findElement(By.xpath(".//*[@id='endUse']/option[1]"));
+		// endUse.click();
+		// wait(1);
+
+		// WebElement deliverTo =
+		// driver.findElement(By.xpath(".//*[@id='param_deliverToAdvanced']/option[1]"));
+		// deliverTo.click();
+		// wait(1);
+
+		// WebElement compression =
+		// driver.findElement(By.xpath(".//*[@id='param_deliveryCompressionAdvanced']/option[1]"));
+		// compression.click();
+		// wait(1);
+
+		/*
+		 * WebElement productType =
+		 * driver.findElement(By.xpath(".//*[@id='param_productType']/option[1]"
+		 * )); productType.click(); wait(1);
+		 * 
+		 * WebElement productOption = driver.findElement(By.xpath(
+		 * ".//*[@id='param_productOption']/option[1]")); productOption.click();
+		 * wait(1);
+		 * 
+		 * WebElement bands =
+		 * driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[1]")
+		 * ); bands.click(); wait(1);
+		 * 
+		 * WebElement bitsPerPixel = driver.findElement(By.xpath(
+		 * ".//*[@id='param_bitsPerPixel']/option[1]")); bitsPerPixel.click();
+		 * wait(1);
+		 * 
+		 * WebElement dra =
+		 * driver.findElement(By.xpath(".//*[@id='param_dra']/option[1]"));
+		 * dra.click(); wait(1);
+		 * 
+		 * WebElement resamplingKernel = driver.findElement(By.xpath(
+		 * ".//*[@id='param_resamplingKernel']/option[1]"));
+		 * resamplingKernel.click(); wait(1);
+		 * 
+		 * WebElement mapProjection = driver.findElement(By.xpath(
+		 * ".//*[@id='param_mapProjection']/option[1]")); mapProjection.click();
+		 * wait(1);
+		 * 
+		 * WebElement requestedGSD = driver.findElement(By.xpath(
+		 * ".//*[@id='param_requestedGsd']/option[1]")); requestedGSD.click();
+		 * wait(1);
+		 * 
+		 * WebElement productGSD =
+		 * driver.findElement(By.xpath(".//*[@id='param_productGsd']/option[2]")
+		 * ); productGSD.click(); wait(1);
+		 * 
+		 * WebElement tilingMethod = driver.findElement(By.xpath(
+		 * ".//*[@id='param_tilingSystem']/option[2]")); tilingMethod.click();
+		 * wait(1);
+		 * 
+		 * //WebElement tilingSize =
+		 * driver.findElement(By.xpath(".//*[@id='param_tilingSize']/option[2]")
+		 * ); //tilingSize.click(); //wait(1);
+		 * 
+		 * WebElement fileFormat =
+		 * driver.findElement(By.xpath(".//*[@id='param_tilingSize']/option[1]")
+		 * ); fileFormat.click(); wait(1);
+		 */
 
 	}
 }
