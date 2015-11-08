@@ -1,18 +1,23 @@
 package com.vogella.groovy.withmethod
 
 class WithTestClass {
+
 	String property1
 	String property2
+
 	List<String> list = []
+
 	def addElement(value) {
 		list << value
 	}
+
 	def returnProperties () {
 		"Property 1: $property1, Property 2: $property2 "
 	}
 }
 
 def sample = new WithTestClass()
+
 def result= sample.with {
 	property1 = 'Input 1'
 	property2 = 'This is cool'
@@ -21,6 +26,7 @@ def result= sample.with {
 	addElement 'Linux'
 	returnProperties()
 }
+
 println result
 assert 3 == sample.list.size()
 assert 'Input 1' == sample.property1

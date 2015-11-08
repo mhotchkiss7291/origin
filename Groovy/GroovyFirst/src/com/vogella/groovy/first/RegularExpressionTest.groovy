@@ -8,11 +8,12 @@ class RegularExpressionTest {
 
 		// Every word must be followed by a nonword character
 		// Match
-		if (text==~/(\w*\W+)*/){
+		if (text == ~/(\w*\W+)*/){
 			println "Match was successful"
 		} else {
 			println "Match was not successful"
 		}
+
 		// Every word must be followed by a nonword character
 		// Find
 		if (text=~/(\w*\W+)*/){
@@ -26,6 +27,7 @@ class RegularExpressionTest {
 		} else {
 			println "No match found"
 		}
+
 		def newText = text.replaceAll(/\w+/, "hubba")
 		println newText
 	}
