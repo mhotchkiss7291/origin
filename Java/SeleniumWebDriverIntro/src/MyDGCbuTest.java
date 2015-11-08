@@ -39,9 +39,10 @@ public class MyDGCbuTest {
 
 		// mdgt.enterRecipeParameters();
 		// mdgt.enterAdvancedParameters();
-		
+
 		// Add a specific type of order
-		mdgt.order_L1_Pan_WV02_1B();
+		// mdgt.order_L1_Pan_WV02_1B();
+		mdgt.order_L3_Pan_WV02_3D();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -49,7 +50,7 @@ public class MyDGCbuTest {
 		mdgt.submitOrdersAndClose();
 		mdgt.logout();
 		mdgt.quit();
-		
+
 	}
 
 	public void placeTheOrderWithCredentialsAndCatId() {
@@ -357,6 +358,42 @@ public class MyDGCbuTest {
 		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
 		endUse.click();
 
+		wait(1);
+
+	}
+
+	public void order_L3_Pan_WV02_3D() {
+
+		/*
+		 * Material Number: L3 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: 3D
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("order_L3_Pan_WV02_3D");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("order_L3_Pan_WV02_3D Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		WebElement productType = driver
+				.findElement(By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Map_Scale_Ortho']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15030">1:12,000 Orthorectified (3D)</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15030']"));
+		productOption.click();
 		wait(1);
 
 	}
