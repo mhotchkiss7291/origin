@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -79,7 +80,9 @@ public class MyDGCbuTest {
 		dc.setCapability(CapabilityType.PROXY, proxy);
 
 		// Open the firefox driver and set timeout for inaction
-		this.driver = new FirefoxDriver(dc);
+		// this.driver = new FirefoxDriver(dc);
+		
+		this.driver = new InternetExplorerDriver(dc);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		// Get to MyDG in #INT
