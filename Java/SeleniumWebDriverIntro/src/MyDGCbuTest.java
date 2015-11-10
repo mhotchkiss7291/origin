@@ -47,7 +47,9 @@ public class MyDGCbuTest {
 		// mdgt.order_L3_Pan_WV02_3G();
 		// mdgt.order_1001_Pan_WV02_25m();
 		// mdgt.order_1001_Pan_WV02_10m();
-		mdgt.order_1001_Pan_WV02_4m();
+		// mdgt.order_1001_Pan_WV02_4m();
+		// mdgt.order_1004_WV02_25m();
+		mdgt.order_1005_WV02_10m();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -574,7 +576,8 @@ public class MyDGCbuTest {
 		endUse.click();
 		wait(1);
 
-		// <option data-ordersheetvalue="Advanced_Ortho_Vision" value="15024">Advanced Ortho Vision</option>
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision"
+		// value="15024">Advanced Ortho Vision</option>
 		WebElement productType = driver.findElement(
 				By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision']"));
 		productType.click();
@@ -586,5 +589,79 @@ public class MyDGCbuTest {
 		productOption.click();
 		wait(1);
 
+	}
+
+	public void order_1004_WV02_25m() {
+
+		/*
+		 * Material Number: 1004 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Display - 25m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1004_WV02_25m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1004_WV02_25m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision_Premium"
+		// value="15025">Advanced Ortho Vision Premium</option>
+		WebElement productType = driver.findElement(By
+				.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision_Premium']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15036">Display - 25m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15036']"));
+		productOption.click();
+		wait(1);
+	}
+
+	public void order_1005_WV02_10m() {
+
+		/*
+		 * Material Number: 1005 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Mapping - 10m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1004_WV02_10m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1004_WV02_10m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision_Premium"
+		// value="15025">Advanced Ortho Vision Premium</option>
+		WebElement productType = driver.findElement(By
+				.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision_Premium']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15037">Mapping - 10m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15037']"));
+		productOption.click();
+		wait(1);
 	}
 }
