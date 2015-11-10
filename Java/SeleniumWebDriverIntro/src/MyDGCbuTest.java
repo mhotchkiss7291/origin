@@ -43,7 +43,11 @@ public class MyDGCbuTest {
 		// Add a specific type of order
 		// mdgt.order_L1_Pan_WV02_1B();
 		// mdgt.order_L3_Pan_WV02_3D();
-		mdgt.order_L3_Pan_WV02_3F();
+		// mdgt.order_L3_Pan_WV02_3F();
+		// mdgt.order_L3_Pan_WV02_3G();
+		// mdgt.order_1001_Pan_WV02_25m();
+		// mdgt.order_1001_Pan_WV02_10m();
+		mdgt.order_1001_Pan_WV02_4m();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -194,7 +198,7 @@ public class MyDGCbuTest {
 			}
 		}
 
-		wait(4);
+		wait(10);
 
 	}
 
@@ -348,11 +352,11 @@ public class MyDGCbuTest {
 		wait(1);
 
 		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("mrh_order_L1_Pan_WV02_1B");
+		orderNameText.sendKeys("mrhOrder_L1_Pan_WV02_1B");
 		wait(1);
 
 		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("order_L1_Pan_WV02_1B Comments");
+		commentText.sendKeys("mrhOrder_L1_Pan_WV02_1B Comments");
 		wait(1);
 
 		// End Use is arbitrarily Agriculture
@@ -375,11 +379,11 @@ public class MyDGCbuTest {
 		wait(1);
 
 		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("order_L3_Pan_WV02_3D");
+		orderNameText.sendKeys("mrhOrder_L3_Pan_WV02_3D");
 		wait(1);
 
 		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("order_L3_Pan_WV02_3D Comments");
+		commentText.sendKeys("mrhOrder_L3_Pan_WV02_3D Comments");
 		wait(1);
 
 		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
@@ -398,7 +402,7 @@ public class MyDGCbuTest {
 		wait(1);
 
 	}
-	
+
 	public void order_L3_Pan_WV02_3F() {
 
 		/*
@@ -411,11 +415,11 @@ public class MyDGCbuTest {
 		wait(1);
 
 		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("order_L3_Pan_WV02_3F");
+		orderNameText.sendKeys("mrhOrder_L3_Pan_WV02_3F");
 		wait(1);
 
 		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("order_L3_Pan_WV02_3F Comments");
+		commentText.sendKeys("mrhOrder_L3_Pan_WV02_3F Comments");
 		wait(1);
 
 		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
@@ -435,5 +439,152 @@ public class MyDGCbuTest {
 
 	}
 
+	public void order_L3_Pan_WV02_3G() {
 
+		/*
+		 * Material Number: L3 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: 3G
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_L3_Pan_WV02_3G");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_L3_Pan_WV02_3G Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		WebElement productType = driver
+				.findElement(By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Map_Scale_Ortho']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15032">1:4,800 Orthorectified (3G)</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15032']"));
+		productOption.click();
+		wait(1);
+
+	}
+
+	public void order_1001_Pan_WV02_25m() {
+
+		/*
+		 * Material Number: 1001 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Display - 25m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1001_Pan_WV02_25m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1001_Pan_WV02_25m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision"
+		// value="15024">Advanced Ortho Vision</option>
+		WebElement productType = driver.findElement(
+				By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15033">Display - 25m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15033']"));
+		productOption.click();
+		wait(1);
+
+	}
+
+	public void order_1001_Pan_WV02_10m() {
+
+		/*
+		 * Material Number: 1002 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Mapping - 10m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1001_Pan_WV02_10m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1001_Pan_WV02_10m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision"
+		// value="15024">Advanced Ortho Vision</option>
+		WebElement productType = driver.findElement(
+				By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15034">Mapping - 10m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15034']"));
+		productOption.click();
+		wait(1);
+
+	}
+
+	public void order_1001_Pan_WV02_4m() {
+
+		/*
+		 * Material Number: 1003 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Precision - 4m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1001_Pan_WV02_4m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1001_Pan_WV02_4m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision" value="15024">Advanced Ortho Vision</option>
+		WebElement productType = driver.findElement(
+				By.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15035">Precision - 4m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15035']"));
+		productOption.click();
+		wait(1);
+
+	}
 }
