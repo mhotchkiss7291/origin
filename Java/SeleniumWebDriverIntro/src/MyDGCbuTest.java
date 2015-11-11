@@ -94,7 +94,8 @@ public class MyDGCbuTest {
 
 		// Get past the DG proxy for test
 		// org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
-		// proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
+		// proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" +
+		// 8080);
 		// DesiredCapabilities dc = DesiredCapabilities.firefox();
 		// dc.setCapability(CapabilityType.PROXY, proxy);
 
@@ -103,6 +104,7 @@ public class MyDGCbuTest {
 		this.driver = new ChromeDriver();
 
 	}
+
 	public void login() {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -136,10 +138,10 @@ public class MyDGCbuTest {
 
 		WebElement userMenuDropdown = driver.findElement(By.xpath("//*[@id='test_userMenu']/span[1]"));
 		userMenuDropdown.click();
+		wait(2);
 
 		WebElement logout = driver.findElement(By.xpath("//*[@id='logout']"));
 		logout.click();
-
 		wait(2);
 
 	}
@@ -196,6 +198,7 @@ public class MyDGCbuTest {
 		List<WebElement> rows = archiveRows.findElements(By.tagName("tr"));
 		java.util.Iterator<WebElement> i = rows.iterator();
 		this.feature_list = rows;
+		wait(1);
 	}
 
 	public void scanAndSelectArchiveFeatureFromList() {
@@ -237,9 +240,10 @@ public class MyDGCbuTest {
 		// to help
 		WebElement addToCart = driver.findElement(By.xpath("html/body/div[9]/div/div/form/div[3]/button[1]"));
 		addToCart.click();
-
+		wait(1);
 		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[27]/div/div/div[2]/button[1]"));
 		closeButton.click();
+		wait(1);
 	}
 
 	public void goToCart() {
@@ -258,9 +262,11 @@ public class MyDGCbuTest {
 
 		WebElement submitOrdersButton = driver.findElement(By.xpath("//*[@id='cartOrderBtn']"));
 		submitOrdersButton.click();
+		wait(2);
 
 		WebElement closeButton = driver.findElement(By.xpath("//*[@id='cartCancelBtn']"));
 		closeButton.click();
+		wait(2);
 
 	}
 
@@ -430,6 +436,11 @@ public class MyDGCbuTest {
 		productOption.click();
 		wait(1);
 
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
+		wait(1);
+
 	}
 
 	public void order_L3_Pan_WV02_3F() {
@@ -464,6 +475,11 @@ public class MyDGCbuTest {
 		WebElement productOption = driver
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15031']"));
 		productOption.click();
+		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
 		wait(1);
 
 	}
@@ -502,6 +518,10 @@ public class MyDGCbuTest {
 		productOption.click();
 		wait(1);
 
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
+		wait(1);
 	}
 
 	public void order_1001_Pan_WV02_25m() {
@@ -538,6 +558,11 @@ public class MyDGCbuTest {
 		WebElement productOption = driver
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15033']"));
 		productOption.click();
+		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
 		wait(1);
 
 	}
@@ -578,6 +603,10 @@ public class MyDGCbuTest {
 		productOption.click();
 		wait(1);
 
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
+		wait(1);
 	}
 
 	public void order_1001_Pan_WV02_4m() {
@@ -614,6 +643,11 @@ public class MyDGCbuTest {
 		WebElement productOption = driver
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15035']"));
 		productOption.click();
+		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
 		wait(1);
 
 	}
@@ -653,6 +687,11 @@ public class MyDGCbuTest {
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15036']"));
 		productOption.click();
 		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
+		wait(1);
 	}
 
 	public void order_1005_WV02_10m() {
@@ -690,6 +729,11 @@ public class MyDGCbuTest {
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15037']"));
 		productOption.click();
 		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
+		wait(1);
 	}
 
 	public void order_1006_WV02_4m() {
@@ -726,6 +770,11 @@ public class MyDGCbuTest {
 		WebElement productOption = driver
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15038']"));
 		productOption.click();
+		wait(1);
+
+		// <option value="15039" selected="">Pan</option>
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
+		bands.click();
 		wait(1);
 	}
 }
