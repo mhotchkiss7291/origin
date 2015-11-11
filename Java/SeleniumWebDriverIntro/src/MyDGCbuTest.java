@@ -4,8 +4,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -31,6 +32,10 @@ public class MyDGCbuTest {
 		// Do you want to place an order?
 		mdgt.placeTheOrderWithCredentialsAndCatId();
 
+		// Which browser are using
+		// mdgt.useFirefox();
+		mdgt.useChrome();
+
 		// Search for an archive...
 		mdgt.login();
 		mdgt.goToAdvancedSearch();
@@ -50,7 +55,8 @@ public class MyDGCbuTest {
 		// mdgt.order_1001_Pan_WV02_10m();
 		// mdgt.order_1001_Pan_WV02_4m();
 		// mdgt.order_1004_WV02_25m();
-		mdgt.order_1005_WV02_10m();
+		// mdgt.order_1005_WV02_10m();
+		mdgt.order_1006_WV02_4m();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -71,7 +77,7 @@ public class MyDGCbuTest {
 		this.targetCatID = "103001004A43D900";
 	}
 
-	public void login() {
+	public void useFirefox() {
 
 		// Get past the DG proxy for test
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
@@ -80,17 +86,35 @@ public class MyDGCbuTest {
 		dc.setCapability(CapabilityType.PROXY, proxy);
 
 		// Open the firefox driver and set timeout for inaction
-		// this.driver = new FirefoxDriver(dc);
-		
-		this.driver = new InternetExplorerDriver(dc);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		this.driver = new FirefoxDriver(dc);
+
+	}
+
+	public void useChrome() {
+
+		// Get past the DG proxy for test
+		// org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
+		// proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
+		// DesiredCapabilities dc = DesiredCapabilities.firefox();
+		// dc.setCapability(CapabilityType.PROXY, proxy);
+
+		// Open the firefox driver and set timeout for inaction
+		// this.driver = new ChromeDriver(dc);
+		this.driver = new ChromeDriver();
+
+	}
+	public void login() {
+
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		// Get to MyDG in #INT
 		driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
+		wait(3);
 		driver.manage().window().maximize();
 
 		// Get past the Ad Gov Portal
-		WebElement adGovPortalCloseButton = driver.findElement(By.xpath("//*[@id='loginAlert']/div/div/div[3]/button"));
+		WebElement adGovPortalCloseButton = driver
+				.findElement(By.xpath(".//*[@id='loginAlert']/div/div/div[3]/button"));
 		adGovPortalCloseButton.click();
 
 		// Enter credentials and log in
@@ -643,11 +667,11 @@ public class MyDGCbuTest {
 		wait(1);
 
 		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("mrhOrder_1004_WV02_10m");
+		orderNameText.sendKeys("mrhOrder_1005_WV02_10m");
 		wait(1);
 
 		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("mrhOrder_1004_WV02_10m Comments");
+		commentText.sendKeys("mrhOrder_1005_WV02_10m Comments");
 		wait(1);
 
 		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
@@ -664,6 +688,43 @@ public class MyDGCbuTest {
 		// <option value="15037">Mapping - 10m</option>
 		WebElement productOption = driver
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15037']"));
+		productOption.click();
+		wait(1);
+	}
+
+	public void order_1006_WV02_4m() {
+
+		/*
+		 * Material Number: 1006 Product Options: Pan Spacecraft: WV02 Product
+		 * Name: Precision - 4m
+		 */
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_1006_WV02_4m");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_1006_WV02_4m Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='AGR']"));
+		endUse.click();
+		wait(1);
+
+		// <option data-ordersheetvalue="Advanced_Ortho_Vision_Premium"
+		// value="15025">Advanced Ortho Vision Premium</option>
+		WebElement productType = driver.findElement(By
+				.xpath(".//*[@id='param_productType']/option[@data-ordersheetvalue='Advanced_Ortho_Vision_Premium']"));
+		productType.click();
+		wait(1);
+
+		// <option value="15038">Precision - 4m</option>
+		WebElement productOption = driver
+				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15038']"));
 		productOption.click();
 		wait(1);
 	}
