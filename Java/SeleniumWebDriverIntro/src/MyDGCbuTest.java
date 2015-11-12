@@ -47,6 +47,7 @@ public class MyDGCbuTest {
 		// mdgt.enterAdvancedParameters();
 
 		// Add a specific type of order
+
 		// mdgt.order_L1_Pan_WV02_1B();
 		// mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
@@ -56,7 +57,9 @@ public class MyDGCbuTest {
 		// mdgt.order_1001_Pan_WV02_4m();
 		// mdgt.order_1004_WV02_25m();
 		// mdgt.order_1005_WV02_10m();
-		mdgt.order_1006_WV02_4m();
+		// mdgt.order_1006_WV02_4m();
+
+		mdgt.newOrder();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -771,10 +774,50 @@ public class MyDGCbuTest {
 				.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15038']"));
 		productOption.click();
 		wait(1);
-
+		
 		// <option value="15039" selected="">Pan</option>
 		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15039']"));
 		bands.click();
 		wait(1);
+	}
+
+	public void newOrder() {
+
+		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
+		showAdvancedOptions.click();
+		wait(1);
+
+		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
+		orderNameText.sendKeys("mrhOrder_L1_Pan_WV02_1B");
+		wait(1);
+
+		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
+		commentText.sendKeys("mrhOrder_L1_Pan_WV02_1B Comments");
+		wait(1);
+
+		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='HUM']"));
+		endUse.click();
+		wait(2);
+
+		// <option data-ordersheetvalue="FTP" value="15016">FTP</option>
+		WebElement deliverTo = driver.findElement(By.xpath(".//*[@id='param_deliverToAdvanced']/option[@value='15016']"));
+		deliverTo.click();
+		wait(3);
+
+		// <option data-ordersheetvalue="Tar" value="15021">TAR</option>
+		WebElement compression = driver.findElement(By.xpath(".//*[@id='param_deliveryCompressionAdvanced']/option[@value='15021']"));
+		compression.click();
+		wait(2);
+
+		// <option data-ordersheetvalue="2A" value="15027">Standard (2A)</option>
+		WebElement productOption = driver.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15027']"));
+		productOption.click();
+		wait(1);
+
+		// <option value="15040">3-Band Pan-Sharpened</option>
+		WebElement imageBands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15040']"));
+		imageBands.click();
+		wait(1);
+
 	}
 }
