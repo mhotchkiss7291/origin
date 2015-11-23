@@ -59,7 +59,7 @@ public class MyDGCbuTest {
 		// mdgt.order_1005_WV02_10m();
 		// mdgt.order_1006_WV02_4m();
 
-		mdgt.newOrder();
+		mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -133,6 +133,11 @@ public class MyDGCbuTest {
 		// Click the Log In button
 		WebElement loginButton = driver.findElement(By.xpath(".//*[@id='loginButton']"));
 		loginButton.click();
+		wait(1);
+
+		// Close What's New dialog
+		WebElement closeWhatsNew = driver.findElement(By.xpath(".//*[@id='mapWhatsNew']/div/div/div[3]/button"));
+		closeWhatsNew.click();
 		wait(1);
 
 	}
@@ -255,7 +260,7 @@ public class MyDGCbuTest {
 				.findElement(By.xpath("//*[@id='mapPage']/div[1]/header/div/div/nav/div/div[2]/ul[2]/li[1]/a/i"));
 		cartIcon.click();
 
-		WebElement cartSelection = driver.findElement(By.xpath("//*[@id='test_cart']"));
+		WebElement cartSelection = driver.findElement(By.xpath(".//*[@id='test_cart']"));
 		cartSelection.click();
 		wait(2);
 
@@ -263,11 +268,11 @@ public class MyDGCbuTest {
 
 	public void submitOrdersAndClose() {
 
-		WebElement submitOrdersButton = driver.findElement(By.xpath("//*[@id='cartOrderBtn']"));
+		WebElement submitOrdersButton = driver.findElement(By.xpath(".//*[@id='cartOrderBtn']"));
 		submitOrdersButton.click();
 		wait(2);
 
-		WebElement closeButton = driver.findElement(By.xpath("//*[@id='cartCancelBtn']"));
+		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='cartCancelBtn']"));
 		closeButton.click();
 		wait(2);
 
@@ -781,18 +786,33 @@ public class MyDGCbuTest {
 		wait(1);
 	}
 
-	public void newOrder() {
+	public void order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA() {
+
+		/*Material Number: L3
+		Product Options: 3_Band_PanSharpen
+		Spacecraft: WV02
+		Product Name: 3D
+		Delivery Method: Electronic
+		Image File Format: GeoTiff
+		Spatial Reference System Code: Geographic 8307_0
+		Pansharpened Bands: TrueColor
+		Bit Depth: 8
+		DRA: ON
+		Requested GSD: 0.5
+		Resampling Kernel: NN
+		Tiling Type: Pixel
+		Tiling Size: 16384,16384*/
 
 		WebElement showAdvancedOptions = driver.findElement(By.xpath(".//*[@id='orderSettings']/div[3]/button[2]"));
 		showAdvancedOptions.click();
 		wait(1);
 
 		WebElement orderNameText = driver.findElement(By.xpath(".//*[@id='orderName']"));
-		orderNameText.sendKeys("mrhOrder_L1_Pan_WV02_1B");
+		orderNameText.sendKeys("mrhOrder_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA");
 		wait(1);
 
 		WebElement commentText = driver.findElement(By.xpath(".//*[@id='orderComment']"));
-		commentText.sendKeys("mrhOrder_L1_Pan_WV02_1B Comments");
+		commentText.sendKeys("mrhOrder_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA Comments");
 		wait(1);
 
 		WebElement endUse = driver.findElement(By.xpath(".//*[@id='endUse']/option[@value='HUM']"));
@@ -802,22 +822,78 @@ public class MyDGCbuTest {
 		// <option data-ordersheetvalue="FTP" value="15016">FTP</option>
 		WebElement deliverTo = driver.findElement(By.xpath(".//*[@id='param_deliverToAdvanced']/option[@value='15016']"));
 		deliverTo.click();
-		wait(3);
-
-		// <option data-ordersheetvalue="Tar" value="15021">TAR</option>
-		WebElement compression = driver.findElement(By.xpath(".//*[@id='param_deliveryCompressionAdvanced']/option[@value='15021']"));
-		compression.click();
 		wait(2);
 
-		// <option data-ordersheetvalue="2A" value="15027">Standard (2A)</option>
-		WebElement productOption = driver.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15027']"));
+		// <option data-ordersheetvalue="Map_Scale_Ortho" value="15023">Map Scale Ortho</option>
+		WebElement productType = driver.findElement(By.xpath(".//*[@id='param_productType']/option[@value='15023']"));
+		productType.click();
+		wait(2);
+
+		// <option value="15030">1:12,000 Orthorectified (3D)</option>
+		WebElement productOption = driver.findElement(By.xpath(".//*[@id='param_productOption']/option[@value='15030']"));
 		productOption.click();
-		wait(1);
+		wait(2);
 
 		// <option value="15040">3-Band Pan-Sharpened</option>
-		WebElement imageBands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15040']"));
-		imageBands.click();
-		wait(1);
+		WebElement bands = driver.findElement(By.xpath(".//*[@id='param_imageBands']/option[@value='15040']"));
+		bands.click();
+		wait(2);
+
+		// <option value="15056">TrueColor</option>
+		WebElement panSharpendBands = driver.findElement(By.xpath(".//*[@id='param_panSharpenedBands']/option[@value='15056']"));
+		panSharpendBands.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="8" value="15046">8-bit</option> 
+		WebElement bitsPerPixel = driver.findElement(By.xpath(".//*[@id='param_bitsPerPixel']/option[@value='15046']"));
+		bitsPerPixel.click();
+		wait(2);
+
+		//<option value="15048" selected="">On</option> 
+		WebElement dra = driver.findElement(By.xpath(".//*[@id='param_dra']/option[@value='15048']"));
+		dra.click();
+		wait(2);
+
+		// <option data-ordersheetvalue="NN" value="15050">Nearest Neighbor</option>
+		WebElement resamplingAlgorithm = driver.findElement(By.xpath(".//*[@id='param_resamplingKernel']/option[@value='15050']"));
+		resamplingAlgorithm.click();
+		wait(2);
+
+		// <option data-ordersheetvalue="Geographic" value="15059">Geographic (Lat/Lon)</option> 
+		WebElement mapProjection = driver.findElement(By.xpath(".//*[@id='param_mapProjection']/option[@value='15059']"));
+		mapProjection.click();
+		wait(2);
+
+		// <option value="15077">Geog WGS 84 (DD)</option> 
+		WebElement datum = driver.findElement(By.xpath(".//*[@id='param_datum']/option[@value='15077']"));
+		datum.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="Sensor Standard" selected="selected" value="15096">Sensor Standard</option> 
+		WebElement requestedGSD = driver.findElement(By.xpath(".//*[@id='param_requestedGsd']/option[@value='15096']"));
+		requestedGSD.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="Consistent" selected="selected" value="15098">Consistent</option>
+		WebElement productGSD = driver.findElement(By.xpath(".//*[@id='param_productGsd']/option[@value='15098']"));
+		productGSD.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="Pixel" selected="selected" value="15100">Pixel</option> 
+		WebElement tilingMethod = driver.findElement(By.xpath(".//*[@id='param_tilingSystem']/option[@value='15100']"));
+		tilingMethod.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="16384,16384" selected="selected" value="15103">16k x 16k</option>
+		WebElement tilingSize = driver.findElement(By.xpath(".//*[@id='param_tilingSize']/option[@value='15103']"));
+		tilingSize.click();
+		wait(2);
+
+		//<option data-ordersheetvalue="GeoTiff" selected="selected" value="15104">GeoTiff 1.0</option>
+		WebElement fileFormat = driver.findElement(By.xpath(".//*[@id='param_fileFormat']/option[@value='15104']"));
+		fileFormat.click();
+		wait(2);
+
 
 	}
 }
