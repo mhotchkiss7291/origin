@@ -33,8 +33,8 @@ public class MyDGCbuTest {
 		mdgt.placeTheOrderWithCredentialsAndCatId();
 
 		// Which browser are using
-		mdgt.useFirefox();
-		// mdgt.useChrome();
+		// mdgt.useFirefox();
+		 mdgt.useChrome();
 
 		// Search for an archive...
 		mdgt.login();
@@ -49,7 +49,7 @@ public class MyDGCbuTest {
 		// Add a specific type of order
 
 		// mdgt.order_L1_Pan_WV02_1B();
-		mdgt.order_L3_Pan_WV02_3D();
+		// mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
 		// mdgt.order_L3_Pan_WV02_3G();
 		// mdgt.order_1001_Pan_WV02_25m();
@@ -57,7 +57,7 @@ public class MyDGCbuTest {
 		// mdgt.order_1001_Pan_WV02_4m();
 		// mdgt.order_1004_WV02_25m();
 		// mdgt.order_1005_WV02_10m();
-		// mdgt.order_1006_WV02_4m();
+		 mdgt.order_1006_WV02_4m();
 
 		// mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
@@ -72,7 +72,7 @@ public class MyDGCbuTest {
 
 	public void placeTheOrderWithCredentialsAndCatId() {
 
-		this.targetUsername = "MRH_User";
+		this.targetUsername = "MRH_User_2";
 		this.targetPassword = "test";
 
 		// A WV02 archive feature over Long Beach for test
@@ -84,6 +84,7 @@ public class MyDGCbuTest {
 
 		// Get past the DG proxy for test
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
+		//proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
 		proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
 		DesiredCapabilities dc = DesiredCapabilities.firefox();
 		dc.setCapability(CapabilityType.PROXY, proxy);
@@ -113,14 +114,20 @@ public class MyDGCbuTest {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		// Get to MyDG in #INT
-		driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
+		// driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
+		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
 		wait(3);
 		driver.manage().window().maximize();
 
+		// For services-int only
 		// Get past the Ad Gov Portal
-		WebElement adGovPortalCloseButton = driver
-				.findElement(By.xpath(".//*[@id='loginAlert']/div/div/div[3]/button"));
-		adGovPortalCloseButton.click();
+		// WebElement adGovPortalCloseButton = driver
+			// 	.findElement(By.xpath(".//*[@id='loginAlert']/div/div/div[3]/button"));
+		// adGovPortalCloseButton.click();
+
+		// For services-test only
+		WebElement acceptTermsOfUse = driver.findElement(By.xpath(".//*[@id='acceptTOS']"));
+		acceptTermsOfUse.click();
 
 		// Enter credentials and log in
 		WebElement cbuUsernameText = driver.findElement(By.xpath("//*[@id='username']"));
