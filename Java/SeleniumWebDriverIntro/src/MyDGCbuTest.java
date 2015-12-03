@@ -33,8 +33,8 @@ public class MyDGCbuTest {
 		mdgt.placeTheOrderWithCredentialsAndCatId();
 
 		// Which browser are using
-		// mdgt.useFirefox();
-		mdgt.useChrome();
+		mdgt.useFirefox();
+		// mdgt.useChrome();
 
 		// Search for an archive...
 		mdgt.login();
@@ -49,7 +49,7 @@ public class MyDGCbuTest {
 		// Add a specific type of order
 
 		// mdgt.order_L1_Pan_WV02_1B();
-		// mdgt.order_L3_Pan_WV02_3D();
+		mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
 		// mdgt.order_L3_Pan_WV02_3G();
 		// mdgt.order_1001_Pan_WV02_25m();
@@ -59,7 +59,7 @@ public class MyDGCbuTest {
 		// mdgt.order_1005_WV02_10m();
 		// mdgt.order_1006_WV02_4m();
 
-		mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
+		// mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -136,9 +136,9 @@ public class MyDGCbuTest {
 		wait(1);
 
 		// Close What's New dialog
-		WebElement closeWhatsNew = driver.findElement(By.xpath(".//*[@id='mapWhatsNew']/div/div/div[3]/button"));
-		closeWhatsNew.click();
-		wait(1);
+		// WebElement closeWhatsNew = driver.findElement(By.xpath(".//*[@id='mapWhatsNew']/div/div/div[3]/button"));
+		// closeWhatsNew.click();
+		// wait(1);
 
 	}
 
@@ -246,10 +246,10 @@ public class MyDGCbuTest {
 
 		// Due to multiple ids of "submitBtn" need to you absolute path with id
 		// to help
-		WebElement addToCart = driver.findElement(By.xpath("html/body/div[9]/div/div/form/div[3]/button[1]"));
+		WebElement addToCart = driver.findElement(By.xpath("html/body/div[10]/div/div/form/div[3]/button[1]"));
 		addToCart.click();
 		wait(1);
-		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[27]/div/div/div[2]/button[1]"));
+		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[28]/div/div/div[2]/button[2]"));
 		closeButton.click();
 		wait(1);
 	}
