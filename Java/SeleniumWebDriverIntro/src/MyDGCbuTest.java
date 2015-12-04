@@ -32,12 +32,15 @@ public class MyDGCbuTest {
 		// Do you want to place an order?
 		mdgt.placeTheOrderWithCredentialsAndCatId();
 
-		// Which browser are using
-		// mdgt.useFirefox();
-		 mdgt.useChrome();
+		// Which browser are you using?
+		mdgt.useFirefox();
+		// mdgt.useChrome();
 
+		// Which MyDG environment are you using?
+		mdgt.loginToServicesTest();
+		// mdgt.loginToServicesInt();
+		 
 		// Search for an archive...
-		mdgt.login();
 		mdgt.goToAdvancedSearch();
 		mdgt.drawRectangleAOIOverLongBeach();
 		mdgt.scanSifResultsGrid();
@@ -48,7 +51,7 @@ public class MyDGCbuTest {
 
 		// Add a specific type of order
 
-		// mdgt.order_L1_Pan_WV02_1B();
+		 mdgt.order_L1_Pan_WV02_1B();
 		// mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
 		// mdgt.order_L3_Pan_WV02_3G();
@@ -57,9 +60,9 @@ public class MyDGCbuTest {
 		// mdgt.order_1001_Pan_WV02_4m();
 		// mdgt.order_1004_WV02_25m();
 		// mdgt.order_1005_WV02_10m();
-		 mdgt.order_1006_WV02_4m();
+		// mdgt.order_1006_WV02_4m();
 
-		// mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
+		mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -84,7 +87,6 @@ public class MyDGCbuTest {
 
 		// Get past the DG proxy for test
 		org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
-		//proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
 		proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" + 8080);
 		DesiredCapabilities dc = DesiredCapabilities.firefox();
 		dc.setCapability(CapabilityType.PROXY, proxy);
@@ -96,34 +98,53 @@ public class MyDGCbuTest {
 
 	public void useChrome() {
 
-		// Get past the DG proxy for test
-		// org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
-		// proxy.setSslProxy("moz-proxy://gdenwcflgmt.digitalglobe.com" + ":" +
-		// 8080);
-		// DesiredCapabilities dc = DesiredCapabilities.firefox();
-		// dc.setCapability(CapabilityType.PROXY, proxy);
-
-		// Open the firefox driver and set timeout for inaction
-		// this.driver = new ChromeDriver(dc);
 		this.driver = new ChromeDriver();
 
 	}
 
-	public void login() {
+	public void loginToServicesInt() {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		// Get to MyDG in #INT
-		// driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
-		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
+		driver.get("https://services-int.digitalglobe.com/myDigitalGlobe/login");
 		wait(3);
 		driver.manage().window().maximize();
 
 		// For services-int only
 		// Get past the Ad Gov Portal
-		// WebElement adGovPortalCloseButton = driver
-			// 	.findElement(By.xpath(".//*[@id='loginAlert']/div/div/div[3]/button"));
-		// adGovPortalCloseButton.click();
+		WebElement adGovPortalCloseButton = driver
+			 	.findElement(By.xpath(".//*[@id='loginAlert']/div/div/div[3]/button"));
+		adGovPortalCloseButton.click();
+
+		// Enter credentials and log in
+		WebElement cbuUsernameText = driver.findElement(By.xpath("//*[@id='username']"));
+		cbuUsernameText.sendKeys(this.targetUsername);
+		wait(1);
+		WebElement cbuPasswordText = driver.findElement(By.xpath("//*[@id='pw']"));
+		cbuPasswordText.sendKeys(this.targetPassword);
+		wait(2);
+
+		// Click the Log In button
+		WebElement loginButton = driver.findElement(By.xpath(".//*[@id='loginButton']"));
+		loginButton.click();
+		wait(1);
+
+		// Close What's New dialog
+		// WebElement closeWhatsNew = driver.findElement(By.xpath(".//*[@id='mapWhatsNew']/div/div/div[3]/button"));
+		// closeWhatsNew.click();
+		// wait(1);
+
+	}
+
+	public void loginToServicesTest() {
+
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+		// Get to MyDG in Test
+		driver.get("https://services-test.digitalglobe.com/myDigitalGlobe/login");
+		wait(3);
+		driver.manage().window().maximize();
 
 		// For services-test only
 		WebElement acceptTermsOfUse = driver.findElement(By.xpath(".//*[@id='acceptTOS']"));
@@ -185,16 +206,25 @@ public class MyDGCbuTest {
 		WebElement myImageryButton = driver.findElement(By.xpath("//*[@id='test_myImagery']/span"));
 		myImageryButton.click();
 
-		WebElement advancedSearchButton = driver.findElement(By.xpath("//*[@id='test_sifSearch']/span"));
+		// .//*[@id='test_sifSearch']/span
+		WebElement advancedSearchButton = driver.findElement(By.xpath(".//*[@id='test_sifSearch']/span"));
 		advancedSearchButton.click();
 
 	}
 
 	public void drawRectangleAOIOverLongBeach() {
-		driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i")).click();
-		driver.findElement(By.xpath("//*[@id='sif-search-rect']")).click();
+		
+		// .//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i
+		WebElement drawRectangleStart = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i"));
+		drawRectangleStart.click();
+		WebElement drawRectangleEnd = driver.findElement(By.xpath("//*[@id='sif-search-rect']"));
+		drawRectangleEnd.click();
 		wait(2);
-		WebElement drawAOIButton = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
+		
+		
+		// .//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i
+		//WebElement drawAOIButton = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
+		WebElement drawAOIButton = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(drawAOIButton).build().perform();
 		actions.moveByOffset(30, 0).build().perform();
