@@ -51,8 +51,8 @@ public class MyDGCbuTest {
 
 		// Add a specific type of order
 
-		 mdgt.order_L1_Pan_WV02_1B();
-		// mdgt.order_L3_Pan_WV02_3D();
+		// mdgt.order_L1_Pan_WV02_1B();
+		 mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
 		// mdgt.order_L3_Pan_WV02_3G();
 		// mdgt.order_1001_Pan_WV02_25m();
@@ -286,10 +286,13 @@ public class MyDGCbuTest {
 
 		// Due to multiple ids of "submitBtn" need to you absolute path with id
 		// to help
-		WebElement addToCart = driver.findElement(By.xpath("html/body/div[10]/div/div/form/div[3]/button[1]"));
+		// html/body/div[11]/div/div/form/div[3]/button[1]
+		WebElement addToCart = driver.findElement(By.xpath("html/body/div[11]/div/div/form/div[3]/button[1]"));
 		addToCart.click();
 		wait(1);
-		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[28]/div/div/div[2]/button[2]"));
+		
+		// .//*[@id='mapPage']/div[29]/div/div/div[2]/button[2]
+		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[29]/div/div/div[2]/button[2]"));
 		closeButton.click();
 		wait(1);
 	}
