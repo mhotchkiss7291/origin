@@ -33,11 +33,11 @@ public class MyDGCbuTest {
 		mdgt.placeTheOrderWithCredentialsAndCatId();
 
 		// Which browser are you using?
-		mdgt.useFirefox();
-		// mdgt.useChrome();
+		// mdgt.useFirefox();
+		 mdgt.useChrome();
 
 		// Which MyDG environment are you using?
-		mdgt.loginToServicesTest();
+		 mdgt.loginToServicesTest();
 		// mdgt.loginToServicesInt();
 		 
 		// Search for an archive...
@@ -62,7 +62,7 @@ public class MyDGCbuTest {
 		// mdgt.order_1005_WV02_10m();
 		// mdgt.order_1006_WV02_4m();
 
-		mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
+		//mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -197,34 +197,37 @@ public class MyDGCbuTest {
 
 	public void goToAdvancedSearch() {
 
-		WebElement searchTextWindow = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-qry']"));
+		WebElement searchTextWindow = driver.findElement(By.xpath(".//*[@id='leaflet-control-geosearch-qry']"));
 		searchTextWindow.sendKeys(this.targetLocationByName);
+		wait(2);
 
-		WebElement searchButton = driver.findElement(By.xpath("//*[@id='leaflet-control-geosearch-submit-qry']"));
+		WebElement searchButton = driver.findElement(By.xpath(".//*[@id='leaflet-control-geosearch-submit-qry']"));
 		searchButton.click();
+		wait(2);
 
-		WebElement myImageryButton = driver.findElement(By.xpath("//*[@id='test_myImagery']/span"));
+		WebElement myImageryButton = driver.findElement(By.xpath(".//*[@id='test_myImagery']/span"));
 		myImageryButton.click();
+		wait(2);
 
 		// .//*[@id='test_sifSearch']/span
 		WebElement advancedSearchButton = driver.findElement(By.xpath(".//*[@id='test_sifSearch']/span"));
 		advancedSearchButton.click();
+		wait(2);
 
 	}
 
 	public void drawRectangleAOIOverLongBeach() {
 		
-		// .//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i
-		WebElement drawRectangleStart = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i"));
+		// .//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i
+		WebElement drawRectangleStart = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
 		drawRectangleStart.click();
+		wait(2);
+
 		WebElement drawRectangleEnd = driver.findElement(By.xpath("//*[@id='sif-search-rect']"));
 		drawRectangleEnd.click();
 		wait(2);
 		
-		
-		// .//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i
-		//WebElement drawAOIButton = driver.findElement(By.xpath("//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
-		WebElement drawAOIButton = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[2]/div[1]/div[5]/a/i"));
+		WebElement drawAOIButton = driver.findElement(By.xpath(".//*[@id='mapDiv']/div[3]/div[1]/div[5]/a/i"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(drawAOIButton).build().perform();
 		actions.moveByOffset(30, 0).build().perform();
