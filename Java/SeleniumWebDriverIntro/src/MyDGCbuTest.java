@@ -51,8 +51,8 @@ public class MyDGCbuTest {
 
 		// Add a specific type of order
 
-		// mdgt.order_L1_Pan_WV02_1B();
-		 mdgt.order_L3_Pan_WV02_3D();
+		//mdgt.order_L1_Pan_WV02_1B();
+		// mdgt.order_L3_Pan_WV02_3D();
 		// mdgt.order_L3_Pan_WV02_3F();
 		// mdgt.order_L3_Pan_WV02_3G();
 		// mdgt.order_1001_Pan_WV02_25m();
@@ -62,7 +62,7 @@ public class MyDGCbuTest {
 		// mdgt.order_1005_WV02_10m();
 		// mdgt.order_1006_WV02_4m();
 
-		//mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
+		mdgt.order_L3_3_Band_PanSharpen_WV02_3D_FTP_GeoTiff_Geographic_TrueColor_8bit_DRA();
 
 		// Submit your order
 		mdgt.addToCartAndClose();
@@ -286,21 +286,22 @@ public class MyDGCbuTest {
 
 		// Due to multiple ids of "submitBtn" need to you absolute path with id
 		// to help
-		// html/body/div[11]/div/div/form/div[3]/button[1]
-		WebElement addToCart = driver.findElement(By.xpath("html/body/div[11]/div/div/form/div[3]/button[1]"));
+		WebElement addToCart = driver.findElement(By.xpath("html/body/div[10]/div/div/form/div[3]/button[1]"));
 		addToCart.click();
 		wait(1);
 		
-		// .//*[@id='mapPage']/div[29]/div/div/div[2]/button[2]
-		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[29]/div/div/div[2]/button[2]"));
+		// .//*[@id='mapPage']/div[28]/div/div/div[2]/button[2]
+		// html/body/div[28]/div/div/div[2]/button[2]
+		WebElement closeButton = driver.findElement(By.xpath(".//*[@id='mapPage']/div[28]/div/div/div[2]/button[2]"));
 		closeButton.click();
 		wait(1);
 	}
 
 	public void goToCart() {
 
+		
 		WebElement cartIcon = driver
-				.findElement(By.xpath("//*[@id='mapPage']/div[1]/header/div/div/nav/div/div[2]/ul[2]/li[1]/a/i"));
+				.findElement(By.xpath(".//*[@id='mapPage']/div[1]/header/div/div/nav/div/div[2]/ul[2]/li[1]/a/i"));
 		cartIcon.click();
 
 		WebElement cartSelection = driver.findElement(By.xpath(".//*[@id='test_cart']"));
@@ -311,6 +312,8 @@ public class MyDGCbuTest {
 
 	public void submitOrdersAndClose() {
 
+		// .//*[@id='cartOrderBtn']
+		// html/body/div[7]/div/div/div[3]/button[1]
 		WebElement submitOrdersButton = driver.findElement(By.xpath(".//*[@id='cartOrderBtn']"));
 		submitOrdersButton.click();
 		wait(2);
