@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-import operator
-
 def start(url):
 
     # Make a soup for bs4 to crawl through html
@@ -26,7 +24,8 @@ def start(url):
         for each_word in words:
             word_list.append(each_word)
 
-     clean_up_list(word_list)
+    clean_up_list(word_list)
+
 
 def clean_up_list(word_list):
 
@@ -38,10 +37,12 @@ def clean_up_list(word_list):
         # Symbols that need to be ignored in the search
         symbols = "!@#$%^&*()_+{}:\"<>?,./;'[]-='"
 
-        for i in range(0, len(symbols))
-            word = word.r
+        for i in range(0, len(symbols)):
+            word = word.replace(symbols[i], "")
 
-
+        if len(word) > 0:
+            print(word)
+            clean_word_list.append(word)
 
 # URL to call
 url = 'https://github.com/mhotchkiss7291/origin'
