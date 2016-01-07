@@ -8,8 +8,18 @@
 
 # I don't know whether this is "the most efficient" , but here is my candidate:
 
+
 str1 = input("Enter the string you want to check for equal size and ordered characters: ")
 str2 = input("Enter the string to compare: ")
+
+# I think that this is a contradiction to Java/vs/Python in operators.
+# Let me explain:
+# The == operator in Java points the first argument object to th second argument object
+# This effectively points to objects in memory
+# But in the following code, in Java, you would need the ".equals()" method implemented
+# and testable.
+
+# This "equivalence" coding is still confusing to me. Java/Python
 
 if sorted(str1) == sorted(str2):
         print ("Size and char order match!")
