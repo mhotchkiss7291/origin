@@ -12,9 +12,6 @@ print(r1, g1, b1)
 r2, g2, b2 = turtle.split()
 print(r2, g2, b2)
 
-#print(r1)
-
-# I don't know why this does not work
 scramble_channel_ship = Image.merge('RGB', (g1, b1, r1) )
 scramble_channel_ship.show()
 
