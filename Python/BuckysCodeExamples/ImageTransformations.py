@@ -13,8 +13,17 @@ wpercent = (basewidth/float(img_original.size[0]))
 hsize = int((float(img_original.size[1])*float(wpercent)))
 
 # Resize the image maintaining the aspect ratio and antialias the image
-img_new = img_original.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
+img_resized = img_original.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
 
 # Save the resized image and show it
-img_new.save('ScaledShip.jpg')
-img_new.show()
+# img_resized.save('ScaledShip.jpg')
+img_resized.show()
+
+# Flip left/right
+img_flippedLeftRight = img_original.transpose(Image.FLIP_LEFT_RIGHT)
+img_flippedLeftRight.show()
+
+# Rotate 90
+img_rotate90 = img_original.transpose(Image.ROTATE_90)
+img_rotate90.show()
+
