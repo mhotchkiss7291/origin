@@ -32,7 +32,7 @@ marks_data = [27, 20, 0]
 grouchos_data = [100, 10, 1000]
 
 # instead of
-#health_calculator(marks_data[0], marks_data[2], marks_data[3] )
+# health_calculator(marks_data[0], marks_data[2], marks_data[3] )
 # Unpacks arguments
 health_calculator(*marks_data)
 health_calculator(*grouchos_data)
