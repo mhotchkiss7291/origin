@@ -1,15 +1,14 @@
 import requests
 import json
 
-url = "https://github.com/mhotchkiss7291/origin"
-#url = "https://github.com/timeline.json"
+#url = "https://github.com/mhotchkiss7291/origin"
+#url = "https://developer.github.com/v3/activity/events/#list-public-events"
+url = "http://jsonplaceholder.typicode.com/"
 
-# Make a request and return a response
 response1 = requests.get(url)
+#print( "Status Code = " + str(response1.status_code))
 
-# Data
-print( "Status Code = " + str(response1.status_code))
+parsed_json = json.loads(response1)
 
-# Content
-print(response1.json)
+print(json.dumps(parsed_json))
 
