@@ -1,5 +1,7 @@
 How to set up a servlet deployed in Tomcat locally in Eclipse
 
+From: http://www.vogella.com/tutorials/EclipseWTP/article.html
+
 1. Download Tomcat and unpack it in a handy director
 2. Start Eclipse and install the WTP packages via the Eclipse Update Manager: 
 	http://download.eclipse.org/releases/mars
