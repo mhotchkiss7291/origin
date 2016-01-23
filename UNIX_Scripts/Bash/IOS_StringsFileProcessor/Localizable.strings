@@ -1,0 +1,433 @@
+/* 
+ Localizable.strings
+ Pelican
+ 
+ Created by Samuel Patteson on 5/2/11.
+ Copyright 2011 Rosetta Stone Limited. All rights reserved.
+ */
+
+"com.rosettastone.test" = "rosettastonetest";
+
+/**
+ Login screen 
+ */
+"login_username" = "E-mail";
+"login_password" = "Password";
+"login_institutional_username" = "Username";
+"login_namespace" = "Online portal";
+"login_totale_user_msg" = "I have TOTALe but don't have an account";
+"login_not_totale_user_msg" = "Not a TOTALe Learner" /* Be careful of sounding to close to in-app sale. */;
+"login_institutional_user_msg" = "Online portal"; /* Institutional Learner? */
+
+"login_signin" = "Sign In";
+"login_signout" = "Sign Out";
+"login_incorrect_username_password" = "Incorrect username or password.";
+"login_failed_title" = "Sign-in Failed";
+"login_failed" = "Incorrect e-mail or password.";
+"gender_selection_preamble" = "One more step before you start";
+"gender_selection_instructions" = "Voice Type";
+"curriculum_selection_title" = "Select a course:";
+"curriculum_selection_learn_letters_switch_label" = "Learn letters, characters, and sounds";
+"no_products_msg_title" = "No Languages Found";
+"no_products_msg" = " You don't have any active languages in your online account.";
+"app_bootstrap_failure_title" = "Network problem"; /** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'There is a network problem.' */
+"app_bootstrap_failure_msg" = "There's a network problem. Try again later."; /* This is in an Alert view, with an "OK" button. User is taken back to sign-in screen when they tap "OK." */
+
+/**
+ Curriculum Navigator
+ */
+"Unit %lu" = "Unit %lu";
+"cn_cpi_in_progress" = "In Progress";
+"cn_cpi_score_percent" = "%d%%";
+"cn_unit_selector_label" = "Level %d";
+"Lesson %lu" = "Lesson %lu";
+"cn_loading_course_msg" = "Loading your course...";
+"cn_loading_course_filters_msg" = "Loading your course...";
+"cn_return_home" = "Home";
+"cn_continue_to_next_lesson_msg" = "Continue to Lesson %d > %@";
+"cn_complete_msg" = "Congratulations! You've completed all levels.";
+
+"correct" = "%lu correct";
+"incorrect" = "%lu incorrect";
+
+/**
+ Licensing Error Dialogs
+ */
+"license_in_use_title" = "Account already in use "; /** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'Your account is already in use.' */
+"license_in_use_msg" = "Your account is already in use. If you're signed in somewhere else, sign out and try again. "; /** If the user is online using the online TOTALe app (like via totale.rosettastone.com), they will be unable to also use the iPad at the same time. They are only allowed to access from one place at a time. */
+
+/**
+ Path Player
+ */
+"pp_eop_return_home" = "Home";
+"pp_eop_retry" = "Retry this activity";
+"pp_eop_acts_correct" = "%d correct";
+"pp_eop_acts_incorrect" = "%d incorrect";
+"pp_eop_acts_skipped" = "%d skipped";
+"pp_eop_acts_unseen" = "%d not seen";
+"pp_eop_completed_msg" = "You have completed Lesson %d > %@";
+"pp_in_progress_msg" = "Activity in Progress";
+"pp_3g_msg" = "Using cellular network";
+"pp_home_button_label" = "Home";
+"pp_possible_high_network_usage" = "This requires an Internet connection to download content. You may want to use Wi-Fi to avoid excessive data usage.";
+"pp_continue_path" = "Continue";
+"pp_quit" = "Quit";
+"pp_reenter_path_title" = "";
+"pp_reenter_path_continue" = "Continue";
+"pp_reenter_path_restart" = "Restart";
+"pp_break_glass_title" = "Try this screen again?";
+"pp_break_glass_msg" = "";
+"pp_break_glass_skip" = "No";
+"pp_break_glass_reset" = "Yes";
+
+/** 
+ Settings Panel
+ */
+"settings_speech_gender_male" = "Male";
+"settings_speech_gender_female" = "Female";
+"settings_speech_gender_child" = "Child";
+"settings_speech_gender_adult" = "Adult";
+"settings_title" = "Settings";
+"settings_close" = "Close";
+"settings_speech_mode" = "Speech Recognition";
+"settings_precision_level" = "Speech Precision";
+"settings_voice_type" = "Voice Type";
+"settings_logout" = "Sign out";
+"settings_3g" = "Cellular Network";
+"settings_version_string" = "Version %@";
+"general" = "Core Lesson";
+"airplane_title" = "Internet Required";
+"airplane_msg" = "This app requires an Internet connection.";
+"unsupported_language_title" = "Language Not Available";
+"unsupported_language_msg" = "This language is coming soon. Look for an app update with more languages.";
+"unsupported_license_title" = "Unsupported License Type";
+"unsupported_license_msg" = "Rosetta Stone version 3 institutional licenses are not supported yet.";
+"OK_button"	= "OK";
+"loading_msg" = "Loading...";
+"modal_dismissal_cancel" = "Cancel";
+"settings_master_pane_account_label" = "Account";
+"settings_master_pane_speech_label" = "Speech"; /* Translated as Speech Recognition */
+"settings_master_pane_about_label" = "About";
+"settings_master_course_options_label" = "Course"; /* Short for Course Settings. "Course" should be translated here. */
+"settings_master_pane_subscription_label" = "Access";
+"settings_auto_advance_message" = "Continue automatically to the next screen";
+"settings_panel_account_pane_change_language" = "Currently learning";
+"settings_panel_option_selection" = "Please select an option.";
+"precision_slider_difficult_label" = "Difficult";
+"precision_slider_easy_label" = "Easy";
+"speech_precision_slider_tip" = "Speech Precision tells us how forgiving to be with your pronunciation.";
+"speech_precision_gender_selection_tip" = "Having trouble with speech recognition? Rosetta Stone speech recognition responds best when it knows your voice type.";
+"settings_panel_account_pane_select_lang" = "Select the language you'd like to learn:";
+"settings_panel_account_pane_purchased" = "Purchased access to"; /* 'to' may cause translators some issues. In that case, translate from 'Purchased access' */
+"settings_panel_account_pane_nothing_purchased" = "You haven't purchased access to any languages yet.";
+"settings_panel_account_pane_expires_on" = "Expires %@";
+"settings_panel_account_pane_demo" = "Introductory languages";
+"settings_panel_account_pane_buy_button" = "View Store";
+"settings_panel_account_pane_restore_button" = "Restore";
+"settings_panel_account_pane_license_restored" = "Restoration completed.";
+
+/**
+Unit names
+*/
+"Unit 1 name" = "Language Basics";
+"Unit 2 name" = "Greetings and Introductions";
+"Unit 3 name" = "Work and School";
+"Unit 4 name" = "Shopping";
+"Unit 5 name" = "Travel";
+"Unit 6 name" = "Past and Future";
+"Unit 7 name" = "Friend and Social Life";
+"Unit 8 name" = "Dining and Vacation";
+"Unit 9 name" = "Home and Health";
+"Unit 10 name" = "Life and World";
+"Unit 11 name" = "Everyday Things";
+"Unit 12 name" = "Places and Events";
+"Unit 13 name" = "Tourism and Recreation";
+"Unit 14 name" = "Professions and Hobbies";
+"Unit 15 name" = "At Home and Around Town";
+"Unit 16 name" = "Style and Personal Wellness";
+"Unit 17 name" = "Business and Industry";
+"Unit 18 name" = "Arts and Academics";
+"Unit 19 name" = "Emergency Situations";
+"Unit 20 name" = "Family and Community";
+
+
+/**
+ Path Type Names (From Course XML)
+ */
+"pronunciation" = "Pronunciation";
+"vocabulary" = "Vocabulary";
+"grammar" = "Grammar";
+"writing" = "Writing";
+"listening" = "Listening";
+"speaking" = "Speaking";
+"review" = "Review";
+"production_milestone" = "Milestone";
+"reading" = "Reading";
+"listening_and_reading" = "Listening and Reading";
+"early_reading" = "Reading";
+"lagged_review" = "Adaptive Recall";
+"parrot_milestone"= "Milestone";
+"next_recommended_path_button" = "Next Activity";
+
+/**
+ Curriculum names (From Course XML)
+ */
+"RWSL_STANDARD_ALPHA_KNOWN" = "Reading, Writing, Speaking and Listening";
+"RWSL_STANDARD_ALPHA_UNKNOWN" = "Reading, Writing, Speaking and Listening";
+"RWSL_INTENSIVE_ALPHA_KNOWN" = "Reading, Writing, Speaking and Listening - Extended";
+"RWSL_INTENSIVE_ALPHA_UNKNOWN" = "Reading, Writing, Speaking and Listening - Extended";
+"RW_ALPHA_KNOWN" = "Reading and Writing";
+"RW_ALPHA_UNKNOWN" = "Reading and Writing";
+"SL" = "Speaking and Listening";
+
+/**
+ Language names (from rights data)
+*/
+"PE-ARA" = "Arabic";
+"PE-CHI" = "Chinese (Mandarin)";
+"PE-NED" = "Dutch";
+"PE-ENG" = "English (American)";
+"PE-EBR" = "English (British)";
+"PE-TGL" = "Filipino (Tagalog)";
+"PE-FRA" = "French";
+"PE-DEU" = "German";
+"PE-GRK" = "Greek";
+"PE-HEB" = "Hebrew";
+"PE-HIN" = "Hindi";
+"PE-GLE" = "Irish";
+"PE-JPN" = "Japanese";
+"PE-KOR" = "Korean";
+"PE-ITA" = "Italian";
+"PE-FAR" = "Persian (Farsi)";
+"PE-POL" = "Polish";
+"PE-POR" = "Portuguese (Brazil)";
+"PE-RUS" = "Russian";
+"PE-ESP" = "Spanish (Latin America)";
+"PE-ESC" = "Spanish (Spain)";
+"PE-SVE" = "Swedish";
+"PE-TUR" = "Turkish";
+"PE-VIE" = "Vietnamese";
+"PE-CTM" = "Chitimacha";
+"PE-DAR" = "Dari";
+"PE-IND" = "Indonesian";
+"PE-IPN" = "Iñupiaq (North Slope)";
+"PE-KIS" = "Swahili";
+"PE-LAT" = "Latin";
+"PE-NAV" = "Navajo";
+"PE-PAS" = "Pashto";
+"PE-URD" = "Urdu";
+
+"ME-ARA" = "Arabic | Military";
+"ME-DAR" = "Dari | Military";
+"ME-IND" = "Indonesian | Military";
+"ME-IRQ" = "Arabic (Iraq) | Military";
+"ME-KIS" = "Swahili | Military";
+"ME-PAS" = "Pashto | Military";
+"ME-URD" = "Urdu | Military";
+
+"PT-ENG" = "English (American) Placement";
+
+/**
+ Web Site Names:
+ **/
+
+"web_site_support" = "http://www.rosettastone.com/companionhdsupport";
+"web_site_home"    = "http://www.rosettastone.com/companionhd";
+
+/**
+ Script Selections
+ **/
+
+"Fully Accented" =   "Fully Accented";      // arabic
+"Lightly Accented" = "Lightly Accented";    // arabic
+"Pinyin" = "Pinyin";                        // chinese
+"Traditional" = "Traditional";              // chinese
+"Traditional/SS" = "Traditional/SS";        // chinese
+"Simplified" = "Simplified";                // chinese
+"Simplified/SS" = "Simplified/SS";          // chinese
+"Unvoweled" = "Unvoweled";                  // hebrew
+"Voweled" = "Voweled";                      // hebrew
+"Romaji" = "Romaji";                       // japanese
+"Kana" = "Kana";                            // japanese
+"Kanji" = "Kanji";                          // japanese
+"Kanji/SS" = "Kanji/SS";                    // japanese
+"Accented" = "Accented";                    // persian
+"Non-Accented" = "Non-Accented";            // persian
+
+/**
+ Speech Alert
+ **/
+"speech_alert_title" = "Speech Settings";
+"speech_alert_message" = "We expect you to be speaking here, and we aren't detecting any input from your microphone.";
+"speech_alert_turn_off_button" = "Turn off speech for this session";
+"speech_alert_continue" = "Continue";
+
+/**
+ Expiration Alert
+ **/
+"expireAlertMessage1" = "Your access has expired!";
+"expireAlertMessage2" = "Your access will expire in %d days.";
+"expireAlertMessage3" = "Your access will expire tomorrow.";
+"expireAlertMessage4" = "Your access expires today.";
+"expireAlertTitle" = "Access Expiring";/** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'Your online access is expiring soon.' */
+"Dont_Remind_Me" = "Don't Remind Me";
+"Remind_Me_Later" = "Remind Me Later";
+"expireAlertGenericTitle" = "Access Expired"; /** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'Your online access has expired' */
+
+
+/**
+ Idle Alert
+**/
+"idle_timeout_title" = "Session ended"; /** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'Your session has ended.' */
+"idle_time_out_message" = "This screen has been idle for a while, so we have to exit this activity."; /** Borrowed directly from error_5311 in dwapp. */
+
+/**
+ Low Space Alert
+**/
+"low_space_title" = "More disc space needed"; /** This is an incomplete sentence or a sentence fragment in accordance with Apple's Human Interface Guidelines. (in English, at least). Apple says the at Alert dialog titles should be sentence fragments. Basically this string is a shortened form of 'More disc space is needed.' */
+"low_space_message" = "We have to sign you out because more space is needed to run this app. If you continue to see this message, make sure that your device has available disc space.";/** It's highly unlikely that a user will ever see this string. */
+
+/**
+ Rate This App Alert - These 'Rate' strings also appear in MCP and TSHD. Edits to them should appear in all three apps.
+ **/
+"rate_alert_title" = "Rate This App";
+"rate_alert_message" = "If you enjoy this app, would you rate it in the App Store?"; /* Users can give star-based ratings of apps. 1 star is a poor rating, and 5 stars is a high rating. App publishers want high average ratings of their apps. It's pretty common for apps to use dialogs like this to encourage users to rate them in the store. */
+"rate_alert_accept_rate_question" = "Yes. Right now!"; /* This is a button that answers the question about rating the app. Upon tapping this, the user is taken directly to the apps page in the App Store (outside the app). */
+"rate_alert_deny_rate_question" = "Don't Ask Again"; /* This is a button that answers the question about rating the app. This wording is fairly common on iOS devices. Upon tapping  this, the dialog dismisses and the user does not see the dialog again. */
+"rate_alert_ask_me_later" = "Ask Me Later"; /* This is a button that answers the question about rating the app. Upon tapping this, the dialog dismisses. At some point in the future, the dialog will be presented to the user again. */
+
+/** Forced update
+ **/
+"forced_update_title" = "Update required";
+"forced_update_coming" = "You'll be unable to use this version of this app after %@."; /* %@ is replaced by a date */
+"forced_update_coming_with_transition" = "You'll be unable to use this version of this app after %@. Please update."; /* %@ is replaced by a date */
+"forced_update_required" = "You must update this app to continue.";
+
+
+/**************** In-app subscriptions; Intro languages
+ ******************/
+
+/** Home screen
+ **/
+"home_create_user_button" = "Try It Now";
+
+/** Shared
+ **/
+"what_is_this_button" = "What Is This?";
+"popover_what_is_this_title" = "About Introductory Lessons";
+"popover_what_is_this_msg" = "Curious about Rosetta Course? You're in luck. Try any of the languages we offer. Just create your free account, and within seconds you'll be speaking your first words in a new language.";
+"popover_link_to_more" = "Learn More";
+"popover_create_user_button" = "Try It Now";
+"back_button" = "Back";
+"continue_button" = "Continue";
+"home_button" = "Back to Sign In";
+
+/** Create user
+ **/
+"demo_user_screen_title" = "Create an Account";
+"demo_user_overview" = "We need a little bit of information before you can start your introductory lessons.";
+"demo_user_required_fields" = "You must fill out every field.";
+"demo_user_email_address" = "E-mail";
+/* "demo_user_email_address_example" = "john@example.com"; */
+/* "demo_user_email_address_example2" = "You'll sign in using this e-mail address."; */ /* Second option for within form field. */
+"demo_user_confirm_email" = "Confirm E-mail";
+/* "demo_user_confirm_email_example" = "john@example.com"; */
+/* "demo_user_confirm_email_example2" = "Make sure we've got it right."; */ /* Second option for within form field. */
+"demo_user_first_name" = "First name";
+/* "demo_user_first_name_example" = "John"; */
+/* "demo_user_first_name_example2" = "Your first name"; */  /* Second option for within form field. */
+"demo_user_last_name" = "Last name";
+/* "demo_user_last_name_example" = "Smith"; */
+/* "demo_user_last_name_example2" = "Your last name"; */  /* Second option for within form field. */
+"demo_user_password" = "Password";
+/* "demo_user_password_example" = "••••••••••"; */
+/* "demo_user_password_example2" = "You'll sign in using this password."; */  /* Second option for within form field. */
+"demo_user_confirm_password" = "Confirm password";
+/* "demo_user_confirm_password_example" = "•••••••••••"; */
+/* "demo_user_confirm_password_example2" = "Make sure we've got it right."; */  /* Second option for within form field. */
+"demo_user_validation_email_does_not_match_confirmation" = "Your e-mail addresses don't match.";
+"demo_user_validation_password_does_not_match_confirmation" = "Your passwords don't match.";
+"demo_user_validation_password_too_short" = "Password must have at least 6 characters.";
+"demo_user_validation_invalid_email" = "There's a problem with the e-mail address.";
+"demo_user_validation_enter_firstname" = "Enter your first name.";
+"demo_user_validation_enter_lastname" = "Enter your last name.";
+/* "demo_user_eula_agree" = "I agree"; */
+"demo_user_agree_checkbox" = "I have read and accept the above terms.";
+/* "demo_user_eula_link" = "End User License Agreement"; */
+"demo_user_terms_of_use_link" = "Terms of Use";
+"demo_user_privacy_policy_link" = "Privacy Policy";
+"demo_user_create_button" = "Continue"; /* INTERNAL: Would prefer to use 'continue_button' to avoid duplication. */
+"demo_user_terms_of_use_url" = "http://resources.rosettastone.com/CDN/us/pdfs/eulas/totale_and_rworld_terms_of_use_en-US.pdf";
+"demo_user_privacy_policy_url" = "http://resources.rosettastone.com/CDN/us/pdfs/eulas/totale_and_rworld_privacy_policy_en-US.pdf";
+
+/** Select language
+ **/
+"demo_language_screen_title" = "Select a Language";
+"demo_language_explain_1st_run_demo" = "We've got some lessons ready for you. Which language would you like to try?";
+"demo_language_explain_all" = "You'll be able to change languages later from the Settings screen within the app."; /* 'Settings' is an Apple app that is part of the iOS operating system. Please use Apple's localizations for that name. */
+"demo_language_explain_1st_run_1lang" = "Welcome. You've been learning %@, so we thought you'd want to know that we've added the ability to try introductory lessons in other languages. Select the language you'd like to learn right now."; /* %@ is replaced by a localized language name, such as 'French' or 'Spanish (Latin America)' */
+"demo_language_explain_1st_run_more_than_1lang" = "Welcome. You've already purchased access to several languages in Rosetta Course, so we thought you'd want to know that we've added the ability to try introductory lessons in other languages too. Select the language you'd like to learn right now.";
+"demo_language_active_langs" = "Purchased:";
+"demo_language_demo_langs" = "Introduction:";
+
+/** Invalid license
+ **/
+"license_no_longer_title" = "Access Expired";
+"license_no_longer_valid_upsell" = "You've been learning %@, but your access has expired. What would you like to do?"; /* %@ is replaced by a localized language name, such as 'French' or 'Spanish (Latin America)' */
+"license_no_longer_valid_buy_button" = "Buy more rights for this language";
+"license_no_longer_valid_change_language_button" = "Change language";
+"license_no_longer_valid_demo_button" = "Continue learning this language with intro lessons";
+
+/** Purchasing
+ **/
+"purchase_title" = "Buy Access";
+"purchase_popup_overview" = "You're about to buy access to Rosetta Course:";
+"purchase_popup_duration_1month" = "1 month";
+"purchase_popup_duration_multi_months" = "%d months"; /* %d is replaced by a number, greater than 1 */
+"purchase_popup_duration_3months" = "3 months";
+"purchase_popup_duration_6months" = "6 months";
+"purchase_popup_duration_9months" = "9 months";
+"purchase_popup_duration_12months" = "1 year";
+"purchase_popup_duration_18months" = "18 months";
+"purchase_popup_duration_24months" = "2 years";
+"purchase_popup_confirmation_note" = "You'll be asked for confirmation before the purchase is complete.";
+"purchase_popup_buy_button" = "Confirm Purchase"; /* 'Confirm' is a verb and 'Purchase' is a noun. */
+"purchase_popup_restore_button" = "Restore"; /* INTERNAL: same as brand-new 'settings_panel_account_pane_restore_button' string. could we get by w/out duplicating here? */
+"purchase_popup_dismiss_button" = "Done";
+"post_apple_storekit_title" = "Thank You";
+"post_apple_storekit_thank_you_msg" = "Thank you for buying access to Rosetta Course. We've got your lessons ready for you, so let's get started!";
+"post_apple_storekit_OK_button" = "OK";
+
+/** Curriculum navigator/Home screen
+ **/
+"demo_player_locked" = "To unlock all lessons, you'll need to purchase access.";
+"demo_player_locked_with_buy_now_button" = "To unlock all lessons, you'll need to purchase access.";
+"demo_player_demo_label" = "Introduction"; /* Appended to language name at bottom right of player? */
+"demo_player_upsell_msg" = "To unlock all lessons, you'll need to purchase access. What would you like to do?";
+"demo_player_upsell_buy_button" = "Buy Complete Access";
+"demo_player_upsell_dismiss_button" = "Continue with Intro Lessons";
+"demo_player_complete_upsell" = "Congratulations. You've reached the end of the introductory lessons, and look how far you've come! Want to keep learning?";
+"demo_player_complete_buy_button" = "Yes! I'll buy more access now.";
+"demo_player_complete_dismiss_button" = "I'd like to explore some more.";
+"demo_player_try_another_language_button" = "Try Another Language";
+"demo_player_try_another_language_button2" = "Try another language.";
+
+/** Error messages
+ **/
+"error_user_creation_failed_user_identifier_taken_title" = "E-mail in Use";
+"error_user_creation_failed_user_identifier_taken_msg" = "Someone's already using that e-mail. Try again.";
+"error_user_creation_failed_bad_identifier_title" = "Problem Creating Account"; /* Short for 'There was a problem creating your account.' */
+"error_user_creation_failed_bad_identifier_msg" = "There's a problem with the e-mail address you entered. Make sure you've entered everything correctly.";
+"error_user_creation_failed_generic_title" = "Problem Creating Account"; /* Short for 'There was a problem creating your account.' */
+"error_user_creation_failed_generic_msg" = "There was a problem creating your account. Try again.";
+"error_user_creation_check_agree_checkbox_title" = "Acceptance Required";
+"error_user_creation_check_agree_checkbox_msg" = "You must accept the Terms of Use to continue.";
+"error_user_creation_failed_bad_connection_title" = "Server Problem";
+"error_user_creation_failed_bad_connection_msg" = "There was a server problem that prevented the creation of your account. Try again.";
+"error_purchase_no_store_title" = "Store Unavailable";
+"error_purchase_no_store_msg" = "The store isn't available right now. Try again later."; /* Could be on RS side or Apple side. */
+"error_purchase_no_internet_title" = "Internet Unavailable";
+"error_purchase_no_internet_msg" = "You're not connected to the Internet. Try again when you have a connection.";
+"error_purchase_in_app_purchase_off_title" = "In-App Purchases Restricted"; /* 'In-App Purchases' is Apple terminology. Please use their localized terminology. */
+"error_purchase_in_app_purchase_off_msg" = "You've placed a restriction on in-app purchases. To change the restrictions, go to the General pane on your device Settings."; /* 'Settings' is an Apple app that is part of the iOS operating system. Please use Apple's localizations for that name. Likewise, 'General' and 'restriction' are used in the Apple UI. Pane is used in Apple documentation for app developers. Assume it's the same noun as in 'window pane'. */
+/* Generic error msgs? internet? (or will 'app_bootstrap_failure' msg work?) others? */
