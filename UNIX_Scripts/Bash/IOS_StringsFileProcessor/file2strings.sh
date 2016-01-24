@@ -27,7 +27,6 @@ done
 echo COUNT $COUNT
 
 ELEMENTS=${#ARRAY[@]}
-declare -a STRINGS_ARRAY
 
 for (( i=0; i < $ELEMENTS; i++ )); do
 
