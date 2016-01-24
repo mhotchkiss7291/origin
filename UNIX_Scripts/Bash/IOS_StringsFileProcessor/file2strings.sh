@@ -39,6 +39,8 @@ for (( i=0; i < $ELEMENTS; i++ )); do
                 # Does the line NOT contain an askterisk?
                 if [[ $string != *"*/"* ]]
 
+		# But some of your lines DO contain an askterisk.
+
                 then
 
                         # Can't remove // string because it is used in URLs!!
@@ -47,7 +49,12 @@ for (( i=0; i < $ELEMENTS; i++ )); do
 
                         # Strip the semicolon and append to a same named file with
                         # extension .clean
-                        echo $string | sed 's/;//' >> $1.clean | sed 's/#.*//'
+
+                        #echo $string | sed 's/;//' >> $1.clean | sed 's/#.*//'
+
+			# Modify the string by removing ; and "// " 
+			# and delete all characters to the end of the line ".*//"
+                        echo $string | sed 's/;//' | sed 's/\/\/\ .*//' >> $1.clean | sed 's/#.*//'
                 fi
         fi
 done
