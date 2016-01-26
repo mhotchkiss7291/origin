@@ -1,0 +1,42 @@
+{
+  'token_type': 'bearer',
+  'client_id': 'siren',
+  'refresh_token': '23dd76e3-1d1f-48de-80f2-9070845e7070',
+  'organizationId': 'b2c9983a0d26a69e23ea56bfa0a2be69',
+  'roles': [
+    'role.AriaLearner',
+    'role.Learner'
+  ],
+  'userId': '8c520215-1e36-4bc4-a33b-009ddcc7248a',
+  'expires_in': 26732,
+  'permissions': [
+    'accessListenSpeakLiveMochaActivity',
+    'requestExerciseCommunityFeedback',
+    'accessFindTheErrorActivity',
+    'accessVocabActivity',
+    'accessUsagePracticeActivity',
+    'accessTestActivity',
+    'accessAriaPlayer',
+    'accessTextClozeActivity',
+    'accessPlayer',
+    'accessEditActivity',
+    'accessReadAloudActivity',
+    'accessMatchTheItemsActivity',
+    'accessLanguageExchangeActivity',
+    'accessExtendedSpeakingActivity',
+    'accessSequencingQuestionActivity',
+    'accessWritingPracticeActivity',
+    'accessReadWriteLiveMochaActivity',
+    'accessListenWriteActivity',
+    'accessExtendedWritingActivity',
+    'accessReadSpeakLiveMochaActivity',
+    'accessInfoActivity',
+    'readAttendeeSchedule',
+    'requestExerciseExpertFeedback',
+    'accessIntroActivity',
+    'rateExerciseOutput',
+    'accessGenericMultiChoiceActivity',
+    'accessUsageActivity'
+  ],
+  'access_token': 'e7b7df8f-85db-4fa1-88fe-235c329103a8'
+}
