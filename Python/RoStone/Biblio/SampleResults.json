@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "learningLang": "en-US",
+      "level": "B1",
+      "mostRecentProgressAttempts": [
+        {
+          "activity": "demo",
+          "creationDate": "2016-01-25T18:07:05-07:00",
+          "weightedNumQuestions": 0,
+          "score": 1,
+          "weightedNumCorrect": 0,
+          "numAnswered": 0,
+          "numCorrect": 0,
+          "type": "QuizProgressAttempt",
+          "useScore": false,
+          "mode": "playback",
+          "numQuestions": 0
+        },
+        {
+          "activity": "usage",
+          "creationDate": "2016-01-25T18:07:53-07:00",
+          "weightedNumQuestions": 0,
+          "score": 1,
+          "weightedNumCorrect": 0,
+          "numAnswered": 4,
+          "numCorrect": 4,
+          "type": "QuizProgressAttempt",
+          "useScore": false,
+          "mode": "vocabularyDrill",
+          "numQuestions": 4
+        }
+      ],
+      "authorFirstName": "Brandon",
+      "title": "Smoke Test",
+      "activitySetId": "ddd9c838-2785-451f-814c-04f3c7164239",
+      "authorLastName": "E",
+      "titleInUserOriginLanguage": null
+    },
+    {
+      "learningLang": "en-US",
+      "level": "B1",
+      "mostRecentProgressAttempts": null,
+      "authorFirstName": "PTW Author",
+      "title": "sep16 courses",
+      "activitySetId": "1b783060-a88c-4937-8d69-b754d8eacecc",
+      "authorLastName": "T",
+      "titleInUserOriginLanguage": null
+    },
+    {
+      "learningLang": "en-US",
+      "level": "B1",
+      "mostRecentProgressAttempts": null,
+      "authorFirstName": "PTW Aria",
+      "title": "tata aria",
+      "activitySetId": "0e60a015-37ed-4c0a-bd5f-d04ebef28f78",
+      "authorLastName": "C",
+      "titleInUserOriginLanguage": null
+    }
+  ]
+}
