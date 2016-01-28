@@ -1,0 +1,6 @@
+curl \
+'https://scholar-qa2.dev.rosettastone.com/schedule/join/attendee?meetingID=aeb-6324-qa2&host=rosettastoneqadev.adobeconnect.com&access_token=21585a60-eaf8-4797-aa38-54fa79bf4bf7' \
+-H 'Authorization: Bearer 5052b91d-d741-45ce-9662-142c8dc010e0' \
+-H 'X-Rosettastone-Product-Id: product.82692f39-a40e-4051-a6dc-e0cbf027c80b' \
+-H 'X-Livemocha-Product: Product:Aria' \
+--include
