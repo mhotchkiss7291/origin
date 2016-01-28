@@ -1,6 +1,7 @@
 import json
+from urllib import urlencode
+
 import requests
-from urllib.parse import urlencode
 
 
 def get_token(env, user_id):
