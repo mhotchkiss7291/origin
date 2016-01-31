@@ -1,0 +1,96 @@
+
+This is an outline of the basic steps to creating a new automated test. Find a 
+task to be performed. Example is log in as an AEB as an AriaAuthor and find a 
+Biblio service request and test it. In this case setting Level selection on
+the left of the Advanced Engish Editor to All Levels ...:
+
+See: https://jira.trstone.com/wiki/display/ARIA/Testing
+
+"AriaAuthor - Gives access to the Editor.  This role is required along with either 
+AriaEditorUser, SEUEditorUser, or SFHEditorUser to access the Editor without error." 
+
+1. Log in to:
+	https://login-qa2.dev.rosettastone.com/#/login    
+as:
+	test_aria_author@livemocha.com / password
+
+2. Open Chrome->More Tools-> Developer Tools and click on Advanced English Editor
+3. Find a Biblio request in the Network request list that might generally resemble:
+
+Request URL:https://biblio-qa2.dev.rosettastone.com/content/activity_set/editor?includeDocs=true&limit=20&product=Product%3AAria
+Request Method:GET
+Status Code:200 OK
+Remote Address:10.132.150.220:443
+
+4. Right click over the list item and select Copy as cURL. In an editor paste the
+cURL command for testing. Something like:
+
+curl 'https://biblio-qa2.dev.rosettastone.com/content/activity_set/editor?includeDocs=true&limit=20&product=Product%3AAria' -H 'Authorization: Bearer 2e551b77-c9a1-4e1e-a913-a82374e5e290' -H 'Origin: https://aebeditor-qa2.dev.rosettastone.com' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: en-US,en;q=0.8' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.97 Safari/537.36' -H 'Accept: application/json, text/plain, */*' -H 'Referer: https://aebeditor-qa2.dev.rosettastone.com/' -H 'X-Requested-With: Ceres' -H 'X-Livemocha-Product: Product:Aria' -H 'Connection: keep-alive' --compressed
+
+Or formatted for reading like:
+
+curl \
+'https://biblio-qa2.dev.rosettastone.com/content/activity_set/editor?includeDocs=true&limit=20&product=Product%3AAria' \
+-H 'Authorization: Bearer 2e551b77-c9a1-4e1e-a913-a82374e5e290' \
+-H 'Origin: https://aebeditor-qa2.dev.rosettastone.com' \
+-H 'Accept-Encoding: gzip, deflate, sdch' \
+-H 'Accept-Language: en-US,en;q=0.8' \
+-H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.97 Safari/537.36' \
+-H 'Accept: application/json, text/plain, */*' \
+-H 'Referer: https://aebeditor-qa2.dev.rosettastone.com/' \
+-H 'X-Requested-With: Ceres' \
+-H 'X-Livemocha-Product: Product:Aria' \
+-H 'Connection: keep-alive' 
+--compressed
+
+5. Test running the cURL command on the command line. Capture the response in text and paste it
+in a JSON formatter and save it for analysis:
+
+{
+  "total_results": 3195,
+  "next_start_key": "g2wAAAABaANkACdkYmNvcmVAZGIzLnJvc2V0dGFzdG9uZTAwMS5jbG91ZGFudC5uZXRsAAAAAmIgAAAAYj____9qaAJGQAPv4IAAAABh1Wo",
+  "results": [
+    "11e8b2d5-91e0-4ce0-9d89-dc00d67a5299",
+    "14e26d43-3bdf-4f08-81a6-4f8c01b2ad4b",
+    "17028319-dd8e-430f-afef-ad806b9f487f",
+    "179bad40-6a77-464c-97d2-c11c6b3d6862",
+    "0c5d6488-7031-4c9e-855e-d9c8074127b7",
+    "0f051415-cdf9-435f-98c5-6644adeb23eb",
+    "187c276a-3079-4c3b-899e-e20e5f148523",
+    "1ba4f64a-f3a6-41cc-a1d7-242f03fbf4b9",
+    "437cb268-b88d-4ae4-b992-c21bf2b41a98",
+    "47196cb4-0402-4998-b0c0-decf2668c4f1",
+    "4e3e1287-ff80-4b59-9867-f6e86f3b91ae",
+    "1a0c6c84-70bf-49c7-ad50-7f4b00df496c",
+    "1fce7b4b-dd1e-406b-a7d9-4c02397ddfbc",
+    "38345849-5bec-4785-8d07-8c1c36d60249",
+    "3da736fb-8632-4702-acda-5f9902e9a912",
+    "461f65ac-1afa-41fe-801e-dda2769b440e",
+    "467d3272-ce79-450d-b73b-bd3a2f25fd16",
+    "53e90393-02d0-49de-a4f8-6fe2be71a26b",
+    "58c790b0-26f0-44aa-accb-4f3711d34b95",
+    "5a8d0807-b402-49df-8597-fd7df2a2d70e"
+  ]
+}
+
+6. The list of "activity sets" in the results are individual CouchDB documents that can be 
+browsed in the browser found here: 
+
+https://cloudant.com/futon/
+
+7. Logging into this browser requires credentials that are many and widely varied and gathered
+into a file that is updated occasionally named app.cfg in RS culture somewhere. I keep my working
+version here:
+
+https://github.com/mhotchkiss7291/origin/blob/master/RoStoneDocs/app.cfg
+
+Find the database you are looking for, for this story it is [qa2]. Find:
+
+[qa1]
+#Couch DB login info
+db_user: livemocha-qa
+db_pass: dollar direct often behind
+
+8. Log in with the above credentials (strange password of four words)
+
+.....
