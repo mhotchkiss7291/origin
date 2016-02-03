@@ -1,0 +1,17 @@
+Creating and registering a new user:
+
+1. Log in to RS Admin environment for selected environment:
+	https://login-qa3.dev.rosettastone.com/#/login
+as soa-only@rosettastone.com / password.
+2. Select ARIA420 Organization.
+3. Click Users -> + Add User
+4. Enter name and unique email.
+5. Select Licenses and Add a license for Advanced English for Business
+6. Click Save.
+7. Return to list the user and capture the UserID in the URL which resembles:
+	0021e0c3-8f19-44a9-a6b4-622c8dc8a80d
+8. Register the user by going to the login page again and substitute 
+/register/0021e0c3-8f19-44a9-a6b4-622c8dc8a80d for /login/ like:
+9. Enter a password, native language, voice type, time zone, agree, Agree and Continue
+10. Go to Cloudan and enter the new user name and select the environment and 
+generate the access token and userID.
