@@ -1,3 +1,22 @@
+Overview of Continuous Delivery Process:
+
+See https://jira.trstone.com/wiki/display/REQ/Continuous+Delivery+Deployment
+for detailed description.
+
+1. Developer takes on a new story.
+2. Developer branches from Dev to own branch like AEB-6118.
+3. Developer implements story code and tests on their own.
+4. Developer notifies QA with Pull Request.
+5. QA deploys AEB-6118 branch to QA environment (QA1, QA2, QA3,...)
+6. QA tests new feature in QA environment. 
+7. If QA tests pass, QA notifies Developer or makes plans to merge branch.
+8. Developer or QA merges AEB-6118 branch to Master.
+9. Schedule the release on Dispatch:
+	http://dispatch.trstone.com/cdmap/project/biblio
+10. QA runs acceptance tests on Master branch
+11. If acceptance tests pass, notify group that deployment to Production is imminent.
+12. Deploy to Production.
+13. Run Rollout tests
 
 Pull request and promotion process:
 
