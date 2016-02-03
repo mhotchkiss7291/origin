@@ -1,0 +1,14 @@
+
+Pull request and promotion process:
+
+1. Go to Bamboo - Biblio:
+	https://builds.trstone.com/deploy/viewDeploymentProjectEnvironments.action?id=63078402
+2. Select environment (QA1, QA2,...)
+3. Click Deploy in upper right. Select environment to deploy to.
+4. Click "Create new release from build result.
+5. Select "Plan branch" and select the ticket number that is being deployed.
+6. Select "Promote existing release to this environment"
+7. Select "Plan branch" and select the ticket number again.
+8. Click "Start deployment"
+9. Watch logs for deployment. Status "In Progress"
+
