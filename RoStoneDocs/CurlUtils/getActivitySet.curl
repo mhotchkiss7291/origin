@@ -1,0 +1,3 @@
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/activity_set/1f254473-d51a-4d87-b214-fe69d7c35884' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914'

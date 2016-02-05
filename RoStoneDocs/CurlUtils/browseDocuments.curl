@@ -1,0 +1,5 @@
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/productCourseSummary/Product%3AAria/en-US ' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' \
+-H 'X-Livemocha-Product: Product:Aria' \
+-H 'X-Livemocha-Client: client.aeb.mobile'
