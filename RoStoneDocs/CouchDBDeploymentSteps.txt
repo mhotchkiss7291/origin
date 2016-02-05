@@ -1,0 +1,9 @@
+For deploying new releases to CouchDB:
+
+1. Go to Bamboo Build Dashboard: https://builds.trstone.com/allPlans.action
+2. Click on Build (not Deploy for Couch DB) -> All Build Plans
+3. Scroll down to Callisto and find CouchDB environments. 
+4. Click on branch symbol for environment you want and select release/feature branch to be deployed.
+5. Click the Run button -> on the right.
+
+That's it.
