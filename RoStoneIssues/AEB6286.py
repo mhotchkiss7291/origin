@@ -2,14 +2,12 @@ import requests
 import json
 import PythonTokenGenerator
 
-# cURL command to be converted
-# curl -X GET -H "Accept: application/json" -H "Authorization: Bearer $auth_token" $bib_host/content/user_activity_set_summary/$user_id
-
 # Test environment URL
 url = "https://biblio-qa1.dev.rosettastone.com"
+activity_set = "ff3d2c6b-77a2-4a42-b9ce-8bae3aead76e"
 
 # Set service end point, user, environment
-end_point = "/content/user_activity_set_summary/"
+end_point = "/content/activity_set/" + activity_set + "/aggregate"
 user = "mhotchkiss-qa1@rosettastone.com"
 environment = "qa1"
 
@@ -19,7 +17,6 @@ user_id = response[0]
 auth_token = response[1]
 
 headers = {
-    'Accept': 'application/json',
     'Authorization': 'Bearer ' + auth_token
 }
 
