@@ -1,0 +1,29 @@
+1. Find an activity set and get an access token
+
+2. Run with "aggregate" setting
+
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/activity_set/839ca07b-d2bb-4d2b-aa79-215c8f201e28/aggregate' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
+
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/lesson/839ca07b-d2bb-4d2b-aa79-215c8f201e28/aggregate' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
+
+Should be identical:
+
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/activity_set/839ca07b-d2bb-4d2b-aa79-215c8f201e28' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
+
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/lesson/839ca07b-d2bb-4d2b-aa79-215c8f201e28' \
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
+
+Should be identical:
+
+
+curl \
+'https://biblio-qa1.dev.rosettastone.com/content/productCourseSummary/Product:Aria/en-US' \
+-H 'X-Livemocha-Product: Product:Aria'
+-H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
