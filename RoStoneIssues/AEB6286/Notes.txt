@@ -4,7 +4,7 @@
 
 curl \
 'https://biblio-qa1.dev.rosettastone.com/content/activity_set/839ca07b-d2bb-4d2b-aa79-215c8f201e28/aggregate' \
--H 'Authorization: Bearer 1d2746b1-d185-4e6b-a4b7-1a814c224914' 
+-H 'Authorization: Bearer 8e22b2a0-364d-4f74-9a1c-3daefe21df7d' 
 
 curl \
 'https://biblio-qa1.dev.rosettastone.com/content/lesson/839ca07b-d2bb-4d2b-aa79-215c8f201e28/aggregate' \

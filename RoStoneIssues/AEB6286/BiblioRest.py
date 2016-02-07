@@ -17,6 +17,7 @@ environment = "qa1"
 response = PythonTokenGenerator.get_token(environment, user)
 user_id = response[0]
 auth_token = response[1]
+print("auth_token + " + auth_token)
 
 headers = {
     'Accept': 'application/json',
