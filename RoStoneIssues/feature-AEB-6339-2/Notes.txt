@@ -1,0 +1,58 @@
+'feature-AEB-6339-2'
+
+6340 
+
+As a Super Editor, I can create a new Version of a published lesson if no other unpublished version (aka "clone") exists for that lesson
+Acceptance Criteria
+For ALL ARIA Editor Tools (ie - AEB, SFH, SEU, and future ARIA products like Chickasaw):
+If no "Pending" version exists for the Lesson, the "Versions" menu will display an "(plus) New Version" option.
+If a "Pending" version exists for the Lesson, the Versions menu will NOT display the "(plus) New Version" option.
+"(plus) New Version" is only displayed to Super Editors, as this functionality should only be allowed to Super Editors.
+When the Super Editor clicks "(plus) New Version":
+the new Version is defined as "Pending", and is now available in the Version Dropdown menu
+the new Version is shown in the Authoring state
+the new Version's state in the Display Listing View will be listed as "Draft" under state.
+Elaboration link: 
+https://jira.trstone.com/wiki/display/SHRK/Elaboration%3A+Version+Control+-+Phase+1
+
+5536
+
+Add new lesson endpoint that returns activity sets based on new flow to biblio.
+Point to this endpoint in Mercury for new flow.
+Update productCourseSummary to base choice on lesson rather than activity sets
+
+6339 
+
+Acceptance Criteria:
+
+For ALL ARIA Editor Tools (ie - AEB, SFH, SEU, and future ARIA products like Chickasaw):
+If no "Pending" version exists for the Lesson, the "Versions" menu will display an "(plus) New Version" option.
+If a "Pending" version exists for the Lesson, the Versions menu will NOT display the "(plus) New Version" option.
+"(plus) New Version" is only displayed to Super Editors, as this functionality should only be allowed to Super Editors.
+When the Super Editor clicks "(plus) New Version":
+the new Version is defined as "Pending", and is now available in the Version Dropdown menu
+the new Version is shown in the Authoring state
+the new Version's state in the Display Listing View will be listed as "Draft" under state.
+Elaboration link: 
+https://jira.trstone.com/wiki/display/SHRK/Elaboration%3A+Version+Control+-+Phase+1
+Testing Notes
+Note: testing this requires pushing couchdb feature/AEB-6339 to whichever environment
+Get a token from someone with role.SuperEditor
+Hit the api with a non-existent activity set
+
+curl 'https://[biblio]/content/lesson/no-such-activity-set/new'  -H 'Authorization: Bearer [token]' -X POST
+
+Should return 404
+Find a published activity set with no lesson or version
+Hit the api:
+
+curl 'https://[biblio]/content/lesson/[activity-set-id]/new'  -H 'Authorization: Bearer [token]' -X POST
+
+Should return 201 and a new activity set with "lesson": activity-set-id and "version": 2 and "publishState": "pending"
+Hit the api with the same curl above
+Should return 403
+Update the new activity set by setting "publishState": "published"
+Hit the api with the same curl above
+Should return 201 and a new activity set with "lesson": activity-set-id and "version": 3 and "publishState": "pending"
+in
+
