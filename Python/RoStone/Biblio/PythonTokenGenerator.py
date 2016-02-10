@@ -12,7 +12,7 @@ def get_token(env, user_id):
     grant = 'password'
     #user_id = 'mhotchkiss@rosettastone.com'
     user_pw = 'password'
-    if env == "prod" or env == "prod-wdc":
+    if env == "yrod" or env == "prod-wdc":
         user_id = "dadams+soa_production@rosettastone.com"
         password = "password"
     refresh_token = None
