@@ -2,17 +2,24 @@ dev:Developer[a]
 jira:Jira[a]
 qa:QA Eng[a]
 bam:Bamboo Git[a]
+pull:Bamboo Git Pull Request[a]
 mas:Master Branch[a]
 fea:Feature Branch[a]
 qaenv:QA Env[a]
+at:Acceptance Tests[a]
 
 dev:Issue assigned=jira.Claim issue
 dev:Review issue together=qa.Assigned issue
-dev:feature-AEB-XXXX=bam.Request feature branch
+dev:feature-XXX-XXXX=bam.Request feature branch
 bam:branch created=mas.Branch to feature
 bam:branch created=fea.Create feature branch
 dev:implementation done=fea.Implement feature or fix
 dev:=jira.Update ticket Ready for QA
 jira:QA Notified=qa.Notify QA
-qa:Deployment to QA=bam.Request deploy to QA Env
+qa:Deployment to QA=bam.Request deploy of feature branch to QA Env.
 bam:Deployment complete=qaenv.Deploy to QA Env
+
+#bam:You are ready to test=qa.Deployment notice received
+qa:Test until DOD complete=qaenv.Test feature or fix
+qa:Tests pass=at.Run acceptance tests
+qa:Merge notification received=dev.Notice for merge to Master
