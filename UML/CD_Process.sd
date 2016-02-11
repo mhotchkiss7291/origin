@@ -1,0 +1,18 @@
+dev:Developer[a]
+jira:Jira[a]
+qa:QA Eng[a]
+bam:Bamboo Git[a]
+mas:Master Branch[a]
+fea:Feature Branch[a]
+qaenv:QA Env[a]
+
+dev:Issue assigned=jira.Claim issue
+dev:Review issue together=qa.Assigned issue
+dev:feature-AEB-XXXX=bam.Request feature branch
+bam:branch created=mas.Branch to feature
+bam:branch created=fea.Create feature branch
+dev:implementation done=fea.Implement feature or fix
+dev:=jira.Update ticket Ready for QA
+jira:QA Notified=qa.Notify QA
+qa:Deployment to QA=bam.Request deploy to QA Env
+bam:Deployment complete=qaenv.Deploy to QA Env
