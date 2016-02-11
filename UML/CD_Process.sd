@@ -23,3 +23,6 @@ bam:Deployment complete=qaenv.Deploy to QA Env
 qa:Test until DOD complete=qaenv.Test feature or fix
 qa:Tests pass=at.Run acceptance tests
 qa:Merge notification received=dev.Notice for merge to Master
+dev:Merge complete=bam.Request merge to Master
+bam:Merge complete=fea.Merge to Master
+fea:Merge=mas.Merge to Master
