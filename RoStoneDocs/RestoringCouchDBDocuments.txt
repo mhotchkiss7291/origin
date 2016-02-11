@@ -1,0 +1,10 @@
+
+So do you just copy and paste the document from one to the other?
+
+Brandon Kleinwort·3:05 PM
+
+More or less, but it's not exactly that simple. What you can do is copy the entire 
+json from qa-2 and then on qa-1 click 'New Document'. That'll create a template 
+with a filled in new guid it wants you to use, but you can just paste right over 
+that. However, the version you copied will have '_rev' revision field that it 
+won't like to you post, so you have to remove that field before you save.
