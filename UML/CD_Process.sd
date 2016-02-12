@@ -9,12 +9,14 @@ at:Acceptance Tests[a]
 dispatch:Dispatch[a]
 prod:Production[a]
 
-dev:Issue assigned=jira.Claim issue
-dev:Review issue together=qa.Assigned issue
-dev:feature-XXX-XXXX=bam.Request feature branch
+dev:Issue assigned=jira.(1) Claim issue
+dev:(2) Review issue together=qa.Assigned issue
+dev:feature-XXX-XXXX=bam.(4) Request feature branch
 bam:branch created=mas.Branch to feature
-bam:branch created=fea.Create feature branch
-dev:implementation done=fea.Implement feature or fix
+mas:branch created=fea.Create feature branch
+dev:implementation done=fea.(5) Implement feature/fix
+dev:implementation done=bam.Send
+
 dev:=jira.Update ticket Ready for QA
 jira:Tests done=qa.Notify QA
 qa:Ready to test=bam.Deploy feature branch to QA 
