@@ -1,0 +1,21 @@
+If you look at the biblio relationship page: 
+
+https://jira.trstone.com/wiki/display/CAL/Document+Relationships  
+
+you can see that course translations have a semantic id that consists of 
+'courseTranslation/<courseId>/<origLang>'. So, to determine the id for the 
+course's course translation (in english) it would be: 
+
+'courseTranslation/234f0730-2b23-4fa6-9b1e-08f55821e45b/en' 
+
+if you just start typing 'courseTranslation/234f0...' into the search bar of 
+futon it should come up with a list of all courseTranslations for that course.
+
+So you can delete that courseTranslation document and it should run fine. 
+However, it sounds like we have an issue in one of the testcases where it's not 
+properly removing the courseTranslation after creating it. Could you look into this a 
+bit and see if you can find out what the root cause is? If you can't quickly determine 
+the reason, but want to get unblocked by this, let's open a new bug in the TTN project 
+in jira that describes the issue, and then finally quarantine the offending testcase 
+with the tag 'quarantine='<TTN BUG ID>', where <TTN BUG ID> is the id of the newly 
+created TTN bug that was opened.
