@@ -2,11 +2,12 @@ dev:Developer[a]
 jira:Jira[a]
 qa:QA Eng[a]
 bam:Bamboo Git[a]
-pull:Bamboo Git Pull Request[a]
 mas:Master Branch[a]
 fea:Feature Branch[a]
 qaenv:QA Env[a]
 at:Acceptance Tests[a]
+dispatch:Dispatch[a]
+prod:Production[a]
 
 dev:Issue assigned=jira.Claim issue
 dev:Review issue together=qa.Assigned issue
@@ -15,14 +16,24 @@ bam:branch created=mas.Branch to feature
 bam:branch created=fea.Create feature branch
 dev:implementation done=fea.Implement feature or fix
 dev:=jira.Update ticket Ready for QA
-jira:QA Notified=qa.Notify QA
-qa:Deployment to QA=bam.Request deploy of feature branch to QA Env.
-bam:Deployment complete=qaenv.Deploy to QA Env
-
-#bam:You are ready to test=qa.Deployment notice received
-qa:Test until DOD complete=qaenv.Test feature or fix
+jira:Tests done=qa.Notify QA
+qa:Ready to test=bam.Deploy feature branch to QA 
+bam:Deployment done=qaenv.Deploy to QA Env
+qa:Test DOD done=qaenv.Test feature or fix
 qa:Tests pass=at.Run acceptance tests
-qa:Merge notification received=dev.Notice for merge to Master
-dev:Merge complete=bam.Request merge to Master
-bam:Merge complete=fea.Merge to Master
+dev:Merge done=bam.Request merge to Master
+bam:Merge done=fea.Merge to Master
 fea:Merge=mas.Merge to Master
+dev:Comments=qa.Notification of merge
+qa:Request made=bam.Request branch from Master
+bam:Branch created=mas.Branch from Master
+mas:Return=qaenv.Deploy to QA Env
+qa:Report tests=qaenv.Run Acc Tests
+qa:Notified=dev.Ready for Release
+qa:Comments=dispatch.Release notification
+dev:Close Jira ticket=qa.Push to Production
+qa:Push done=bam.Deploy to Production
+bam:Complete=mas.Deploy
+mas:Deploy done=prod.Deploy
+qa:Test done=prod.Rollout/Smoke tests
+dev:Ticket closed=jira.Close ticket
