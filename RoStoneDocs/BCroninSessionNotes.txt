@@ -1,0 +1,55 @@
+
+Pull requests:
+
+Bamboo:
+
+	Create your own HipChat room.o
+	Deployment Projects:
+	  https://builds.trstone.com/deploy/viewAllDeploymentProjects.action
+		triggers, emails
+
+Question: When it comes to creating Quick Filters in the Jira Board, I seem to have a set already available. 
+Do I customize this for myself, or leave it as one for the team?
+
+	Swimlanes: Based on component, and who it's assigned to.
+
+	Like Kanban but end dates are assigned; Sprint ends.
+	Not actionable until new board?
+
+Swimlane Orca:
+
+	50K view: Mobile team and Web team: 
+		Mobile client, Single solution, Unified solution
+		English:  Take assessment test to place them in:
+			Foundations, RSA, AEB
+
+			Foundations: No experience ("sefer level") A1 or A2 ??
+
+			Higher Level: Why do you want to learn this level?
+
+			RSA or AEB
+
+			RSA - Tell Me More, aquired by RS, with all languanges teach at higher levels
+			Placing into B1, B2, C1
+
+			AEB - I want to learn English because I want to work in business
+
+Beta Version: Orca
+
+	Web version of product: 
+	Launch into a single Chrome: Client is the same with Web and Mobile
+	Orca server is not real but a mockup; Still needs to be created.
+	Orca server needs to be created.
+
+Reach out to Eric where Orca testing can be done.
+
+Moving stories:
+
+	Move from one column to another is based on "Ready for QA" or "Ready for Release"
+
+Bypass story movement:
+
+	Open the story, Workflow -> In Test -> Ready for Release
+	But usually just -> In Test if not availble by the board
+
+16:19
