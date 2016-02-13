@@ -52,4 +52,43 @@ Bypass story movement:
 	Open the story, Workflow -> In Test -> Ready for Release
 	But usually just -> In Test if not availble by the board
 
-16:19
+	Moving a story sends contacts an email, so be aware.
+
+Story Conversion maybe from Story to Bug:
+
+	#Kind of hidden
+	Go to More: -> Move -> AEB Web(AEB) -> Change from Story to Bug
+
+Back to the Board:
+
+Continuous Delivery: 
+
+	No Fixed Version  
+
+For all others (Fixed Version specified), use No Filters
+
+Ticket Notification and Watches:
+
+	Go to the ticket and click Watchers: Start watching this issue
+
+Next Swimlane: Aria Web:
+
+	Tickets for AEB, SFH, Spanish For Healthcare, SEU - "Saudi"? Electronic University
+
+RSM(C) - Rosetta Stone Manager
+
+	RSM Back End - Titan - (Kirk's architecture) 
+		May be CD or Scheduled Release
+
+Example: Ticket that requires a CouchDB change has to roll on the Fixed schedule
+
+	Because of this dependency, CD has to wait for the CouchDB release.
+
+All Deployment Projects
+
+22:57
+
+Left off
+
+
+
