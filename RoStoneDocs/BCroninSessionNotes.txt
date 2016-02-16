@@ -86,9 +86,51 @@ Example: Ticket that requires a CouchDB change has to roll on the Fixed schedule
 
 All Deployment Projects
 
-22:57
+	Admin Tools, Launchpad - RSM Front End (FE) product
+	Everything else is Back End or AEB
+	Prism - Reporting
+	Mercury - Refactoring right now, strictly Mobile
+	Tuesday - RSM release
+	Wednesday - Sharktopus release
 
-Left off
+Bob's Board Hygene
+
+	Skipping 1.49
+	Working on 1.50
+	Ideal world, stories moved to Ready for QA
+	Prior Tuesday is Bug cutoff before release
+	Thursday prior to release final regression (4 days)
+
+Regression Tests
+
+	Suite of regressions 
+		http://aptest.rosettastone.local/browse
+		Run by team in India (most steps)
+	Brandon Evans - Automated Tests
+
+For Mark's Tickets:
+
+	Filter for RSM and look at Ready for QA
+	Or for CD, turn the filters off and look for tickets
+
+QA Environments:
+
+	QA1 - Titan and BE ge
+	QA2 - AEB (FE Testing) and owned on Bob - Rollout on Tuesday
+	QA3 - RSM's playground, generally leave alone
+	QA4 - Now Livemocha, but being retired
+	QA5 - Not sure, may be available
+
+	Stay away from triggers
+	Dancer - Live scheduling, has a trigger but not relevant
+
+	CouchDB - Callisto 
+		BitBucket for CouchDB
+
+
+
+
+	CD tickets should be spared for all environments until production
 
 
 
