@@ -1,0 +1,59 @@
+
+Session with Brandon Evans on Live Session Scheduling:
+Thu Feb 18 11:50:30 MST 2016
+
+Jira page for reference:
+	https://jira.trstone.com/wiki/display/ARIA/Live+Session+How-To
+
+For the English product:
+
+Go to: http://scheduling-qa2.dev.rosettastone.com
+	Central Authentication Service: Log in with Active Directory credentials
+
+Top four Schedule names:
+	Advanced_English_US
+	Advanced_English_UK
+	Advanced_English_US_Group
+	Advanced_English_UK_Group
+
+Click on the top line -> Admin
+Click New Slot
+
+Important: Location for Groups needs to be set for CEFR level like "B1"
+For individual learners Location is not important.
+Start time: Must be at least 24 hours in advance.
+
+Enter Title: MRH_LiveSession
+Capacity: 3
+Start time: 2 days from now
+End time: 2 days from now
+Click Create
+
+Click Users
+Need to find "Coach Users" which can not be created in the normal UI Admin. So find one on this page:
+	https://jira.trstone.com/wiki/display/ARIA/Live+Tutoring+Session+Testing
+or for QA2 use: 
+	aebuscoach@rs.com
+in the Email text field
+
+With Coach listed, select Agenda in dropdown and click Agenda.
+Click Available
+Locate your session and click Book which will assign your coach to the session.
+Workaround to a session two days from now - Click Slot -> Edit -> Adjust times to today.
+You can add Learners in this interface for BE testing, but FE adds them through Player
+Click Users
+
+Learner SignUp session:
+
+Log in to Player: https://login-qa2.dev.rosettastone.com/#/launchpad
+For session in QA2: bevans+234@rosettastone.com / notpassword
+From Launchpad click AEB
+Click Live tutoring sessions: See Available Sessions 
+Click Schedule session
+
+Left off 09:37
+
+
+
+
+
