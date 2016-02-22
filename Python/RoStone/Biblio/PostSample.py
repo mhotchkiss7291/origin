@@ -43,14 +43,14 @@ header_data = {
 }
 
 json_data = {
-    'activitySetIds': '4c9de789-5663-4c7f-9553-9f90fb156b83'
+    'activitySetIds': ['4c9de789-5663-4c7f-9553-9f90fb156b83']
 }
 
 # Tried this but no help
 #payload = urlencode(json_data)
 #response = requests.post(url + endpoint, data=payload, headers=header_data)
 
-response = requests.post(url + endpoint, data=json_data, headers=header_data)
+response = requests.post(url + endpoint, json=json_data, headers=header_data)
 
 # Process and format the response
 results = json.loads(response.text)
