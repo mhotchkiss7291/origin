@@ -7,4 +7,6 @@ It would look something like:
 
 nosetests -v ./test/biblio -A "acceptance and not quarantine and not archived and (speed != 'slow')"
 
+nosetests -a 'acceptance' test/prism/learning_level_test.py
+
 MH: This works
