@@ -9,37 +9,37 @@ at:Acceptance Tests[a]
 dispatch:Dispatch[a]
 prod:Production[a]
 
-dev:Issue assigned=jira.(1) Claim issue
-dev:(2) Review issue together=qa.Assigned issue
-dev:feature-XXX-XXXX=bam.(4) Request feature branch
+dev:Issue assigned=jira.(1)Claim issue
+dev:(2)Review issue together=qa.Assigned issue
+dev:feature-XXX-XXXX=bam.(4)Request feature branch
 bam:branch created=mas.Branch to feature
 mas:branch created=fea.Create feature branch
-dev:implementation done=fea.(5) Implement feature/fix
-dev:Code review done=jira.(6) Pull request for code review
-jira:Request reviewed=qa.(7) Pull request review
-dev:Intent to release=dispatch.(8) Delivery notification
-dispatch:Prepare for test=qa.(9) Dispatch schedule
-dev:QA tests done=jira.(9.1) Update ticket Ready for QA
-jira:????=qa.(9.2) Notify QA
-dev:RFR received=qa.QA ?? 
-qa:Ready to test=bam.(10) Deploy feature branch to QA 
-bam:Deployment done=qaenv.Deploy to QA Env
-qa:Test DOD done=qaenv.Test feature or fix
-qa:Tests pass=at.Run acceptance tests
+dev:implementation done=fea.(5)Implement feature/fix
+dev:Code review done=jira.(6)Pull request for code review
+jira:Request reviewed=qa.(7)Pull request review
+dev:Intent to release=dispatch.(8)Delivery notification
+dispatch:Prepare for test=qa.(9)Dispatch schedule
+dev:QA ready=jira.(9.1)Update ticket Ready for QA
+jira:notification received=qa.(9.2)Notify QA
+dev:(11)RFR,(12)Holding,(13.1)Notice to Merge=qa.(10)QA begins test 
 
-dev:Merge done=bam.Request merge to Master
+qa:Ready to test=bam.(10.1)Deploy feature branch to QA 
+bam:Deployment done=qaenv.(10.3)Deploy to QA Env
+qa:Test DOD done=qaenv.(10.4)Test feature or fix
+qa:Tests pass=at.(10.5)Run acceptance tests
+
+dev:Merge done=bam.(13.2)Request merge to Master
 bam:Merge done=fea.Merge to Master
 fea:Merge=mas.Merge to Master
-dev:Comments=qa.Notification of merge
+dev:(18)Approve release=qa.(13.3)Notification of merge
 qa:Request made=bam.Request branch from Master
 bam:Branch created=mas.Branch from Master
 mas:Return=qaenv.Deploy to QA Env
-qa:Report tests=qaenv.Run Acc Tests
-qa:Notified=dev.Ready for Release
-qa:Comments=dispatch.Release notification
-dev:Close Jira ticket=qa.Push to Production
-qa:Push done=bam.Deploy to Production
+qa:Report tests=qaenv.(14)Run Acc Tests
+qa:(17)Comments=dispatch.(16)Release notification
+dev:Close Jira ticket=qa.(19.1)Push to Production
+qa:Push done=bam.(19.2)Deploy to Production
 bam:Complete=mas.Deploy
 mas:Deploy done=prod.Deploy
-qa:Test done=prod.Rollout/Smoke tests
-dev:Ticket closed=jira.Close ticket
+qa:Test done=prod.(20.1)Rollout/Smoke tests
+dev:Ticket closed=jira.(20.2)Close ticket
