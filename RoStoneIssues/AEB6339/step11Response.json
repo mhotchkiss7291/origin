@@ -1,0 +1,1080 @@
+{
+    "_id": "40475803-681f-4476-afef-427e35af6be3",
+    "_rev": "1-f21b54f6aee298689ed2fa606a5a24ea",
+    "application": "qa.callisto.io",
+    "ariaGrammar": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "video": {
+            "transcript": ""
+        }
+    },
+    "author": "2d307fd3-ba3c-45fa-b90e-c7b434d417fc",
+    "changeLog": [
+        {
+            "timestamp": "2014-07-22T11:14:21",
+            "type": "cleanup",
+            "user": "c66b8a97-d34e-4f5e-b8d7-20d92de34b53"
+        },
+        {
+            "timestamp": "2014-07-22T11:15:09",
+            "type": "cleanup",
+            "user": "c66b8a97-d34e-4f5e-b8d7-20d92de34b53"
+        }
+    ],
+    "contentType": "activitySet",
+    "creationDate": "2016-03-02T21:03:23+0000",
+    "curator": null,
+    "extendedSpeaking": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "questions": [
+            {
+                "promptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "rubricCriteriaList": []
+            }
+        ]
+    },
+    "extendedWriting": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "questions": [
+            {
+                "promptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "rubricCriteriaList": []
+            }
+        ]
+    },
+    "grammar": {
+        "cards": [
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "grammarRule": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "grammarRule": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "grammarRule": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "grammarRule": "",
+                "text": ""
+            }
+        ],
+        "instructionText": "",
+        "isEnabledActivity": false
+    },
+    "intro": {
+        "asset": {
+            "transcript": ""
+        },
+        "instructionText": "",
+        "isEnabledActivity": false
+    },
+    "isContentValid": true,
+    "learningLang": "en-US",
+    "learningObjectives": [
+        "rererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereerererereere",
+        "",
+        ""
+    ],
+    "lesson": "ffdce9b9-64ed-4157-ab33-45178e74bbe1",
+    "level": "B1",
+    "listenSpeak": {
+        "audio": {},
+        "hintText": "",
+        "instructionText": "",
+        "isEnabledActivity": false
+    },
+    "listenWrite": {
+        "audio": {},
+        "hintText": "",
+        "instructionText": "",
+        "isEnabledActivity": false
+    },
+    "modificationDate": "2016-03-02T21:03:23+0000",
+    "numActivities": 0,
+    "organization": "0b0e71af5e82725587827d024cd9f05a",
+    "price": {
+        "earned": 0,
+        "purchased": 0
+    },
+    "private": true,
+    "product": "Product:Aria",
+    "productId": "product.20bb0ddd-4406-4fb0-b460-89037d626509",
+    "publishState": "draft",
+    "readAloud": {
+        "companionAudio": {},
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "languageCode": "en-US",
+        "speechAlignmentDirty": true,
+        "textPrompt": "",
+        "voiceTypePrompt": "true"
+    },
+    "readSpeak": {
+        "hintText": "",
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "textPrompt": ""
+    },
+    "readWrite": {
+        "hintText": "",
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "textPrompt": ""
+    },
+    "resourceType": "content",
+    "syncProduction": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "linePairs": [
+            {
+                "languagePartner": "",
+                "learner": ""
+            },
+            {
+                "languagePartner": "",
+                "learner": ""
+            }
+        ]
+    },
+    "tags": [],
+    "test": {
+        "isEnabledActivity": false,
+        "testQuestions": [
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            }
+        ]
+    },
+    "title": "rererereerererereerererereerererereetere naam",
+    "usage": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "usageQuizQuestions": [
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            },
+            {
+                "audioAnswerSet": {
+                    "correctAnswer": {},
+                    "wrongAnswer1": {},
+                    "wrongAnswer2": {},
+                    "wrongAnswer3": {},
+                    "wrongAnswer4": {},
+                    "wrongAnswer5": {},
+                    "wrongAnswer6": {},
+                    "wrongAnswer7": {}
+                },
+                "audioPrompt": {},
+                "genericPromptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ],
+                "imageAnswerSet": {},
+                "instructionText": "",
+                "matchingSetList": [
+                    {
+                        "itemA": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        },
+                        "itemB": {
+                            "audio": {},
+                            "promptType": "text",
+                            "text": "",
+                            "video": {}
+                        }
+                    }
+                ],
+                "promptType": "",
+                "responseType": "",
+                "sequence": {
+                    "usageQuizSequenceItems": [
+                        {
+                            "correctPosition": "1",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "2",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        },
+                        {
+                            "correctPosition": "3",
+                            "prompt": {
+                                "audio": {},
+                                "promptType": "text",
+                                "text": "",
+                                "video": {}
+                            }
+                        }
+                    ]
+                },
+                "textAnswerSetList": [
+                    {
+                        "correctAnswer": "",
+                        "wrongAnswer1": "",
+                        "wrongAnswer2": "",
+                        "wrongAnswer3": "",
+                        "wrongAnswer4": "",
+                        "wrongAnswer5": "",
+                        "wrongAnswer6": "",
+                        "wrongAnswer7": ""
+                    }
+                ],
+                "textPrompt": "",
+                "variableAlternateAnswerSetList": [],
+                "weight": 1
+            }
+        ]
+    },
+    "validActivities": [],
+    "validationErrors": [],
+    "version": 3,
+    "vocab": {
+        "cards": [
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": ""
+            },
+            {
+                "audio": {
+                    "transcript": ""
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": ""
+            }
+        ],
+        "instructionText": "",
+        "isEnabledActivity": false
+    },
+    "workOrder": "j007",
+    "writingPractice": {
+        "instructionText": "",
+        "isEnabledActivity": false,
+        "questions": [
+            {
+                "answerList": [
+                    {
+                        "text": ""
+                    }
+                ],
+                "feedbackTextForIncorrectAnswers": "",
+                "promptList": [
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    },
+                    {
+                        "audio": {},
+                        "promptType": "text",
+                        "text": "",
+                        "video": {}
+                    }
+                ]
+            }
+        ]
+    }
+}
