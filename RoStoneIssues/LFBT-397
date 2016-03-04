@@ -1,0 +1,71 @@
+curl \
+'https://scholar-qa2.dev.rosettastone.com/events' \
+-H 'Origin: https://advancedenglish-qa2.dev.rosettastone.com' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept-Language: en-US,en;q=0.8' \
+-H 'Authorization: Bearer 83c1deed-9fa0-4822-a969-90f2cc76b16d' \
+-H 'X-Rosettastone-Product-Id: product.20bb0ddd-4406-4fb0-b460-89037d626509' \
+-H 'X-Requested-With: Ceres' \
+-H 'X-Livemocha-Product: Product:Aria' \
+-H 'Connection: keep-alive' \
+-H 'Pragma: no-cache' \
+-H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H 'Accept: application/json, text/plain, */*' \
+-H 'Cache-Control: no-cache' \
+-H 'Referer: https://advancedenglish-qa2.dev.rosettastone.com/' \
+--data-binary '
+{
+  "events": [
+    {
+      "msTimeSinceStart": 6807,
+      "msPerformanceNow": 7313.335,
+      "currentRoute": "/dashboard/Product:Aria/home",
+      "_id": "62e521e3-bbb0-47fd-b6b9-aa070632e88a",
+      "type": "Event",
+      "eventType": "uiReady",
+      "cid": "b34edf462e7d9937f502e638b1b056ab",
+      "product": "product.20bb0ddd-4406-4fb0-b460-89037d626509",
+      "clientVersion": "Advanced English for Business - AEB - Releases - release-1.51.0 - Default Job-1",
+      "timestamp_utc": "2016-03-04T20:11:57+00:00",
+      "viewportWidth": 1490,
+      "viewportHeight": 829,
+      "uid": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+      "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+      "sessionToken": "83c1deed-9fa0-4822-a969-90f2cc76b16d",
+      "targetLanguage": "en-US",
+      "cefrLevel": "BELOW_B1",
+      "testUser": false,
+      "token": "dcb29b6db2df7395b879e32df1ada749"
+    }
+  ]
+}
+' --compressed
+
+From Couch:
+
+{
+   "_id": "62e521e3-bbb0-47fd-b6b9-aa070632e88a",
+   "_rev": "1-6fcbcc0f8f957d715f61ac7fbf5127e2",
+   "type": "Event",
+   "eventType": "uiReady",
+   "uid": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+   "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+   "cip": "10.50.10.45",
+   "cid": "b34edf462e7d9937f502e638b1b056ab",
+   "clientVersion": "Advanced English for Business - AEB - Releases - release-1.51.0 - Default Job-1",
+   "product": "product.20bb0ddd-4406-4fb0-b460-89037d626509",
+   "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36",
+   "viewportWidth": 1490,
+   "viewportHeight": 829,
+   "sessionToken": "83c1deed-9fa0-4822-a969-90f2cc76b16d",
+   "targetLanguage": "en-US",
+   "timestamp_utc": "2016-03-04T20:11:57+00:00",
+   "recorded_utc": "2016-03-04T20:11:58",
+   "msPerformanceNow": 7313.335,
+   "cefrLevel": "BELOW_B1",
+   "currentRoute": "/dashboard/Product:Aria/home",
+   "token": "dcb29b6db2df7395b879e32df1ada749",
+   "testUser": false,
+   "msTimeSinceStart": 6807
+}
