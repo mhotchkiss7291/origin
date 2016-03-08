@@ -1,0 +1,129 @@
+{
+   "lesson": "9a90f7b2-8770-4608-a925-7063236fdce3",
+   "version": 2,
+   "contentType": "activitySet",
+   "level": "B1",
+   "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+   "learningLang": "en-US",
+   "application": "client.rsm.web",
+   "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+   "product": "Product:Aria",
+   "creationDate": "2016-03-04T18:45:44+0000",
+   "modificationDate": "2016-03-04T21:22:01+0000",
+   "learningObjectives": [
+       "MRH Lesson 2 Objective 1",
+       "",
+       "",
+       "",
+       ""
+   ],
+   "title": "[JD V] MRH Lesson 2 Version 2!!",
+   "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+   "publishState": "published",
+   "private": false,
+   "intro": {
+       "asset": {
+       },
+       "isEnabledActivity": false,
+       "instructionText": "Lesson 2 Instructions"
+   },
+   "grammar": {
+       "isEnabledActivity": false
+   },
+   "vocab": {
+       "isEnabledActivity": true,
+       "randomize": true,
+       "cards": [
+           {
+               "audio": {
+                   "asset": "3ef12339-a58a-49a7-a46a-1d84b3b6bc29"
+               },
+               "definition": "Film Star",
+               "example": "",
+               "partOfSpeech": "",
+               "text": "Buster"
+           },
+           {
+               "audio": {
+                   "asset": "4a32f0a4-6445-4e17-95e1-cdd3fa17dfe5"
+               },
+               "definition": "",
+               "example": "",
+               "partOfSpeech": "",
+               "text": "Groucho"
+           },
+           {
+               "audio": {
+                   "asset": "ee47bfac-f32b-416a-9170-811bfa2f39e1"
+               },
+               "definition": "",
+               "example": "",
+               "partOfSpeech": "",
+               "text": "Chico"
+           },
+           {
+               "audio": {
+                   "asset": "2cbb6d23-8b11-484c-b1b3-199161fb3389"
+               },
+               "definition": "",
+               "example": "",
+               "partOfSpeech": "",
+               "text": "Car"
+           }
+       ]
+   },
+   "readWrite": {
+       "isEnabledActivity": false
+   },
+   "readSpeak": {
+       "isEnabledActivity": false
+   },
+   "listenWrite": {
+       "isEnabledActivity": false
+   },
+   "syncProduction": {
+       "isEnabledActivity": false
+   },
+   "listenSpeak": {
+       "isEnabledActivity": false
+   },
+   "usage": {
+       "isEnabledActivity": false
+   },
+   "extendedWriting": {
+       "isEnabledActivity": false
+   },
+   "extendedSpeaking": {
+       "isEnabledActivity": false
+   },
+   "readAloud": {
+       "companionAudio": {
+       },
+       "speechAlignmentJobIds": [
+       ],
+       "isEnabledActivity": false
+   },
+   "writingPractice": {
+       "isEnabledActivity": false
+   },
+   "ariaGrammar": {
+       "video": {
+       },
+       "isEnabledActivity": false
+   },
+   "test": {
+       "isEnabledActivity": false
+   },
+   "numActivities": 1,
+   "validationErrors": [
+   ],
+   "lesson": "9a90f7b2-8770-4608-a925-7063236fdce3",
+   "speakingPractice": {
+   },
+   "validActivities": [
+       "vocab"
+   ],
+   "publishDate": "2016-03-04T21:22:01+0000",
+   "isContentValid": true,
+   "resourceType": "content"
+}
