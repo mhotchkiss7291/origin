@@ -1,0 +1,295 @@
+{
+    "_id": "eac5c204-5b14-4d09-b1ad-ffc09a3177e3",
+    "_rev": "6-845c26ab6365c0933c559d91ae2237d1",
+    "application": "client.rsm.web",
+    "ariaGrammar": {
+        "isEnabledActivity": false,
+        "video": {}
+    },
+    "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "changeLog": [
+        {
+            "timestamp": "2016-03-03T01:21:01",
+            "type": "cleanup",
+            "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+        },
+        {
+            "timestamp": "2016-03-03T18:16:45",
+            "type": "cleanup",
+            "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+        }
+    ],
+    "contentType": "activitySet",
+    "creationDate": "2016-03-03T18:17:55+0000",
+    "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "extendedSpeaking": {
+        "isEnabledActivity": false
+    },
+    "extendedWriting": {
+        "isEnabledActivity": false
+    },
+    "grammar": {
+        "isEnabledActivity": false
+    },
+    "intro": {
+        "asset": {
+            "transcript": ""
+        },
+        "instructionText": "Intro Activity 1",
+        "isEnabledActivity": false
+    },
+    "isContentValid": true,
+    "learningLang": "en-US",
+    "learningObjectives": [
+        "MRH objective 1",
+        "MRh objective 2",
+        "",
+        "",
+        ""
+    ],
+    "lesson": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+    "level": "B1",
+    "listenSpeak": {
+        "isEnabledActivity": false
+    },
+    "listenWrite": {
+        "isEnabledActivity": false
+    },
+    "modificationDate": "2016-03-03T18:19:38+0000",
+    "numActivities": 1,
+    "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+    "private": false,
+    "product": "Product:Aria",
+    "publishDate": "2016-03-03T18:19:38+0000",
+    "publishState": "published",
+    "readAloud": {
+        "companionAudio": {},
+        "isEnabledActivity": false,
+        "speechAlignmentJobIds": []
+    },
+    "readSpeak": {
+        "isEnabledActivity": false
+    },
+    "readWrite": {
+        "isEnabledActivity": false
+    },
+    "resourceType": "content",
+    "speakingPractice": {},
+    "syncProduction": {
+        "isEnabledActivity": false
+    },
+    "test": {
+        "isEnabledActivity": false
+    },
+    "title": "MRH Lesson 1 - V3",
+    "usage": {
+        "isEnabledActivity": false
+    },
+    "validActivities": [
+        "vocab"
+    ],
+    "validationErrors": [],
+    "version": 2,
+    "vocab": {
+        "cards": [
+            {
+                "audio": {
+                    "asset": {
+                        "_id": "e5787ee2-89c8-449f-bb22-3316eb39ab4b",
+                        "_rev": "2-c2bae3e4ecd1796c21fae86fad014af3",
+                        "application": "client.rsm.web",
+                        "assetState": "ready",
+                        "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+                        "awsPath": "assets/e5787ee2-89c8-449f-bb22-3316eb39ab4b",
+                        "contentType": "audio/mp3",
+                        "creationDate": "2016-03-03T00:37:13+0000",
+                        "learningLang": "en",
+                        "modificationDate": "2016-03-03T00:37:13+0000",
+                        "paths": [
+                            {
+                                "awsPath": "assets/d16976e1-8009-41a7-8e64-e841fb699bb9.mp3",
+                                "contentType": "audio/mp3"
+                            },
+                            {
+                                "awsPath": "assets/62f6bae5-1521-4ae5-b478-081e75bd3de6.ogg",
+                                "contentType": "audio/ogg"
+                            }
+                        ],
+                        "resourceType": "asset",
+                        "transcodingInputDetails": {
+                            "audio_bitrate_in_kbps": 128,
+                            "audio_codec": "mp3",
+                            "audio_sample_rate": 44100,
+                            "channels": 2,
+                            "created_at": "2016-03-03T00:37:14Z",
+                            "duration_in_ms": 4886,
+                            "file_size_bytes": 78608,
+                            "finished_at": "2016-03-03T00:37:19Z",
+                            "format": "mp3",
+                            "id": "240268123",
+                            "privacy": false,
+                            "state": "finished",
+                            "test": false,
+                            "updated_at": "2016-03-03T00:37:19Z"
+                        },
+                        "transcodingJobId": "240297181"
+                    }
+                },
+                "definition": "Fish that looks like a sword",
+                "example": "Look at that swordfish!",
+                "partOfSpeech": "Noun",
+                "text": "Swordfish"
+            },
+            {
+                "audio": {
+                    "asset": {
+                        "_id": "dbf1bd6d-3c37-439a-835c-93444244e8a7",
+                        "_rev": "2-998d75d7b45f55f5f58f8ade55475738",
+                        "application": "client.rsm.web",
+                        "assetState": "ready",
+                        "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+                        "awsPath": "assets/dbf1bd6d-3c37-439a-835c-93444244e8a7",
+                        "contentType": "audio/mp3",
+                        "creationDate": "2016-03-03T00:40:17+0000",
+                        "learningLang": "en",
+                        "modificationDate": "2016-03-03T00:40:17+0000",
+                        "paths": [
+                            {
+                                "awsPath": "assets/1959c699-2d32-4edb-bd1e-62b3d0c47e79.ogg",
+                                "contentType": "audio/ogg"
+                            },
+                            {
+                                "awsPath": "assets/732acc8f-8423-498e-9167-1efa9d8d4b8f.mp3",
+                                "contentType": "audio/mp3"
+                            }
+                        ],
+                        "resourceType": "asset",
+                        "transcodingInputDetails": {
+                            "audio_bitrate_in_kbps": 128,
+                            "audio_codec": "mp3",
+                            "audio_sample_rate": 44100,
+                            "channels": 2,
+                            "created_at": "2016-03-03T00:40:18Z",
+                            "duration_in_ms": 4886,
+                            "file_size_bytes": 78608,
+                            "finished_at": "2016-03-03T00:40:21Z",
+                            "format": "mp3",
+                            "id": "240268749",
+                            "privacy": false,
+                            "state": "finished",
+                            "test": false,
+                            "updated_at": "2016-03-03T00:40:21Z"
+                        },
+                        "transcodingJobId": "240297807"
+                    }
+                },
+                "definition": "Mollusk that has 8 tentancles",
+                "example": "Hey, look at that octopus!",
+                "partOfSpeech": "Noun",
+                "text": "Octopus"
+            },
+            {
+                "audio": {
+                    "asset": {
+                        "_id": "3865a7ef-5e53-4529-8465-c777b79ecc53",
+                        "_rev": "2-2c92f30eba0cf69ba17d351864e56730",
+                        "application": "client.rsm.web",
+                        "assetState": "ready",
+                        "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+                        "awsPath": "assets/3865a7ef-5e53-4529-8465-c777b79ecc53",
+                        "contentType": "audio/mp3",
+                        "creationDate": "2016-03-03T00:40:39+0000",
+                        "learningLang": "en",
+                        "modificationDate": "2016-03-03T00:40:39+0000",
+                        "paths": [
+                            {
+                                "awsPath": "assets/8f36b537-a389-4696-8bde-9522536df79d.ogg",
+                                "contentType": "audio/ogg"
+                            },
+                            {
+                                "awsPath": "assets/00c552c0-4736-490b-89db-866d930145e8.mp3",
+                                "contentType": "audio/mp3"
+                            }
+                        ],
+                        "resourceType": "asset",
+                        "transcodingInputDetails": {
+                            "audio_bitrate_in_kbps": 128,
+                            "audio_codec": "mp3",
+                            "audio_sample_rate": 44100,
+                            "channels": 2,
+                            "created_at": "2016-03-03T00:40:40Z",
+                            "duration_in_ms": 4886,
+                            "file_size_bytes": 78608,
+                            "finished_at": "2016-03-03T00:40:42Z",
+                            "format": "mp3",
+                            "id": "240268818",
+                            "privacy": false,
+                            "state": "finished",
+                            "test": false,
+                            "updated_at": "2016-03-03T00:40:42Z"
+                        },
+                        "transcodingJobId": "240297876"
+                    }
+                },
+                "definition": "Snake that lives in the sea.",
+                "example": "Hey, look at that sea snake!",
+                "partOfSpeech": "Noun",
+                "text": "Sea snake"
+            },
+            {
+                "audio": {
+                    "asset": {
+                        "_id": "22d24a95-ae86-4c68-84e4-ab5f41f145eb",
+                        "_rev": "2-79f869ea29ab31cb9d0fc113fddb5003",
+                        "application": "client.rsm.web",
+                        "assetState": "ready",
+                        "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+                        "awsPath": "assets/22d24a95-ae86-4c68-84e4-ab5f41f145eb",
+                        "contentType": "audio/mp3",
+                        "creationDate": "2016-03-03T00:48:24+0000",
+                        "learningLang": "en",
+                        "modificationDate": "2016-03-03T00:48:24+0000",
+                        "paths": [
+                            {
+                                "awsPath": "assets/ff16a0ad-e7f0-42e0-98a9-1807b4bde335.ogg",
+                                "contentType": "audio/ogg"
+                            },
+                            {
+                                "awsPath": "assets/22a59c33-9c27-4eee-b783-7b0f454c4f31.mp3",
+                                "contentType": "audio/mp3"
+                            }
+                        ],
+                        "resourceType": "asset",
+                        "transcodingInputDetails": {
+                            "audio_bitrate_in_kbps": 128,
+                            "audio_codec": "mp3",
+                            "audio_sample_rate": 44100,
+                            "channels": 2,
+                            "created_at": "2016-03-03T00:48:24Z",
+                            "duration_in_ms": 4886,
+                            "file_size_bytes": 78608,
+                            "finished_at": "2016-03-03T00:48:29Z",
+                            "format": "mp3",
+                            "id": "240270305",
+                            "privacy": false,
+                            "state": "finished",
+                            "test": false,
+                            "updated_at": "2016-03-03T00:48:29Z"
+                        },
+                        "transcodingJobId": "240299363"
+                    }
+                },
+                "definition": "Turtle that lives in the sea",
+                "example": "Hey, look at that sea turtle!",
+                "partOfSpeech": "Noun",
+                "text": "Sea turtle"
+            }
+        ],
+        "instructionText": "MRH Vocab Activity 1",
+        "isEnabledActivity": true,
+        "randomize": true
+    },
+    "writingPractice": {
+        "isEnabledActivity": false
+    }
+}

@@ -1,0 +1,138 @@
+{
+    "_id": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+    "_rev": "30-b0d986751bdc51869d015fb1ebd4dca9",
+    "application": "client.rsm.web",
+    "ariaGrammar": {
+        "isEnabledActivity": false,
+        "video": {}
+    },
+    "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "changeLog": [
+        {
+            "timestamp": "2016-03-03T01:21:01",
+            "type": "cleanup",
+            "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+        },
+        {
+            "timestamp": "2016-03-03T18:16:45",
+            "type": "cleanup",
+            "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+        }
+    ],
+    "contentType": "activitySet",
+    "creationDate": "2016-03-03T00:19:03+0000",
+    "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "extendedSpeaking": {
+        "isEnabledActivity": false
+    },
+    "extendedWriting": {
+        "isEnabledActivity": false
+    },
+    "grammar": {
+        "isEnabledActivity": false
+    },
+    "intro": {
+        "asset": {
+            "transcript": ""
+        },
+        "instructionText": "Intro Activity 1",
+        "isEnabledActivity": false
+    },
+    "isContentValid": true,
+    "learningLang": "en-US",
+    "learningObjectives": [
+        "MRH objective 1",
+        "MRh objective 2",
+        "",
+        "",
+        ""
+    ],
+    "lesson": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+    "level": "B1",
+    "listenSpeak": {
+        "isEnabledActivity": false
+    },
+    "listenWrite": {
+        "isEnabledActivity": false
+    },
+    "modificationDate": "2016-03-03T18:16:39+0000",
+    "numActivities": 1,
+    "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+    "private": false,
+    "product": "Product:Aria",
+    "publishDate": "2016-03-03T00:50:56+0000",
+    "publishState": "published",
+    "readAloud": {
+        "companionAudio": {},
+        "isEnabledActivity": false,
+        "speechAlignmentJobIds": []
+    },
+    "readSpeak": {
+        "isEnabledActivity": false
+    },
+    "readWrite": {
+        "isEnabledActivity": false
+    },
+    "resourceType": "content",
+    "speakingPractice": {},
+    "syncProduction": {
+        "isEnabledActivity": false
+    },
+    "test": {
+        "isEnabledActivity": false
+    },
+    "title": "MRH Lesson 1 - V3",
+    "usage": {
+        "isEnabledActivity": false
+    },
+    "validActivities": [
+        "vocab"
+    ],
+    "validationErrors": [],
+    "vocab": {
+        "cards": [
+            {
+                "audio": {
+                    "asset": "e5787ee2-89c8-449f-bb22-3316eb39ab4b"
+                },
+                "definition": "Fish that looks like a sword",
+                "example": "Look at that swordfish!",
+                "partOfSpeech": "Noun",
+                "text": "Swordfish"
+            },
+            {
+                "audio": {
+                    "asset": "dbf1bd6d-3c37-439a-835c-93444244e8a7"
+                },
+                "definition": "Mollusk that has 8 tentancles",
+                "example": "Hey, look at that octopus!",
+                "partOfSpeech": "Noun",
+                "text": "Octopus"
+            },
+            {
+                "audio": {
+                    "asset": "3865a7ef-5e53-4529-8465-c777b79ecc53"
+                },
+                "definition": "Snake that lives in the sea.",
+                "example": "Hey, look at that sea snake!",
+                "partOfSpeech": "Noun",
+                "text": "Sea snake"
+            },
+            {
+                "audio": {
+                    "asset": "22d24a95-ae86-4c68-84e4-ab5f41f145eb"
+                },
+                "definition": "Turtle that lives in the sea",
+                "example": "Hey, look at that sea turtle!",
+                "partOfSpeech": "Noun",
+                "text": "Sea turtle"
+            }
+        ],
+        "instructionText": "MRH Vocab Activity 1",
+        "isEnabledActivity": true,
+        "randomize": true
+    },
+    "writingPractice": {
+        "isEnabledActivity": false
+    }
+}

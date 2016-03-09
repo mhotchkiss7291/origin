@@ -1,0 +1,458 @@
+
+Notes: You need to use a learner that has made progress in a lesson with more than one published activity set. 
+Add a bearer token for this user to each of the calls below.
+
+Test Get Versioned Activity Set
+Call biblio/content/lesson/lesson-id
+Verify the activity set returned is the one the user has made progress in
+
+As user: bcronin+learner@rosetta.com / password
+
+GUID: a7bc1589-ee54-4a35-a2ce-ac2e5c31d712 
+
+Test steps:
+
+1. 
+
+curl \
+'https://biblio-qa2.dev.rosettastone.com/content/lesson/c5fe6484-c72b-467f-bcc0-76f19b9f03b6/activity_sets' \
+-H 'Authorization: Bearer c123ddaa-0d5d-4461-96a1-4c001c70b4f6' \
+-H 'Origin: https://aebeditor-qa2.dev.rosettastone.com' \
+-H 'Accept-Encoding: gzip, deflate, sdch' \
+-H 'Accept-Language: en-US,en;q=0.8' \
+-H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36' \
+-H 'Accept: application/json, text/plain, */*' \
+-H 'Referer: https://aebeditor-qa2.dev.rosettastone.com/' \
+-H 'X-Requested-With: Ceres' \
+-H 'X-Livemocha-Product: Product:Aria' \
+-H 'Connection: keep-alive' \
+--compressed \
+ | python -mjson.tool
+
+Response:
+
+{
+    "results": [
+        {
+            "_id": "eac5c204-5b14-4d09-b1ad-ffc09a3177e3",
+            "_rev": "6-845c26ab6365c0933c559d91ae2237d1",
+            "application": "client.rsm.web",
+            "ariaGrammar": {
+                "isEnabledActivity": false,
+                "video": {}
+            },
+            "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "changeLog": [
+                {
+                    "timestamp": "2016-03-03T01:21:01",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                },
+                {
+                    "timestamp": "2016-03-03T18:16:45",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                }
+            ],
+            "contentType": "activitySet",
+            "creationDate": "2016-03-03T18:17:55+0000",
+            "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "extendedSpeaking": {
+                "isEnabledActivity": false
+            },
+            "extendedWriting": {
+                "isEnabledActivity": false
+            },
+            "grammar": {
+                "isEnabledActivity": false
+            },
+            "intro": {
+                "asset": {
+                    "transcript": ""
+                },
+                "instructionText": "Intro Activity 1",
+                "isEnabledActivity": false
+            },
+            "isContentValid": true,
+            "learningLang": "en-US",
+            "learningObjectives": [
+                "MRH objective 1",
+                "MRh objective 2",
+                "",
+                "",
+                ""
+            ],
+            "lesson": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+            "level": "B1",
+            "listenSpeak": {
+                "isEnabledActivity": false
+            },
+            "listenWrite": {
+                "isEnabledActivity": false
+            },
+            "modificationDate": "2016-03-03T18:19:38+0000",
+            "numActivities": 1,
+            "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+            "private": false,
+            "product": "Product:Aria",
+            "publishDate": "2016-03-03T18:19:38+0000",
+            "publishState": "published",
+            "readAloud": {
+                "companionAudio": {},
+                "isEnabledActivity": false,
+                "speechAlignmentJobIds": []
+            },
+            "readSpeak": {
+                "isEnabledActivity": false
+            },
+            "readWrite": {
+                "isEnabledActivity": false
+            },
+            "resourceType": "content",
+            "speakingPractice": {},
+            "syncProduction": {
+                "isEnabledActivity": false
+            },
+            "test": {
+                "isEnabledActivity": false
+            },
+            "title": "MRH Lesson 1 - V3",
+            "usage": {
+                "isEnabledActivity": false
+            },
+            "validActivities": [
+                "vocab"
+            ],
+            "validationErrors": [],
+            "version": 2,
+            "vocab": {
+                "cards": [
+                    {
+                        "audio": {
+                            "asset": "e5787ee2-89c8-449f-bb22-3316eb39ab4b"
+                        },
+                        "definition": "Fish that looks like a sword",
+                        "example": "Look at that swordfish!",
+                        "partOfSpeech": "Noun",
+                        "text": "Swordfish"
+                    },
+                    {
+                        "audio": {
+                            "asset": "dbf1bd6d-3c37-439a-835c-93444244e8a7"
+                        },
+                        "definition": "Mollusk that has 8 tentancles",
+                        "example": "Hey, look at that octopus!",
+                        "partOfSpeech": "Noun",
+                        "text": "Octopus"
+                    },
+                    {
+                        "audio": {
+                            "asset": "3865a7ef-5e53-4529-8465-c777b79ecc53"
+                        },
+                        "definition": "Snake that lives in the sea.",
+                        "example": "Hey, look at that sea snake!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea snake"
+                    },
+                    {
+                        "audio": {
+                            "asset": "22d24a95-ae86-4c68-84e4-ab5f41f145eb"
+                        },
+                        "definition": "Turtle that lives in the sea",
+                        "example": "Hey, look at that sea turtle!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea turtle"
+                    }
+                ],
+                "instructionText": "MRH Vocab Activity 1",
+                "isEnabledActivity": true,
+                "randomize": true
+            },
+            "writingPractice": {
+                "isEnabledActivity": false
+            }
+        },
+        {
+            "_id": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+            "_rev": "30-b0d986751bdc51869d015fb1ebd4dca9",
+            "application": "client.rsm.web",
+            "ariaGrammar": {
+                "isEnabledActivity": false,
+                "video": {}
+            },
+            "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "changeLog": [
+                {
+                    "timestamp": "2016-03-03T01:21:01",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                },
+                {
+                    "timestamp": "2016-03-03T18:16:45",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                }
+            ],
+            "contentType": "activitySet",
+            "creationDate": "2016-03-03T00:19:03+0000",
+            "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "extendedSpeaking": {
+                "isEnabledActivity": false
+            },
+            "extendedWriting": {
+                "isEnabledActivity": false
+            },
+            "grammar": {
+                "isEnabledActivity": false
+            },
+            "intro": {
+                "asset": {
+                    "transcript": ""
+                },
+                "instructionText": "Intro Activity 1",
+                "isEnabledActivity": false
+            },
+            "isContentValid": true,
+            "learningLang": "en-US",
+            "learningObjectives": [
+                "MRH objective 1",
+                "MRh objective 2",
+                "",
+                "",
+                ""
+            ],
+            "lesson": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+            "level": "B1",
+            "listenSpeak": {
+                "isEnabledActivity": false
+            },
+            "listenWrite": {
+                "isEnabledActivity": false
+            },
+            "modificationDate": "2016-03-03T18:16:39+0000",
+            "numActivities": 1,
+            "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+            "private": false,
+            "product": "Product:Aria",
+            "publishDate": "2016-03-03T00:50:56+0000",
+            "publishState": "published",
+            "readAloud": {
+                "companionAudio": {},
+                "isEnabledActivity": false,
+                "speechAlignmentJobIds": []
+            },
+            "readSpeak": {
+                "isEnabledActivity": false
+            },
+            "readWrite": {
+                "isEnabledActivity": false
+            },
+            "resourceType": "content",
+            "speakingPractice": {},
+            "syncProduction": {
+                "isEnabledActivity": false
+            },
+            "test": {
+                "isEnabledActivity": false
+            },
+            "title": "MRH Lesson 1 - V3",
+            "usage": {
+                "isEnabledActivity": false
+            },
+            "validActivities": [
+                "vocab"
+            ],
+            "validationErrors": [],
+            "vocab": {
+                "cards": [
+                    {
+                        "audio": {
+                            "asset": "e5787ee2-89c8-449f-bb22-3316eb39ab4b"
+                        },
+                        "definition": "Fish that looks like a sword",
+                        "example": "Look at that swordfish!",
+                        "partOfSpeech": "Noun",
+                        "text": "Swordfish"
+                    },
+                    {
+                        "audio": {
+                            "asset": "dbf1bd6d-3c37-439a-835c-93444244e8a7"
+                        },
+                        "definition": "Mollusk that has 8 tentancles",
+                        "example": "Hey, look at that octopus!",
+                        "partOfSpeech": "Noun",
+                        "text": "Octopus"
+                    },
+                    {
+                        "audio": {
+                            "asset": "3865a7ef-5e53-4529-8465-c777b79ecc53"
+                        },
+                        "definition": "Snake that lives in the sea.",
+                        "example": "Hey, look at that sea snake!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea snake"
+                    },
+                    {
+                        "audio": {
+                            "asset": "22d24a95-ae86-4c68-84e4-ab5f41f145eb"
+                        },
+                        "definition": "Turtle that lives in the sea",
+                        "example": "Hey, look at that sea turtle!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea turtle"
+                    }
+                ],
+                "instructionText": "MRH Vocab Activity 1",
+                "isEnabledActivity": true,
+                "randomize": true
+            },
+            "writingPractice": {
+                "isEnabledActivity": false
+            }
+        },
+        {
+            "_id": "b32aeb65-bbb8-44b2-be02-27ddff311c12",
+            "_rev": "12-94f22e5e8a45ebda5c4495c520041425",
+            "application": "client.rsm.web",
+            "ariaGrammar": {
+                "isEnabledActivity": false,
+                "video": {}
+            },
+            "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "changeLog": [
+                {
+                    "timestamp": "2016-03-03T01:21:01",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                },
+                {
+                    "timestamp": "2016-03-03T18:16:45",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                },
+                {
+                    "timestamp": "2016-03-03T18:25:45",
+                    "type": "cleanup",
+                    "user": "3f3389ee-5934-4f89-a8dc-9fb7737529b4"
+                }
+            ],
+            "contentType": "activitySet",
+            "creationDate": "2016-03-03T18:23:57+0000",
+            "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+            "extendedSpeaking": {
+                "isEnabledActivity": false
+            },
+            "extendedWriting": {
+                "isEnabledActivity": false
+            },
+            "grammar": {
+                "isEnabledActivity": false
+            },
+            "intro": {
+                "asset": {
+                    "transcript": ""
+                },
+                "instructionText": "Intro Activity 1",
+                "isEnabledActivity": false
+            },
+            "isContentValid": true,
+            "learningLang": "en-US",
+            "learningObjectives": [
+                "MRH objective 1",
+                "MRh objective 2",
+                "",
+                "",
+                ""
+            ],
+            "lesson": "c5fe6484-c72b-467f-bcc0-76f19b9f03b6",
+            "level": "B1",
+            "listenSpeak": {
+                "isEnabledActivity": false
+            },
+            "listenWrite": {
+                "isEnabledActivity": false
+            },
+            "modificationDate": "2016-03-03T23:34:08+0000",
+            "numActivities": 1,
+            "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+            "private": false,
+            "product": "Product:Aria",
+            "publishDate": "2016-03-03T23:34:08+0000",
+            "publishState": "published",
+            "readAloud": {
+                "companionAudio": {},
+                "isEnabledActivity": false,
+                "speechAlignmentJobIds": []
+            },
+            "readSpeak": {
+                "isEnabledActivity": false
+            },
+            "readWrite": {
+                "isEnabledActivity": false
+            },
+            "resourceType": "content",
+            "speakingPractice": {},
+            "syncProduction": {
+                "isEnabledActivity": false
+            },
+            "test": {
+                "isEnabledActivity": false
+            },
+            "title": "MRH Lesson 1 - V3+",
+            "usage": {
+                "isEnabledActivity": false
+            },
+            "validActivities": [
+                "vocab"
+            ],
+            "validationErrors": [],
+            "version": 3,
+            "vocab": {
+                "cards": [
+                    {
+                        "audio": {
+                            "asset": "e5787ee2-89c8-449f-bb22-3316eb39ab4b"
+                        },
+                        "definition": "Fish that looks like a sword",
+                        "example": "Look at that swordfish!",
+                        "partOfSpeech": "Noun",
+                        "text": "Swordfish"
+                    },
+                    {
+                        "audio": {
+                            "asset": "dbf1bd6d-3c37-439a-835c-93444244e8a7"
+                        },
+                        "definition": "Mollusk that has 8 tentancles",
+                        "example": "Hey, look at that octopus!",
+                        "partOfSpeech": "Noun",
+                        "text": "Octopus"
+                    },
+                    {
+                        "audio": {
+                            "asset": "3865a7ef-5e53-4529-8465-c777b79ecc53"
+                        },
+                        "definition": "Snake that lives in the sea.",
+                        "example": "Hey, look at that sea snake!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea snake"
+                    },
+                    {
+                        "audio": {
+                            "asset": "22d24a95-ae86-4c68-84e4-ab5f41f145eb"
+                        },
+                        "definition": "Turtle that lives in the sea",
+                        "example": "Hey, look at that sea turtle!",
+                        "partOfSpeech": "Noun",
+                        "text": "Sea turtle"
+                    }
+                ],
+                "instructionText": "MRH Vocab Activity 1",
+                "isEnabledActivity": true,
+                "randomize": true
+            },
+            "writingPractice": {
+                "isEnabledActivity": false
+            }
+        }
+    ]
+}

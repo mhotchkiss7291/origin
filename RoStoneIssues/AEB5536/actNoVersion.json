@@ -1,0 +1,123 @@
+{
+    "_id": "9a90f7b2-8770-4608-a925-7063236fdce3",
+    "_rev": "40-7cd0d7442af81749d6b917e307373cb9",
+    "application": "client.rsm.web",
+    "ariaGrammar": {
+        "isEnabledActivity": false,
+        "video": {}
+    },
+    "author": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "contentType": "activitySet",
+    "creationDate": "2016-03-04T18:45:44+0000",
+    "curator": "3f3389ee-5934-4f89-a8dc-9fb7737529b4",
+    "extendedSpeaking": {
+        "isEnabledActivity": false
+    },
+    "extendedWriting": {
+        "isEnabledActivity": false
+    },
+    "grammar": {
+        "isEnabledActivity": false
+    },
+    "intro": {
+        "asset": {},
+        "instructionText": "Lesson 2 Instructions",
+        "isEnabledActivity": false
+    },
+    "isContentValid": true,
+    "learningLang": "en-US",
+    "learningObjectives": [
+        "MRH Lesson 2 Objective 1",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "lesson": "9a90f7b2-8770-4608-a925-7063236fdce3",
+    "level": "B1",
+    "listenSpeak": {
+        "isEnabledActivity": false
+    },
+    "listenWrite": {
+        "isEnabledActivity": false
+    },
+    "modificationDate": "2016-03-04T21:22:01+0000",
+    "numActivities": 1,
+    "organization": "be5c6f0a-f8ba-4db7-97b6-8e475937775c",
+    "private": false,
+    "product": "Product:Aria",
+    "publishDate": "2016-03-04T21:22:01+0000",
+    "publishState": "published",
+    "readAloud": {
+        "companionAudio": {},
+        "isEnabledActivity": false,
+        "speechAlignmentJobIds": []
+    },
+    "readSpeak": {
+        "isEnabledActivity": false
+    },
+    "readWrite": {
+        "isEnabledActivity": false
+    },
+    "resourceType": "content",
+    "speakingPractice": {},
+    "syncProduction": {
+        "isEnabledActivity": false
+    },
+    "test": {
+        "isEnabledActivity": false
+    },
+    "title": "MRH Lesson 2 No Version",
+    "usage": {
+        "isEnabledActivity": false
+    },
+    "validActivities": [
+        "vocab"
+    ],
+    "validationErrors": [],
+    "vocab": {
+        "cards": [
+            {
+                "audio": {
+                    "asset": "3ef12339-a58a-49a7-a46a-1d84b3b6bc29"
+                },
+                "definition": "Film Star",
+                "example": "",
+                "partOfSpeech": "",
+                "text": "Buster"
+            },
+            {
+                "audio": {
+                    "asset": "4a32f0a4-6445-4e17-95e1-cdd3fa17dfe5"
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": "Groucho"
+            },
+            {
+                "audio": {
+                    "asset": "ee47bfac-f32b-416a-9170-811bfa2f39e1"
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": "Chico"
+            },
+            {
+                "audio": {
+                    "asset": "2cbb6d23-8b11-484c-b1b3-199161fb3389"
+                },
+                "definition": "",
+                "example": "",
+                "partOfSpeech": "",
+                "text": "Car"
+            }
+        ],
+        "isEnabledActivity": true,
+        "randomize": true
+    },
+    "writingPractice": {
+        "isEnabledActivity": false
+    }
+}
