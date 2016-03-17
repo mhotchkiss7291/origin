@@ -25,15 +25,14 @@ import PythonTokenGenerator
 url = "https://biblio-qa1.dev.rosettastone.com"
 endpoint = "/content/productCourseSummary/Product:Aria/en-US?includeVersion=true"
 
-
 # For auth_token
 user = "mhotchkiss-qa1@rosettastone.com"
 environment = "qa1"
 response = PythonTokenGenerator.get_token(environment, user)
 user_id = response[0]
 auth_token = response[1]
-print('auth_token = ' + auth_token + '\n')
-print('user_id = ' + user_id + '\n')
+# print('auth_token = ' + auth_token + '\n')
+# print('user_id = ' + user_id + '\n')
 
 header_data = {
     'X-Livemocha-Product': 'Product:Aria',
@@ -53,5 +52,16 @@ response = requests.get(url + endpoint, headers=header_data)
 
 # Process and format the response
 results = json.loads(response.text)
-pretty = json.dumps(results, indent=2)
-print(pretty)
+courses = results.get("courses")
+
+for course in courses:
+
+    activity_sets = course.get("activitySets")
+
+    for activity_set in activity_sets:
+
+        version = activity_set.get("version")
+
+        if version != None:
+            pretty = json.dumps(version, indent=2)
+            print(pretty)
