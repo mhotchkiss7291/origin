@@ -1,3 +1,0 @@
-<%! import os %>
-
-This is from ./mako_data/mytemplate.txt
