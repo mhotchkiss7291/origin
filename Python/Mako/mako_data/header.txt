@@ -1,0 +1,2 @@
+This is the content of header.txt
+And a second line from the file
