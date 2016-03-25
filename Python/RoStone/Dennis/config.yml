@@ -1,0 +1,19 @@
+<%! import os %>
+
+default_test_environment: qa1
+couchdb_siren_database: catalog
+couchdb_scholar_database: scholar
+couchdb_tutoring_sessions_database: tutoring-sessions
+
+qa1:
+  biblio_base_url: https://biblio-qa1.dev.rosettastone.com
+  prism_base_url: https://prism-qa1.dev.rosettastone.com/reports
+  tully_base_url: https://tully-qa1.dev.rosettastone.com
+  lps_base_url: https://launchpad-service-qa1.dev.rosettastone.com/api
+  couchdb_host: livemocha-qa.cloudant.com
+  couchdb_username: livemocha-qa
+  couchdb_password: ${ os.getenv('QA1_COUCHDB_PASSWORD') }
+  mysqldb_ego_hosts: ['qa5percona56.lan.flt']
+  mysqldb_ego_username: qa
+  mysqldb_ego_password: ${ os.getenv('QA1_EGO_DB_PASSWORD') }
+  mysqldb_ego_database: identity_qa1
