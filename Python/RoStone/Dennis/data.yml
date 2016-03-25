@@ -1,9 +1,7 @@
-# services user -- available on the Dev and QA environments that is solely used for Titan service to service calls!
 rs_services:
   username: services@rosettastone.com
   password: password
 
-# Siren data (Dev, QA1 - QA4, Prod) -- please only use this real data as read-only for GET requests!
 products:
   aeb: product.20bb0ddd-4406-4fb0-b460-89037d626509
   foundations: product.d353e204-5952-4175-be5e-0a5630bfab6c
@@ -11,46 +9,6 @@ products:
   ses: product.e6e353e1-7e31-4f36-a995-8bd4facddaf5
   seu: product.82692f39-a40e-4051-a6dc-e0cbf027c80b
   sfh: product.3bbeb6f9-44c5-48b3-9ac8-58295cff27ff
-
-# Ego, Scholar and Siren test data (Dev, QA1 - QA4)
-
-# prism-test-org0 test data -- this test data is for supporting user authorization, etc... related testing so please do not modify!
-# NOTE: this organization should never have any learner progress data as it is used for testing such scenarios!
-org0:
-  id: 9efbfdbb-6242-40eb-a2f0-4887b75a59d7
-  name: Prism Test Org0
-  namespace: prism-test-org0
-  content_doc: 9efbfdbb-6242-40eb-a2f0-4887b75a59d7/content
-
-super_organization_admin:
-  id: 818cab5a-9bc0-41a7-887f-32ae8d65e865
-  username: super_organization_admin@org0.prism.test
-  password: password
-  license_id: license.8b23f46e-67f6-47e6-883e-21738ff174f7
-
-order_manager:
-  id: 1d28ce68-2599-4ec8-9859-74216a0e6e91
-  username: order_manager@org0.prism.test
-  password: password
-  license_id: license.ad766fd1-57b7-42d0-a5bb-bd79b2d07ef7
-
-client_services_manager:
-  id: bf214b30-5d6f-4176-8462-1d3255b7f65b
-  username: client_services_manager@org0.prism.test
-  password: password
-  license_id: license.f6391434-4da8-4ec8-bbb4-4b337637ee4d
-
-organization_admin:
-  id: 7a6d9b44-720b-440c-9639-ce21548b20c4
-  username: organization_admin@org0.prism.test
-  password: password
-  license_id: license.a97f5338-b877-4744-ba78-290d5d904855
-
-group_reporting_admin:
-  id: bbea8d20-44b3-47f4-9d87-febe1b436384
-  username: group_reporting_admin@org0.prism.test
-  password: password
-  license_id: license.7a1bf362-80b5-4215-91f9-943b3ae6436e
 
 aeb_learner:
   id: 0efd69f1-0c93-40c7-b587-331fb8fc30e7
