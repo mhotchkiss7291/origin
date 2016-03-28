@@ -1,0 +1,13 @@
+git clone https://mhotchkiss@bitbucket.org/livemocha/prism.git
+git checkout feature/LFBT-401
+git merge origin/master
+
+If "Already up-to-date." the latest master changes are in the LFBT-401 branch
+and no need to push. Go to build/deploy
+
+If differences:
+
+git push feature/LFBT-401
+
+Build LFBT-401 branch
+Deploy LFBT-401 to QA environment 
