@@ -1,1 +1,0 @@
-/Users/mhotchkiss/.pyenv/versions/2.7.10/lib/python2.7/codecs.py
