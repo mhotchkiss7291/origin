@@ -1,0 +1,39 @@
+
+# List docker images on local machine
+docker images
+
+# Remove docker images
+docker image rm <imageid>
+
+# Show docker processes running
+docker ps
+
+# Clear docker build cache and dangling objects
+docker builder prune
+
+# Build docker file in the hello-world dir
+# but remove the containers before,
+# and tag it named as hello-world as the latest version
+# name the image "hello-world"
+docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world"
+
+# Run the container with the image name hello-world,
+# automatically remove the container when it exits,
+# interactive mode
+# and for a web app expose the tcp port in the container
+# to port 8080 mapped to port 8080 in the container
+docker run --rm -it -p 8080:8080/tcp hello-world:latest
+
+# Enter the shell of the container
+docker exec -it <container id> /bin/csh -c
+
+# Makes mutliple containers run together and communicate
+# detached from the local terminal (background)
+docker-compose up -d
+
+# Tweak some files inside the container
+# set the shell type
+docker exec -it <container id> /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh
+
+# Remove images
+docker rmi <image_id>
