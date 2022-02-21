@@ -1,0 +1,366 @@
+
+
+Explain what the Linux kernel is in simple words.
+	Interface between software applications and hardware, processor
+
+Can you edit the Linux kernel?
+	Yes, but it's not easy or recommended unless you really need it.
+
+What are the advantages of Linux being open-source software?
+	Community can contribute and find bugs. Non-proprietary
+
+What is a shell in Linux?
+	Command interface to kernel functionality
+
+What loader does Linux use?
+	GRUB, past LILO
+
+How do you rename a saved file in Linux?
+	mv - Move command
+
+How is Solaris software related to Linux?
+	Solaris Sun's proprietary version, contributed to Linux
+
+What are internal commands?
+	ls, cat, ps, grep, pipe, etc.
+
+What are the most commonly used shells in Linux?
+	Bourne shell - sh, 
+	Bourne Again shell - bash, 
+	Z shell - zsh
+
+What are system calls?
+	open, read, write, close, fork, exit, exec, sleep
+
+Explain what the bash shell is.
+	Bourne Again Shell, bash, uses .cshrc file for variables, alias
+
+How can you work with Microsoft files on your Linux OS?
+	dos2unix for file conversion ^H 
+
+How do you connect Linux systems to Microsoft resources?
+	Use components like SAMBA , but other. 
+	dos2unix to convert text files
+	cygwin - on Dos
+
+How are system configuration files stored in Linux OS?
+	/etc 
+	/etc/sysconfig
+
+Explain virtual desktops.
+	Remote Desktops - VNC, NoMachine
+	UI for accessing filesystem, commands, applications
+	CDE, KDE, Gnome, Unity, Mint
+
+Name the file permissions available in Linux.
+	read, write, execute for user, group, owner
+	chmod 777 - wide open
+	chmod 644 - read/write for owner, read for users, groups
+	special third digit - User must have execute rights for setuid to work
+
+Define CLI.
+	Command Line Interface
+
+What is a process ID?
+	For every task there is process ID that can be monitored using "top"
+	or if you know the name of the application by its process name you can 
+	use "ps -ef | grep myname", get the process ID then to kill, "kill -9 PID"
+	
+
+How can a user execute a process at a pre-decided time?
+	There is the "at" command but I have never used it
+	Use of the "cron" utility for periodic tasks I know better
+
+What are the unique file names assigned by Linux OS called?
+	file descriptor - unique ID
+
+Discuss zombie processes.
+	processes that have completed but have not released or killed themselves.
+	maybe called orphans?
+
+Mention some common usages of Linux in the industry.
+	C++ like applications runing native 64bit UNIX applications
+	Application servers, like Jetty, NGinx, 
+	Databases like Oracle, MySQL, Postgres, MSQL
+
+How would you find out the total memory used by processes in Linux?
+	top command
+	top -o MEM  (for memory)
+
+What are the different types of Linux directory commands and why are they important?
+	pwd, ls, mkdir, cd, rm -r, file, find, 
+
+Explain the concept of a shell script in Linux.
+	As set of commands that can be executed with logic and arguments
+	that runs on the system commands you might perform on the CLI
+
+Which system calls are available for process management in Linux?
+	fork, exec, exit, wait
+	sleep, kill, 
+
+Explain what makes Linux a secure operating system.
+	The concept of a superuser and strict file permissions for execution only 
+	by permitted users. Opensource management.
+
+What do you know about grep commands in Linux? Please explain.
+	grep is one of my most useful tools.
+	Find a text string inside of a file in the entire filesystem below you:
+	find . -type f | xargs grep -i "mystring"
+
+Please elaborate on the effect of multiple desktop environments on a Linux system.
+	It may not be a problem for some chosen desktops, but some conflicts 
+	can happen with file conventions when two different desktops access
+	the same filesystem one after the other. Best to stick with one or what 
+	does not cause problems.
+
+What is the standard size for a swap partition while using a Linux system?
+	Double the size of RAM installed? 64KB RAM -> 128KB SS
+
+
+
+Network
+
+Internal network: 192.168.1.1
+
+
+ifconfig -  ifconfig – configure network interface parameters 
+
+	mhotchkiss@Clark ~ % ifconfig
+	lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+		options=1203<RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP>
+		inet 127.0.0.1 netmask 0xff000000
+		inet6 ::1 prefixlen 128
+		inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1
+		nd6 options=201<PERFORMNUD,DAD>
+	gif0: flags=8010<POINTOPOINT,MULTICAST> mtu 1280
+	stf0: flags=0<> mtu 1280
+	anpi0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+		options=400<CHANNEL_IO>
+		ether 1e:95:e8:86:55:64
+		inet6 fe80::1c95:e8ff:fe86:5564%anpi0 prefixlen 64 scopeid 0x4
+		nd6 options=201<PERFORMNUD,DAD>
+		media: none
+		status: inactive
+
+	ifconfig eth0 netmask 255.255.255.224
+
+Subnet mask
+
+	Example: host 192.168.1.1, subnet mask 255.255.255.254  (no additional networks allowed)
+
+	For 3 subnets: default gateway host 192.168.1.0, subnet mask 255.255.255.192 
+
+Subnet mask		Number of subnets 		Number of hosts
+
+255.255.255.0		1				254
+255.255.255.128		2				126
+255.255.255.192		4				62
+255.255.255.224		8				30
+255.255.255.240		16				14
+255.255.255.248		32				6
+255.255.255.252		64				2
+255.255.255.254		128				0
+
+Class			First Octet Address		Default subnet mask
+
+A			1-126				255.0.0.0 		Internet provider 16M hosts
+B			128-191				255.255.0.0		Large to medium 65K  hosts
+C			192-223				255.255.255.0		Small 254 hosts
+
+CIDR or slash notation of a IP address:
+
+	192.168.1.0/8 = 255.0.0.0         - Class A 
+	192.168.1.0/24 = 255.255.255.0    - Class C   
+	192.168.1.0/25 = 255.255.255.128   
+	192.168.1.0/26 = 255.255.255.192   
+
+Find your IP address:
+
+ifconfig (old way see above)
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.2  netmask 255.255.0.0  broadcast 172.17.255.255 ---- IP address 172.17.0.2 for eth0
+        ether 02:42:ac:11:00:02  txqueuelen 0  (Ethernet)
+        RX packets 9  bytes 806 (806.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+Command: ip addr
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd ::
+68: eth0@if69: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft foreverk
+
+Default Gateway:
+
+route -n
+
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
+
+                  ^ Default gateway is 172.17.0.1
+
+
+Find what your DNS server is:
+
+cat /etc/resolv.conf
+
+# DNS requests are forwarded to the host. DHCP DNS options are ignored.
+nameserver 192.168.65.5
+
+New command: 
+	systemd-resolve --status 
+
+
+Release DHCP server and get a new lease:
+
+	# Release
+	sudo dhclient -v -r
+
+	# Get a new lease
+	sudo dhclient -v 
+
+Set a static IP address:
+
+	Many different ways that need to be studied.
+
+	
+Installing and partitioning a hard drive:
+
+	# What kind of disk to you have?
+	sudo fdisk -l
+
+Disk /dev/sda: 80.0 GB, 80026361856 bytes
+255 heads, 63 sectors/track, 9729 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Disk identifier: 0xf6edf6ed
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda5   *        1960        2661     5638752   83  Linux
+/dev/sda6            2662        2904     1951866   83  Linux
+/dev/sda7            2905        3147     1951866   83  Linux
+/dev/sda8            3148        3264      939771   82  Linux swap / Solaris
+/dev/sda9            3265        5283    16217586    b  W95 FAT32
+
+To view all partitions of the /dev/sda hard disk, do the following.
+
+	fdisk -l /dev/sda
+
+Partition table scan:
+	MBR:
+	BSD: not present
+...
+
+	Found valid GPT with protective MBR; using GPT.
+
+	Command (? for help): d
+	Partition number (1-2): 1
+
+Use w to delete partitions....
+
+	Command (? for help): w
+
+	Final checks complete......Overwrite...PARTITIONS!!
+	Do you want to proceed? (Y/N): Y
+
+Ready to be partitioned.
+
+	fdisk -l
+
+	Disk identifier: XXXXXXX-XXXXX-XXXX
+
+Create a GUID Partition Table (GPT)
+
+	sudo gdisk /dev/sda
+
+	? n    - New partition
+	? 1    - Partiton number
+	Continue if you want more partitions
+	? w
+
+	Do you want to proceed? Y
+
+	fdisk -l
+
+	You should see: Disklabel type: gpt
+
+	Device	Start	End	Sectors	Size	Type
+	/dev/sda1 2048	xxxxx   xxxxx           Linux filesystem
+
+Create new filesystem:
+
+	sudo mkfs.ext4 /dev/sda1   <--------- the partition just created
+
+Prepare to mount the drive:
+
+/etc/fstab lists all of the available disks, partitons, options on separate line.
+
+	# device mounting_directory filesystem_type options dump fsck
+	/dev/hdc /cdrom iso9660 rw,noauto,user 0 0
+
+Get the UUID of the disk drive installed:
+
+	sudo blkid     
+
+	Find: UUID=ba15c3ca-06e2-4591-ba49-2230dc3ba3fa
+
+Paste it into the /etc/fstab file
+
+	UUID=ba15c3ca-06e2-4591-ba49-2230dc3ba3fa /mnt/my_mount_pt ext4 defaults 0 0 
+
+Filesystem type: ext4, 0 0 (for whether you want to check on startup)
+
+Create folders for the mount points:
+
+	cd /mnt
+	mkdir my_mount_pt
+
+Actually mount the drives listed in the /etc/fstab file
+
+	mount -a
+
+List the disk drives and free space:
+
+	df -h     - Human readable format
+
+To make each of the individual partition be seen as a single file system install:
+
+	apt-get mhddfs 
+
+Edit the /etc/fstab and append this line to "unify" the partitions
+
+	mhddfs#/mnt/my_mount_pt,/mnt/my_mount_pt2 /mnt/my_system fuse allow_other,nonempty 0 0
+
+
+
+
+
+
+	
+
+
+
+
+
+
