@@ -117,7 +117,23 @@ What is the standard size for a swap partition while using a Linux system?
 	Double the size of RAM installed? 64KB RAM -> 128KB SS
 
 
+Find the Linux Distribution type and release data:
 
+	uname -a
+
+	Linux 8d1996190b0c 5.10.47-linuxkit #1 SMP PREEMPT Sat Jul 3 21:50:16 UTC 2021 
+		aarch64 aarch64 aarch64 GNU/Linux
+
+Files for passwords:
+
+	/etc/passwd 
+	/etc/shadow
+	/etc/nsswitch.conf
+
+Change password, edit in plain text in /etc/passwd then run "pwconv" to encrypt.?
+
+
+	
 Network
 
 Internal network: 192.168.1.1
@@ -348,13 +364,100 @@ To make each of the individual partition be seen as a single file system install
 
 	apt-get mhddfs 
 
-Edit the /etc/fstab and append this line to "unify" the partitions
+Edit the /etc/fstab and append this line to "fuse" the partitions
 
 	mhddfs#/mnt/my_mount_pt,/mnt/my_mount_pt2 /mnt/my_system fuse allow_other,nonempty 0 0
 
+Create the directory for mounting:
+
+	cd /mnt
+	mkdir my_system
+
+Repeat mount using /etc/fstab to fuse the drives:
+
+	mount -a
+
+Check the final configuration again:
+
+	df -h
+
+	root@8d1996190b0c:/home/develop# df -h
+	Filesystem      Size  Used Avail Use% Mounted on
+	overlay          59G   15G   42G  26% /
+	tmpfs            64M     0   64M   0% /dev
+	tmpfs           995M     0  995M   0% /sys/fs/cgroup
+	shm              64M     0   64M   0% /dev/shm
+	/dev/vda1        59G   15G   42G  26% /etc/hosts
+	tmpfs           995M     0  995M   0% /sys/firmware
 
 
+LDAP Client Configuration: 
 
+Check that the /etc/hostname contains the fully qualified domain name:
+
+	cat /etc/hostname
+	ldapclient.mrh.info
+
+Install LDAP package:
+
+	apt-get -y install libnss-ldapd   -- package for ldap client 
+
+Look at initial configuration:
+
+	vi /etc/nslcd.conf
+
+-----
+	# /etc/nslcd.conf
+	# nslcd configuration file. See nslcd.conf(5)
+	# for details.
+
+	# The user and group nslcd should run as.
+	uid nslcd
+	gid nslcd
+
+	# The location at which the LDAP server(s) should be reachable.
+	#uri ldap://127.0.0.1/
+
+	# The search base that will be used for all queries.
+	base dc=mrh,dc=info
+	#base dc=example,dc=net
+
+	# The LDAP protocol version to use.
+	#ldap_version 3
+
+	# The DN to bind with for normal lookups.
+	#binddn cn=annonymous,dc=example,dc=net
+	#bindpw secret
+
+	# The DN used for password modifications by root.
+	#rootpwmoddn cn=admin,dc=example,dc=com
+
+	# SSL options
+	#ssl off
+	#tls_reqcert never
+	tls_cacertfile /etc/ssl/certs/ca-certificates.crt
+
+	# The search scope.
+	#scope sub
+------
+
+	System user and group IDs that run the service "nslcd" identifier.
+
+	Reachable server URI
+	uri ldap://ldapserver.mrh.info/
+
+	# The search base that will be used for all queries.
+	base dc=mrh,dc=info
+
+Look at current DNS server lookup:
+
+	nslookup <hostname>
+
+	# nslookup e43e9c8e0459
+	Server:		192.168.65.5
+	Address:	192.168.65.5#53
+
+	** server can't find e43e9c8e0459: NXDOMAIN
 
 
 	

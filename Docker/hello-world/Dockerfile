@@ -17,8 +17,11 @@ RUN apt-get update && \
     apt-get -y install iproute2 && \
     apt-get -y install openvpn-systemd-resolved && \
     apt-get -y install isc-dhcp-client && \
+    apt-get -y install dnsutils && \
 #    apt-get -y install gcc && \
 #    apt-get -y install python3.8 && \
+#    apt-get -y install openjdk-11-jdk && \
+    apt-get -y install  libnss-ldapd && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/develop
