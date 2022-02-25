@@ -3,7 +3,12 @@
 docker images
 
 # Remove docker images
-docker image rm <imageid>
+docker rmi -f <imageid>
+
+# To additionally remove any stopped containers and 
+all unused images (not just dangling images), add the -a flag to the command:
+
+docker system prune -a
 
 # Show docker processes running
 docker ps

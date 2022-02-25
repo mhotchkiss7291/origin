@@ -132,6 +132,26 @@ Files for passwords:
 
 Change password, edit in plain text in /etc/passwd then run "pwconv" to encrypt.?
 
+Linux Services:
+
+	cd /etc/init.d
+	ls
+	atd  cron  dbus  hwclock.sh  nscd  nslcd  openvpn  procps
+
+Start and stop the cron daemon:
+
+	# /etc/init.d/cron start
+	 * Starting periodic command scheduler cron
+	# ps -aux | grep cron
+	root        27  0.0  0.0   3620  2036 ?        Ss   00:50   0:00 /usr/sbin/cron
+	# /etc/init.d/cron stop
+	 * Stopping periodic command scheduler cron
+
+Schedule a cron job:
+
+	cd /etc/varspool/crontabs
+	
+....... continue
 
 	
 Network
