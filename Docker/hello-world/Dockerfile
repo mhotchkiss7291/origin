@@ -18,12 +18,19 @@ RUN apt-get update && \
     apt-get -y install openvpn-systemd-resolved && \
     apt-get -y install isc-dhcp-client && \
     apt-get -y install dnsutils && \
+<<<<<<< HEAD
     apt-get -y install cron && \
     apt-get -y install at && \
 #    apt-get -y install gcc && \
 #    apt-get -y install python3.8 && \
 #    apt-get -y install openjdk-11-jdk && \
     apt-get -y install  libnss-ldapd && \
+=======
+    apt-get -y install gcc && \
+    apt-get -y install python3.8 && \
+    apt-get -y install openjdk-11-jdk && \
+    apt-get -y install libnss-ldapd && \
+>>>>>>> 780b111a52a26ead2c15ab5e1720bb61db0435dd
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/develop
