@@ -1,0 +1,5 @@
+
+# displays a reminder in the user's console window at 4 p.m. 
+# on the first and fifteenth of every month.
+
+#0 16 1,15 * * echo Timesheets Due > /dev/console
