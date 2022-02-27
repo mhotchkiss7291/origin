@@ -21,6 +21,8 @@ RUN apt-get update && \
     apt-get -y install cron && \
     apt-get -y install at && \
     apt-get -y install  libnss-ldapd && \
+    apt-get -y install  ldap-utils && \
+    apt-get -y install  slapd && \
 #    apt-get -y install gcc && \
 #    apt-get -y install python3.8 && \
 #    apt-get -y install openjdk-11-jdk && \

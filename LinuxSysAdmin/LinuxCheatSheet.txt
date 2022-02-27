@@ -519,7 +519,53 @@ Check the final configuration again:
 	tmpfs           995M     0  995M   0% /sys/firmware
 
 
-LDAP Client Configuration: 
+LDAP Client Configuration  - Lightweight Directory Access Protocol:
+
+Active Directory is hosted by the server. LDAP is the protocol used between
+the client and the server.
+
+			ROOT 
+			|
+		dc=example, dc=com    <-- Domain Component
+			|
+		--------------------
+		ou=user		ou=group  <-- Organization Unit
+		  |
+		cn=John   <- Common Name
+
+
+Model an organization:
+
+	Org (root) Acme
+		Developer - ou
+			Backend  - ou
+				person/attribute
+					sn=John   <- surname
+					Boulder	
+					3031234
+					----
+					cn=John Zip, ou=Backend, ou=Developer, o=Acme
+		Business - ou
+		Finance - ou
+			Accounts - ou
+  
+groupsOfUniqueName            uniqueMember = cn=John,ou=Backend,o=Acme
+
+	o	organization name
+	ou	organization unit
+	cn	common name
+	sn	surname
+	dn	distiguished name
+	User	inetOrgPerson		Object
+	User	groupsOfUniqueName	Object
+
+With ldif file, run to have it read and applied:
+
+	ldapadd -W -D en=admin,dc=tup,dc=com -f users.ldif
+
+View settings:
+
+	ldapsearch -x -LLL -H ldap:/// -v dc=tup,dc=com
 
 Check that the /etc/hostname contains the fully qualified domain name:
 
@@ -655,6 +701,8 @@ Restart the LDAP service:
 	nscd: 96 monitoring directory `/etc` (2)
 	nscd: 96 monitoring file `/etc/services` (6)
 	nscd: 96 monitoring directory `/etc` (2)
+
+.......Not complete.......
 
 
 
