@@ -338,8 +338,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
-Command: ip addr
+Other way Command: ip addr
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -356,12 +355,12 @@ Command: ip addr
 
 Default Gateway:
 
-route -n
+	route -n
 
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
-172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+	0.0.0.0         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
+	172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
 
                   ^ Default gateway is 172.17.0.1
 
@@ -377,6 +376,7 @@ New command:
 	systemd-resolve --status 
 
 
+# dhcp
 Release DHCP server and get a new lease:
 
 	# Release
@@ -395,23 +395,24 @@ Installing and partitioning a hard drive:
 	# What kind of disk to you have?
 	sudo fdisk -l
 
-Disk /dev/sda: 80.0 GB, 80026361856 bytes
-255 heads, 63 sectors/track, 9729 cylinders
-Units = cylinders of 16065 * 512 = 8225280 bytes
-Disk identifier: 0xf6edf6ed
+	Disk /dev/sda: 80.0 GB, 80026361856 bytes
+	255 heads, 63 sectors/track, 9729 cylinders
+	Units = cylinders of 16065 * 512 = 8225280 bytes
+	Disk identifier: 0xf6edf6ed
 
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sda5   *        1960        2661     5638752   83  Linux
-/dev/sda6            2662        2904     1951866   83  Linux
-/dev/sda7            2905        3147     1951866   83  Linux
-/dev/sda8            3148        3264      939771   82  Linux swap / Solaris
-/dev/sda9            3265        5283    16217586    b  W95 FAT32
+	   Device Boot      Start         End      Blocks   Id  System
+	/dev/sda5   *        1960        2661     5638752   83  Linux
+	/dev/sda6            2662        2904     1951866   83  Linux
+	/dev/sda7            2905        3147     1951866   83  Linux
+	/dev/sda8            3148        3264      939771   82  Linux swap / Solaris
+	/dev/sda9            3265        5283    16217586    b  W95 FAT32
 
 To view all partitions of the /dev/sda hard disk, do the following.
 
 	fdisk -l /dev/sda
 
 Partition table scan:
+
 	MBR:
 	BSD: not present
 ...
@@ -559,79 +560,10 @@ groupsOfUniqueName            uniqueMember = cn=John,ou=Backend,o=Acme
 	User	inetOrgPerson		Object
 	User	groupsOfUniqueName	Object
 
-With ldif file, run to have it read and applied:
-
-	ldapadd -W -D en=admin,dc=tup,dc=com -f users.ldif
-
-View settings:
-
-	ldapsearch -x -LLL -H ldap:/// -v dc=tup,dc=com
-
 Check that the /etc/hostname contains the fully qualified domain name:
 
 	cat /etc/hostname
 	ldapclient.mrh.info
-
-Install LDAP package:
-
-	apt-get -y install libnss-ldapd   -- package for ldap client 
-
-Look at initial configuration:
-
-	vi /etc/nslcd.conf
-
------
-	# /etc/nslcd.conf
-	# nslcd configuration file. See nslcd.conf(5)
-	# for details.
-
-	# The user and group nslcd should run as.
-	uid nslcd
-	gid nslcd
-
-	# The location at which the LDAP server(s) should be reachable.
-	#uri ldap://127.0.0.1/
-
-	# The search base that will be used for all queries.
-	base dc=mrh,dc=info
-	#base dc=example,dc=net
-
-	# The LDAP protocol version to use.
-	#ldap_version 3
-
-	# The DN to bind with for normal lookups.
-	#binddn cn=annonymous,dc=example,dc=net
-	#bindpw secret
-
-	# The DN used for password modifications by root.
-	#rootpwmoddn cn=admin,dc=example,dc=com
-
-	# SSL options
-	#ssl off
-	#tls_reqcert never
-	tls_cacertfile /etc/ssl/certs/ca-certificates.crt
-
-	# The search scope.
-	#scope sub
-------
-Replace with essentials:
-------
-
-Service running is named "nslcd"
-
-	uid nslcd
-	gid nslcd
-	uri ldap://127.0.0.1/
-	base dc=mrh,dc=info
-	tls_cacertfile /etc/ssl/certs/ca-certificates.crt
-
-	System user and group IDs that run the service "nslcd" identifier.
-
-	Reachable server URI
-	uri ldap://ldapserver.mrh.info/
-
-	# The search base that will be used for all queries.
-	base dc=mrh,dc=info
 
 Look at current DNS server lookup:
 
@@ -643,70 +575,137 @@ Look at current DNS server lookup:
 
 	** server can't find e43e9c8e0459: NXDOMAIN
 
-Change DNS lookup
+LDAP install and config:
 
-	uri ldap://192.168.65.5/
+Default LDAP service runs on port by default: 389
 
-Complete file:
+	Install slapd, ldap-utils
+	slapd - Daemon
+	ldap-utils:
+		ldapadd
+		ldapdelete
+		ldapmodify
+		ldapsearch
+		ldappasswd
+		etc.
 
-	uid nslcd
-	gid nslcd
-	uri ldap://192.168.65.5/
-	base dc=mrh,dc=info
-	tls_cacertfile /etc/ssl/certs/ca-certificates.crt
+	Administrator password:
+	installed
 
-Tell Pluggable Auth Module(PAM) to use the LDAP module to create the login.
-Request redirects to the LDAP server.
+Reset LDAP System admin password:
 
-	# pam-auth-update
+	# cd /etc/ldap/slapd.d/
+	# find . -type f | xargs grep olcRootPW
+	./cn=config/olcDatabase={1}mdb.ldif:olcRootPW:: e1NTSEF9TzNXb0I0WWpPd2ZyV3JLUjc3T29ZdVRGNUpINDE0eVY=
 
-	# pam-auth-update
-	debconf: unable to initialize frontend: Dialog
-	debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
-	debconf: falling back to frontend: Readline
-	PAM configuration
-	-----------------
+Take SHA string and inject into:
 
-	Pluggable Authentication Modules (PAM) determine how authentication, authorization, and password changing are
-	handled on the system, as well as allowing configuration of additional actions to take when starting user
-	sessions.
+	slappasswd -h {SSHA} -s newPassWord
 
-	Some PAM module packages provide profiles that can be used to automatically adjust the behavior of all
-	PAM-using applications on the system.  Please indicate which of these behaviors you wish to enable.
+	Password generation failed for scheme {SSHA}  : scheme not recognized
 
-	  1. Unix authentication  3. Create home directory on login       5. none of the above
-	  2. LDAP Authentication  4. Inheritable Capabilities Management
+Configure slapd:
 
-	(Enter the items you want to select, separated by spaces.)
+	dpkg-reconfigure slapd
+	Omit OpenLDAP server configuration? No
+	DNS domain name: example.com
+	Organization namd: example
+	Admin password:
+	Database backend to use: BDB, HDB, MDB,   -> MDB
+	Do you want the database to be removed when slapd is purges? No
 
-	PAM profiles to enable:
+	Still files in /var/lib/ldap...
+	Move old database? Yes
 
-Choose all four:
+Examine config:
 
-	PAM profiles to enable: 1 2 3 4 
+	# cd /etc/ldap/slapd.d/
+	# tree .
+	.
+	|-- cn=config
+	|   |-- cn=module{0}.ldif
+	|   |-- cn=schema
+	|   |   |-- cn={0}core.ldif
+	|   |   |-- cn={1}cosine.ldif
+	|   |   |-- cn={2}nis.ldif
+	|   |   `-- cn={3}inetorgperson.ldif
+	|   |-- cn=schema.ldif
+	|   |-- olcDatabase={-1}frontend.ldif
+	|   |-- olcDatabase={0}config.ldif
+	|   `-- olcDatabase={1}mdb.ldif
+	`-- cn=config.ldif
 
-Restart the LDAP service:
+Create new file add_entries.ldif for new entries:
 
-	# service nslcd restart
-	 * Restarting LDAP connection daemon nslcd                          [ OK ]
+	dn: ou=Employee,dc=example,dc=com
+	objectClass: organizationalUnit
+	ou: Employee
 
-	# service nscd restart
-	 * Restarting Name Service Cache Daemon nscd                                                                  nscd: 96 monitoring file `/etc/passwd` (1)
-	nscd: 96 monitoring directory `/etc` (2)
-	nscd: 96 monitoring file `/etc/group` (3)
-	nscd: 96 monitoring directory `/etc` (2)
-	nscd: 96 monitoring file `/etc/hosts` (4)
-	nscd: 96 monitoring directory `/etc` (2)
-	nscd: 96 monitoring file `/etc/resolv.conf` (5)
-	nscd: 96 monitoring directory `/etc` (2)
-	nscd: 96 monitoring file `/etc/services` (6)
-	nscd: 96 monitoring directory `/etc` (2)
+	dn: ou=Groups,dc=example,dc=com
+	objectClass: organizationalUnit
+	ou: Groups
 
-.......Not complete.......
+	dn: cn=developers,ou=Groups,dc=example,dc=com
+	objectClass: posixGroup
+	cn: developers
+	gidNumber: 5000
+		
+	dn: uid=freddy,ou=Employee,dc=example,dc=com
+	objectClass: inetOrgPerson
+	objectClass: posixAccount
+	objectClass: shadowAccount
+	uid: freddy
+	sn: smith
+	givenName: Freddy
+	cn: Freddy Smith
+	displayName: Freddy Smith
+	uidNumber: 10000
+(matches Group ID above which makes Freddy part of developers Group)
+	gidNumber: 5000       
+	userPassword: swordfish
+	loginShell: /bin/bash
+	homeDirectory: /home/freddy/
+
+Submit the entries:
+
+	ldapadd -x -D cn=admin,dc=example,dc=net -W -f add_entries.ldif
+	Enter LDAP Password: xxxxxxxxxxx
+
+	adding new entry "ou=Employee,dc=example,dc=com"
+	adding new entry "ou=Groups,dc=example,dc=com"
+	adding new entry "cn=developers,ou=Groups,dc=example,dc=com"
+	adding new entry "uid=freddy,ou=Employee,dc=example,dc=com"
+
+Look for your submitted entry:
+
+	ldapsearch -x -LLL -b dc=example,dc-com "uid=freddy" cn sn givenName
+
+	cn: Freddy Smith
+	sn: smith
+	givenName: Freddy
+
+Find all entries:
+
+	ldapsearch -x -LLL -b dc=example,dc-com 
+
+Modify and entry with a file called modify_content.ldif:
+
+	dn: uid=freddy,ou=Employee,dc=example,dc=com
+	changetype: modify
+	replace: givenName
+	givenName: Freddier
+	-
+	replace: sn
+	sn: tom
+
+	ldapadd -x -D cn=admin,dc=example,dc=net -W -f modify_content.ldif
+	Enter LDAP Password: xxxxxxxxxxx
+
+	modifying entry "uid=freddy,ou=Employee,dc=example,dc=com"
 
 
 
-	
+
 
 
 

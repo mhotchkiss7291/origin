@@ -1,4 +1,11 @@
 
+docker system prune -a
+
+docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world"
+
+docker run --rm -it -p 8080:8080/tcp hello-world:latest
+
+--------
 # List docker images on local machine
 docker images
 

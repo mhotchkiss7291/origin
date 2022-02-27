@@ -13,6 +13,7 @@ RUN apt-get update && \
     apt-get -y install build-essential && \
     apt-get -y install passwd && \
     apt-get -y install vim && \
+    apt-get -y install tree && \
     apt-get -y install net-tools && \
     apt-get -y install iproute2 && \
     apt-get -y install openvpn-systemd-resolved && \
@@ -20,7 +21,6 @@ RUN apt-get update && \
     apt-get -y install dnsutils && \
     apt-get -y install cron && \
     apt-get -y install at && \
-    apt-get -y install  libnss-ldapd && \
     apt-get -y install  ldap-utils && \
     apt-get -y install  slapd && \
 #    apt-get -y install gcc && \
