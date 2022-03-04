@@ -2,6 +2,34 @@
 
 Network
 
+Hardware interfaces to network:
+
+	vi /etc/network/interfaces
+
+	--------
+	auto lo
+	iface lo inet loopback
+
+	auto eth0
+	iface eth0 inet dhcp
+
+Set for DHCP...
+
+Set up a static IP:
+
+	auto eth0
+	iface eth0 inet dhcp
+	address 10.1.10/54
+	netmask 255.255.255.0
+	network 10.1.10.0
+	broadcast 10.1.10.255
+	gateway 10.1.10.1
+
+Check /etc/resolv.conf for DNS.
+
+
+Examples....
+
 Internal network: 192.168.1.0
 Internal network host: 192.168.1.2
 
@@ -115,6 +143,17 @@ New command:
 	systemd-resolve --status 
 
 
+Restart the network:
+
+	/etc/init.d/networking -restart (--restart?)
+
+Look at hardware network interfaces:
+
+	vi /etc/network/interfaces 
+
+	auto eth0   (what speed, don't change)
+m
+
 # dhcp
 Release DHCP server and get a new lease:
 
@@ -124,7 +163,9 @@ Release DHCP server and get a new lease:
 	# Get a new lease
 	sudo dhclient -v 
 
-Set a static IP address:
 
-	Many different ways that need to be studied.
+UFW - Ubuntu Firewall
 
+	ufw status
+
+....Not Done

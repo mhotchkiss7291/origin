@@ -7,6 +7,14 @@ Find the Linux Distribution type and release data:
 	Linux 8d1996190b0c 5.10.47-linuxkit #1 SMP PREEMPT Sat Jul 3 21:50:16 UTC 2021 
 		aarch64 aarch64 aarch64 GNU/Linux
 
+Get hostname:
+
+	/bin/hostname
+
+Change hostname:
+
+	/bin/hostname my_new_host
+
 Startup kernel services, each of the run level start/kill scripts on boot:
 
 	/etc/rc0.d
