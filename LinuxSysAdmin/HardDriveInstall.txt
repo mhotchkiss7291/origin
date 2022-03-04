@@ -1,0 +1,130 @@
+
+Installing and partitioning a hard drive:
+
+	# What kind of disk to you have?
+	sudo fdisk -l
+
+	Disk /dev/sda: 80.0 GB, 80026361856 bytes
+	255 heads, 63 sectors/track, 9729 cylinders
+	Units = cylinders of 16065 * 512 = 8225280 bytes
+	Disk identifier: 0xf6edf6ed
+
+	   Device Boot      Start         End      Blocks   Id  System
+	/dev/sda5   *        1960        2661     5638752   83  Linux
+	/dev/sda6            2662        2904     1951866   83  Linux
+	/dev/sda7            2905        3147     1951866   83  Linux
+	/dev/sda8            3148        3264      939771   82  Linux swap / Solaris
+	/dev/sda9            3265        5283    16217586    b  W95 FAT32
+
+To view all partitions of the /dev/sda hard disk, do the following.
+
+	fdisk -l /dev/sda
+
+Partition table scan:
+
+	MBR:
+	BSD: not present
+...
+
+	Found valid GPT with protective MBR; using GPT.
+
+	Command (? for help): d
+	Partition number (1-2): 1
+
+Use w to delete partitions....
+
+	Command (? for help): w
+
+	Final checks complete......Overwrite...PARTITIONS!!
+	Do you want to proceed? (Y/N): Y
+
+Ready to be partitioned.
+
+	fdisk -l
+
+	Disk identifier: XXXXXXX-XXXXX-XXXX
+
+Create a GUID Partition Table (GPT)
+
+	sudo gdisk /dev/sda
+
+	? n    - New partition
+	? 1    - Partiton number
+	Continue if you want more partitions
+	? w
+
+	Do you want to proceed? Y
+
+	fdisk -l
+
+	You should see: Disklabel type: gpt
+
+	Device	Start	End	Sectors	Size	Type
+	/dev/sda1 2048	xxxxx   xxxxx           Linux filesystem
+
+Create new filesystem:
+
+	sudo mkfs.ext4 /dev/sda1   <--------- the partition just created
+
+Prepare to mount the drive:
+
+/etc/fstab lists all of the available disks, partitons, options on separate line.
+
+	# device mounting_directory filesystem_type options dump fsck
+	/dev/hdc /cdrom iso9660 rw,noauto,user 0 0
+
+Get the UUID of the disk drive installed:
+
+	sudo blkid     
+
+	Find: UUID=ba15c3ca-06e2-4591-ba49-2230dc3ba3fa
+
+Paste it into the /etc/fstab file
+
+	UUID=ba15c3ca-06e2-4591-ba49-2230dc3ba3fa /mnt/my_mount_pt ext4 defaults 0 0 
+
+Filesystem type: ext4, 0 0 (for whether you want to check on startup)
+
+Create folders for the mount points:
+
+	cd /mnt
+	mkdir my_mount_pt
+
+Actually mount the drives listed in the /etc/fstab file
+
+	mount -a
+
+List the disk drives and free space:
+
+	df -h     - Human readable format
+
+To make each of the individual partition be seen as a single file system install:
+
+	apt-get mhddfs 
+
+Edit the /etc/fstab and append this line to "fuse" the partitions
+
+	mhddfs#/mnt/my_mount_pt,/mnt/my_mount_pt2 /mnt/my_system fuse allow_other,nonempty 0 0
+
+Create the directory for mounting:
+
+	cd /mnt
+	mkdir my_system
+
+Repeat mount using /etc/fstab to fuse the drives:
+
+	mount -a
+
+Check the final configuration again:
+
+	df -h
+
+	root@8d1996190b0c:/home/develop# df -h
+	Filesystem      Size  Used Avail Use% Mounted on
+	overlay          59G   15G   42G  26% /
+	tmpfs            64M     0   64M   0% /dev
+	tmpfs           995M     0  995M   0% /sys/fs/cgroup
+	shm              64M     0   64M   0% /dev/shm
+	/dev/vda1        59G   15G   42G  26% /etc/hosts
+	tmpfs           995M     0  995M   0% /sys/firmware
+

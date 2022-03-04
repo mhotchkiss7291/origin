@@ -1,0 +1,193 @@
+
+LDAP Client Configuration  - Lightweight Directory Access Protocol:
+
+Active Directory is hosted by the server. LDAP is the protocol used between
+the client and the server.
+
+			ROOT 
+			|
+		dc=example, dc=com    <-- Domain Component
+			|
+		--------------------
+		ou=user		ou=group  <-- Organization Unit
+		  |
+		cn=John   <- Common Name
+
+
+Model an organization:
+
+	Org (root) Acme
+		Developer - ou
+			Backend  - ou
+				person/attribute
+					sn=John   <- surname
+					Boulder	
+					3031234
+					----
+					cn=John Zip, ou=Backend, ou=Developer, o=Acme
+		Business - ou
+		Finance - ou
+			Accounts - ou
+  
+groupsOfUniqueName            uniqueMember = cn=John,ou=Backend,o=Acme
+
+	o	organization name
+	ou	organization unit
+	cn	common name
+	sn	surname
+	dn	distiguished name
+	User	inetOrgPerson		Object
+	User	groupsOfUniqueName	Object
+
+Check that the /etc/hostname contains the fully qualified domain name:
+
+	cat /etc/hostname
+	ldapclient.mrh.info
+
+Look at current DNS server lookup:
+
+	nslookup <hostname>
+
+	# nslookup e43e9c8e0459
+	Server:		192.168.65.5
+	Address:	192.168.65.5#53
+
+	** server can't find e43e9c8e0459: NXDOMAIN
+
+LDAP install and config:
+
+Default LDAP service runs on port by default: 389
+
+	Install slapd, ldap-utils
+	slapd - Daemon
+	ldap-utils:
+		ldapadd
+		ldapdelete
+		ldapmodify
+		ldapsearch
+		ldappasswd
+		etc.
+
+	Administrator password:
+	installed
+
+Reset LDAP System admin password:
+
+	# cd /etc/ldap/slapd.d/
+	# find . -type f | xargs grep olcRootPW
+	./cn=config/olcDatabase={1}mdb.ldif:olcRootPW:: e1NTSEF9TzNXb0I0WWpPd2ZyV3JLUjc3T29ZdVRGNUpINDE0eVY=
+
+Take SHA string and inject into:
+
+	slappasswd -h {SSHA} -s newPassWord
+
+	Password generation failed for scheme {SSHA}  : scheme not recognized
+
+Configure slapd:
+
+	dpkg-reconfigure slapd
+	Omit OpenLDAP server configuration? No
+	DNS domain name: example.com
+	Organization namd: example
+	Admin password:
+	Database backend to use: BDB, HDB, MDB,   -> MDB
+	Do you want the database to be removed when slapd is purges? No
+
+	Still files in /var/lib/ldap...
+	Move old database? Yes
+
+Examine config:
+
+	# cd /etc/ldap/slapd.d/
+	# tree .
+	.
+	|-- cn=config
+	|   |-- cn=module{0}.ldif
+	|   |-- cn=schema
+	|   |   |-- cn={0}core.ldif
+	|   |   |-- cn={1}cosine.ldif
+	|   |   |-- cn={2}nis.ldif
+	|   |   `-- cn={3}inetorgperson.ldif
+	|   |-- cn=schema.ldif
+	|   |-- olcDatabase={-1}frontend.ldif
+	|   |-- olcDatabase={0}config.ldif
+	|   `-- olcDatabase={1}mdb.ldif
+	`-- cn=config.ldif
+
+Create new file add_entries.ldif for new entries:
+
+	dn: ou=Employee,dc=example,dc=com
+	objectClass: organizationalUnit
+	ou: Employee
+
+	dn: ou=Groups,dc=example,dc=com
+	objectClass: organizationalUnit
+	ou: Groups
+
+	dn: cn=developers,ou=Groups,dc=example,dc=com
+	objectClass: posixGroup
+	cn: developers
+	gidNumber: 5000
+		
+	dn: uid=freddy,ou=Employee,dc=example,dc=com
+	objectClass: inetOrgPerson
+	objectClass: posixAccount
+	objectClass: shadowAccount
+	uid: freddy
+	sn: smith
+	givenName: Freddy
+	cn: Freddy Smith
+	displayName: Freddy Smith
+	uidNumber: 10000
+(matches Group ID above which makes Freddy part of developers Group)
+	gidNumber: 5000       
+	userPassword: swordfish
+	loginShell: /bin/bash
+	homeDirectory: /home/freddy/
+
+Submit the entries:
+
+	ldapadd -x -D cn=admin,dc=example,dc=net -W -f add_entries.ldif
+	Enter LDAP Password: xxxxxxxxxxx
+
+	adding new entry "ou=Employee,dc=example,dc=com"
+	adding new entry "ou=Groups,dc=example,dc=com"
+	adding new entry "cn=developers,ou=Groups,dc=example,dc=com"
+	adding new entry "uid=freddy,ou=Employee,dc=example,dc=com"
+
+Look for your submitted entry:
+
+	ldapsearch -x -LLL -b dc=example,dc-com "uid=freddy" cn sn givenName
+
+	cn: Freddy Smith
+	sn: smith
+	givenName: Freddy
+
+Find all entries:
+
+	ldapsearch -x -LLL -b dc=example,dc-com 
+
+Modify and entry with a file called modify_content.ldif:
+
+	dn: uid=freddy,ou=Employee,dc=example,dc=com
+	changetype: modify
+	replace: givenName
+	givenName: Freddier
+	-
+	replace: sn
+	sn: tom
+
+	ldapadd -x -D cn=admin,dc=example,dc=net -W -f modify_content.ldif
+	Enter LDAP Password: xxxxxxxxxxx
+
+	modifying entry "uid=freddy,ou=Employee,dc=example,dc=com"
+
+
+
+
+
+
+
+
+
+

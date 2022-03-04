@@ -1,0 +1,118 @@
+
+
+Explain what the Linux kernel is in simple words.
+	Interface between software applications and hardware, processor
+
+Can you edit the Linux kernel?
+	Yes, but it's not easy or recommended unless you really need it.
+
+What are the advantages of Linux being open-source software?
+	Community can contribute and find bugs. Non-proprietary
+
+What is a shell in Linux?
+	Command interface to kernel functionality
+
+What loader does Linux use?
+	GRUB, past LILO
+
+How do you rename a saved file in Linux?
+	mv - Move command
+
+How is Solaris software related to Linux?
+	Solaris Sun's proprietary version, contributed to Linux
+
+What are internal commands?
+	ls, cat, ps, grep, pipe, etc.
+
+What are the most commonly used shells in Linux?
+	Bourne shell - sh, 
+	Bourne Again shell - bash, 
+	Z shell - zsh
+
+What are system calls?
+	open, read, write, close, fork, exit, exec, sleep
+
+Explain what the bash shell is.
+	Bourne Again Shell, bash, uses .cshrc file for variables, alias
+
+How can you work with Microsoft files on your Linux OS?
+	dos2unix for file conversion ^H 
+
+How do you connect Linux systems to Microsoft resources?
+	Use components like SAMBA , but other. 
+	dos2unix to convert text files
+	cygwin - on Dos
+
+How are system configuration files stored in Linux OS?
+	/etc 
+	/etc/sysconfig
+
+Explain virtual desktops.
+	Remote Desktops - VNC, NoMachine
+	UI for accessing filesystem, commands, applications
+	CDE, KDE, Gnome, Unity, Mint
+
+Name the file permissions available in Linux.
+	read, write, execute for user, group, owner
+	chmod 777 - wide open
+	chmod 644 - read/write for owner, read for users, groups
+	special third digit - User must have execute rights for setuid to work
+
+Define CLI.
+	Command Line Interface
+
+What is a process ID?
+	For every task there is process ID that can be monitored using "top"
+	or if you know the name of the application by its process name you can 
+	use "ps -ef | grep myname", get the process ID then to kill, "kill -9 PID"
+	
+
+How can a user execute a process at a pre-decided time?
+	There is the "at" command but I have never used it
+	Use of the "cron" utility for periodic tasks I know better
+
+What are the unique file names assigned by Linux OS called?
+	file descriptor - unique ID
+
+Discuss zombie processes.
+	processes that have completed but have not released or killed themselves.
+	maybe called orphans?
+
+Mention some common usages of Linux in the industry.
+	C++ like applications runing native 64bit UNIX applications
+	Application servers, like Jetty, NGinx, 
+	Databases like Oracle, MySQL, Postgres, MSQL
+
+How would you find out the total memory used by processes in Linux?
+	top command
+	top -o MEM  (for memory)
+
+What are the different types of Linux directory commands and why are they important?
+	pwd, ls, mkdir, cd, rm -r, file, find, 
+
+Explain the concept of a shell script in Linux.
+	As set of commands that can be executed with logic and arguments
+	that runs on the system commands you might perform on the CLI
+
+Which system calls are available for process management in Linux?
+	fork, exec, exit, wait
+	sleep, kill, 
+
+Explain what makes Linux a secure operating system.
+	The concept of a superuser and strict file permissions for execution only 
+	by permitted users. Opensource management.
+
+What do you know about grep commands in Linux? Please explain.
+	grep is one of my most useful tools.
+	Find a text string inside of a file in the entire filesystem below you:
+	find . -type f | xargs grep -i "mystring"
+
+Please elaborate on the effect of multiple desktop environments on a Linux system.
+	It may not be a problem for some chosen desktops, but some conflicts 
+	can happen with file conventions when two different desktops access
+	the same filesystem one after the other. Best to stick with one or what 
+	does not cause problems.
+
+What is the standard size for a swap partition while using a Linux system?
+	Double the size of RAM installed? 64KB RAM -> 128KB SS
+
