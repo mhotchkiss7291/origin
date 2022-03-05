@@ -168,4 +168,68 @@ UFW - Ubuntu Firewall
 
 	ufw status
 
-....Not Done
+Block all traffic 
+
+	ufw default deny
+
+Allow all traffic
+
+	ufw default allow
+
+	# ufw status
+	Status: inactive
+
+	# ufw enable
+	Firewall is active and enabled on system startup
+
+	# ufw default deny
+	Default incoming policy changed to 'deny'
+	(be sure to update your rules accordingly)
+
+	# ufw default allow
+	Default incoming policy changed to 'allow'
+	(be sure to update your rules accordingly)
+
+	# ufw disable
+	Firewall stopped and disabled on system startup
+
+Access by port:
+
+	# ufw allow 80
+	Rules updated
+	Rules updated (v6)
+
+	# ufw deny 22
+	Rules updated
+	Rules updated (v6)
+
+Delete rules:
+
+	# ufw delete allow 80
+	Rules updated
+	Rules updated (v6)
+
+	# ufw delete deny 22
+	Rules updated
+	Rules updated (v6)
+
+Access by IP address:
+
+	# ufw allow from 10.1.1.10
+	Rules updated
+
+	# ufw enable
+	Firewall is active and enabled on system startup
+
+	# ufw status
+	Status: active
+
+	To                         Action      From
+	--                         ------      ----
+	Anywhere                   ALLOW       10.1.1.10
+
+Config files in /etc/ufw
+
+	/etc/ufw# ls
+	after.init   after6.rules    before.init   before6.rules  ufw.conf    user6.rules
+	after.rules  applications.d  before.rules  sysctl.conf    user.rules

@@ -3,7 +3,7 @@ docker system prune -a
 
 docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world"
 
-docker run --rm -it -p 8080:8080/tcp hello-world:latest
+docker run --rm -it --privileged -p 8080:8080/tcp hello-world:latest
 
 --------
 # List docker images on local machine
@@ -37,7 +37,8 @@ docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world
 # interactive mode
 # and for a web app expose the tcp port in the container
 # to port 8080 mapped to port 8080 in the container
-docker run --rm -it -p 8080:8080/tcp hello-world:latest
+# --privileged gets you root status?
+docker run --rm -it --privileged -p 8080:8080/tcp hello-world:latest
 
 # Enter the shell of the container
 docker exec -it <container id> /bin/csh -c
