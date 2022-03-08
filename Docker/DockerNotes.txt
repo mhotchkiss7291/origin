@@ -53,3 +53,18 @@ docker exec -it <container id> /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin
 
 # Remove images
 docker rmi <image_id>
+
+-------------------------
+
+# MySQL Server install
+apt-get install docker.io
+docker pull mysql
+
+docker run -d --name mysql-server -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=swordfish" mysql
+
+#In our example, the Docker image was used to start a new container.
+#The new container is using the local port 3306.
+#The container ID is the encrypted GUID in the output.
+#The MySQL password configured was swordfish.
+
+.... Not done
