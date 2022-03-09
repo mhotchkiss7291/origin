@@ -1,7 +1,0 @@
-Tutorial at:
-
-  http://www.vogella.com/tutorials/Groovy/article.html
-
-Eclipse Groovy install download URL at:
-
-  http://dist.springsource.org/snapshot/GRECLIPSE/e4.5/

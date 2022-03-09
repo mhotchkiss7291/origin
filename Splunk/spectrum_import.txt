@@ -1,0 +1,4 @@
+
+index=dockerstg source="*qa8*spectrum*" import
+
+index=dockerstg source="*qa8*spectrum*" importAll(); complete

@@ -1,0 +1,41 @@
+
+# Run this one time
+python3 -m venv /path/to/new/virtual/environment
+
+# Activate the python shell
+. /path/to/new/virtual/environment/bin/activate
+
+# Install any missing packages
+pip install boto3
+
+# Create a .aws directory in your home
+mkdir .aws
+cd .aws
+
+# Add a credentials file in .aws
+vi credentials
+
+# Add this to the contents
+[soundlogs]
+aws_secret_access_key=qXSq0uC1ylaQ/8FtQEEOql5D2B4FH0TSVMKWO+7Q
+aws_access_key_id=AKIA2YAMW46JZYVSRU6K
+
+# Add the following to your startup file
+export PYTHONPATH=$HOME/soundlog_tools/lib
+
+# Add speexdec and speexenc executables to /usr/local/bin and set permissions to execute.
+ls /usr/local/bin/speex*
+chmod 777 /usr/local/bin/speex*
+
+#Test with the following command
+./scripts/download_audio.py -l 1000 -s 2021-01-08T00:00:00 -e 2021-01-08T01:00:00 -d output/es-419_handgraded/set1 -q "language:es-419 AND mode:ListenForPhrasesSession AND data.num_samples:[8000 TO *]"
+
+
+# To install Python 3.8
+brew install python@3.8
+
+# Create new virtualenv for python 3.8
+/usr/local/Cellar/python@3.8/3.8.7_2/bin/python3.8 -mvenv ~/py38
+
+/usr/local/Cellar/python@3.7/3.7.9_3/bin/python3.7 -mvenv ~/py37
+

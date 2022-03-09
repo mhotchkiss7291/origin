@@ -1,0 +1,1 @@
+curl -s -u"username:password" 'https://elasticsearch-prod.rstone.io/applogs*/_search?q=request_id:60adff69-ebe5-4bb0-921a-8834965cace4&q=remote_host:gaia-progress-tracker' | jq -r '.hits.hits[]._source.message'

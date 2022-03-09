@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo
+if [ $# -ne 2 ]; then
+        echo 1>&2 Usage: $0 search_phrase minutes_before_now
+        echo
+        echo 1>&2 Example: $0 gaia-server-prod 15
+        exit 127
+fi
+
+PHRASE=$1
+MINUTES=$2
+echo $MINUTES
+#END_DATE=$(gdate -u +%Y-%m-%dT%H:%M:%S.%03NZ)
+
+# Still not working
+#START_DATE=$(gdate --date='($2) minutes ago' -u +%Y-%m-%dT%H:%M:%S.%03NZ)
+START_DATE='2020-06-18T21:13:50Z'
+END_DATE='2020-06-18T21:00:50Z'
+
+echo $END_DATE
+echo $START_DATE
+
+curl 'https://kibana-prod.rstone.io/elasticsearch/_msearch?rest_total_hits_as_int=true&ignore_throttled=true' \
+  -H 'authority: kibana-prod.rstone.io' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'kbn-version: 7.3.2' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36' \
+  -H 'content-type: application/x-ndjson' \
+  -H 'origin: https://kibana-prod.rstone.io' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://kibana-prod.rstone.io/app/kibana' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: security_storage=Fe26.2**eb397d588801bf6baaa1c3cd76cb7cc48bb22c7a65881c52552c8151b2de1dd6*PCVZie8KYKDztSJEE3BjLw*pzFjnl2tAtB7KzqR8rf2Otb8XBaeVtk-NLCY-98ZCaw**52232ada2ec38ba8933bdc29c3122ac97d625e73c0103f0ac82e1c369a48ca1b*ekkBBKAtbTpEKUMOqxj0ggFbEj9DLKPrnDRyCGPQ6rU; security_authentication=Fe26.2**21f594ed6538ca9ff8946767217dbea9c89970216206e9fbc25ac5d1a00a9e7d*dHa_ZsMR6Jys9A4H2m4CUw*n49BUFR5sbIfusKs3mycPsft255Z-OW0Q21dYpru1llIaic_WcXR7avWckK6om2gxpIXt5HpFewoleZWLm_AotaIgd5GXzoOQKXUMgU17ECtN7OG3Cd5DikHUVuaxQZp6s6guy-XNyIg1ypy1zuOPjgkUK3bYFhuCrq7QBmOiJa-Aa6saTzjm_FN84YQi8vMxjJyzBasxjdA6lxlacTsflmWpAxhqIAKAY0_M5LLJ-4RsOfJHI3QeqhdRa1ICSvIJIqetJKndI0uWk1uGVJD6g**4f254cf14c02e1bf39aa5ecd89a4438f00b05f8d0d288d5db752b3c24baccf88*kHvFFcxSkE1rdahr-6tzGhf9v7VJOu0xn0_4V4JT0os' \
+  --data-binary $'{"index":"applogs*","ignore_unavailable":true,"preference":1592516701752}\n{"version":true,"size":500,"sort":[{"@timestamp":{"order":"desc","unmapped_type":"boolean"}}],"_source":{"excludes":[]},"aggs":{"2":{"date_histogram":{"field":"@timestamp","fixed_interval":"30s","time_zone":"America/Denver","min_doc_count":1}}},"stored_fields":["*"],"script_fields":{},"docvalue_fields":[{"field":"@timestamp","format":"date_time"},{"field":"requestparam_CreationDate","format":"date_time"},{"field":"requestparam_EndDate","format":"date_time"},{"field":"requestparam_ModificationDate","format":"date_time"},{"field":"requestparam_StartDate","format":"date_time"},{"field":"requestparam_date","format":"date_time"},{"field":"requestparam_end_date","format":"date_time"},{"field":"requestparam_from","format":"date_time"},{"field":"requestparam_start","format":"date_time"},{"field":"requestparam_start_time","format":"date_time"},{"field":"toGradingTime","format":"date_time"}],"query":{"bool":{"must":[{"range":{"@timestamp":{"format":"strict_date_optional_time","gte":"2020-06-18T21:30:33.234Z","lte":"2020-06-18T21:45:33.234Z"}}}],"filter":[{"multi_match":{"type":"best_fields","query":"$PHRASE","lenient":true}}],"should":[],"must_not":[]}},"highlight":{"pre_tags":["@kibana-highlighted-field@"],"post_tags":["@/kibana-highlighted-field@"],"fields":{"*":{}},"fragment_size":2147483647},"timeout":"30000ms"}\n{"index":"applogs*","ignore_unavailable":true,"preference":1592516701752}\n{"version":true,"size":500,"sort":[{"@timestamp":{"order":"desc","unmapped_type":"boolean"}}],"_source":{"excludes":[]},"aggs":{"2":{"date_histogram":{"field":"@timestamp","fixed_interval":"30s","time_zone":"America/Denver","min_doc_count":1}}},"stored_fields":["*"],"script_fields":{},"docvalue_fields":[{"field":"@timestamp","format":"date_time"},{"field":"requestparam_CreationDate","format":"date_time"},{"field":"requestparam_EndDate","format":"date_time"},{"field":"requestparam_ModificationDate","format":"date_time"},{"field":"requestparam_StartDate","format":"date_time"},{"field":"requestparam_date","format":"date_time"},{"field":"requestparam_end_date","format":"date_time"},{"field":"requestparam_from","format":"date_time"},{"field":"requestparam_start","format":"date_time"},{"field":"requestparam_start_time","format":"date_time"},{"field":"toGradingTime","format":"date_time"}],"query":{"bool":{"must":[{"range":{"@timestamp":{"format":"strict_date_optional_time","gte":"2020-06-18T21:30:33.235Z","lte":"2020-06-18T21:45:33.235Z"}}}],"filter":[{"multi_match":{"type":"best_fields","query":"$PHRASE","lenient":true}}],"should":[],"must_not":[]}},"highlight":{"pre_tags":["@kibana-highlighted-field@"],"post_tags":["@/kibana-highlighted-field@"],"fields":{"*":{}},"fragment_size":2147483647},"timeout":"30000ms"}\n' \
+  --compressed

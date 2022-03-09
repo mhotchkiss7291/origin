@@ -1,0 +1,82 @@
+Consult https://www.youtube.com/watch?v=M-iAXz8vs48
+
+#1,2 JMeter setup:
+
+Download JMeter, unpack in home directory
+Start JMeter: jmeter/bin/jmeter
+In console, rename Test Plan to MRHTestPlan. Click in the folder column to upate the name.
+Right click on the MRHTestPlan folder and select Threads -> Thread Group
+Rename Thread Group to Users
+Right click on Users and Add->Sampler->HTTP Request
+Change name of Request to MRH Request
+Enter website URL name or IP address, port number if necessary.
+Enter the Path or root from URL for the service start with /
+Add Element to Users - Listener->View Results in Table
+Add Element to Users - Listener->View Results in Tree
+Run Test, examine results in Table, Tree
+Add Assertions, check on the response:
+Right click on Users->Add->Assertions->Response Assertions
+Set Pattern Matching Rules to Equals and enter 200 in the Patterns to Test field
+Click Add
+
+#3 Assertions
+
+Add Listener->Assertion Results , This will list the results of each assertion. 
+
+Types of Assertions:
+	Response 
+	Duration
+	Size
+	HTML - Format of the response
+	XML
+	XPATH
+
+#4 Listeners
+	Elements that gather information about the performance
+
+	View Results in Table
+		Latency = time to first byte
+	View Results in Tree
+	Aggregate Report - One line report
+	Graph Results
+	Summary Report - Somewhat like Aggregate Report
+	Simple Data Writer - Least memory hog
+
+#5 Record a UI Web Test
+	Tools to record UI testing
+	Blazemeter - Chrome plugin that uses JMeter for backend
+		Saves .jmx file after record
+
+#6 Database Test Plan
+	Download and add JDBC connector jar and put in jmeter/lib and restart
+	Add Thread Group
+	Add Configuration Element -> JDBC Connection Configuration
+	Fill in JDBC connection info
+	Add JDBC Request - Add Sampler -> JDBC Sampler
+	Put query in Query window.
+	Add Listener -> View results in tree, table
+	Variable name needs to be set for both Configuration and Request; must match
+	Run, check response
+
+#7 JMeter from command line
+	Low memory load, hook to Jenkins
+	Add Thread Group -> Sampler -> HTTP Request
+	Configure server name, path(endpoint)
+	Add Listener -> View Results Tree
+	Run to make sure it works, save .jmx file
+	Remove listener, save again.
+	Open terminal, jmeter/bin
+	Run "sh jmeter -n -t path/to/my.jmx -l /path/to/my.csv" file  
+		(-n non-GUI, -t location of .jmx file, -l .csv)
+		sh jmeter -h for Help
+		sh jmeter -? for Options
+
+#8 FTP upload
+	Skipped
+
+#9 JMeter Web Services API (REST)
+	Add Thread Group -> Sampler -> HTTP Request Sampler
+	Add REST API details....
+		URL, Path, Parameters (multiple lines in Parameters window
+	Add Listener -> Results Tree
+	Run

@@ -1,0 +1,56 @@
+
+require 'json'
+
+user_id = 'user_id_1234567890'
+course_id = 'course_id_1234567890'
+sequence_id = 'sequence_id_1234567890'
+activity_id = 'activity_id_1234567890'
+activity_attempt_id = 'activity_attempt_id_1234567890'
+activity_step_id = 'activity_step_id_1234567890'
+activity_step_attempt_id = 'activity_step_attempt_id_1234567890'
+time = 'time_1234567890'
+answers_string = 'answers_string_1234567890'
+
+
+payload_json = '{"query":"mutation progress($userId: String!, $messages: [ProgressMessage!]!) ' +
+               '{progress(userId: $userId, messages: $messages) ' +
+               '{id userId courseId bestGrade latestGrade endTimestamp durationMs}}","variables":' +
+               '{"userId":"' + user_id + '","messages":[' +
+               '{"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",' +
+               '"courseId":"' + course_id + '",' +
+               '"sequenceId":"' + sequence_id + '","version":1,' +
+               '"activityId":"' + activity_id + '",' +
+               '"activityAttemptId":"' + activity_attempt_id + '",' +
+               '"activityStepId":"' + activity_step_id + '",' +
+               '"activityStepAttemptId":"' + activity_step_attempt_id + '","' +
+               'score":1,"skip":false,"durationMs":5006,"endTimestamp":"' + time + '",' +
+               '"answers":["' + answers_string + '"]}]},' +
+               '"operationName":"progress"}'
+               
+JSON.parse(payload_json)
+
+payload_hash = {
+  query: "mutation progress($userId: String!, $messages: [ProgressMessage!]!)"\
+         "{progress(userId: $userId, messages: $messages) {id userId courseId bestGrade latestGrade endTimestamp durationMs}}",
+  variables: {
+    userId: user_id,
+    messages: [
+      {
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36",
+        courseId: course_id,
+        sequenceId: sequence_id,
+        version: 1,
+        activityId: activity_id,
+        activityAttemptId: activity_attempt_id,
+        activityStepId: activity_step_id,
+        activityStepAttemptId: activity_step_attempt_id,
+        score: 1,
+        skip: false,
+        durationMs: 5006,
+        endTimestamp: time,
+        answers: [answers_string]
+      }
+    ]
+  },
+  operationName: "progress"
+}

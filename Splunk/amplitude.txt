@@ -1,0 +1,1 @@
+index="dockerstg" source="*qa10*gaia-server*" amplitude | stats avg(duration)

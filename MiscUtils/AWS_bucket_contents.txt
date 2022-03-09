@@ -1,0 +1,24 @@
+
+1. Log in to AWS:
+
+https://us-east-1.signin.aws.amazon.com/oauth?SignatureVersion=4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJMOATPLHVSJ563XQ&X-Amz-Date=2020-12-09T15%3A58%3A27.140Z&X-Amz-Signature=26b5a1c9910ca46ba46b1c1b5397817bd4cd07a8b0d3ad90b0c50a6b41175009&X-Amz-SignedHeaders=host&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&code_challenge=F_Xm7uirc3ZkNHFpW45nMY1XanHNsxQ40AK_udtB_rk&code_challenge_method=SHA-256&redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&response_type=code&state=hashArgs%23
+
+Credentials: mhotchkiss/(Septic System)
+
+2. In Find Services text field enter: s3
+
+3. In the "Find buckets by name" enter the bucket name - Example: biblio-qa7.callisto.io
+
+4. Click on the bucket name URL.
+
+5. Find the Object you are looking for in the bucket - Example: sonicSreSpeechLogs/  and click on it.
+
+6. Click on the appropriate Date of the entry.
+
+7. The contents of the folder in the bucket will be displayed. Click on the object of interest.
+  Example: 6e1ee1b9-fd09-4af6-8023-ca91d4e0b540.xml
+
+8. On the Object Overview page, click on the Object actions button in the upper right and select
+   Download as...  
+
+9. In the popup, click on the URL of the object. It should be downloaded locally.
