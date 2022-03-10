@@ -1,6 +1,8 @@
 
 docker system prune -a
 
+docker ps
+
 docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world"
 
 docker run --rm -it --privileged -p 8080:8080/tcp hello-world:latest
@@ -11,6 +13,16 @@ docker images
 
 # Remove docker images
 docker rmi -f <imageid>
+
+# See running containers
+docker ps
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                               NAMES
+d11b1722b92d   mysql     "docker-entrypoint.s…"   14 minutes ago   Up 14 minutes   0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-server
+
+# Stop a container
+docker stop d11b1722b92d
+d11b1722b92d
 
 # To additionally remove any stopped containers and 
 all unused images (not just dangling images), add the -a flag to the command:
@@ -65,6 +77,21 @@ docker run -d --name mysql-server -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=swordfish
 #In our example, the Docker image was used to start a new container.
 #The new container is using the local port 3306.
 #The container ID is the encrypted GUID in the output.
+d11b1722b92dfe12242b7a4be6e26372ab689911a882420e6baed3c5b0d10348
 #The MySQL password configured was swordfish.
 
-.... Not done
+sudo mkdir -p /var/lib/mysql
+
+# I know, it's dangerous, but for now
+sudo chmod 777 /var/lib/mysql
+
+# Run in foreground to see everything starts up
+docker run --name mysql-server -p 3306:3306 -v /var/lib/mysql:/var/lib/mysql -e "MYSQL_ROOT_PASSWORD=swordfish" mysql
+...
+2022-03-10T01:14:44.631842Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.28'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+
+# Run in background
+docker run -d --name mysql-server -p 3306:3306 -v /var/lib/mysql:/var/lib/mysql -e "MYSQL_ROOT_PASSWORD=swordfish" mysql
+
+
+
