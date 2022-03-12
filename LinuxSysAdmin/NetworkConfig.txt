@@ -233,3 +233,28 @@ Config files in /etc/ufw
 	/etc/ufw# ls
 	after.init   after6.rules    before.init   before6.rules  ufw.conf    user6.rules
 	after.rules  applications.d  before.rules  sysctl.conf    user.rules
+
+Utilities:
+
+	% traceroute google.com
+
+	traceroute to google.com (142.250.72.14), 64 hops max, 52 byte packets
+	 1  10.0.0.1 (10.0.0.1)  6.974 ms  3.107 ms  4.051 ms
+	 2  cm-1-acr02.boulder.co.denver.comcast.net (96.120.12.185)  12.430 ms  12.770 ms  11.981 ms
+	 3  ae-252-1210-rur102.boulder.co.denver.comcast.net (96.110.195.81)  20.773 ms  13.032 ms  12.692 ms
+	 4  ae-2-rur01.boulder.co.denver.comcast.net (96.108.139.193)  13.147 ms  14.542 ms  13.455 ms
+	 5  ae-29-ar01.denver.co.denver.comcast.net (162.151.50.249)  13.764 ms  14.117 ms  45.556 ms
+	 6  be-36041-cs04.1601milehigh.co.ibone.comcast.net (96.110.43.253)  15.164 ms
+	    be-36031-cs03.1601milehigh.co.ibone.comcast.net (96.110.43.249)  15.555 ms  13.294 ms
+	 7  be-3202-pe02.910fifteenth.co.ibone.comcast.net (96.110.38.118)  15.228 ms
+	    be-3302-pe02.910fifteenth.co.ibone.comcast.net (96.110.38.122)  16.485 ms
+	    be-3202-pe02.910fifteenth.co.ibone.comcast.net (96.110.38.118)  13.019 ms
+	 8  50.248.118.30 (50.248.118.30)  13.667 ms  13.246 ms  12.707 ms
+	 9  108.170.252.209 (108.170.252.209)  14.569 ms
+	    108.170.252.193 (108.170.252.193)  21.388 ms  12.852 ms
+	10  142.251.61.179 (142.251.61.179)  15.685 ms
+	    142.251.51.221 (142.251.51.221)  13.392 ms
+	    142.251.48.4 (142.251.48.4)  13.012 ms
+	11  142.251.51.221 (142.251.51.221)  12.957 ms
+	    den08s06-in-f14.1e100.net (142.250.72.14)  15.589 ms  12.136 ms
+
