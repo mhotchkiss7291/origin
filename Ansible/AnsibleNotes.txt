@@ -1,0 +1,27 @@
+
+docker system prune -a
+
+docker ps
+
+docker build --rm -f "bare-bones/Dockerfile" -t bare-bones:latest "bare-bones"
+
+docker run --rm -it --privileged bare-bones:latest
+
+In root shell:
+
+	apt update
+	apt install -y software-properties-common
+	add-apt-repository --yes --update ppa:ansible/ansible
+	apt install -y ansible
+
+Generate and exchange private keys:
+
+ssh-keygen -t rsa
+ssh-copy-id -i root@172.17.0.3
+
+Open /etc/ansible/hosts:
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
