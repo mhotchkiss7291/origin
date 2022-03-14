@@ -43,7 +43,6 @@ In root shell:
 
 Generate and exchange private keys:
 
-
 Open /etc/ansible/hosts:
 
 ## green.example.com
@@ -58,7 +57,7 @@ Append your Group name and IPs:
 
 Ping the machine using ansible:
 
-	# ansible -m ping 172.17.0.5
+	# ansible -m ping mrh-group
 
 	[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
 	172.17.0.5 | SUCCESS => {
@@ -69,3 +68,6 @@ Ping the machine using ansible:
 	    "ping": "pong"
 	}
 	
+Run an ansible playbook:
+
+	ansible-playbook lampstack.yml
