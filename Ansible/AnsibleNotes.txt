@@ -7,6 +7,33 @@ docker build --rm -f "bare-bones/Dockerfile" -t bare-bones:latest "bare-bones"
 
 docker run --rm -it --privileged bare-bones:latest
 
+# Run with port 22 open
+docker run --rm -it --privileged -p 2200:22 bare-bones:latest
+
+docker exec -u root -it --workdir / <containerName> bash
+
+Set root password on remote node:
+
+	passwd root
+
+For ssh root login:
+
+        vi /etc/ssh/sshd_config
+
+Append to both sides:
+
+        PermitRootLogin yes
+        service ssh restart
+
+Move to /root and run
+
+        ssh-keygen -t rsa
+
+        ssh-copy-id -i root@172.17.0.3
+or
+        ssh-copy-id -i 172.17.0.3
+
+
 In root shell:
 
 	apt update
@@ -16,8 +43,6 @@ In root shell:
 
 Generate and exchange private keys:
 
-ssh-keygen -t rsa
-ssh-copy-id -i root@172.17.0.3
 
 Open /etc/ansible/hosts:
 
@@ -25,3 +50,22 @@ Open /etc/ansible/hosts:
 ## blue.example.com
 ## 192.168.100.1
 ## 192.168.100.10
+
+Append your Group name and IPs:
+
+	[mrh-group]
+	172.17.0.5
+
+Ping the machine using ansible:
+
+	# ansible -m ping 172.17.0.5
+
+	[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+	172.17.0.5 | SUCCESS => {
+	    "ansible_facts": {
+		"discovered_interpreter_python": "/usr/bin/python3"
+	    },
+	    "changed": false,
+	    "ping": "pong"
+	}
+	

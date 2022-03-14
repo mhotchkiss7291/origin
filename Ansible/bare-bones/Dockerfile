@@ -17,16 +17,18 @@ RUN apt-get update && \
     apt-get -y install net-tools && \
     apt-get -y install iproute2 && \
     apt-get -y install openvpn-systemd-resolved && \
+    apt-get -y install openssh-server && \
+    apt-get -y install ssh && \
     apt-get -y install isc-dhcp-client && \
     apt-get -y install dnsutils && \
     apt-get -y install iputils-ping && \
-#    apt-get -y install cron && \
-#    apt-get -y install at && \
-#    apt-get -y install ldap-utils && \
-#    apt-get -y install slapd && \
-#    apt-get -y install ufw && \
-#    apt-get -y install iptables && \
-#    apt-get -y install gcc && \
+    apt-get -y install cron && \
+    apt-get -y install at && \
+    apt-get -y install ldap-utils && \
+    apt-get -y install slapd && \
+    apt-get -y install ufw && \
+    apt-get -y install iptables && \
+    apt-get -y install gcc && \
 #    apt-get -y install python3.8 && \
 #    apt-get -y install openjdk-11-jdk && \
     rm -rf /var/lib/apt/lists/*
@@ -39,7 +41,11 @@ COPY . .
 RUN echo 'set -o vi' >> /root/.bashrc 
 RUN set -o vi
 
-RUN apt update
-RUN apt install -y software-properties-common
-RUN add-apt-repository --yes --update ppa:ansible/ansible
-RUN apt install -y ansible
+# Open for ssh
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+EXPOSE 22
+
+#RUN apt update
+#RUN apt install -y software-properties-common
+#RUN add-apt-repository --yes --update ppa:ansible/ansible
+#RUN apt install -y ansible
