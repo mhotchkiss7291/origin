@@ -1,0 +1,7 @@
+---
+- name: install apache2 
+  hosts: mrh-group
+  gather_facts: true
+  tasks:
+    - name: "install apache2"
+      package: name=apache2 state=present

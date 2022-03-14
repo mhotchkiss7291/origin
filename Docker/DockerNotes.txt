@@ -52,6 +52,8 @@ docker build --rm -f "hello-world/Dockerfile" -t hello-world:latest "hello-world
 # --privileged gets you root status?
 docker run --rm -it --privileged -p 8080:8080/tcp hello-world:latest
 
+Use -itd to run detached
+
 # Enter the shell of the container
 docker exec -it <container id> /bin/csh -c
 
@@ -62,6 +64,10 @@ docker-compose up -d
 # Tweak some files inside the container
 # set the shell type
 docker exec -it <container id> /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh
+
+# Save images for backup:
+
+  docker save myimage:latest | gzip > myimage_latest.tar.gz
 
 # Remove images
 docker rmi <image_id>

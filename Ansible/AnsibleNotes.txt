@@ -3,12 +3,12 @@ docker system prune -a
 
 docker ps
 
-docker build --rm -f "bare-bones/Dockerfile" -t bare-bones:latest "bare-bones"
+docker build --rm -f "an-controller/Dockerfile" -t an-controller:latest "an-controller"
 
-docker run --rm -it --privileged bare-bones:latest
+docker run --rm -it --privileged an-controller:latest
 
 # Run with port 22 open
-docker run --rm -it --privileged -p 2200:22 bare-bones:latest
+docker run --rm -it --privileged -p 2200:22 an-controller:latest
 
 docker exec -u root -it --workdir / <containerName> bash
 
@@ -25,13 +25,13 @@ Append to both sides:
         PermitRootLogin yes
         service ssh restart
 
-Move to /root and run
+As root and run
 
         ssh-keygen -t rsa
 
-        ssh-copy-id -i root@172.17.0.3
+        ssh-copy-id -i root@172.17.0.5
 or
-        ssh-copy-id -i 172.17.0.3
+        ssh-copy-id -i 172.17.0.5
 
 
 In root shell:
@@ -40,8 +40,6 @@ In root shell:
 	apt install -y software-properties-common
 	add-apt-repository --yes --update ppa:ansible/ansible
 	apt install -y ansible
-
-Generate and exchange private keys:
 
 Open /etc/ansible/hosts:
 
@@ -70,4 +68,38 @@ Ping the machine using ansible:
 	
 Run an ansible playbook:
 
-	ansible-playbook lampstack.yml
+	ansible-playbook apache_install.yml
+
+If install works check the apache server:
+
+Open port 80 on the node:
+
+	ufw allow 80
+	Rules updated
+	Rules updated (v6)
+
+	ufw enable (may not be necessary)
+	ufw 
+
+On the node if the server is not running yet, restart apache:
+
+	/etc/init.d/apache2 restart
+
+	curl -X GET "http://172.17.0.5:80"
+
+Output:
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" \
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	  <!--
+	    Modified from the Debian original for Ubuntu
+	    Last updated: 2016-11-16
+	    See: https://launchpad.net/bugs/1288690
+	  -->
+	  <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	...
+
+
+

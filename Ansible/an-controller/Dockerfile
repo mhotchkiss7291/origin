@@ -1,13 +1,10 @@
 # ------------------------------------------------------------------
-# Hello, World! for docker
-#
-# To build this image, type: "docker build . -t hello-world"
-# To run this image, type: "docker run --rm -it hello-world:latest"
+# Ansible controller 
 # ------------------------------------------------------------------
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 
-LABEL Description="Mark Hotchkiss' Ansible Example"
+LABEL Description="Mark Hotchkiss' Ansible Controller"
 
 RUN apt-get update && \
     apt-get -y install build-essential && \
@@ -29,6 +26,7 @@ RUN apt-get update && \
     apt-get -y install ufw && \
     apt-get -y install iptables && \
     apt-get -y install gcc && \
+    apt-get -y install curl && \
 #    apt-get -y install python3.8 && \
 #    apt-get -y install openjdk-11-jdk && \
     rm -rf /var/lib/apt/lists/*
@@ -41,11 +39,7 @@ COPY . .
 RUN echo 'set -o vi' >> /root/.bashrc 
 RUN set -o vi
 
-# Open for ssh
+# Open for root login of ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 EXPOSE 22
-
-#RUN apt update
-#RUN apt install -y software-properties-common
-#RUN add-apt-repository --yes --update ppa:ansible/ansible
-#RUN apt install -y ansible
+EXPOSE 80
