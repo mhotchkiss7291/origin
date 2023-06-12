@@ -1,0 +1,29 @@
+
+After going to:
+
+https://console.cloud.google.com/compute/instancesAdd?project=pelagic-hope-191100
+
+...or the like, configure the instance to:
+
+Boot disk:
+
+	Image: Ubuntu
+
+
+Edit:
+
+	Security and access:
+
+	SSH Keys...allow allow access only to this instance, unlike project-wide SSH keys"
+
+	+ Add Item
+
+Copy the ~home/.ssh/id_rsa.pub key to the site.
+
+Save
+
+Log in to the Network interfaces -> External IP address with that IP:
+
+ssh 34.121.136.22
+
+
