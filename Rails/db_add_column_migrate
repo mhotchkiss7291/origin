@@ -1,0 +1,22 @@
+
+rails generate migration add_graded_flag_to_soundlogs graded:boolean 
+
+
+SELECT soundlog_id
+FROM   grader_scores
+WHERE  hand_graded_score IS NOT FALSE; 
+
+
+UPDATE soundlogs
+SET    graded = true
+WHERE  id IN (SELECT DISTINCT soundlog_id
+              FROM   grader_scores) 
+
+SELECT id,
+       0
+FROM   soundlogs
+WHERE  language_id = 6
+       AND id != '-1'
+       AND NOT EXISTS (SELECT 1
+                       FROM   grader_scores
+                       WHERE  grader_scores.soundlog_id = soundlogs.id) 

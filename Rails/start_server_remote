@@ -1,0 +1,9 @@
+
+# One line 
+export RAILS_ENV=development && rails s -e development --binding=0.0.0.0
+
+# ENV .bashrc, profile
+RAILS_ENV=development && 
+
+# Expose ports
+rails s -e development --binding=0.0.0.0

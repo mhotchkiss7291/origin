@@ -1,0 +1,16 @@
+
+# Install NFS client package
+sudo apt install nfs-common
+
+# Create empty mount dir
+sudo mkdir -p /mnt/ASR
+
+# Set permission
+sudo chown -R nobody:nogroup /mnt/ASR
+sudo chmod 777 /mnt/ASR
+
+# Mount the source
+sudo mount 10.130.216.63:/mnt/prod-asr-00/asrdata01 /mnt/ASR
+
+# Add to /etc/fstab
+10.130.216.63:/mnt/prod-asr-00/asrdata01 /mnt/ASR nfs bg,soft 0 0
