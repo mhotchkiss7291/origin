@@ -24,6 +24,6 @@ Save
 
 Log in to the Network interfaces -> External IP address with that IP:
 
-ssh 34.121.136.22
+ssh 35.192.187.145
 
 
