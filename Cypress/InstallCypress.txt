@@ -1,0 +1,54 @@
+
+Install Cypress and start the server:
+
+1. Download Node.js from the website and unpack the MacOS packate and install.
+
+2. Create a Cypress project folder and move to it. Create an optional project directory under that 
+and move into that directory.
+
+3. Run the following command which creates the package.json file:
+
+	npm init -y
+
+	Wrote to /Users/mhotchkiss/package.json:
+
+	{
+	  "name": "mhotchkiss",
+	  "version": "1.0.0",
+	  "description": "",
+	  "main": "index.js",
+	  "scripts": {
+	    "test": "echo \"Error: no test specified\" && exit 1"
+	  },
+	  "keywords": [],
+	  "author": "",
+	  "license": "ISC"
+	}
+
+3. Run the following command:
+
+	npm install cypress
+
+	added 178 packages, and audited 179 packages in 18s
+
+	36 packages are looking for funding
+	  run `npm fund` for details
+
+	found 0 vulnerabilities
+	npm notice
+	npm notice New major version of npm available! 9.8.1 -> 10.1.0
+	npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.1.0
+	...
+
+This creates the project file structure for the server and new code.
+
+4. Check the installations and open the server:
+
+	npx cypress -v
+	npx cypress verify
+	npx cypress open
+
+This will open the Cypress Dashboard in a new window to begin administration.
+
+
+
