@@ -3,11 +3,11 @@ Install Cypress and start the server:
 
 1. Download Node.js from the website and unpack the MacOS packate and install.
 
-2. Create a Cypress project folder and move to it. Create an optional project directory under that 
-and move into that directory.
+2. Create a Cypress project folder and move to it. 
 
 3. Run the following command which creates the package.json file:
 
+	cd origin/Cypress 
 	npm init -y
 
 	Wrote to /Users/mhotchkiss/package.json:
@@ -45,10 +45,50 @@ This creates the project file structure for the server and new code.
 4. Check the installations and open the server:
 
 	npx cypress -v
-	npx cypress verify
+
 	npx cypress open
 
 This will open the Cypress Dashboard in a new window to begin administration.
+
+5. Click on E2E testing, Continue to create the configuration files.
+
+This will open a window to select the browser. 
+
+6. Select Chrome and "Start E2E Testing in Chrome".
+
+7. Click "Create new spec" for an empty spec.
+
+This will create a top level "e2e" folder that will house all of your individual tests or "specs", 
+and a cypress/e2e/8. .cy.js file for tracking the tests run. 
+
+8. Click "Create spec".
+
+This will create the an e2e/spec.cy.js file under cypress directory.
+
+9. Click "Run the spec" if you want to execute the example "hello world" test.
+
+10. From the browser window, click "Close" to close the test to run.
+
+. Under the cypress/e2e folder create a cypress/e2e/my_first_test.js 
+that contains the following line:
+
+	cd cypress/e2e
+	vi my_first_test.js
+
+...
+
+	/// <reference types="cypress" />
+
+	it('google test', function() {
+	  cy.visit('https://google.com')
+	})
+
+11. Close the previous test and restart cypress Run the new test:
+
+	npx cypress open
+
+
+
 
 
 
