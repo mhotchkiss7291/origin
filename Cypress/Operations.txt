@@ -36,4 +36,44 @@ Set watchForFileChanges true/false, add to defineConfig() in cypress.config.js :
 
 	watchForFileChanges: true,
 
+Using "contains" :
 
+	Use Selector Playground command dropdown to change
+
+	cy.contains('Opinion').click()
+
+Adding wait commands:
+
+	cy.wait(4000)
+
+Running only as single test case within a spec:
+
+...
+           |
+	it.only('login test', function() {
+		cy.visit('https://opensource-demo.orangehrmlive.com')
+	})
+...
+
+Login demo at https://opensource-demo.orangehrmlive.com :
+
+...
+	it.only('login test', function() {
+		cy.visit('https://opensource-demo.orangehrmlive.com')
+		cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Admin{enter}')
+		cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('admin123')
+		cy.get('.oxd-button').click()
+	})
+...
+
+When selectors are not available in the Cypress Selector Playground, use browser Inspect
+and "find" command:
+
+https://docs.cypress.io/api/commands/find
+
+	// Yield 'footer' within '.article
+	cy.get('.article').find('footer') 
+
+Example:  
+
+	cy.get('.article').find('#systemUserSaveButton").click() 

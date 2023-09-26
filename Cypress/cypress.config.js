@@ -9,6 +9,5 @@ module.exports = defineConfig({
   },
 
   defaultCommandTimeout: 6000,
-  watchForFileChanges: true,
 
 });
