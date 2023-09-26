@@ -1,0 +1,15 @@
+
+Typescript Install Config:
+
+Make new dir then:
+
+npm init -y
+npm install cypress typescript
+
+Initialize tsconfig.json file command:
+
+npx tsc --init --types cypress --lib dom,es6
+
+npx cypress open
+
+
