@@ -87,6 +87,9 @@ that contains the following line:
 
 	npx cypress open
 
+12. If running TScript create a file on the top level named tsconfig.json that contains only:
+
+	{}
 
 
 

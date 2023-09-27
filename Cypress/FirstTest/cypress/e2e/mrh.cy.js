@@ -22,7 +22,7 @@
 			.click()
 	})
 
-	it.only('learning assertions', function() {
+	it('learning assertions', function() {
 
 		cy.visit('https://example.cypress.io')
 		cy.contains('get')
