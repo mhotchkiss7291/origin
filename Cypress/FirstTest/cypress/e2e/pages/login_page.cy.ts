@@ -7,22 +7,22 @@ export class LoginPage {
     loginPage_loginButton = '.oxd-button' 
     
     navigate(){
-        cy.visit(this.loginPage_url)
+      cy.visit(this.loginPage_url)
     }
 
     enterUsername(username: string){
-		cy.get(this.loginPage_username)
-			.type(username)
-			.type('{enter}')
+      cy.get(this.loginPage_username)
+        .type(username)
+        .type('{enter}')
     }
 
     enterPassword(password: string){
-		cy.get(this.loginPage_password).
-			type(password)
+      cy.get(this.loginPage_password).
+        type(password)
     }
 
     clickLogin(){
-		cy.get(this.loginPage_loginButton)
-			.click()
+      cy.get(this.loginPage_loginButton)
+        .click()
     }
 }
