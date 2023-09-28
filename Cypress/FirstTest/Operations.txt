@@ -78,6 +78,40 @@ Example:
 
 	cy.get('.article').find('#systemUserSaveButton").click() 
 
+Body of a spec file:
+
+...
+/// <reference types="cypress" />
+
+context('MrhActions', () => {
+
+  beforeEach(() => {
+    cy.visit('http://localhost:8080/commands/actions')
+  })
+
+  it('.type() - type into a DOM element', () => {
+    // https://on.cypress.io/type
+    cy.get('.action-email')
+      .type('fake@email.com').should('have.value', 'fake@email.com')
+  })
+})
+
+Navigating elements:
+
+When referring to a class use shortand of .<class name>:
+
+	For container class:
+
+	cy.get('.container').first().find('p').should('exist')
+
+With several instances of a locator in a page you can index from first to last using eq()
+
+	Get the second instance of a container class containing a 'p' or paragraph:
+
+	cy.get('.container').eq(1).find('p').should('exist')
+
+
+
 
 Run tests from command line:
 
