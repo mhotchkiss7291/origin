@@ -1,0 +1,8 @@
+
+Test Libraries installation and operation:
+
+npm install --save-dev @testing-library/cypress
+
+Add the following line to cypress/support/commands.js
+
+import '@testing-library/cypress/add-commands'
