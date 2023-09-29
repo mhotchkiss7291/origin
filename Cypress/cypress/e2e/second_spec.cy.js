@@ -1,8 +1,14 @@
 /// <reference types="cypress" />
 
+const navbarText = Cypress.env('navbarText')
+
 context('Actions', () => {
     beforeEach(() => {
-      cy.visit('https://example.cypress.io/commands/actions')
+
+      //cy.visit('https://example.cypress.io/commands/actions')
+      
+      // Once you have set baseUrl in cypress.config.json
+      cy.visit('/commands/actions')
     })
 
     it('has an h1 on the pate', () => {
@@ -31,8 +37,9 @@ context('Actions', () => {
         })
     })
 
-    it.only('correctly renders the cypress website link', () => {
-        cy.findByText('cypress.io').should('exist')
+    it('correctly renders the cypress website link', () => {
+        // Use environment variable defined above
+        cy.findByText(navbarText).should('exist')
     })
 
 
