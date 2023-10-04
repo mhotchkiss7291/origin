@@ -1,0 +1,14 @@
+
+1. Install selenium and webdriver manager:
+
+	brew install python3
+	brew install pip3
+	sudo pip3 install selenium
+	sudo pip3 install webdriver-manager
+
+2. In your .py code if imports do not get imported 
+Use another interpretor. Cmd-Shift-P, look up "Python: Select Interpreter"
+choose something like /usr/bin/python3
+
+
+

@@ -1,0 +1,13 @@
+
+Install Python3 Virtual Environment - venv
+
+brew install python3
+
+# Create environment
+python3 -m venv ~/p3
+
+# Activate the venv
+. ~/p3/bin/activate
+
+# Python environment should be alive and welcome commands
+
