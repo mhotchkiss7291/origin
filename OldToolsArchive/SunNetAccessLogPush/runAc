@@ -1,9 +1,0 @@
-#!/bin/sh
-
-CLASSPATH=.:/usr/java/lib/Ac.jar
-export CLASSPATH
-
-cd /safedir/snauthd/var/opt/iws4.1/https-auth/logs
-cp access tempaccesslog
-cp /dev/null access
-/usr/java/bin/java -Xms128m -Xmx256m Ac &
