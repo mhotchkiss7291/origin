@@ -1,3 +1,0 @@
-<%! import os %>
-
-My python code can be imported here!!!

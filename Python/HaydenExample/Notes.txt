@@ -1,3 +1,0 @@
-Write a program that calculates the number of hours and minutes you have been alive from the first minute of the day you were born to right now, when you run this program.
-
-
