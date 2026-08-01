@@ -1,6 +1,0 @@
-https://sourabhbajaj.com/mac-setup/Vim/README.html
-
-
-Map space key to l for move right. Add to .vimrc:
-
-nnoremap <space> i

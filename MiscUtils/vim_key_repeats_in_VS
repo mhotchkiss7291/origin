@@ -1,2 +1,0 @@
-Run in terminal window:
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
